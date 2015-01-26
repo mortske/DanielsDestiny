@@ -17,11 +17,6 @@ public class CharacterMotor : MonoBehaviour
     void Update()
     {
         UpdatePosition();
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            PauseSystem.TogglePause();
-        }
     }
 
     void UpdatePosition()
