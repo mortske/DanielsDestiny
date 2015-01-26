@@ -17,21 +17,28 @@ public class CharacterMotor : MonoBehaviour
     void Update()
     {
         UpdatePosition();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseSystem.TogglePause();
+        }
     }
 
     void UpdatePosition()
     {
-        
-        if (controller.isGrounded)
+        if (!PauseSystem.IsPaused)
         {
-            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            moveDirection = transform.TransformDirection(moveDirection);
-            moveDirection *= speed;
-            if (Input.GetButton("Jump"))
-                moveDirection.y = jumpSpeed;
+            if (controller.isGrounded)
+            {
+                moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+                moveDirection = transform.TransformDirection(moveDirection);
+                moveDirection *= speed;
+                if (Input.GetButton("Jump"))
+                    moveDirection.y = jumpSpeed;
 
+            }
+            moveDirection.y -= gravity * Time.deltaTime;
+            controller.Move(moveDirection * Time.deltaTime);
         }
-        moveDirection.y -= gravity * Time.deltaTime;
-        controller.Move(moveDirection * Time.deltaTime);
     }
 }
