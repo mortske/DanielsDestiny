@@ -163,7 +163,7 @@ Transform:
   m_Children:
   - {fileID: 8759455}
   - {fileID: 492648888}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1803944045}
   m_RootOrder: 0
 --- !u!114 &406423524
 MonoBehaviour:
@@ -391,7 +391,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!1 &903154993
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,7 +461,7 @@ Transform:
   m_LocalScale: {x: 4.42399168, y: 1, z: 3.91310596}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!1 &1044192259
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,7 +524,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
 --- !u!1 &1168014985
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,7 +551,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!1 &1383397910
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,7 +578,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!1 &1803944044
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,9 +603,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 406423523}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!1 &1895404789
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,7 +633,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1 &2009962433
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,13 +660,13 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!1001 &2085591128
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1803944045}
     m_Modifications:
     - target: {fileID: 484176, guid: 85f1f7ed46d046b449c2f2643035d49e, type: 2}
       propertyPath: m_LocalPosition.x
