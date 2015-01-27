@@ -1,8 +1,8 @@
-DanielsDestiny/Library
-DanielsDestiny/Temp
-DanielsDestiny/obj
-DanielsDestiny/Assets/UnityVS
-DanielsDestiny/Assets/UnityVS.meta
+DanielsDestiny/Builds/DanielsDestiny/Library
+DanielsDestiny/Builds/DanielsDestiny/Temp
+DanielsDestiny/Builds/DanielsDestiny/obj
+DanielsDestiny/Builds/DanielsDestiny/Assets/UnityVS
+DanielsDestiny/Builds/DanielsDestiny/Assets/UnityVS.meta
 
 *.suo
 *.sln
