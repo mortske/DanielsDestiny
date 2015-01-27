@@ -1,0 +1,10 @@
+DanielsDestiny/Library
+DanielsDestiny/Temp
+DanielsDestiny/obj
+DanielsDestiny/Assets/UnityVS
+DanielsDestiny/Assets/UnityVS.meta
+
+*.suo
+*.sln
+*.csproj
+*.userprefs
