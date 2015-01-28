@@ -485,6 +485,105 @@ Prefab:
   m_RootGameObject: {fileID: 1180409675}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &821312304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 821312305}
+  - 114: {fileID: 821312306}
+  - 82: {fileID: 821312307}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &821312305
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 821312304}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1895404790}
+  m_RootOrder: 1
+--- !u!114 &821312306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 821312304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d8f1a261188fc849a28a0453c0611de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundObjectPrefab: {fileID: 155124, guid: c48b656c0296e144c9dcd9c6e94974f1, type: 2}
+--- !u!82 &821312307
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 821312304}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &857981940
 GameObject:
   m_ObjectHideFlags: 0
@@ -1099,6 +1198,34 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11403882, guid: 85f1f7ed46d046b449c2f2643035d49e, type: 2}
+      propertyPath: hunger.tickTimer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11403882, guid: 85f1f7ed46d046b449c2f2643035d49e, type: 2}
+      propertyPath: hunger.cur
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11403882, guid: 85f1f7ed46d046b449c2f2643035d49e, type: 2}
+      propertyPath: hunger.max
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11403882, guid: 85f1f7ed46d046b449c2f2643035d49e, type: 2}
+      propertyPath: thirst.max
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11403882, guid: 85f1f7ed46d046b449c2f2643035d49e, type: 2}
+      propertyPath: thirst.cur
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11403882, guid: 85f1f7ed46d046b449c2f2643035d49e, type: 2}
+      propertyPath: thirst.tickTimer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11484178, guid: 85f1f7ed46d046b449c2f2643035d49e, type: 2}
+      propertyPath: audioTest
+      value: 
+      objectReference: {fileID: 8300000, guid: 7984d9083f4829c47a74587e8afd0177, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 85f1f7ed46d046b449c2f2643035d49e, type: 2}
   m_RootGameObject: {fileID: 1430039191}
@@ -1164,17 +1291,17 @@ MonoBehaviour:
     baseAdjustValue: 0
     affectedBy: []
   hunger:
-    max: 100
+    max: 0
     min: 0
-    cur: 50
-    tickTimer: 1
+    cur: 0
+    tickTimer: 0
     baseAdjustValue: 0
     affectedBy: []
   thirst:
-    max: 100
+    max: 0
     min: 0
-    cur: 100
-    tickTimer: 1
+    cur: 0
+    tickTimer: 0
     baseAdjustValue: 0
     affectedBy: []
 --- !u!114 &1430039194
@@ -1191,8 +1318,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   jumpSpeed: 8
-  sprintspeed: 12
+  sprintSpeed: 12
   gravity: 20
+  audioTest: {fileID: 8300000, guid: 7984d9083f4829c47a74587e8afd0177, type: 3}
 --- !u!114 &1430039195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1552,6 +1680,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 946509537}
+  - {fileID: 821312305}
   m_Father: {fileID: 0}
   m_RootOrder: 3
 --- !u!114 &1895404791
@@ -1567,17 +1696,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings:
     sound:
-      max: 0
+      max: 1
       min: 0
-      cur: 0
+      cur: 1
     sfx:
-      max: 0
+      max: 1
       min: 0
-      cur: 0
+      cur: 1
     mouseSensitivity:
-      max: 0
-      min: 0
-      cur: 0
+      max: 50
+      min: 1
+      cur: 15
 --- !u!1 &1987280088
 GameObject:
   m_ObjectHideFlags: 0

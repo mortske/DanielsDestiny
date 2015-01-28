@@ -6,9 +6,11 @@ public class CharacterMotor : MonoBehaviour
     CharacterController controller;
     public float speed = 6.0F;
     public float jumpSpeed = 8.0F;
-    public float sprintspeed = 12;
+    public float sprintSpeed = 12;
     public float gravity = 20.0F;
     private Vector3 moveDirection = Vector3.zero;
+
+    public AudioClip audioTest;
 
     void Start()
     {
@@ -18,6 +20,10 @@ public class CharacterMotor : MonoBehaviour
     void Update()
     {
         UpdatePosition();
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            SoundManager.instance.Spawn3DSound(audioTest, transform.position, 1, 5);
+        }
     }
 
     void UpdatePosition()
@@ -30,7 +36,7 @@ public class CharacterMotor : MonoBehaviour
                 moveDirection = transform.TransformDirection(moveDirection);
 
                 if(Input.GetButton("Sprint"))
-                    moveDirection *= sprintspeed;
+                    moveDirection *= sprintSpeed;
                 else
                     moveDirection *= speed;
                 if (Input.GetButton("Jump"))

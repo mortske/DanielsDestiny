@@ -12,7 +12,7 @@ public class SettingsManager : MonoBehaviour
 
     public SettingStat settings;
 
-    void Start()
+    void Awake()
     {
         instance = this;
         Load();
