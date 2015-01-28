@@ -31,9 +31,10 @@ GameObject:
   - 143: {fileID: 14384178}
   - 114: {fileID: 11484176}
   - 114: {fileID: 11484178}
+  - 114: {fileID: 11403882}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +75,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 184176}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.10999966, y: 1.24000001, z: 14.1599998}
+  m_LocalPosition: {x: -4.8499999, y: 2.06999993, z: -.0700000003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 484178}
@@ -166,6 +167,45 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 184174}
   m_Enabled: 1
+--- !u!114 &11403882
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db4bb90fd5d1b5409a09a3f3e1ecc73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health:
+    max: 100
+    min: 0
+    cur: 100
+    tickTimer: 1
+    baseAdjustValue: 1
+    affectedBy: []
+  fatigue:
+    max: 0
+    min: 0
+    cur: 0
+    tickTimer: 0
+    baseAdjustValue: 0
+    affectedBy: []
+  hunger:
+    max: 100
+    min: 0
+    cur: 50
+    tickTimer: 1
+    baseAdjustValue: 0
+    affectedBy: []
+  thirst:
+    max: 100
+    min: 0
+    cur: 100
+    tickTimer: 1
+    baseAdjustValue: 0
+    affectedBy: []
 --- !u!114 &11484174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -215,6 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   jumpSpeed: 8
+  sprintspeed: 12
   gravity: 20
 --- !u!124 &12484178
 Behaviour:
