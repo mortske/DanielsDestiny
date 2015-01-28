@@ -14,7 +14,6 @@ public class EdgeManager : MonoBehaviour
     {
         if (!started)
         {
-            Debug.Log("started death timer");
             started = true;
             StartCoroutine(StartCountdown());
             playerStatus = player.GetComponent<Status>();
