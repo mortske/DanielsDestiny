@@ -229,10 +229,10 @@ public class Inventory : MonoBehaviour {
 			{
 				for(int x = 0; x < ItemManager.instance.itemList.Count; x++)
 				{
-					//					if(allSlots[i].GetComponent<Slot>().Items.Peek().type (ItemManager.instance.GetName(x)))
-					//					{
-					//						tempString = tempString + x.ToString();
-					//					}
+					if(allSlots[i].GetComponent<Slot>().CurrentItem.name.Equals(ItemManager.instance.GetName(x)))
+					{
+						saveList.Add(new ItemSaveType().StringType(x.ToString()));
+					}
 				}
 				
 			}
