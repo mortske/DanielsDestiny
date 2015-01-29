@@ -7,6 +7,7 @@ using System.Xml.Serialization;
 public class BiomeManager : MonoBehaviour {
 	public List<Biome> pieces = new List<Biome>();
 	public BiomeSave save;
+	public Inventory inventorY;
 
 	string path = "Assets/Files/Save.xml";
 	// Use this for initialization
@@ -20,6 +21,19 @@ public class BiomeManager : MonoBehaviour {
 		if(Input.GetKeyUp(KeyCode.Comma))
 		{
 			SaveBiomeResource();
+			string tmpString = "";
+			List<ItemSaveType> tmpList = inventorY.GetInventory();
+			for(int i = 0; i < tmpList.Count; i++)
+			{
+				if(tmpString != "")
+					if(i != tmpList.Count-1)
+						tmpString = tmpString + tmpList[i].type + ".";
+					else
+					tmpString = tmpString + tmpList[i].type;
+				else
+					tmpString = tmpList[i].type + ".";
+			}
+			Debug.Log(tmpString);
 		}
 	}
 	void LoadBiomes()

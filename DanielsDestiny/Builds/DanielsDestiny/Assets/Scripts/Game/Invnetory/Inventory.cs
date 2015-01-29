@@ -216,4 +216,26 @@ public class Inventory : MonoBehaviour {
 			hoverObject = null;
 		}
 	}
+	public List<ItemSaveType> GetInventory()
+	{
+		List<ItemSaveType> saveList = new List<ItemSaveType>();
+		
+		for(int i = 0; i < allSlots.Count; i++)
+		{
+			if(allSlots[i].GetComponent<Slot>().isEmpty)
+				saveList.Add(new ItemSaveType().StringType("0"));
+			else
+			{
+				for(int x = 0; x < ItemManager.instance.itemList.Count; x++)
+				{
+//					if(allSlots[i].GetComponent<Slot>().Items.Peek().type (ItemManager.instance.GetName(x)))
+//					{
+//						tempString = tempString + x.ToString();
+//					}
+				}
+				
+			}
+		}
+		return saveList;
+	}
 }
