@@ -1,29 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum ItemType {Health, Water};
 
 public class Item : MonoBehaviour {
 
-	public ItemType type;
 
 	public Sprite spriteNeutral;
-
 	public Sprite spriteHighlighted;
-
 	public int maxSize;
+    public int curSize = 1;
 
-	public void Use()
+	public virtual void Use()
 	{
-		switch (type) 
-		{
-		case ItemType.Health:
-			Debug.Log("I just used Health");
-			break;
-		case ItemType.Water:
-			Debug.Log("I just used Water");
-			break;
-		}
+        Debug.Log("used an item");
 	}
 
     void OnTriggerStay(Collider other)
@@ -32,8 +21,15 @@ public class Item : MonoBehaviour {
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                other.GetComponent<Player>().inventory.AddItem(this);
-                Destroy(transform.parent.gameObject);
+                Player player = other.GetComponent<Player>();
+                for (int i = 0; i < curSize; i++)
+                {
+                    player.inventory.AddItem(this);
+                }
+                
+                transform.parent.position = player.transform.position;
+                transform.parent.gameObject.SetActive(false);
+                transform.parent.parent = player.transform;
             }
         }
     }
