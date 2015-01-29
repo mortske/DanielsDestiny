@@ -29,14 +29,14 @@ public class Player : MonoBehaviour
         {
             PauseSystem.Pause(true);
             inventory.enabled = true;
-            inventory.transform.parent.gameObject.SetActive(false);
+            inventory.transform.parent.gameObject.SetActive(true);
             return;
         }
         if (PauseSystem.IsPaused && inventory.enabled)
         {
             PauseSystem.Pause(false);
             inventory.enabled = false;
-            inventory.transform.parent.gameObject.SetActive(true);
+            inventory.transform.parent.gameObject.SetActive(false);
             return;
         }
     }
