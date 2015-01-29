@@ -21,16 +21,20 @@ public class Item : MonoBehaviour {
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Player player = other.GetComponent<Player>();
-                for (int i = 0; i < curSize; i++)
-                {
-                    player.inventory.AddItem(this);
-                }
-                
-                transform.parent.position = player.transform.position;
-                transform.parent.gameObject.SetActive(false);
-                transform.parent.parent = player.transform;
+                AddItem(other);
             }
         }
+    }
+    public void AddItem(Collider other)
+    {
+		Player player = other.GetComponent<Player>();
+		for (int i = 0; i < curSize; i++)
+		{
+			player.inventory.AddItem(this);
+		}
+		
+		transform.parent.position = player.transform.position;
+		transform.parent.gameObject.SetActive(false);
+		transform.parent.parent = player.transform;
     }
 }

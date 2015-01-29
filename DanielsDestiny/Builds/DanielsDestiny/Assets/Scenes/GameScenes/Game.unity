@@ -621,6 +621,10 @@ Prefab:
       propertyPath: slotPrefab
       value: 
       objectReference: {fileID: 102498, guid: 3491ea3ee49b2c048aa1c3abf0be1e23, type: 2}
+    - target: {fileID: 11472410, guid: 6299aef5181b53d4a9ef1b63c547c8d0, type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1430039191}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6299aef5181b53d4a9ef1b63c547c8d0, type: 2}
   m_RootGameObject: {fileID: 1319216574}
@@ -1569,6 +1573,7 @@ MonoBehaviour:
   - {fileID: 1840485974}
   save:
     saveString: []
+    saveType: []
   inventorY: {fileID: 1319216576}
 --- !u!1 &686587528
 GameObject:
@@ -2987,6 +2992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc120486ed6defb43971cbfbbf481715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1430039191}
   slots: 30
   rows: 5
   slotPaddingLeft: 4
