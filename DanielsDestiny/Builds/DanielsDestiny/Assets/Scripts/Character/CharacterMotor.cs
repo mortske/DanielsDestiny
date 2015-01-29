@@ -10,8 +10,6 @@ public class CharacterMotor : MonoBehaviour
     public float gravity = 20.0F;
     private Vector3 moveDirection = Vector3.zero;
 
-    public AudioClip audioTest;
-
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -20,10 +18,6 @@ public class CharacterMotor : MonoBehaviour
     void Update()
     {
         UpdatePosition();
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            SoundManager.instance.Spawn3DSound(audioTest, transform.position, 1, 5);
-        }
     }
 
     void UpdatePosition()
