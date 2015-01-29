@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <BiomeSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <saveString>
-    <string>111011</string>
-    <string>1111111</string>
-    <string>111111</string>
-    <string>11111111</string>
+    <string />
+    <string />
+    <string />
+    <string />
   </saveString>
 </BiomeSave>
