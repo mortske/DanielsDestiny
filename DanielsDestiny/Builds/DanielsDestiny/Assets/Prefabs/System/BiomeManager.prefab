@@ -2241,6 +2241,8 @@ MonoBehaviour:
   - {fileID: 11483684}
   - {fileID: 11483678}
   - {fileID: 11483690}
+  save:
+    saveString: []
 --- !u!114 &11483696
 MonoBehaviour:
   m_ObjectHideFlags: 1
