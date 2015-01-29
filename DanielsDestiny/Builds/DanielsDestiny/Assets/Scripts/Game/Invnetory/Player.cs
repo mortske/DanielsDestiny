@@ -1,26 +1,34 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Player : MonoBehaviour {
+public class Player : MonoBehaviour 
+{
+    public MouseLook mouseLook { get; set; }
+    public CharacterMotor motor { get; set; }
+    public Status status { get; set; }
+    public Inventory inventory;
 
-	public float speed;
+    void Start()
+    {
+        mouseLook = GetComponent<MouseLook>();
+        motor = GetComponent<CharacterMotor>();
+        status = GetComponent<Status>();
+    }
 
-	public Inventory inventory;
+    void Update()
+    {
+        if (Input.GetButton("Inventory"))
+        {
+            ToggleInventory();
+        }
+    }
 
-	void Start () {
-	
-	}
-	
-
-	void Update () 
-	{
-		HandleMovement();
-	}
-
-	private void HandleMovement()
-	{
-		float translation = speed * Time.deltaTime;
-
-		transform.Translate(new Vector3(Input.GetAxis("Horizontal") * translation, 0, Input.GetAxis("Vertical") * translation));
-	}
+    void ToggleInventory()
+    {
+        if (!PauseSystem.IsPaused && !inventory.enabled)
+        {
+            PauseSystem.Pause(true);
+            inventory.enabled = true;
+        }
+    }
 }

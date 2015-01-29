@@ -48,11 +48,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 		txtRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotRect.sizeDelta.y);
 	}
 
-	void Update () 
-	{
-	
-	}
-
 	public void AddItem(Item item)
 	{
 		items.Push(item);
