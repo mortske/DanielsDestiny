@@ -232,8 +232,9 @@ public class Inventory : MonoBehaviour {
 				{
 					if(allSlots[i].GetComponent<Slot>().CurrentItem.transform.parent.name.Equals(ItemManager.instance.GetName(x)))
 					{
-						Debug.Log("code Runs");
 						saveList.Add(new ItemSaveType().StringType((x+1).ToString()));
+						saveList[i].SetSize = allSlots[i].GetComponent<Slot>().Items.Count;
+						Debug.Log("Count:" + allSlots[i].GetComponent<Slot>().Items.Count);
 					}
 				}
 				
@@ -251,9 +252,11 @@ public class Inventory : MonoBehaviour {
 			}
 			else
 			{
-				Debug.Log("Value: " + saved[i].type);
-				GameObject test = Instantiate(ItemManager.instance.itemList[int.Parse(saved[i].type)-1], this.transform.position, Quaternion.identity)as GameObject;
-				test.GetComponentInChildren<Item>().AddItem(player.transform.collider);
+				for(int x  = 0; x < saved[i].GetSize; x++)
+				{
+					GameObject test = Instantiate(ItemManager.instance.itemList[int.Parse(saved[i].type)-1], this.transform.position, Quaternion.identity)as GameObject;
+					test.GetComponentInChildren<Item>().AddItem(player.transform.collider);
+				}
 			}
 		}
 	}
