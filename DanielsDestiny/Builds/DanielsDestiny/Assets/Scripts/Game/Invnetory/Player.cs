@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButton("Inventory"))
+        if (Input.GetButtonDown("Inventory"))
         {
             ToggleInventory();
         }
@@ -29,6 +29,15 @@ public class Player : MonoBehaviour
         {
             PauseSystem.Pause(true);
             inventory.enabled = true;
+            inventory.transform.parent.gameObject.SetActive(false);
+            return;
+        }
+        if (PauseSystem.IsPaused && inventory.enabled)
+        {
+            PauseSystem.Pause(false);
+            inventory.enabled = false;
+            inventory.transform.parent.gameObject.SetActive(true);
+            return;
         }
     }
 }
