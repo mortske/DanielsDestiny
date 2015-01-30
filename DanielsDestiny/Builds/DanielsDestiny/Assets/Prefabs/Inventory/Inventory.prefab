@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc120486ed6defb43971cbfbbf481715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   slots: 30
   rows: 5
   slotPaddingLeft: 4

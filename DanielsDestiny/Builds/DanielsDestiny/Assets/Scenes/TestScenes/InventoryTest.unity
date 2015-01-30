@@ -177,6 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc120486ed6defb43971cbfbbf481715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   slots: 30
   rows: 5
   slotPaddingLeft: 4
@@ -461,10 +462,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e9a3eb223555443affde403e21407f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
   spriteNeutral: {fileID: 21300000, guid: 5be0abdc05b939b48a7e7f6035ed6386, type: 3}
   spriteHighlighted: {fileID: 21300000, guid: 4a8dbb433e976454eab081290ba1c9d7, type: 3}
   maxSize: 5
+  curSize: 1
 --- !u!1001 &984151787
 Prefab:
   m_ObjectHideFlags: 0
@@ -707,10 +708,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e9a3eb223555443affde403e21407f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
   spriteNeutral: {fileID: 21300000, guid: 2cbd427c05c976e4e93784c2f3f9a534, type: 3}
   spriteHighlighted: {fileID: 21300000, guid: 713fee829d78b89448e696f67ab42444, type: 3}
   maxSize: 2
+  curSize: 1
 --- !u!1 &1850844290
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,7 +809,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0005f5923652d3747a0eebeb91dfa700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
   inventory: {fileID: 383132630}
 --- !u!1 &2072308690
 GameObject:
