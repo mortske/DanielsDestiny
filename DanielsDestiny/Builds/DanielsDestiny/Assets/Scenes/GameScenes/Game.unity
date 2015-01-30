@@ -756,10 +756,17 @@ Prefab:
       propertyPath: slotPrefab
       value: 
       objectReference: {fileID: 102498, guid: 3491ea3ee49b2c048aa1c3abf0be1e23, type: 2}
+<<<<<<< HEAD
+    - target: {fileID: 172410, guid: 6299aef5181b53d4a9ef1b63c547c8d0, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+=======
     - target: {fileID: 11472410, guid: 6299aef5181b53d4a9ef1b63c547c8d0, type: 2}
       propertyPath: player
       value: 
       objectReference: {fileID: 1430039191}
+>>>>>>> 56b63f852779bd9681cd007222728f0c751590ae
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6299aef5181b53d4a9ef1b63c547c8d0, type: 2}
   m_RootGameObject: {fileID: 1319216574}
@@ -1767,7 +1774,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &525259545
 MonoBehaviour:
   m_ObjectHideFlags: 0
