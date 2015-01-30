@@ -19,9 +19,12 @@ public class Item : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (!PauseSystem.IsPaused)
             {
-                AddItem(other);
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    AddItem(other);
+                }
             }
         }
     }

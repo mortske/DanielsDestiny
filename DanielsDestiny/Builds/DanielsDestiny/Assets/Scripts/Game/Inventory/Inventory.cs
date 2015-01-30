@@ -35,6 +35,7 @@ public class Inventory : MonoBehaviour {
 	void Start () 
 	{
 		CreateLayout();
+        transform.parent.GetComponent<Canvas>().enabled = enabled;
 	}
 	
 
@@ -176,7 +177,7 @@ public class Inventory : MonoBehaviour {
 				hoverTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, clickedTransform.sizeDelta.x);
 				hoverTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, clickedTransform.sizeDelta.y);
 
-				hoverObject.transform.SetParent(GameObject.Find("Canvas").transform, true);
+				hoverObject.transform.SetParent(GameObject.Find("Canvas_inventory").transform, true);
 				hoverObject.transform.localScale = from.gameObject.transform.localScale;
 
 			}
@@ -189,16 +190,35 @@ public class Inventory : MonoBehaviour {
 		if(to != null && from != null)
 		{
 			Stack<Item> tmpTo = new Stack<Item>(to.Items);
-			to.AddItems(from.Items);
+            Stack<Item> tmp = new Stack<Item>();
 
-			if(tmpTo.Count == 0)
-			{
-				from.ClearSlot();
-			}
-			else
-			{
-				from.AddItems(tmpTo);
-			}
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                int splitCount = from.Items.Count / 2;
+                int fromCount = from.Items.Count - splitCount;
+                for (int i = 0; i < splitCount; i++)
+                {
+                    to.AddItem(from.Items.Pop());
+                }
+
+                for (int i = 0; i < fromCount; i++)
+                {
+                    from.AddItems(from.Items);
+                }
+            }
+            else
+            {
+                to.AddItems(from.Items);
+
+                if (tmpTo.Count == 0)
+                {
+                    from.ClearSlot();
+                }
+                else
+                {
+                    from.AddItems(tmpTo);
+                }
+            }
 
 			from.GetComponent<Image>().color = Color.white;
 			to = null;
