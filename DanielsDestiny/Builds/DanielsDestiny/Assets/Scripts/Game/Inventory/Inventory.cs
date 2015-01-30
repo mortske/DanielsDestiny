@@ -46,7 +46,9 @@ public class Inventory : MonoBehaviour {
             if (!eventSystem.IsPointerOverGameObject(-1) && from != null)
             {
                 from.CurrentItem.transform.parent.gameObject.SetActive(true);
+                from.CurrentItem.curSize = from.Items.Count;
                 from.CurrentItem.transform.parent.parent = null;
+                
 
                 from.GetComponent<Image>().color = Color.white;
                 from.ClearSlot();
@@ -125,7 +127,7 @@ public class Inventory : MonoBehaviour {
 
 				if(!tmp.isEmpty)
 				{
-					if(tmp.CurrentItem.gameObject.name == item.gameObject.name && tmp.IsAvailable)
+					if(tmp.CurrentItem.transform.parent.name == item.transform.parent.name && tmp.IsAvailable)
 					{
 						tmp.AddItem(item);
 						return true;
@@ -187,16 +189,33 @@ public class Inventory : MonoBehaviour {
 		}
 		else if(to == null)
 		{
+            
 			to = clicked.GetComponent<Slot>();
 			Destroy(GameObject.Find ("Hover"));
 		}
 		if(to != null && from != null)
 		{
+            
 			Stack<Item> tmpTo = new Stack<Item>(to.Items);
             Stack<Item> tmp = new Stack<Item>();
 
-            if (Input.GetKey(KeyCode.LeftShift))
+            if (to.Items.Count > 0 && to.CurrentItem.transform.parent.name != from.CurrentItem.transform.parent.name)
             {
+                //move if different items
+                to.AddItems(from.Items);
+                if (tmpTo.Count == 0)
+                {
+                    from.ClearSlot();
+
+                }
+                else
+                {
+                    from.AddItems(tmpTo);
+                }
+            }
+            else if (Input.GetKey(KeyCode.LeftShift))
+            {
+                //split stack
                 int splitCount = from.Items.Count / 2;
                 int fromCount = from.Items.Count - splitCount;
                 for (int i = 0; i < splitCount; i++)
@@ -211,15 +230,28 @@ public class Inventory : MonoBehaviour {
             }
             else
             {
-                to.AddItems(from.Items);
+                //move items to empty slots + add items together of same itemType
+                int toCount = from.Items.Count;
+                if (to.Items.Count > 0)
+                {
+                    toCount = to.CurrentItem.maxSize - to.Items.Count;
+                    if (toCount > from.Items.Count) toCount = from.Items.Count;
+                }
+                int fromCount = from.Items.Count;
 
-                if (tmpTo.Count == 0)
+                for (int i = 0; i < toCount; i++)
+                {
+                    to.AddItem(from.Items.Pop());
+                    if(from != to)
+                        fromCount--;
+                }
+                if (fromCount == 0)
                 {
                     from.ClearSlot();
                 }
-                else
+                for (int i = 0; i < fromCount - 1; i++)
                 {
-                    from.AddItems(tmpTo);
+                    from.AddItems(from.Items);
                 }
             }
 
