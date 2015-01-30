@@ -7,35 +7,25 @@ using UnityEngine.EventSystems;
 public class Inventory : MonoBehaviour {
 
 	private RectTransform inventoryRect;
-
 	private float inventoryWidth, inventoryHight;
 
+    public bool enabled { get; set; }
+
 	public int slots;
-
 	public int rows;
-
 	public float slotPaddingLeft, slotPaddingTop;
-
 	public float slotSize;
-
 	public GameObject slotPrefab;
 
 	private static Slot from, to;
-
 	private List<GameObject> allSlots;
 
 	public GameObject iconPrefab;
-
 	private static GameObject hoverObject;
-
 	private static int emptySlots;
-
 	public Canvas canvas;
-
 	private float hoverYOffset;
-
 	public EventSystem eventSystem;
-
 	public static int EmptySlots
 	{
 		get { return emptySlots; }

@@ -166,6 +166,7 @@ GameObject:
   - 223: {fileID: 22373240}
   - 114: {fileID: 11473264}
   - 114: {fileID: 11473262}
+  - 114: {fileID: 11465384}
   m_Layer: 5
   m_Name: Canvas_PlayerUI
   m_TagString: Untagged
@@ -397,6 +398,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &11465384
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8bd1ae22ec591741b01007cdf2cd715, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthTransform: {fileID: 22473284}
+  healthText: {fileID: 11473244}
+  visualHealth: {fileID: 11473296}
+  fatigueTransform: {fileID: 22473262}
+  fatigueText: {fileID: 11473260}
+  visualFatigue: {fileID: 11473270}
+  thirstTransform: {fileID: 22473268}
+  thirstText: {fileID: 11473274}
+  VisualThirst: {fileID: 11473276}
+  hungerTransform: {fileID: 22473270}
+  hungerText: {fileID: 11473250}
+  visualHunger: {fileID: 11473278}
+  temperatureTransform: {fileID: 22473264}
+  backgroundTemperatureTransform: {fileID: 22473272}
+  temperatureText: {fileID: 11473288}
+  visualTemperature: {fileID: 11473272}
+  interfaceBarBackground: {fileID: 22473244}
+  bigDamageCooldown: 0
 --- !u!114 &11473240
 MonoBehaviour:
   m_ObjectHideFlags: 1

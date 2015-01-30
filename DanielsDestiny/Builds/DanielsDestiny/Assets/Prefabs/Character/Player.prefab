@@ -32,6 +32,7 @@ GameObject:
   - 114: {fileID: 11484176}
   - 114: {fileID: 11484178}
   - 114: {fileID: 11403882}
+  - 114: {fileID: 11492730}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -75,7 +76,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 184176}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.8499999, y: 2.06999993, z: -.0700000003}
+  m_LocalPosition: {x: .140000001, y: 1.08000004, z: 1.54999995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 484178}
@@ -255,8 +256,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   jumpSpeed: 8
-  sprintspeed: 12
+  sprintSpeed: 12
   gravity: 20
+--- !u!114 &11492730
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0005f5923652d3747a0eebeb91dfa700, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 0}
 --- !u!124 &12484178
 Behaviour:
   m_ObjectHideFlags: 1
