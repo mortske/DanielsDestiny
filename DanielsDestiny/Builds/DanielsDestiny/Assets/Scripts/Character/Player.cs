@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Player : MonoBehaviour 
 {
+    public static Player instance;
+
     public MouseLook mouseLook { get; set; }
     public CharacterMotor motor { get; set; }
     public Status status { get; set; }
@@ -10,6 +12,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        instance = this;
         mouseLook = GetComponent<MouseLook>();
         motor = GetComponent<CharacterMotor>();
         status = GetComponent<Status>();

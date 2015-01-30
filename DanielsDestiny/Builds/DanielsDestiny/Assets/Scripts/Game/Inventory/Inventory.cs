@@ -10,6 +10,7 @@ public class Inventory : MonoBehaviour {
 	private float inventoryWidth, inventoryHight;
 
     public bool enabled { get; set; }
+    public DialougeBoxInv db;
 
 	public int slots;
 	public int rows;
@@ -45,17 +46,7 @@ public class Inventory : MonoBehaviour {
 		{
             if (!eventSystem.IsPointerOverGameObject(-1) && from != null)
             {
-                from.CurrentItem.transform.parent.gameObject.SetActive(true);
-                from.CurrentItem.curSize = from.Items.Count;
-                from.CurrentItem.transform.parent.parent = null;
-                
-
-                from.GetComponent<Image>().color = Color.white;
-                from.ClearSlot();
-                Destroy(GameObject.Find("Hover"));
-                to = null;
-                from = null;
-                hoverObject = null;
+                DropItem();
             }
 		}
 
@@ -216,17 +207,9 @@ public class Inventory : MonoBehaviour {
             else if (Input.GetKey(KeyCode.LeftShift))
             {
                 //split stack
-                int splitCount = from.Items.Count / 2;
-                int fromCount = from.Items.Count - splitCount;
-                for (int i = 0; i < splitCount; i++)
-                {
-                    to.AddItem(from.Items.Pop());
-                }
-
-                for (int i = 0; i < fromCount; i++)
-                {
-                    from.AddItems(from.Items);
-                }
+                db = GameObject.Find("MessageboxInv").GetComponent<DialougeBoxInv>();
+                db.Display(from.Items.Count - 1, 0, from.Items.Count / 2);
+                CoroutineHandler.instance.WaitForDialouge(from, to, db, hoverObject);
             }
             else
             {
@@ -238,7 +221,7 @@ public class Inventory : MonoBehaviour {
                     if (toCount > from.Items.Count) toCount = from.Items.Count;
                 }
                 int fromCount = from.Items.Count;
-
+                GameObject toGameObj = to.CurrentItem.transform.parent.gameObject;
                 for (int i = 0; i < toCount; i++)
                 {
                     to.AddItem(from.Items.Pop());
@@ -248,6 +231,7 @@ public class Inventory : MonoBehaviour {
                 if (fromCount == 0)
                 {
                     from.ClearSlot();
+                    Destroy(toGameObj);
                 }
                 for (int i = 0; i < fromCount - 1; i++)
                 {
@@ -261,4 +245,21 @@ public class Inventory : MonoBehaviour {
 			hoverObject = null;
 		}
 	}
+
+    public void DropItem()
+    {
+        int dropCount = from.Items.Count / 2;
+        int leaveCount = from.Items.Count - dropCount;
+
+        from.CurrentItem.transform.parent.gameObject.SetActive(true);
+        from.CurrentItem.curSize = from.Items.Count;
+        from.CurrentItem.transform.parent.parent = null;
+
+        from.GetComponent<Image>().color = Color.white;
+        from.ClearSlot();
+        Destroy(GameObject.Find("Hover"));
+        to = null;
+        from = null;
+        hoverObject = null;
+    }
 }
