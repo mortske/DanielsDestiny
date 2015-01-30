@@ -43,25 +43,28 @@ public class Inventory : MonoBehaviour {
 	{
 		if(Input.GetMouseButtonUp(0))
 		{
-			if(!eventSystem.IsPointerOverGameObject(-1) && from != null)
-			{
-				from.GetComponent<Image>().color = Color.white;
-				from.ClearSlot();
-				Destroy(GameObject.Find ("Hover"));
-				to = null;
-				from = null;
-				hoverObject = null;
-			}
+            if (!eventSystem.IsPointerOverGameObject(-1) && from != null)
+            {
+                from.CurrentItem.transform.parent.gameObject.SetActive(true);
+                from.CurrentItem.transform.parent.parent = null;
+
+                from.GetComponent<Image>().color = Color.white;
+                from.ClearSlot();
+                Destroy(GameObject.Find("Hover"));
+                to = null;
+                from = null;
+                hoverObject = null;
+            }
 		}
 
-		if(hoverObject != null)
-		{
-			Vector2 position;
-			RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, Input.mousePosition, canvas.worldCamera, out position);
-			position.Set (position.x, position.y - hoverYOffset);
-			hoverObject.transform.position = canvas.transform.TransformPoint(position);
+        if (hoverObject != null)
+        {
+            Vector2 position;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, Input.mousePosition, canvas.worldCamera, out position);
+            position.Set(position.x, position.y - hoverYOffset);
+            hoverObject.transform.position = canvas.transform.TransformPoint(position);
 
-		}
+        }
 	}
 
 	private void CreateLayout()
