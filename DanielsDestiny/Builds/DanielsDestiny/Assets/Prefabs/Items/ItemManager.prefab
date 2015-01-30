@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemList:
-  - {fileID: 11452550, guid: cae08824f88a60c46aa7f73d4dda7a0d, type: 2}
+  - {fileID: 152550, guid: cae08824f88a60c46aa7f73d4dda7a0d, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
