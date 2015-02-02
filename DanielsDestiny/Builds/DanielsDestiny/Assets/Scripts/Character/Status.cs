@@ -7,6 +7,7 @@ public class Status : MonoBehaviour
     public StatusBarWithTick fatigue;
     public StatusBarWithTick hunger;
     public StatusBarWithTick thirst;
+    public StatusBarWithTick temperature;
 
     public StatusBarWithTick GetBar(StatusBars bar)
     {
