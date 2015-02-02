@@ -7,9 +7,10 @@ public class Status : MonoBehaviour
     public StatusBarWithTick fatigue;
     public StatusBarWithTick hunger;
     public StatusBarWithTick thirst;
-    public StatusBarWithTick temperature;
+    public StatusBar temperature;
+    public float temperaturePadding;
 
-    public StatusBarWithTick GetBar(StatusBars bar)
+    public StatusBar GetBar(StatusBars bar)
     {
         switch (bar)
         {
@@ -21,6 +22,8 @@ public class Status : MonoBehaviour
                 return thirst;
             case StatusBars.fatigue:
                 return fatigue;
+            case StatusBars.temperature:
+                return temperature;
             default:
                 return health;
         }
@@ -41,6 +44,10 @@ public class Status : MonoBehaviour
 
         if (hunger.UpdateTick())
             hunger.adjustCur(-hunger.AdjustValue);
+
+        float other = 100 - temperaturePadding;
+        temperature.cur = GameTime.instance._scaledTemperature * (temperaturePadding - other) + other;
+        temperature.adjustCur(0);
     }
 }
 
@@ -49,5 +56,6 @@ public enum StatusBars
     health,
     hunger,
     thirst,
-    fatigue
+    fatigue,
+    temperature
 }
