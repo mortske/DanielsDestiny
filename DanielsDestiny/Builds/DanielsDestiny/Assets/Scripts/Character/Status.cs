@@ -9,6 +9,7 @@ public class Status : MonoBehaviour
     public StatusBarWithTick thirst;
     public StatusBar temperature;
     public float temperaturePadding;
+    public float temperatureAdjustment { get; set; }
 
     public StatusBar GetBar(StatusBars bar)
     {
@@ -46,7 +47,7 @@ public class Status : MonoBehaviour
             hunger.adjustCur(-hunger.AdjustValue);
 
         float other = 100 - temperaturePadding;
-        temperature.cur = GameTime.instance._scaledTemperature * (temperaturePadding - other) + other;
+        temperature.cur = GameTime.instance._scaledTemperature * (temperaturePadding - other) + other + temperatureAdjustment;
         temperature.adjustCur(0);
     }
 }
