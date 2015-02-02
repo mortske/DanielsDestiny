@@ -23,6 +23,7 @@ public class Item : MonoBehaviour {
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                	Player.instance.curBiome.PickItem(this.transform.parent.gameObject);
                     AddItem(other);
                 }
             }

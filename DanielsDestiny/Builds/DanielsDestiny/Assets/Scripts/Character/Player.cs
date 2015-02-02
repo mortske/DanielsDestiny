@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     public CharacterMotor motor { get; set; }
     public Status status { get; set; }
     public Inventory inventory;
+    
+    public BiomeItems curBiome;
 
     void Awake()
     {
