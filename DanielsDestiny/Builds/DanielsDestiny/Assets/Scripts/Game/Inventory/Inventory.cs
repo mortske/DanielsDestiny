@@ -27,6 +27,7 @@ public class Inventory : MonoBehaviour {
 	public Canvas canvas;
 	private float hoverYOffset;
 	public EventSystem eventSystem;
+
 	public static int EmptySlots
 	{
 		get { return emptySlots; }
@@ -290,4 +291,45 @@ public class Inventory : MonoBehaviour {
         //from = null;
         //hoverObject = null;
     }
+	public List<ItemSaveType> GetInventory()
+	{
+		List<ItemSaveType> saveList = new List<ItemSaveType>();
+		
+		for(int i = 0; i < allSlots.Count; i++)
+		{
+			if(allSlots[i].GetComponent<Slot>().isEmpty)
+				saveList.Add(new ItemSaveType().StringType("0"));
+			else
+			{
+				for(int x = 0; x < ItemManager.instance.itemList.Count; x++)
+				{
+					if(allSlots[i].GetComponent<Slot>().CurrentItem.transform.parent.name.Equals(ItemManager.instance.GetName(x)))
+					{
+						saveList.Add(new ItemSaveType().StringType((x+1).ToString()));
+						saveList[i].SetSize = allSlots[i].GetComponent<Slot>().Items.Count;
+						Debug.Log("Count:" + allSlots[i].GetComponent<Slot>().Items.Count);
+					}
+				}
+			}
+		}
+		return saveList;
+	}
+	public void SetInventory(List<ItemSaveType> saved)
+	{
+		for(int i = 0; i < saved.Count; i++)
+		{
+			if(int.Parse(saved[i].type) == 0)
+			{
+				Debug.Log("Running!");
+			}
+			else
+			{
+				GameObject test = Instantiate(ItemManager.instance.itemList[int.Parse(saved[i].type)-1], this.transform.position, Quaternion.identity)as GameObject;
+				test.GetComponentInChildren<Item>().curSize = saved[i].GetSize;
+				test.GetComponentInChildren<Item>().AddItem(Player.instance.transform.collider);
+				test.name = ItemManager.instance.itemList[int.Parse(saved[i].type)-1].name;
+
+			}
+		}
+	}
 }
