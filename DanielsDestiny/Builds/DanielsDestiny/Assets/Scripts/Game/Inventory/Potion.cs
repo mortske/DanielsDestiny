@@ -10,6 +10,6 @@ public class Potion : Item
     {
         base.Use();
         Player player = GameObject.Find("Player").GetComponent<Player>();
-        player.status.GetBar(effectTo).adjustCur(adjustment);
+        Player.instance.status.GetBar(effectTo).adjustCur(adjustment);
     }
 }
