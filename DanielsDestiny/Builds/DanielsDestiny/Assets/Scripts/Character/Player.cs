@@ -10,9 +10,13 @@ public class Player : MonoBehaviour
     public Status status { get; set; }
     public Inventory inventory;
 
-    void Start()
+    void Awake()
     {
         instance = this;
+    }
+
+    void Start()
+    {
         mouseLook = GetComponent<MouseLook>();
         motor = GetComponent<CharacterMotor>();
         status = GetComponent<Status>();

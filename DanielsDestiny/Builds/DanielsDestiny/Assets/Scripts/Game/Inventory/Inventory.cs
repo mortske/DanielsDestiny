@@ -18,7 +18,7 @@ public class Inventory : MonoBehaviour {
 	public float slotSize;
 	public GameObject slotPrefab;
 
-	private static Slot from, to;
+	public static Slot from, to;
 	private List<GameObject> allSlots;
 
 	public GameObject iconPrefab;
@@ -254,7 +254,7 @@ public class Inventory : MonoBehaviour {
     {
         db = GameObject.Find("MessageboxInv").GetComponent<DialougeBoxInv>();
         db.Display(from.Items.Count, 0, from.Items.Count / 2);
-        CoroutineHandler.instance.DropItemDialouge(from, to, db, hoverObject);
+        CoroutineHandler.instance.DropItemDialouge(db, hoverObject);
         
         //TODO: drop specific amount
         //int dropCount = from.Items.Count / 2;
