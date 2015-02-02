@@ -3,24 +3,36 @@ using System.Collections;
 
 public class Resource : MonoBehaviour {
 	public bool _isActive = true;
+	public GameObject resources;
 	void Start()
 	{
 		Load(true);
 	}
 	public void Load(bool _set)
 	{
+		Debug.Log(_set);
 		_isActive = _set;
 		if(!_isActive)
-			this.renderer.material.color = Color.red;
-		else
-			this.renderer.material.color = Color.green;
+			if(resources != null)
+				foreach(Transform t in resources.GetComponentInChildren<Transform>())
+					Destroy(t.gameObject);
 	}
 	public string Save()
 	{
-		if(_isActive)
-			return "1";
+		if(resources != null)
+		{
+			if(resources.GetComponentInChildren<Collider>() != null)
+				return "1";
+			else
+				return "0";
+		}
 		else
-			return "0";
+		{
+			if(_isActive)
+				return "1";
+			else
+				return "0";
+		}
 	}
 	public void Collect()
 	{
