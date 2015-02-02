@@ -221,7 +221,11 @@ public class Inventory : MonoBehaviour {
                     if (toCount > from.Items.Count) toCount = from.Items.Count;
                 }
                 int fromCount = from.Items.Count;
-                GameObject toGameObj = to.CurrentItem.transform.parent.gameObject;
+                
+                GameObject toGameObj = null;
+                if(to.Items.Count > 0)
+                    toGameObj = to.CurrentItem.transform.parent.gameObject;
+
                 for (int i = 0; i < toCount; i++)
                 {
                     to.AddItem(from.Items.Pop());
@@ -248,18 +252,42 @@ public class Inventory : MonoBehaviour {
 
     public void DropItem()
     {
-        int dropCount = from.Items.Count / 2;
-        int leaveCount = from.Items.Count - dropCount;
+        db = GameObject.Find("MessageboxInv").GetComponent<DialougeBoxInv>();
+        db.Display(from.Items.Count, 0, from.Items.Count / 2);
+        CoroutineHandler.instance.DropItemDialouge(from, to, db, hoverObject);
+        
+        //TODO: drop specific amount
+        //int dropCount = from.Items.Count / 2;
+        //int leaveCount = from.Items.Count - dropCount;
 
-        from.CurrentItem.transform.parent.gameObject.SetActive(true);
-        from.CurrentItem.curSize = from.Items.Count;
-        from.CurrentItem.transform.parent.parent = null;
+        //if (dropCount > 0)
+        //{
+        //    GameObject go = (GameObject)Instantiate(from.CurrentItem.transform.parent.gameObject, Player.instance.transform.position, Quaternion.identity);
+        //    go.name = from.CurrentItem.transform.parent.name;
+        //    go.SetActive(true);
+        //    Item item = go.GetComponentInChildren<Item>();
+        //    item.curSize = dropCount;
+        //    go.transform.parent = null;
+        //}
 
-        from.GetComponent<Image>().color = Color.white;
-        from.ClearSlot();
-        Destroy(GameObject.Find("Hover"));
-        to = null;
-        from = null;
-        hoverObject = null;
+        //if (leaveCount == 0)
+        //{
+        //    from.ClearSlot();
+        //}
+        //else
+        //{
+        //    Debug.Log(leaveCount);
+        //    for (int i = 0; i < leaveCount; i++)
+        //    {
+        //        from.RemoveItem();
+        //    }
+        //}
+
+        //from.GetComponent<Image>().color = Color.white;
+        
+        //Destroy(GameObject.Find("Hover"));
+        //to = null;
+        //from = null;
+        //hoverObject = null;
     }
 }
