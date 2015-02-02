@@ -85,13 +85,12 @@ public class CoroutineHandler : MonoBehaviour
         {
             Destroy(Inventory.from.CurrentItem.transform.parent.gameObject);
             Inventory.from.ClearSlot();
-            
         }
         else
         {
             if (dropCount > 0)
             {
-                for (int i = 0; i < leaveCount; i++)
+                for (int i = 0; i < dropCount; i++)
                 {
                     Inventory.from.RemoveItem();
                 }
