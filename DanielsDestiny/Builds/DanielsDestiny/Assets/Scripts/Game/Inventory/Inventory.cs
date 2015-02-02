@@ -18,7 +18,7 @@ public class Inventory : MonoBehaviour {
 	public float slotSize;
 	public GameObject slotPrefab;
 
-	private static Slot from, to;
+	public static Slot from, to;
 	private List<GameObject> allSlots;
 
 	public GameObject iconPrefab;
@@ -253,43 +253,10 @@ public class Inventory : MonoBehaviour {
 
     public void DropItem()
     {
+        //TODO: drop specific amount
         db = GameObject.Find("MessageboxInv").GetComponent<DialougeBoxInv>();
         db.Display(from.Items.Count, 0, from.Items.Count / 2);
-        CoroutineHandler.instance.DropItemDialouge(from, to, db, hoverObject);
-        
-        //TODO: drop specific amount
-        //int dropCount = from.Items.Count / 2;
-        //int leaveCount = from.Items.Count - dropCount;
-
-        //if (dropCount > 0)
-        //{
-        //    GameObject go = (GameObject)Instantiate(from.CurrentItem.transform.parent.gameObject, Player.instance.transform.position, Quaternion.identity);
-        //    go.name = from.CurrentItem.transform.parent.name;
-        //    go.SetActive(true);
-        //    Item item = go.GetComponentInChildren<Item>();
-        //    item.curSize = dropCount;
-        //    go.transform.parent = null;
-        //}
-
-        //if (leaveCount == 0)
-        //{
-        //    from.ClearSlot();
-        //}
-        //else
-        //{
-        //    Debug.Log(leaveCount);
-        //    for (int i = 0; i < leaveCount; i++)
-        //    {
-        //        from.RemoveItem();
-        //    }
-        //}
-
-        //from.GetComponent<Image>().color = Color.white;
-        
-        //Destroy(GameObject.Find("Hover"));
-        //to = null;
-        //from = null;
-        //hoverObject = null;
+        CoroutineHandler.instance.DropItemDialouge(db, hoverObject);
     }
 	public List<ItemSaveType> GetInventory()
 	{

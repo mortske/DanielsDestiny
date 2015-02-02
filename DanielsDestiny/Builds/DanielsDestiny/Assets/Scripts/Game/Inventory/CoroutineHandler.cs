@@ -33,7 +33,6 @@ public class CoroutineHandler : MonoBehaviour
         Item item = go.GetComponentInChildren<Item>();
         item.curSize = splitCount;
         
-        //TODO: splitted item always goes to first available pos...
         for (int i = 0; i < item.curSize; i++)
         {
             player.inventory.AddItem(item);
@@ -54,27 +53,27 @@ public class CoroutineHandler : MonoBehaviour
         hover = null;
     }
 
-    public void DropItemDialouge(Slot from, Slot to, DialougeBoxInv db, GameObject hover)
+    public void DropItemDialouge(DialougeBoxInv db, GameObject hover)
     {
-        StartCoroutine(DropItemDialougeRoutine(from, to, db, hover));
+        StartCoroutine(DropItemDialougeRoutine(db, hover));
     }
 
-    IEnumerator DropItemDialougeRoutine(Slot from, Slot to, DialougeBoxInv db, GameObject hover)
+    IEnumerator DropItemDialougeRoutine(DialougeBoxInv db, GameObject hover)
     {
         while (!db.isDone)
         {
             yield return null;
         }
         int dropCount = db.cur;
-        int leaveCount = from.Items.Count - dropCount;
+        int leaveCount = Inventory.from.Items.Count - dropCount;
 
         Debug.Log(dropCount);
         Debug.Log(leaveCount);
 
         if (dropCount > 0)
         {
-            GameObject go = (GameObject)Instantiate(from.CurrentItem.transform.parent.gameObject, Player.instance.transform.position, Quaternion.identity);
-            go.name = from.CurrentItem.transform.parent.name;
+            GameObject go = (GameObject)Instantiate(Inventory.from.CurrentItem.transform.parent.gameObject, Player.instance.transform.position, Quaternion.identity);
+            go.name = Inventory.from.CurrentItem.transform.parent.name;
             go.SetActive(true);
             Item item = go.GetComponentInChildren<Item>();
             item.curSize = dropCount;
@@ -83,26 +82,25 @@ public class CoroutineHandler : MonoBehaviour
 
         if (leaveCount == 0)
         {
-            Destroy(from.CurrentItem.transform.parent.gameObject);
-            from.ClearSlot();
-            
+            Destroy(Inventory.from.CurrentItem.transform.parent.gameObject);
+            Inventory.from.ClearSlot();
         }
         else
         {
             if (dropCount > 0)
             {
-                for (int i = 0; i < leaveCount; i++)
+                for (int i = 0; i < dropCount; i++)
                 {
-                    from.RemoveItem();
+                    Inventory.from.RemoveItem();
                 }
             }
         }
 
-        from.GetComponent<Image>().color = Color.white;
+        Inventory.from.GetComponent<Image>().color = Color.white;
 
         Destroy(GameObject.Find("Hover"));
-        to = null;
-        from = null;
+        Inventory.to = null;
+        Inventory.from = null;
         hover = null;
     }
 }
