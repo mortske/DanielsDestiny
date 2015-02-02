@@ -10,7 +10,6 @@ public class Resource : MonoBehaviour {
 	}
 	public void Load(bool _set)
 	{
-		Debug.Log(_set);
 		_isActive = _set;
 		if(!_isActive)
 			if(resources != null)

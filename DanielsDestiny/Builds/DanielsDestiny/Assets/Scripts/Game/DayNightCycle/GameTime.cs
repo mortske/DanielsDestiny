@@ -2,6 +2,9 @@ using UnityEngine;
 using System.Collections;
 
 public class GameTime : MonoBehaviour {
+
+    public static GameTime instance;
+
 	public enum TimeOfDay{
 		Idle,
 		SunRise,
@@ -40,7 +43,15 @@ public class GameTime : MonoBehaviour {
 	
 	private float _morningLength;
 	private float _eveningLength;
-	
+
+    private float _temperature = 0;
+    public float _scaledTemperature;
+
+    void Awake()
+    {
+        instance = this;
+    }
+
 	// Use this for initialization
 	void Start () {
 		_tod = TimeOfDay.Idle;
@@ -119,6 +130,8 @@ public class GameTime : MonoBehaviour {
 		else{
 			_tod = GameTime.TimeOfDay.Idle;
 		}
+
+        SetTemperature();
 	}
 
 	
@@ -156,8 +169,7 @@ public class GameTime : MonoBehaviour {
 		}
 		else{
 			pos = (sunSet - _timeOfDay) / _eveningLength;			//get the position of the sun in the evening sky	
-		}	
-		
+		}
 		RenderSettings.ambientLight = new Color(ambLightMin.r + ambLightMax.r * pos,
 		                                        ambLightMin.g + ambLightMax.g * pos,
 		                                        ambLightMin.b + ambLightMax.b * pos);
@@ -168,4 +180,13 @@ public class GameTime : MonoBehaviour {
 			}
 		}
 	}
+
+    private void SetTemperature()
+    {
+        if (_timeOfDay > (dayCycleInMinutes * 60) / 2)
+            _temperature -= Time.deltaTime;
+        else
+            _temperature += Time.deltaTime;
+        _scaledTemperature = _temperature / _dayCycleInSeconds * 2;
+    }
 }

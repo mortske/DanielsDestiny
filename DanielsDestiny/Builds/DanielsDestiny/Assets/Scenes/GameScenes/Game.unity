@@ -19,7 +19,7 @@ RenderSettings:
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientLight: {r: .200000003, g: .200000003, b: .200000003, a: 1}
-  m_SkyboxMaterial: {fileID: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 09991423e627b754796a5784c329a00f, type: 2}
   m_HaloStrength: .5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -104,15 +104,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sun:
   - {fileID: 1109195180}
-  dayCycleInMinutes: 1
+  dayCycleInMinutes: 10
   StartTimeMilitary: 0
   sunRise: 15
   sunSet: 45
   skyboxBlendModifier: 1
-  ambLightMax: {r: .713235259, g: .713235259, b: .713235259, a: 0}
-  ambLightMin: {r: .367647052, g: .367647052, b: .367647052, a: 0}
+  ambLightMax: {r: 1, g: 1, b: 1, a: 0}
+  ambLightMin: {r: .558823526, g: .558823526, b: .558823526, a: 0}
   morningLight: 600
   nightLight: 300
+  _scaledTemperature: 0
 --- !u!4 &1308759
 Transform:
   m_ObjectHideFlags: 0
@@ -1070,6 +1071,38 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 22473264, guid: b6608dca651aa8546a13e88a88a46e99, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 22473272, guid: b6608dca651aa8546a13e88a88a46e99, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 126.199997
+      objectReference: {fileID: 0}
+    - target: {fileID: 22473272, guid: b6608dca651aa8546a13e88a88a46e99, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22473272, guid: b6608dca651aa8546a13e88a88a46e99, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22473264, guid: b6608dca651aa8546a13e88a88a46e99, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22473272, guid: b6608dca651aa8546a13e88a88a46e99, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22473272, guid: b6608dca651aa8546a13e88a88a46e99, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 173278, guid: b6608dca651aa8546a13e88a88a46e99, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b6608dca651aa8546a13e88a88a46e99, type: 2}
   m_RootGameObject: {fileID: 648988144}
@@ -1153,7 +1186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &300646061
 Transform:
   m_ObjectHideFlags: 0
@@ -1968,7 +2001,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &602518542
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2274,6 +2307,11 @@ MonoBehaviour:
     tickTimer: 1
     baseAdjustValue: 0
     affectedBy: []
+  temperature:
+    max: 100
+    min: 0
+    cur: 50
+  temperaturePadding: 80
 --- !u!114 &625441457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3119,6 +3157,38 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 118250, guid: 5f28cf8d419f8294d946fe3e9d29ddb2, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418254, guid: 5f28cf8d419f8294d946fe3e9d29ddb2, type: 2}
+      propertyPath: dayCycleInMinutes
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418254, guid: 5f28cf8d419f8294d946fe3e9d29ddb2, type: 2}
+      propertyPath: ambLightMin.r
+      value: .558823526
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418254, guid: 5f28cf8d419f8294d946fe3e9d29ddb2, type: 2}
+      propertyPath: ambLightMin.g
+      value: .558823526
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418254, guid: 5f28cf8d419f8294d946fe3e9d29ddb2, type: 2}
+      propertyPath: ambLightMin.b
+      value: .558823526
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418254, guid: 5f28cf8d419f8294d946fe3e9d29ddb2, type: 2}
+      propertyPath: ambLightMax.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418254, guid: 5f28cf8d419f8294d946fe3e9d29ddb2, type: 2}
+      propertyPath: ambLightMax.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418254, guid: 5f28cf8d419f8294d946fe3e9d29ddb2, type: 2}
+      propertyPath: ambLightMax.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11418254, guid: 5f28cf8d419f8294d946fe3e9d29ddb2, type: 2}
+      propertyPath: StartTimeMilitary
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3305,6 +3375,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1803944045}
     m_Modifications:
+    - target: {fileID: 11403882, guid: 85f1f7ed46d046b449c2f2643035d49e, type: 2}
+      propertyPath: hunger.affectedBy.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 484176, guid: 85f1f7ed46d046b449c2f2643035d49e, type: 2}
       propertyPath: m_LocalPosition.x
       value: .140000001
@@ -3341,6 +3415,22 @@ Prefab:
       propertyPath: inventory
       value: 
       objectReference: {fileID: 2141639782}
+    - target: {fileID: 11403882, guid: 85f1f7ed46d046b449c2f2643035d49e, type: 2}
+      propertyPath: temperature.max
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11403882, guid: 85f1f7ed46d046b449c2f2643035d49e, type: 2}
+      propertyPath: temperature.min
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11403882, guid: 85f1f7ed46d046b449c2f2643035d49e, type: 2}
+      propertyPath: temperature.cur
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 11403882, guid: 85f1f7ed46d046b449c2f2643035d49e, type: 2}
+      propertyPath: temperaturePadding
+      value: 80
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 85f1f7ed46d046b449c2f2643035d49e, type: 2}
   m_RootGameObject: {fileID: 625441454}
@@ -6151,7 +6241,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2009962434
 Transform:
   m_ObjectHideFlags: 0
