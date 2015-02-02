@@ -485,8 +485,8 @@ Transform:
   - {fileID: 1996646239}
   - {fileID: 1353523594}
   - {fileID: 1395447594}
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 1895404790}
+  m_RootOrder: 3
 --- !u!114 &86540353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6261,6 +6261,7 @@ Transform:
   - {fileID: 300646061}
   - {fileID: 617816011}
   - {fileID: 832465533}
+  - {fileID: 86540352}
   m_Father: {fileID: 0}
   m_RootOrder: 3
 --- !u!114 &1895404791
@@ -7159,7 +7160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc120486ed6defb43971cbfbbf481715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  db: {fileID: 0}
+  db: {fileID: 558610863}
   slots: 30
   rows: 5
   slotPaddingLeft: 4

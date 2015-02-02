@@ -33,7 +33,6 @@ public class CoroutineHandler : MonoBehaviour
         Item item = go.GetComponentInChildren<Item>();
         item.curSize = splitCount;
         
-        //TODO: splitted item always goes to first available pos...
         for (int i = 0; i < item.curSize; i++)
         {
             player.inventory.AddItem(item);
