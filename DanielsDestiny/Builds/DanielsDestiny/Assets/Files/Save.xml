@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <BiomeSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <saveString />
+  <saveString>
+    <string>1</string>
+  </saveString>
   <saveType>
     <ItemSaveType>
-      <type>1</type>
-      <_amount>6</_amount>
+      <type>0</type>
+      <_amount>0</_amount>
     </ItemSaveType>
     <ItemSaveType>
       <type>0</type>

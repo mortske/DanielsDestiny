@@ -31,6 +31,7 @@ public class Biome : MonoBehaviour {
 		for(int i = 0; i < _resources.Count; i++)
 		{
 			test = (test + _resources[i].Save());
+			Debug.Log(test);
 		}
 		return test;
 	}
