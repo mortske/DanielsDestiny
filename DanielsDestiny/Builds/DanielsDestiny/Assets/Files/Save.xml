@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <BiomeSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <saveString>
-    <string>0</string>
+    <string>1</string>
     <string>11</string>
     <string>11</string>
     <string>11</string>
@@ -9,7 +9,7 @@
   <saveType>
     <ItemSaveType>
       <type>1</type>
-      <_amount>6</_amount>
+      <_amount>3</_amount>
     </ItemSaveType>
     <ItemSaveType>
       <type>0</type>
@@ -88,8 +88,8 @@
       <_amount>0</_amount>
     </ItemSaveType>
     <ItemSaveType>
-      <type>2</type>
-      <_amount>1</_amount>
+      <type>0</type>
+      <_amount>0</_amount>
     </ItemSaveType>
     <ItemSaveType>
       <type>0</type>
@@ -128,4 +128,36 @@
       <_amount>0</_amount>
     </ItemSaveType>
   </saveType>
+  <biomeItemSave>
+    <string />
+    <string />
+    <string />
+    <string>0</string>
+  </biomeItemSave>
+  <worldItemSave>
+    <WorldItemSave>
+      <type />
+      <pos />
+    </WorldItemSave>
+    <WorldItemSave>
+      <type>
+        <string>0</string>
+      </type>
+      <pos>
+        <Vector3>
+          <x>-14.6442652</x>
+          <y>0.48</y>
+          <z>-1.09221828</z>
+        </Vector3>
+      </pos>
+    </WorldItemSave>
+    <WorldItemSave>
+      <type />
+      <pos />
+    </WorldItemSave>
+    <WorldItemSave>
+      <type />
+      <pos />
+    </WorldItemSave>
+  </worldItemSave>
 </BiomeSave>

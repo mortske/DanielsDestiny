@@ -54,7 +54,8 @@ public class BiomeManager : MonoBehaviour {
 		inventorY.SetInventory(save.saveType);
 		for(int i = 0; i < pieces.Count; i++)
 		{
-			
+			pieces[i].GetComponent<BiomeItems>().SetItems(save.biomeItemSave[i]);
+			pieces[i].GetComponent<BiomeItems>().SetNewItems(save.worldItemSave[i]);
 			pieces[i].LoadResources(save.saveString[i]);
 		}
 	}
@@ -79,9 +80,39 @@ public class BiomeManager : MonoBehaviour {
 			}
 		}
 		Debug.Log(save.saveType);
+		SaveBiomeItems();
+	}
+	void SaveBiomeItems()
+	{
+		for(int i = 0; i < pieces.Count; i++)
+		{
+			if(save.biomeItemSave.Count < pieces.Count)
+			{
+				save.biomeItemSave.Add(pieces[i].GetComponent<BiomeItems>().GetItemsInBiome());
+			}
+			else
+			{
+				save.biomeItemSave[i] = (pieces[i].GetComponent<BiomeItems>().GetItemsInBiome());
+			}
+		}
+		SaveBiomeWorldItems();
+	}
+	void SaveBiomeWorldItems()
+	{
+		for(int i = 0; i < pieces.Count; i++)
+		{
+			if(save.worldItemSave.Count < pieces.Count)
+			{
+				save.worldItemSave.Add(pieces[i].GetComponent<BiomeItems>().GetNewItems());
+			}
+			else
+			{
+				save.worldItemSave[i] = (pieces[i].GetComponent<BiomeItems>().GetNewItems());
+			}
+		}
 		SaveBiomeResource();
 	}
-	public void SaveBiomeResource()
+	void SaveBiomeResource()
 	{
 		for(int i = 0; i < pieces.Count; i++)
 		{
@@ -102,4 +133,6 @@ public class BiomeSave
 {
 	public List<string> saveString = new List<string>();
 	public List<ItemSaveType> saveType = new List<ItemSaveType>();
+	public List<string> biomeItemSave = new List<string>();
+	public List<WorldItemSave> worldItemSave = new List<WorldItemSave>();
 }

@@ -78,6 +78,7 @@ public class CoroutineHandler : MonoBehaviour
             Item item = go.GetComponentInChildren<Item>();
             item.curSize = dropCount;
             go.transform.parent = null;
+            Player.instance.curBiome.AddWorldDrop(go);
         }
 
         if (leaveCount == 0)
