@@ -42,7 +42,7 @@ public class Item : MonoBehaviour
 
     public void AddItem()
     {
-        //Player.instance.curBiome.PickItem(this.transform.parent.gameObject);
+        Player.instance.curBiome.PickItem(this.transform.parent.gameObject);
         Player player = Player.instance;
 		for (int i = 0; i < curSize; i++)
 		{
