@@ -10,28 +10,40 @@ public class Item : MonoBehaviour
 	public int maxSize;
     public int curSize = 1;
 
+    public string Name
+    {
+        get { return transform.parent.name; }
+    }
+
+    public GameObject Parent
+    {
+        get { return transform.parent.gameObject; }
+    }
+
 	public virtual void Use()
 	{
         Debug.Log("used an item");
 	}
 
-    void OnTriggerStay(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            if (!PauseSystem.IsPaused)
-            {
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                	Player.instance.curBiome.PickItem(this.transform.parent.gameObject);
-                    AddItem(other);
-                }
-            }
+            Player.instance.pickupEventHandler.AddItemToList(this);
         }
     }
-    public void AddItem(Collider other)
+    void OnTriggerExit(Collider other)
     {
-		Player player = other.GetComponent<Player>();
+        if (other.tag == "Player")
+        {
+            Player.instance.pickupEventHandler.RemoveItemFromList(this, false);
+        }
+    }
+
+    public void AddItem()
+    {
+        //Player.instance.curBiome.PickItem(this.transform.parent.gameObject);
+        Player player = Player.instance;
 		for (int i = 0; i < curSize; i++)
 		{
 			player.inventory.AddItem(this);

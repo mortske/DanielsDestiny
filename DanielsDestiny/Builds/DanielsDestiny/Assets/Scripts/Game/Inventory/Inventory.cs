@@ -293,7 +293,8 @@ public class Inventory : MonoBehaviour {
 			{
 				GameObject test = Instantiate(ItemManager.instance.itemList[int.Parse(saved[i].type)-1], this.transform.position, Quaternion.identity)as GameObject;
 				test.GetComponentInChildren<Item>().curSize = saved[i].GetSize;
-				test.GetComponentInChildren<Item>().AddItem(Player.instance.transform.collider);
+				//test.GetComponentInChildren<Item>().AddItem(Player.instance.transform.collider);
+                test.GetComponentInChildren<Item>().AddItem();
 				test.name = ItemManager.instance.itemList[int.Parse(saved[i].type)-1].name;
 
 			}
