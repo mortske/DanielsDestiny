@@ -425,7 +425,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 133984}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41e9a3eb223555443affde403e21407f, type: 3}
+  m_Script: {fileID: 11500000, guid: 70916751c16fd344f81a3c4eaaf20ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   usable: 0
@@ -433,6 +433,9 @@ MonoBehaviour:
   spriteHighlighted: {fileID: 21300012, guid: 8b72f051f47ecb9418eedd8dc7974f76, type: 3}
   maxSize: 50
   curSize: 1
+  effects:
+  - effectTo: 1
+    adjustment: 10
 --- !u!136 &13633986
 CapsuleCollider:
   m_ObjectHideFlags: 1

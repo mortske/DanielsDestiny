@@ -513,6 +513,8 @@ MonoBehaviour:
   save:
     saveString: []
     saveType: []
+    biomeItemSave: []
+    worldItemSave: []
   inventorY: {fileID: 0}
 --- !u!1001 &95365928
 Prefab:
@@ -2383,6 +2385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 2141639782}
+  curBiome: {fileID: 0}
 --- !u!1 &632762069
 GameObject:
   m_ObjectHideFlags: 0
