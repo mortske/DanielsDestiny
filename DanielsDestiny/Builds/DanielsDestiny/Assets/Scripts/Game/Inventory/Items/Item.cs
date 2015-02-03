@@ -2,9 +2,9 @@
 using System.Collections;
 
 
-public class Item : MonoBehaviour {
-
-
+public class Item : MonoBehaviour 
+{
+    public bool usable;
 	public Sprite spriteNeutral;
 	public Sprite spriteHighlighted;
 	public int maxSize;
