@@ -253,7 +253,6 @@ public class Inventory : MonoBehaviour {
 
     public void DropItem()
     {
-        //TODO: drop specific amount
         db = GameObject.Find("MessageboxInv").GetComponent<DialougeBoxInv>();
         db.Display(from.Items.Count, 0, from.Items.Count / 2);
         CoroutineHandler.instance.DropItemDialouge(db, hoverObject);
