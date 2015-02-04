@@ -533,6 +533,7 @@ MonoBehaviour:
       temperature: 0
     TimeOfDay: 0
     Temperature: 0
+    TempAdjust: 0
   inventorY: {fileID: 0}
   gameTime: {fileID: 1308758}
 --- !u!1001 &95365928
