@@ -7553,6 +7553,7 @@ GameObject:
   - 4: {fileID: 1895404790}
   - 114: {fileID: 1895404791}
   - 114: {fileID: 1895404792}
+  - 114: {fileID: 1895404793}
   m_Layer: 0
   m_Name: SystemManagement
   m_TagString: Untagged
@@ -7611,6 +7612,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d27d1a6881eb7d48a9e7f9483c50c6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1895404793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1895404789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f879c55150ce9f34190fbbf6ce8d8301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recepies:
+  - items:
+    - {fileID: 0}
+    amount: 00000000
+    result: {fileID: 0}
 --- !u!1 &1911146896
 GameObject:
   m_ObjectHideFlags: 0
