@@ -189,4 +189,14 @@ public class GameTime : MonoBehaviour {
             _temperature += Time.deltaTime;
         _scaledTemperature = _temperature / _dayCycleInSeconds * 2;
     }
+	public float TheTemp
+	{
+		get{return _temperature;}
+		set{_temperature = value;}
+	}
+    public float TheTime
+    {
+    	get{return _timeOfDay;}
+    	set{_timeOfDay = value;}
+    }
 }

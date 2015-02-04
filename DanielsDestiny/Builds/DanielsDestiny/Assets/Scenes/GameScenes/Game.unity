@@ -531,7 +531,10 @@ MonoBehaviour:
       thirst: 0
       fatigue: 0
       temperature: 0
+    TimeOfDay: 0
+    Temperature: 0
   inventorY: {fileID: 0}
+  gameTime: {fileID: 1308758}
 --- !u!1001 &95365928
 Prefab:
   m_ObjectHideFlags: 0
@@ -9941,7 +9944,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recepies:
-  - items:
+  - recepieName: 
+    items:
     - {fileID: 0}
     amount: 00000000
     result: {fileID: 0}
