@@ -14,7 +14,10 @@ public class BiomeItems : MonoBehaviour {
 		{
 			int firstDigit = (int)(s[i]) - 48;
 			if(firstDigit == 0)
+			{
 				Destroy (OriginalItems[i].gameObject);
+			}
+				
 		}
 	}
 	public string GetItemsInBiome()

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<BiomeSave xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<SaveFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <saveString>
     <string>1</string>
     <string>11</string>
@@ -8,8 +8,8 @@
   </saveString>
   <saveType>
     <ItemSaveType>
-      <type>1</type>
-      <_amount>3</_amount>
+      <type>0</type>
+      <_amount>0</_amount>
     </ItemSaveType>
     <ItemSaveType>
       <type>0</type>
@@ -129,10 +129,10 @@
     </ItemSaveType>
   </saveType>
   <biomeItemSave>
+    <string>1111111111</string>
     <string />
     <string />
     <string />
-    <string>0</string>
   </biomeItemSave>
   <worldItemSave>
     <WorldItemSave>
@@ -140,16 +140,8 @@
       <pos />
     </WorldItemSave>
     <WorldItemSave>
-      <type>
-        <string>0</string>
-      </type>
-      <pos>
-        <Vector3>
-          <x>-14.6442652</x>
-          <y>0.48</y>
-          <z>-1.09221828</z>
-        </Vector3>
-      </pos>
+      <type />
+      <pos />
     </WorldItemSave>
     <WorldItemSave>
       <type />
@@ -160,4 +152,16 @@
       <pos />
     </WorldItemSave>
   </worldItemSave>
-</BiomeSave>
+  <playerPos>
+    <x>-5.95673847</x>
+    <y>1.453662</y>
+    <z>0.7478592</z>
+  </playerPos>
+  <playerValues>
+    <health>59</health>
+    <hunger>50</hunger>
+    <thirst>50</thirst>
+    <fatigue>0</fatigue>
+    <temperature>74.36397</temperature>
+  </playerValues>
+</SaveFile>
