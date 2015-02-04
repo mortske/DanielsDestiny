@@ -286,7 +286,7 @@ public class Inventory : MonoBehaviour {
 		{
 			if(int.Parse(saved[i].type) == 0)
 			{
-				Debug.Log("Running!");
+//				Debug.Log("Running!");
 			}
 			else
 			{

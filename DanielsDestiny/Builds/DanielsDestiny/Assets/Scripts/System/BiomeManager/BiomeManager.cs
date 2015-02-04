@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 public class BiomeManager : MonoBehaviour {
 	public static BiomeManager instance;
 	public List<Biome> pieces = new List<Biome>();
-	public BiomeSave save;
+	public SaveFile save;
 	public Inventory inventorY;
 
 	string path = "Assets/Files/Save.xml";
@@ -43,7 +43,7 @@ public class BiomeManager : MonoBehaviour {
 		{
 			StreamReader sr = new StreamReader(path);
 			XmlSerializer x = new System.Xml.Serialization.XmlSerializer(save.GetType());
-			save = x.Deserialize(sr) as BiomeSave;
+			save = x.Deserialize(sr) as SaveFile;
 			sr.Close();
 		}
 		else
@@ -58,6 +58,7 @@ public class BiomeManager : MonoBehaviour {
 			pieces[i].GetComponent<BiomeItems>().SetNewItems(save.worldItemSave[i]);
 			pieces[i].LoadResources(save.saveString[i]);
 		}
+		LoadPlayer();
 	}
 	void SaveBiomes()
 	{
@@ -125,14 +126,37 @@ public class BiomeManager : MonoBehaviour {
 				save.saveString[i] = (pieces[i].SaveResources());
 			}
 		}
+		SavePlayer();
+		
+	}
+	void SavePlayer()
+	{
+
+		save.playerPos = Player.instance.transform.position;
+		save.playerValues.health = Player.instance.status.health.cur;
+		save.playerValues.hunger = Player.instance.status.hunger.cur;
+		save.playerValues.thirst = Player.instance.status.thirst.cur;
+		save.playerValues.fatigue = Player.instance.status.fatigue.cur;
+		save.playerValues.temperature = Player.instance.status.temperature.cur;
 		SaveBiomes();
+	}
+	void LoadPlayer()
+	{
+		Player.instance.status.health.cur = save.playerValues.health;
+		Player.instance.status.hunger.cur = save.playerValues.hunger;
+		Player.instance.status.thirst.cur = save.playerValues.thirst;
+		Player.instance.status.fatigue.cur = save.playerValues.fatigue;
+		Player.instance.status.temperature.cur = save.playerValues.temperature;
+		Player.instance.transform.position = save.playerPos;
 	}
 }
 [System.Serializable]
-public class BiomeSave
+public class SaveFile
 {
 	public List<string> saveString = new List<string>();
 	public List<ItemSaveType> saveType = new List<ItemSaveType>();
 	public List<string> biomeItemSave = new List<string>();
 	public List<WorldItemSave> worldItemSave = new List<WorldItemSave>();
+	public Vector3 playerPos;
+	public PlayerStatusSave playerValues;
 }
