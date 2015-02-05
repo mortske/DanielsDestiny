@@ -9,6 +9,7 @@ public class Item : MonoBehaviour
 	public Sprite spriteHighlighted;
 	public int maxSize;
     public int curSize = 1;
+	public bool selected;
 
     public string Name
     {

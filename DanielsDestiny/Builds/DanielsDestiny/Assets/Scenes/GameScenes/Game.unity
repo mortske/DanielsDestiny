@@ -1647,6 +1647,7 @@ MonoBehaviour:
   spriteHighlighted: {fileID: 21300008, guid: 8b72f051f47ecb9418eedd8dc7974f76, type: 3}
   maxSize: 5
   curSize: 1
+  selected: 0
   effects:
   - effectTo: 1
     adjustment: 50
@@ -2442,6 +2443,7 @@ MonoBehaviour:
   spriteHighlighted: {fileID: 21300008, guid: 8b72f051f47ecb9418eedd8dc7974f76, type: 3}
   maxSize: 5
   curSize: 1
+  selected: 0
   effects:
   - effectTo: 1
     adjustment: 10
@@ -3457,6 +3459,7 @@ MonoBehaviour:
   spriteHighlighted: {fileID: 21300000, guid: b136b6df4d27d514a8d7ca2012dc6f96, type: 3}
   maxSize: 1
   curSize: 1
+  selected: 0
 --- !u!135 &668540624
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4040,6 +4043,7 @@ MonoBehaviour:
   spriteHighlighted: {fileID: 21300000, guid: b136b6df4d27d514a8d7ca2012dc6f96, type: 3}
   maxSize: 1
   curSize: 1
+  selected: 0
 --- !u!135 &821094316
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5864,6 +5868,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11452378, guid: c5ab70a2ec36c6043ae5dc38a29a1707, type: 2}
+      propertyPath: curSize
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c5ab70a2ec36c6043ae5dc38a29a1707, type: 2}
   m_RootGameObject: {fileID: 823738039}
@@ -5915,6 +5923,7 @@ MonoBehaviour:
   spriteHighlighted: {fileID: 21300012, guid: 8b72f051f47ecb9418eedd8dc7974f76, type: 3}
   maxSize: 50
   curSize: 1
+  selected: 0
   effects:
   - effectTo: 1
     adjustment: 10
@@ -6423,7 +6432,8 @@ MonoBehaviour:
   spriteNeutral: {fileID: 21300000, guid: 8b72f051f47ecb9418eedd8dc7974f76, type: 3}
   spriteHighlighted: {fileID: 21300000, guid: 8b72f051f47ecb9418eedd8dc7974f76, type: 3}
   maxSize: 10
-  curSize: 1
+  curSize: 6
+  selected: 0
 --- !u!65 &1230001158
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6620,6 +6630,7 @@ MonoBehaviour:
   spriteHighlighted: {fileID: 21300000, guid: b136b6df4d27d514a8d7ca2012dc6f96, type: 3}
   maxSize: 1
   curSize: 1
+  selected: 0
 --- !u!135 &1291539368
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7784,6 +7795,7 @@ MonoBehaviour:
   spriteHighlighted: {fileID: 21300006, guid: 8b72f051f47ecb9418eedd8dc7974f76, type: 3}
   maxSize: 10
   curSize: 1
+  selected: 0
   effects: []
 --- !u!65 &1323086665
 BoxCollider:
@@ -8250,6 +8262,7 @@ MonoBehaviour:
   spriteHighlighted: {fileID: 21300008, guid: 8b72f051f47ecb9418eedd8dc7974f76, type: 3}
   maxSize: 5
   curSize: 1
+  selected: 0
   effects:
   - effectTo: 1
     adjustment: 40
@@ -8516,6 +8529,7 @@ MonoBehaviour:
   spriteHighlighted: {fileID: 21300002, guid: 8b72f051f47ecb9418eedd8dc7974f76, type: 3}
   maxSize: 10
   curSize: 1
+  selected: 0
 --- !u!65 &1557242395
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8691,7 +8705,8 @@ MonoBehaviour:
   spriteNeutral: {fileID: 21300000, guid: 5be0abdc05b939b48a7e7f6035ed6386, type: 3}
   spriteHighlighted: {fileID: 21300000, guid: 4a8dbb433e976454eab081290ba1c9d7, type: 3}
   maxSize: 10
-  curSize: 1
+  curSize: 6
+  selected: 0
   effects: []
 --- !u!65 &1614222909
 BoxCollider:
@@ -8745,6 +8760,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 11477622, guid: 6c12f14ae9e7d6a4db13a9518cddda76, type: 2}
+      propertyPath: curSize
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6c12f14ae9e7d6a4db13a9518cddda76, type: 2}
   m_RootGameObject: {fileID: 1740934082}
@@ -8784,6 +8803,7 @@ MonoBehaviour:
   spriteHighlighted: {fileID: 21300002, guid: 8b72f051f47ecb9418eedd8dc7974f76, type: 3}
   maxSize: 10
   curSize: 1
+  selected: 0
 --- !u!65 &1656424327
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9317,6 +9337,7 @@ MonoBehaviour:
   spriteHighlighted: {fileID: 21300004, guid: 8b72f051f47ecb9418eedd8dc7974f76, type: 3}
   maxSize: 10
   curSize: 1
+  selected: 0
 --- !u!65 &1819131567
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9644,6 +9665,7 @@ MonoBehaviour:
   spriteHighlighted: {fileID: 21300008, guid: 8b72f051f47ecb9418eedd8dc7974f76, type: 3}
   maxSize: 5
   curSize: 1
+  selected: 0
   effects:
   - effectTo: 1
     adjustment: 20
@@ -12158,6 +12180,7 @@ MonoBehaviour:
   spriteHighlighted: {fileID: 21300000, guid: b136b6df4d27d514a8d7ca2012dc6f96, type: 3}
   maxSize: 1
   curSize: 1
+  selected: 1
 --- !u!1 &2122761623
 GameObject:
   m_ObjectHideFlags: 0
@@ -12298,6 +12321,7 @@ GameObject:
   - 222: {fileID: 2141639784}
   - 114: {fileID: 2141639783}
   - 114: {fileID: 2141639782}
+  - 114: {fileID: 2141639785}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -12374,3 +12398,29 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 95365928}
   m_GameObject: {fileID: 2141639780}
+--- !u!114 &2141639785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2141639780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f879c55150ce9f34190fbbf6ce8d8301, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recepies:
+  - recepieName: Coconut
+    items:
+    - {fileID: 177622, guid: 6c12f14ae9e7d6a4db13a9518cddda76, type: 2}
+    - {fileID: 152380, guid: c5ab70a2ec36c6043ae5dc38a29a1707, type: 2}
+    - {fileID: 126996, guid: 0d5cb08bfd56e2642859df67d46f04c0, type: 2}
+    - {fileID: 1852018482}
+    amount: 02000000020000000100000001000000
+    result: {fileID: 173030, guid: f92f8838f691a1d4b924d678f18192be, type: 2}
+  - recepieName: HealthPotion
+    items:
+    - {fileID: 173030, guid: f92f8838f691a1d4b924d678f18192be, type: 2}
+    - {fileID: 173030, guid: f92f8838f691a1d4b924d678f18192be, type: 2}
+    amount: 0100000001000000
+    result: {fileID: 1740934082}
