@@ -10322,10 +10322,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recepies:
-  - recepieName: 
+  - recepieName: Coconut
     items:
-    - {fileID: 0}
-    amount: 00000000
+    - {fileID: 177622, guid: 6c12f14ae9e7d6a4db13a9518cddda76, type: 2}
+    - {fileID: 152380, guid: c5ab70a2ec36c6043ae5dc38a29a1707, type: 2}
+    - {fileID: 126996, guid: 0d5cb08bfd56e2642859df67d46f04c0, type: 2}
+    - {fileID: 1852018482}
+    amount: 02000000020000000100000001000000
+    result: {fileID: 173030, guid: f92f8838f691a1d4b924d678f18192be, type: 2}
+  - recepieName: HealthPotion
+    items:
+    - {fileID: 173030, guid: f92f8838f691a1d4b924d678f18192be, type: 2}
+    - {fileID: 173030, guid: f92f8838f691a1d4b924d678f18192be, type: 2}
+    amount: 0100000001000000
+    result: {fileID: 1740934082}
+  - recepieName: Campfire
+    items:
+    - {fileID: 152380, guid: c5ab70a2ec36c6043ae5dc38a29a1707, type: 2}
+    - {fileID: 125052, guid: 050afb0416cee024a92b7b3601fb113c, type: 2}
+    amount: 0300000002000000
+    result: {fileID: 0}
+  - recepieName: Trap
+    items:
+    - {fileID: 152380, guid: c5ab70a2ec36c6043ae5dc38a29a1707, type: 2}
+    - {fileID: 125052, guid: 050afb0416cee024a92b7b3601fb113c, type: 2}
+    - {fileID: 133982, guid: e2abd899425671442a49aa396a812e3d, type: 2}
+    amount: 030000000100000001000000
+    result: {fileID: 0}
+  - recepieName: Snakeskin Waterholder
+    items:
+    - {fileID: 130708, guid: e7e88b11c235ba24788442a5522724f7, type: 2}
+    amount: 01000000
     result: {fileID: 0}
 --- !u!1 &1911146896
 GameObject:
@@ -12346,7 +12373,7 @@ MonoBehaviour:
   spriteHighlighted: {fileID: 21300000, guid: b136b6df4d27d514a8d7ca2012dc6f96, type: 3}
   maxSize: 1
   curSize: 1
-  selected: 1
+  selected: 0
 --- !u!1 &2122761623
 GameObject:
   m_ObjectHideFlags: 0
@@ -12487,7 +12514,6 @@ GameObject:
   - 222: {fileID: 2141639784}
   - 114: {fileID: 2141639783}
   - 114: {fileID: 2141639782}
-  - 114: {fileID: 2141639785}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -12564,29 +12590,3 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 95365928}
   m_GameObject: {fileID: 2141639780}
---- !u!114 &2141639785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2141639780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f879c55150ce9f34190fbbf6ce8d8301, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  recepies:
-  - recepieName: Coconut
-    items:
-    - {fileID: 177622, guid: 6c12f14ae9e7d6a4db13a9518cddda76, type: 2}
-    - {fileID: 152380, guid: c5ab70a2ec36c6043ae5dc38a29a1707, type: 2}
-    - {fileID: 126996, guid: 0d5cb08bfd56e2642859df67d46f04c0, type: 2}
-    - {fileID: 1852018482}
-    amount: 02000000020000000100000001000000
-    result: {fileID: 173030, guid: f92f8838f691a1d4b924d678f18192be, type: 2}
-  - recepieName: HealthPotion
-    items:
-    - {fileID: 173030, guid: f92f8838f691a1d4b924d678f18192be, type: 2}
-    - {fileID: 173030, guid: f92f8838f691a1d4b924d678f18192be, type: 2}
-    amount: 0100000001000000
-    result: {fileID: 1740934082}

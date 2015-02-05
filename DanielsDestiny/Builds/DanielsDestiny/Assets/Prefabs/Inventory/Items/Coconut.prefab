@@ -98,10 +98,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25c9c0da631f22d4292882439f20977c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  usable: 0
   spriteNeutral: {fileID: 21300000, guid: f0b86e90ff62464409a720ebe7620856, type: 3}
   spriteHighlighted: {fileID: 21300000, guid: b136b6df4d27d514a8d7ca2012dc6f96, type: 3}
   maxSize: 1
   curSize: 1
+  selected: 0
 --- !u!135 &13573028
 SphereCollider:
   m_ObjectHideFlags: 1

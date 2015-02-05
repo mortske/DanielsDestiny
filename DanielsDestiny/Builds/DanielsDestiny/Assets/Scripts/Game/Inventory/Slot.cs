@@ -146,7 +146,6 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 					ChangeSprite(CurrentItem.spriteHighlighted, CurrentItem.spriteHighlighted);
 					CurrentItem.selected = true;
 					CraftingDictionary.SelectedItems.Add(this);
-					
 				}
 				else
 				{

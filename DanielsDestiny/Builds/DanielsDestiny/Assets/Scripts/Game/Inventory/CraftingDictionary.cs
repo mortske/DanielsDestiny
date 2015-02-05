@@ -15,18 +15,21 @@ public class CraftingDictionary : MonoBehaviour
 	}
 
 	private int allTrue;
+	private bool foundRecepie;
 	private Inventory inv;
 
 	void Start ()
 	{
 		selectedItems = new List<Slot>();
-		inv = GetComponent<Inventory>();
+		inv = GameObject.Find("Inventory").GetComponent<Inventory>();
 	}
 
 	void Update()
 	{
-		if(Input.GetKeyDown(KeyCode.C))
+		if(Input.GetKeyUp(KeyCode.C))
+		{
 			CheckRecepies();
+		}
 	}
 
 	public static void ClearSelectedItem()
@@ -78,8 +81,11 @@ public class CraftingDictionary : MonoBehaviour
 
 				if(checkAllTrue == allTrue)
 				{
+					foundRecepie = true;
 					bool getOut = false;
 					inv.AddItem(rec.result.transform.FindChild("OverlapSphere").GetComponent<Item>());
+					//Message
+					Debug.Log ("You created a " + rec.result.name);
 					for (int i = 0; i < selectedItems.Count; i++) 
 					{
 						for (int n = 0; n < rec.items.Count; n++)
@@ -89,7 +95,7 @@ public class CraftingDictionary : MonoBehaviour
 								getOut = true;
 								for (int x = 0; x < rec.amount[n]; x++) 
 								{
-									Debug.Log(selectedItems[i].CurrentItem.transform.parent.name);
+									selectedItems[i].CurrentItem.selected = false;
 									selectedItems[i].RemoveItem();
 								}
 							}
@@ -102,10 +108,19 @@ public class CraftingDictionary : MonoBehaviour
 					}
 				}
 			}
-
 		}
-
-		ClearSelectedItem();
+		
+		if(foundRecepie)
+		{
+			ClearSelectedItem();
+			foundRecepie = false;
+		}
+		else
+		{
+			//Message: couldnt create anything with those items
+			Debug.Log ("You cant create anything with those items.");
+			ClearSelectedItem();
+		}
 	}
 
 }
