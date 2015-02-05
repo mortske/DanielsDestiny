@@ -7,6 +7,12 @@ using UnityEngine.EventSystems;
 public class Slot : MonoBehaviour, IPointerClickHandler {
 
 	private Stack<Item> items;
+    public bool onMouseHover = false;
+
+    public RectTransform itemNameBox;
+    Text itemNameBoxText;
+    RectTransform itemNameBoxBox;
+
 
 	public Stack<Item> Items 
 	{
@@ -39,6 +45,12 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 		items = new Stack<Item>();
 		RectTransform slotRect = GetComponent<RectTransform>();
 		RectTransform txtRect = stackTxt.GetComponent<RectTransform>();
+
+        itemNameBox = GameObject.Find("ItemNameBox").GetComponent<RectTransform>();
+        itemNameBoxText = itemNameBox.GetComponentInChildren<Text>();
+        itemNameBoxBox = itemNameBox.GetComponentsInChildren<RectTransform>()[1];
+        itemNameBoxText.enabled = false;
+        itemNameBoxBox.GetComponent<Image>().enabled = false;
 
 		int txtScaleFactor = (int)(slotRect.sizeDelta.x * 0.60);
 		stackTxt.resizeTextMaxSize = txtScaleFactor;
@@ -145,4 +157,35 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 			}
 		}
 	}
+
+    void Update()
+    {
+        Hover();
+    }
+    public void StartHover()
+    {
+        if (items.Count > 0)
+        {
+            itemNameBoxText.enabled = true;
+            itemNameBoxBox.GetComponent<Image>().enabled = true;
+
+            itemNameBoxText.text = CurrentItem.Name;
+            itemNameBoxBox.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, itemNameBoxText.text.Length * 10);
+            itemNameBoxText.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, itemNameBoxText.text.Length * 10);
+            onMouseHover = true;
+        }
+    }
+    void Hover()
+    {
+        if (onMouseHover)
+        {
+            itemNameBox.position = Input.mousePosition;
+        }
+    }
+    public void EndHover()
+    {
+        itemNameBoxText.enabled = false;
+        itemNameBoxBox.GetComponent<Image>().enabled = false;
+        onMouseHover = false;
+    }
 }

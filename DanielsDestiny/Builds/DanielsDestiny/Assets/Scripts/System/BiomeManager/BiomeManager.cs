@@ -9,6 +9,7 @@ public class BiomeManager : MonoBehaviour {
 	public List<Biome> pieces = new List<Biome>();
 	public SaveFile save;
 	public Inventory inventorY;
+	public GameTime gameTime;
 
 	string path = "Assets/Files/Save.xml";
 	// Use this for initialization
@@ -137,7 +138,10 @@ public class BiomeManager : MonoBehaviour {
 		save.playerValues.hunger = Player.instance.status.hunger.cur;
 		save.playerValues.thirst = Player.instance.status.thirst.cur;
 		save.playerValues.fatigue = Player.instance.status.fatigue.cur;
+		save.TempAdjust = Player.instance.status.temperatureAdjustment;
 		save.playerValues.temperature = Player.instance.status.temperature.cur;
+		save.TimeOfDay = gameTime.TheTime;
+		save.Temperature = gameTime.TheTemp;
 		SaveBiomes();
 	}
 	void LoadPlayer()
@@ -148,6 +152,9 @@ public class BiomeManager : MonoBehaviour {
 		Player.instance.status.fatigue.cur = save.playerValues.fatigue;
 		Player.instance.status.temperature.cur = save.playerValues.temperature;
 		Player.instance.transform.position = save.playerPos;
+		Player.instance.status.temperatureAdjustment = save.TempAdjust;
+		gameTime.TheTime = save.TimeOfDay;
+		gameTime.TheTemp = save.Temperature;
 	}
 }
 [System.Serializable]
@@ -159,4 +166,7 @@ public class SaveFile
 	public List<WorldItemSave> worldItemSave = new List<WorldItemSave>();
 	public Vector3 playerPos;
 	public PlayerStatusSave playerValues;
+	public float TimeOfDay;
+	public float Temperature;
+	public float TempAdjust;
 }
