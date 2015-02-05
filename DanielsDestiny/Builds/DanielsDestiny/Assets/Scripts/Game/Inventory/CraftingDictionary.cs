@@ -5,6 +5,109 @@ using System.Collections.Generic;
 public class CraftingDictionary : MonoBehaviour 
 {
 	public List<Recepie> recepies;
+
+	private static List<Slot> selectedItems;
+	
+	public static List<Slot> SelectedItems 
+	{
+		get { return selectedItems; }
+		set { selectedItems = value; }
+	}
+
+	private int allTrue;
+	private Inventory inv;
+
+	void Start ()
+	{
+		selectedItems = new List<Slot>();
+		inv = GetComponent<Inventory>();
+	}
+
+	void Update()
+	{
+		if(Input.GetKeyDown(KeyCode.C))
+			CheckRecepies();
+	}
+
+	public static void ClearSelectedItem()
+	{
+		if(selectedItems.Count > 0)
+		{
+			foreach (Slot slot in selectedItems)
+			{
+				foreach (Item item in slot.Items)
+				{
+					slot.ChangeSprite(item.spriteNeutral, item.spriteHighlighted);
+					item.selected = false;
+				}
+			}
+			selectedItems.Clear();
+		}
+	}
+
+	//TODO coconut need 2 clicks to get highlighted
+
+	public void CheckRecepies()
+	{
+		foreach (Recepie rec in recepies) 
+		{
+			if(rec.items.Count == selectedItems.Count)
+			{
+				bool gotIn = false;
+				allTrue = rec.items.Count;
+				int checkAllTrue = 0;
+				for (int i = 0; i < selectedItems.Count; i++) 
+				{
+					for (int n = 0; n < rec.items.Count; n++)
+					{
+						if(selectedItems[i].CurrentItem.transform.parent.name == rec.items[n].name)
+						{
+							gotIn = true;
+							if(selectedItems[i].Items.Count >= rec.amount[n])
+							{
+								checkAllTrue++;
+							}
+						}
+						if(gotIn)
+						{
+							gotIn = false;
+							break;
+						}
+					}
+				}
+
+				if(checkAllTrue == allTrue)
+				{
+					bool getOut = false;
+					inv.AddItem(rec.result.transform.FindChild("OverlapSphere").GetComponent<Item>());
+					for (int i = 0; i < selectedItems.Count; i++) 
+					{
+						for (int n = 0; n < rec.items.Count; n++)
+						{
+							if(selectedItems[i].CurrentItem.transform.parent.name == rec.items[n].name)
+							{
+								getOut = true;
+								for (int x = 0; x < rec.amount[n]; x++) 
+								{
+									Debug.Log(selectedItems[i].CurrentItem.transform.parent.name);
+									selectedItems[i].RemoveItem();
+								}
+							}
+							if(getOut)
+							{
+								getOut = false;
+								break;
+							}
+						}
+					}
+				}
+			}
+
+		}
+
+		ClearSelectedItem();
+	}
+
 }
 
 [System.Serializable]

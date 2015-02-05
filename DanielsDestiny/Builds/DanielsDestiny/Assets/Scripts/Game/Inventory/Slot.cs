@@ -81,7 +81,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 		ChangeSprite(CurrentItem.spriteNeutral, CurrentItem.spriteHighlighted);
 	}
 
-	private void ChangeSprite(Sprite neutral, Sprite highlight)
+	public void ChangeSprite(Sprite neutral, Sprite highlight)
 	{
 		GetComponent<Image>().sprite = neutral;
 
@@ -112,7 +112,13 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
     public void RemoveItem()
     {
         items.Pop();
-        stackTxt.text = items.Count > 1 ? items.Count.ToString() : string.Empty;
+		stackTxt.text = items.Count > 1 ? items.Count.ToString() : string.Empty;
+		
+		if(isEmpty)
+		{
+			ChangeSprite(slotEmpty, slotHighlight);
+			Inventory.EmptySlots++;
+		}
     }
 
 	public void ClearSlot()
@@ -126,7 +132,29 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 	{
 		if(eventData.button == PointerEventData.InputButton.Right)
 		{
-			UseItem();
+			if(items.Count == 0)
+			{
+				if(CraftingDictionary.SelectedItems.Count > 0)
+				{
+					CraftingDictionary.ClearSelectedItem();
+				}
+			}
+			else
+			{
+				if(!CurrentItem.selected)
+				{
+					ChangeSprite(CurrentItem.spriteHighlighted, CurrentItem.spriteHighlighted);
+					CurrentItem.selected = true;
+					CraftingDictionary.SelectedItems.Add(this);
+					
+				}
+				else
+				{
+					ChangeSprite(CurrentItem.spriteNeutral, CurrentItem.spriteHighlighted);
+					CurrentItem.selected = false;
+					CraftingDictionary.SelectedItems.Remove(this);
+				}
+			}
 		}
 	}
 
