@@ -10,7 +10,7 @@ public class RecepieDictionaryEditor : Editor
 
     public override void OnInspectorGUI()
     {
-        base.DrawDefaultInspector();
+        //base.DrawDefaultInspector();
         DrawNewInspector();
     }
 
