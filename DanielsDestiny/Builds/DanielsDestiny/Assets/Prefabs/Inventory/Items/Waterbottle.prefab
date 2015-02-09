@@ -30,7 +30,7 @@ GameObject:
   - 54: {fileID: 5430710}
   - 135: {fileID: 13530710}
   m_Layer: 0
-  m_Name: Water
+  m_Name: Waterbottle
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -189,6 +189,7 @@ MonoBehaviour:
   spriteHighlighted: {fileID: 21300006, guid: 8b72f051f47ecb9418eedd8dc7974f76, type: 3}
   maxSize: 10
   curSize: 1
+  selected: 0
   effects: []
 --- !u!135 &13530710
 SphereCollider:

@@ -13,7 +13,7 @@ GameObject:
   - 54: {fileID: 5438342}
   - 135: {fileID: 13538342}
   m_Layer: 0
-  m_Name: RodentMeat_Cooked
+  m_Name: Cooked Snakemeat
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131,9 +131,10 @@ MonoBehaviour:
   spriteHighlighted: {fileID: 21300008, guid: 8b72f051f47ecb9418eedd8dc7974f76, type: 3}
   maxSize: 5
   curSize: 1
+  selected: 0
   effects:
   - effectTo: 1
-    adjustment: 50
+    adjustment: 20
 --- !u!135 &13538342
 SphereCollider:
   m_ObjectHideFlags: 1

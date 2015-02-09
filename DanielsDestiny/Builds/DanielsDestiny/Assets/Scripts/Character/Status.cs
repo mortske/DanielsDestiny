@@ -46,6 +46,12 @@ public class Status : MonoBehaviour
         if (hunger.UpdateTick())
             hunger.adjustCur(-hunger.AdjustValue);
 
+        if (thirst.UpdateTick())
+            thirst.adjustCur(-thirst.AdjustValue);
+
+        if (fatigue.UpdateTick())
+            fatigue.adjustCur(-fatigue.AdjustValue);
+
         float other = 100 - temperaturePadding;
         temperature.cur = GameTime.instance._scaledTemperature * (temperaturePadding - other) + other + temperatureAdjustment;
         temperature.adjustCur(0);
