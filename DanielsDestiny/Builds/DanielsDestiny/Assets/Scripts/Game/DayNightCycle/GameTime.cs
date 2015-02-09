@@ -2,6 +2,9 @@ using UnityEngine;
 using System.Collections;
 
 public class GameTime : MonoBehaviour {
+
+    public static GameTime instance;
+
 	public enum TimeOfDay{
 		Idle,
 		SunRise,
@@ -40,7 +43,17 @@ public class GameTime : MonoBehaviour {
 	
 	private float _morningLength;
 	private float _eveningLength;
-	
+
+    private float _temperature = 0;
+    public float _scaledTemperature;
+
+	int TotalTimePassed = 0;
+
+    void Awake()
+    {
+        instance = this;
+    }
+
 	// Use this for initialization
 	void Start () {
 		_tod = TimeOfDay.Idle;
@@ -84,7 +97,7 @@ public class GameTime : MonoBehaviour {
 			sun[cnt].Rotate(new Vector3(_degreeRotation, 0, 0)*Time.deltaTime);
 		
 		_timeOfDay += Time.deltaTime;
-		
+		TotalTimePassed ++;
 		if(_timeOfDay > _dayCycleInSeconds)
 			_timeOfDay -= _dayCycleInSeconds;
 		
@@ -119,6 +132,8 @@ public class GameTime : MonoBehaviour {
 		else{
 			_tod = GameTime.TimeOfDay.Idle;
 		}
+
+        SetTemperature();
 	}
 
 	
@@ -156,8 +171,7 @@ public class GameTime : MonoBehaviour {
 		}
 		else{
 			pos = (sunSet - _timeOfDay) / _eveningLength;			//get the position of the sun in the evening sky	
-		}	
-		
+		}
 		RenderSettings.ambientLight = new Color(ambLightMin.r + ambLightMax.r * pos,
 		                                        ambLightMin.g + ambLightMax.g * pos,
 		                                        ambLightMin.b + ambLightMax.b * pos);
@@ -167,5 +181,28 @@ public class GameTime : MonoBehaviour {
 				_sunScript[cnt].GetComponent<Light>().intensity = _sunScript[cnt].maxLightBrightness * pos;
 			}
 		}
+	}
+
+    private void SetTemperature()
+    {
+        if (_timeOfDay > (dayCycleInMinutes * 60) / 2)
+            _temperature -= Time.deltaTime;
+        else
+            _temperature += Time.deltaTime;
+        _scaledTemperature = _temperature / _dayCycleInSeconds * 2;
+    }
+	public float TheTemp
+	{
+		get{return _temperature;}
+		set{_temperature = value;}
+	}
+    public float TheTime
+    {
+    	get{return _timeOfDay;}
+    	set{_timeOfDay = value;}
+    }
+	public void SaveTime()
+	{
+		HighScore.instance.SaveScore(TotalTimePassed);
 	}
 }

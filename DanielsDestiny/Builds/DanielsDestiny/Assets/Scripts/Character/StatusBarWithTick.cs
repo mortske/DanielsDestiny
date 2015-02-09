@@ -18,7 +18,7 @@ public class StatusBarWithTick : StatusBar
             float tmp = baseAdjustValue;
             foreach (AffectedByStatus affected in affectedBy)
             {
-                StatusBarWithTick statusbar = playerStatus.GetBar(affected.bar);
+                StatusBar statusbar = playerStatus.GetBar(affected.bar);
                 if (affected.whenEquals == EqualsTo.GreaterThan)
                 {
                     if (statusbar.cur > affected.whenValueIs)

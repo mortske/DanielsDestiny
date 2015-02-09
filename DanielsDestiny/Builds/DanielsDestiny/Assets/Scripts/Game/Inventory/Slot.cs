@@ -7,6 +7,12 @@ using UnityEngine.EventSystems;
 public class Slot : MonoBehaviour, IPointerClickHandler {
 
 	private Stack<Item> items;
+    public bool onMouseHover = false;
+
+    public RectTransform itemNameBox;
+    Text itemNameBoxText;
+    RectTransform itemNameBoxBox;
+
 
 	public Stack<Item> Items 
 	{
@@ -40,6 +46,12 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 		RectTransform slotRect = GetComponent<RectTransform>();
 		RectTransform txtRect = stackTxt.GetComponent<RectTransform>();
 
+        itemNameBox = GameObject.Find("ItemNameBox").GetComponent<RectTransform>();
+        itemNameBoxText = itemNameBox.GetComponentInChildren<Text>();
+        itemNameBoxBox = itemNameBox.GetComponentsInChildren<RectTransform>()[1];
+        itemNameBoxText.enabled = false;
+        itemNameBoxBox.GetComponent<Image>().enabled = false;
+
 		int txtScaleFactor = (int)(slotRect.sizeDelta.x * 0.60);
 		stackTxt.resizeTextMaxSize = txtScaleFactor;
 		stackTxt.resizeTextMinSize = txtScaleFactor;
@@ -69,7 +81,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 		ChangeSprite(CurrentItem.spriteNeutral, CurrentItem.spriteHighlighted);
 	}
 
-	private void ChangeSprite(Sprite neutral, Sprite highlight)
+	public void ChangeSprite(Sprite neutral, Sprite highlight)
 	{
 		GetComponent<Image>().sprite = neutral;
 
@@ -100,7 +112,13 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
     public void RemoveItem()
     {
         items.Pop();
-        stackTxt.text = items.Count > 1 ? items.Count.ToString() : string.Empty;
+		stackTxt.text = items.Count > 1 ? items.Count.ToString() : string.Empty;
+		
+		if(isEmpty)
+		{
+			ChangeSprite(slotEmpty, slotHighlight);
+			Inventory.EmptySlots++;
+		}
     }
 
 	public void ClearSlot()
@@ -114,7 +132,59 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 	{
 		if(eventData.button == PointerEventData.InputButton.Right)
 		{
-			UseItem();
+			if(items.Count == 0)
+			{
+				if(CraftingDictionary.SelectedItems.Count > 0)
+				{
+					CraftingDictionary.ClearSelectedItem();
+				}
+			}
+			else
+			{
+				if(!CurrentItem.selected)
+				{
+					ChangeSprite(CurrentItem.spriteHighlighted, CurrentItem.spriteHighlighted);
+					CurrentItem.selected = true;
+					CraftingDictionary.SelectedItems.Add(this);
+				}
+				else
+				{
+					ChangeSprite(CurrentItem.spriteNeutral, CurrentItem.spriteHighlighted);
+					CurrentItem.selected = false;
+					CraftingDictionary.SelectedItems.Remove(this);
+				}
+			}
 		}
 	}
+
+    void Update()
+    {
+        Hover();
+    }
+    public void StartHover()
+    {
+        if (items.Count > 0)
+        {
+            itemNameBoxText.enabled = true;
+            itemNameBoxBox.GetComponent<Image>().enabled = true;
+
+            itemNameBoxText.text = CurrentItem.Name;
+            itemNameBoxBox.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, itemNameBoxText.text.Length * 10);
+            itemNameBoxText.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, itemNameBoxText.text.Length * 10);
+            onMouseHover = true;
+        }
+    }
+    void Hover()
+    {
+        if (onMouseHover)
+        {
+            itemNameBox.position = Input.mousePosition;
+        }
+    }
+    public void EndHover()
+    {
+        itemNameBoxText.enabled = false;
+        itemNameBoxBox.GetComponent<Image>().enabled = false;
+        onMouseHover = false;
+    }
 }

@@ -7,8 +7,9 @@ using System.Xml.Serialization;
 public class BiomeManager : MonoBehaviour {
 	public static BiomeManager instance;
 	public List<Biome> pieces = new List<Biome>();
-	public BiomeSave save;
+	public SaveFile save;
 	public Inventory inventorY;
+	public GameTime gameTime;
 
 	string path = "Assets/Files/Save.xml";
 	// Use this for initialization
@@ -43,7 +44,7 @@ public class BiomeManager : MonoBehaviour {
 		{
 			StreamReader sr = new StreamReader(path);
 			XmlSerializer x = new System.Xml.Serialization.XmlSerializer(save.GetType());
-			save = x.Deserialize(sr) as BiomeSave;
+			save = x.Deserialize(sr) as SaveFile;
 			sr.Close();
 		}
 		else
@@ -54,9 +55,11 @@ public class BiomeManager : MonoBehaviour {
 		inventorY.SetInventory(save.saveType);
 		for(int i = 0; i < pieces.Count; i++)
 		{
-			
+			pieces[i].GetComponent<BiomeItems>().SetItems(save.biomeItemSave[i]);
+			pieces[i].GetComponent<BiomeItems>().SetNewItems(save.worldItemSave[i]);
 			pieces[i].LoadResources(save.saveString[i]);
 		}
+		LoadPlayer();
 	}
 	void SaveBiomes()
 	{
@@ -79,9 +82,39 @@ public class BiomeManager : MonoBehaviour {
 			}
 		}
 		Debug.Log(save.saveType);
+		SaveBiomeItems();
+	}
+	void SaveBiomeItems()
+	{
+		for(int i = 0; i < pieces.Count; i++)
+		{
+			if(save.biomeItemSave.Count < pieces.Count)
+			{
+				save.biomeItemSave.Add(pieces[i].GetComponent<BiomeItems>().GetItemsInBiome());
+			}
+			else
+			{
+				save.biomeItemSave[i] = (pieces[i].GetComponent<BiomeItems>().GetItemsInBiome());
+			}
+		}
+		SaveBiomeWorldItems();
+	}
+	void SaveBiomeWorldItems()
+	{
+		for(int i = 0; i < pieces.Count; i++)
+		{
+			if(save.worldItemSave.Count < pieces.Count)
+			{
+				save.worldItemSave.Add(pieces[i].GetComponent<BiomeItems>().GetNewItems());
+			}
+			else
+			{
+				save.worldItemSave[i] = (pieces[i].GetComponent<BiomeItems>().GetNewItems());
+			}
+		}
 		SaveBiomeResource();
 	}
-	public void SaveBiomeResource()
+	void SaveBiomeResource()
 	{
 		for(int i = 0; i < pieces.Count; i++)
 		{
@@ -94,12 +127,46 @@ public class BiomeManager : MonoBehaviour {
 				save.saveString[i] = (pieces[i].SaveResources());
 			}
 		}
+		SavePlayer();
+		
+	}
+	void SavePlayer()
+	{
+
+		save.playerPos = Player.instance.transform.position;
+		save.playerValues.health = Player.instance.status.health.cur;
+		save.playerValues.hunger = Player.instance.status.hunger.cur;
+		save.playerValues.thirst = Player.instance.status.thirst.cur;
+		save.playerValues.fatigue = Player.instance.status.fatigue.cur;
+		save.TempAdjust = Player.instance.status.temperatureAdjustment;
+		save.playerValues.temperature = Player.instance.status.temperature.cur;
+		save.TimeOfDay = gameTime.TheTime;
+		save.Temperature = gameTime.TheTemp;
 		SaveBiomes();
+	}
+	void LoadPlayer()
+	{
+		Player.instance.status.health.cur = save.playerValues.health;
+		Player.instance.status.hunger.cur = save.playerValues.hunger;
+		Player.instance.status.thirst.cur = save.playerValues.thirst;
+		Player.instance.status.fatigue.cur = save.playerValues.fatigue;
+		Player.instance.status.temperature.cur = save.playerValues.temperature;
+		Player.instance.transform.position = save.playerPos;
+		Player.instance.status.temperatureAdjustment = save.TempAdjust;
+		gameTime.TheTime = save.TimeOfDay;
+		gameTime.TheTemp = save.Temperature;
 	}
 }
 [System.Serializable]
-public class BiomeSave
+public class SaveFile
 {
 	public List<string> saveString = new List<string>();
 	public List<ItemSaveType> saveType = new List<ItemSaveType>();
+	public List<string> biomeItemSave = new List<string>();
+	public List<WorldItemSave> worldItemSave = new List<WorldItemSave>();
+	public Vector3 playerPos;
+	public PlayerStatusSave playerValues;
+	public float TimeOfDay;
+	public float Temperature;
+	public float TempAdjust;
 }

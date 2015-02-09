@@ -138,6 +138,7 @@ public class PlayerGUI : MonoBehaviour {
 		CurrentFatigue = (int)player.status.fatigue.cur;
 		CurrentHunger = (int)player.status.hunger.cur;
 		CurrentThirst = (int)player.status.thirst.cur;
+        CurrentTemperature = (int)player.status.temperature.cur;
 
 		if(Input.GetKeyDown(KeyCode.L)) {
 			ShowInterface();

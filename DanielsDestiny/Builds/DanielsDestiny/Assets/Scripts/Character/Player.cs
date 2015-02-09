@@ -9,6 +9,9 @@ public class Player : MonoBehaviour
     public CharacterMotor motor { get; set; }
     public Status status { get; set; }
     public Inventory inventory;
+    public PickupEventHandler pickupEventHandler { get; set; }
+    
+    public BiomeItems curBiome;
 
     void Awake()
     {
@@ -20,6 +23,7 @@ public class Player : MonoBehaviour
         mouseLook = GetComponent<MouseLook>();
         motor = GetComponent<CharacterMotor>();
         status = GetComponent<Status>();
+        pickupEventHandler = GetComponent<PickupEventHandler>();
     }
 
     void Update()
