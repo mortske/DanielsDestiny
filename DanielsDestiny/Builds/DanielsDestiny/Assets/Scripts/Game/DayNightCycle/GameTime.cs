@@ -47,6 +47,8 @@ public class GameTime : MonoBehaviour {
     private float _temperature = 0;
     public float _scaledTemperature;
 
+	int TotalTimePassed = 0;
+
     void Awake()
     {
         instance = this;
@@ -95,7 +97,7 @@ public class GameTime : MonoBehaviour {
 			sun[cnt].Rotate(new Vector3(_degreeRotation, 0, 0)*Time.deltaTime);
 		
 		_timeOfDay += Time.deltaTime;
-		
+		TotalTimePassed ++;
 		if(_timeOfDay > _dayCycleInSeconds)
 			_timeOfDay -= _dayCycleInSeconds;
 		
@@ -199,4 +201,8 @@ public class GameTime : MonoBehaviour {
     	get{return _timeOfDay;}
     	set{_timeOfDay = value;}
     }
+	public void SaveTime()
+	{
+		HighScore.instance.SaveScore(TotalTimePassed);
+	}
 }
