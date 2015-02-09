@@ -123,7 +123,8 @@ public class MenuScript : MonoBehaviour {
 		ResetCanvas(CanvasList);
 		canBePaused = true;
 		PauseTest.isPaused = false;
-		Application.LoadLevel(1);
+		//Application.LoadLevel(1);
+        LoadingScreen.instance.Load(1);
 		//returnToMenu = false;
 		//Start Game
 	}

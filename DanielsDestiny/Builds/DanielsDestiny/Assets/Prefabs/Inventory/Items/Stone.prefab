@@ -127,10 +127,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   usable: 0
-  spriteNeutral: {fileID: 21300002, guid: 8b72f051f47ecb9418eedd8dc7974f76, type: 3}
-  spriteHighlighted: {fileID: 21300002, guid: 8b72f051f47ecb9418eedd8dc7974f76, type: 3}
+  spriteNeutral: {fileID: 21300000, guid: f31b05ad00745564fa66c848b5fd67b3, type: 3}
+  spriteHighlighted: {fileID: 21300000, guid: c07adfefbdabe5943ad38f4b33b26ecd, type: 3}
   maxSize: 10
   curSize: 1
+  selected: 0
 --- !u!135 &13525052
 SphereCollider:
   m_ObjectHideFlags: 1
