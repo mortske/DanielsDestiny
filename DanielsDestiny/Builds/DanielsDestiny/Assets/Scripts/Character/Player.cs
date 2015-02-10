@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    void ToggleInventory()
+    public void ToggleInventory()
     {
         if (!PauseSystem.IsPaused && !inventory.enabled)
         {

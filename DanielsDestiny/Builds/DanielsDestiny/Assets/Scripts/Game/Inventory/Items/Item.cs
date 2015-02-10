@@ -5,6 +5,7 @@ using System.Collections;
 public class Item : MonoBehaviour 
 {
     public bool usable;
+	public bool constructable;
 	public Sprite spriteNeutral;
 	public Sprite spriteHighlighted;
 	public int maxSize;

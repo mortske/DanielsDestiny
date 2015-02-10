@@ -93,7 +93,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 		GetComponent<Button>().spriteState = st;
 	}
 	
-	private void UseItem()
+	public void UseItem()
 	{
 		if(!isEmpty)
 		{

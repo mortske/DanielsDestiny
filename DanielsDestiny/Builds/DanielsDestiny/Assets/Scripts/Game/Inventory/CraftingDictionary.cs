@@ -17,11 +17,17 @@ public class CraftingDictionary : MonoBehaviour
 	private int allTrue;
 	private bool foundRecepie;
 	private Inventory inv;
+	private Player player;
+
+	private bool placeItem;
+	private GameObject tmpPlacingObject;
+	private Vector3 tmpPosition;
 
 	void Start ()
 	{
 		selectedItems = new List<Slot>();
 		inv = GameObject.Find("Inventory").GetComponent<Inventory>();
+		player = GameObject.Find("Player").GetComponent<Player>();
 	}
 
 	void Update()
@@ -29,6 +35,59 @@ public class CraftingDictionary : MonoBehaviour
 		if(Input.GetKeyUp(KeyCode.C))
 		{
 			CheckRecepies();
+		}
+
+		if(Input.GetKeyUp(KeyCode.P))
+		{
+			PlaceItem();
+		}
+
+		if(placeItem)
+		{
+			if(tmpPlacingObject != null)
+			{
+				RaycastHit hit;
+				int layerMask = 1 << 10;
+				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+				if (Physics.Raycast(ray, out hit, 12, layerMask))
+				{
+					tmpPlacingObject.transform.position = new Vector3(hit.point.x, hit.point.y  + (tmpPlacingObject.transform.localScale.y / 2), hit.point.z);
+				}
+				if(Input.GetMouseButtonDown(0))
+				{
+					Player.instance.curBiome.AddWorldDrop(tmpPlacingObject);
+					placeItem = false;
+					tmpPlacingObject.GetComponentInChildren<Item>().selected = false;
+					selectedItems[0].CurrentItem.selected = false;
+					selectedItems[0].RemoveItem();
+					ClearSelectedItem();
+
+				}
+				else if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.I))
+				{
+					Destroy(tmpPlacingObject);
+					ClearSelectedItem();
+				}
+			}
+		}
+
+	}
+
+	public void PlaceItem()
+	{
+		if(selectedItems.Count == 1 && selectedItems[0].CurrentItem.constructable)
+		{
+			tmpPlacingObject = (GameObject)Instantiate(selectedItems[0].CurrentItem.transform.parent.gameObject);
+			tmpPlacingObject.name = selectedItems[0].CurrentItem.transform.parent.name;
+			tmpPlacingObject.SetActive(true);
+			player.ToggleInventory();
+
+			placeItem = true;
+		}
+		else if(selectedItems.Count == 1 && selectedItems[0].CurrentItem.usable)
+		{
+			selectedItems[0].UseItem();
+			
 		}
 	}
 
@@ -47,8 +106,6 @@ public class CraftingDictionary : MonoBehaviour
 			selectedItems.Clear();
 		}
 	}
-
-	//TODO coconut need 2 clicks to get highlighted
 
 	public void CheckRecepies()
 	{
@@ -122,6 +179,7 @@ public class CraftingDictionary : MonoBehaviour
 			ClearSelectedItem();
 		}
 	}
+
 }
 
 [System.Serializable]

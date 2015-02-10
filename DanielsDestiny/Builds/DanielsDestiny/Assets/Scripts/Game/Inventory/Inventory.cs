@@ -13,6 +13,12 @@ public class Inventory : MonoBehaviour {
     public DialougeBoxInv db;
     public CraftingDictionary craftingDictionary;
 
+	private RectTransform craftingButtonRect;
+	public Button craftingButton;
+
+	private RectTransform useButtonRect;
+	public Button useButton;
+
 	public int slots;
 	public int rows;
 	public float slotPaddingLeft, slotPaddingTop;
@@ -100,6 +106,18 @@ public class Inventory : MonoBehaviour {
 
 			}
 		}
+
+		craftingButtonRect = craftingButton.GetComponent<RectTransform>();
+		craftingButtonRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, inventoryWidth / 2);
+		craftingButtonRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize);
+		Debug.Log (inventoryRect.sizeDelta);
+		craftingButtonRect.localPosition = new Vector3(inventoryRect.localPosition.x, inventoryRect.localPosition.y - inventoryHight , 0 );
+
+		useButtonRect = useButton.GetComponent<RectTransform>();
+		useButtonRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, inventoryWidth / 2);
+		useButtonRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize);
+		Debug.Log (inventoryRect.sizeDelta);
+		useButtonRect.localPosition = new Vector3(inventoryRect.localPosition.x + craftingButtonRect.rect.width, inventoryRect.localPosition.y - inventoryHight , 0 );
 	}
 
 	public bool AddItem(Item item)
