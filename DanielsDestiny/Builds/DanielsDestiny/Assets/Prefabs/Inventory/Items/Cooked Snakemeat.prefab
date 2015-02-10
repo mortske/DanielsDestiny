@@ -73,7 +73,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: dbe84c1add1a3a54abbc0b249bba180b, type: 2}
+  - {fileID: 2100000, guid: 427f2c04ba89e0948bc75516ed0ae57f, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -127,8 +127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   usable: 1
-  spriteNeutral: {fileID: 21300008, guid: 8b72f051f47ecb9418eedd8dc7974f76, type: 3}
-  spriteHighlighted: {fileID: 21300008, guid: 8b72f051f47ecb9418eedd8dc7974f76, type: 3}
+  spriteNeutral: {fileID: 21300000, guid: 138d3905cde4c4d4c95ba37892965721, type: 3}
+  spriteHighlighted: {fileID: 21300000, guid: bc976075e7a72574f95faee776910452, type: 3}
   maxSize: 5
   curSize: 1
   selected: 0
