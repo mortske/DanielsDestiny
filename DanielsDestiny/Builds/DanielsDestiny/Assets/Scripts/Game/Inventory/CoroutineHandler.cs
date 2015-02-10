@@ -67,9 +67,6 @@ public class CoroutineHandler : MonoBehaviour
         int dropCount = db.cur;
         int leaveCount = Inventory.from.Items.Count - dropCount;
 
-        Debug.Log(dropCount);
-        Debug.Log(leaveCount);
-
         if (dropCount > 0)
         {
             GameObject go = (GameObject)Instantiate(Inventory.from.CurrentItem.transform.parent.gameObject, Player.instance.transform.position, Quaternion.identity);
