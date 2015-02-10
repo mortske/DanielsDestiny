@@ -46,7 +46,6 @@ GameObject:
   - 222: {fileID: 22211486}
   - 114: {fileID: 11411468}
   - 114: {fileID: 11411470}
-  - 114: {fileID: 11411466}
   m_Layer: 5
   m_Name: Pause_Resume
   m_TagString: Untagged
@@ -65,7 +64,6 @@ GameObject:
   - 222: {fileID: 22211488}
   - 114: {fileID: 11411474}
   - 114: {fileID: 11411476}
-  - 114: {fileID: 11411472}
   m_Layer: 5
   m_Name: Pause_MainMenu
   m_TagString: Untagged
@@ -152,7 +150,6 @@ GameObject:
   - 222: {fileID: 22211498}
   - 114: {fileID: 11411488}
   - 114: {fileID: 11411490}
-  - 114: {fileID: 11411486}
   m_Layer: 5
   m_Name: Pause_Quit
   m_TagString: Untagged
@@ -188,7 +185,6 @@ GameObject:
   - 222: {fileID: 22211502}
   - 114: {fileID: 11411496}
   - 114: {fileID: 11411498}
-  - 114: {fileID: 11411494}
   m_Layer: 5
   m_Name: Pause_HowToPlay
   m_TagString: Untagged
@@ -207,7 +203,6 @@ GameObject:
   - 222: {fileID: 22211504}
   - 114: {fileID: 11411502}
   - 114: {fileID: 11411504}
-  - 114: {fileID: 11411500}
   m_Layer: 5
   m_Name: Pause_Settings
   m_TagString: Untagged
@@ -278,17 +273,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &11411466
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 111486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b63b665f00d3c34ca3dddd98a861fe4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11411468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -349,7 +333,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11411466}
+      - m_Target: {fileID: 0}
         m_MethodName: PauseResume
         m_Mode: 1
         m_Arguments:
@@ -363,17 +347,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &11411472
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 111488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b63b665f00d3c34ca3dddd98a861fe4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11411474
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -434,7 +407,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11411472}
+      - m_Target: {fileID: 0}
         m_MethodName: PauseMenu
         m_Mode: 1
         m_Arguments:
@@ -552,17 +525,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Main Menu
---- !u!114 &11411486
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 111498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b63b665f00d3c34ca3dddd98a861fe4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11411488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -623,7 +585,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11411486}
+      - m_Target: {fileID: 0}
         m_MethodName: PauseQuit
         m_Mode: 1
         m_Arguments:
@@ -658,17 +620,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11411494
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 111502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b63b665f00d3c34ca3dddd98a861fe4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11411496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -729,7 +680,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11411494}
+      - m_Target: {fileID: 0}
         m_MethodName: PauseHowToPlay
         m_Mode: 1
         m_Arguments:
@@ -743,17 +694,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &11411500
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 111504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b63b665f00d3c34ca3dddd98a861fe4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11411502
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -814,7 +754,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11411500}
+      - m_Target: {fileID: 0}
         m_MethodName: PauseSettings
         m_Mode: 1
         m_Arguments:

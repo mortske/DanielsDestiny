@@ -41,7 +41,13 @@ public class Status : MonoBehaviour
     void Update()
     {
         if (health.UpdateTick())
+        {
             health.adjustCur(-health.AdjustValue);
+            if (health.cur <= health.min)
+            {
+                Application.LoadLevel(Application.loadedLevel + 1);
+            }
+        }
 
         if (hunger.UpdateTick())
             hunger.adjustCur(-hunger.AdjustValue);
