@@ -80,7 +80,6 @@ GameObject:
   - 222: {fileID: 22214618}
   - 114: {fileID: 11414622}
   - 114: {fileID: 11414620}
-  - 114: {fileID: 11414624}
   m_Layer: 5
   m_Name: HowToPlay_Back
   m_TagString: Untagged
@@ -151,7 +150,6 @@ GameObject:
   - 222: {fileID: 22214624}
   - 114: {fileID: 11414636}
   - 114: {fileID: 11414634}
-  - 114: {fileID: 11414638}
   m_Layer: 5
   m_Name: HowToPlay_Crafting
   m_TagString: Untagged
@@ -240,7 +238,6 @@ GameObject:
   - 222: {fileID: 22214634}
   - 114: {fileID: 11414654}
   - 114: {fileID: 11414652}
-  - 114: {fileID: 11414656}
   m_Layer: 5
   m_Name: HowToPlay_Controls
   m_TagString: Untagged
@@ -276,7 +273,6 @@ GameObject:
   - 222: {fileID: 22214638}
   - 114: {fileID: 11414662}
   - 114: {fileID: 11414660}
-  - 114: {fileID: 11414664}
   m_Layer: 5
   m_Name: HowToPlay_Interaction
   m_TagString: Untagged
@@ -558,7 +554,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11414624}
+      - m_Target: {fileID: 0}
         m_MethodName: HowToPlayBack
         m_Mode: 1
         m_Arguments:
@@ -593,17 +589,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11414624
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 114618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b63b665f00d3c34ca3dddd98a861fe4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11414626
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -727,7 +712,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11414638}
+      - m_Target: {fileID: 0}
         m_MethodName: HowToPlayCraftingInfo
         m_Mode: 1
         m_Arguments:
@@ -762,17 +747,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11414638
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 114626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b63b665f00d3c34ca3dddd98a861fe4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11414640
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -983,7 +957,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11414638}
+      - m_Target: {fileID: 0}
         m_MethodName: HowToPlayControlsInfo
         m_Mode: 1
         m_Arguments:
@@ -1018,17 +992,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11414656
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 114636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b63b665f00d3c34ca3dddd98a861fe4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11414658
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1094,7 +1057,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11414664}
+      - m_Target: {fileID: 0}
         m_MethodName: HowToPlayWorldInteractionInfo
         m_Mode: 1
         m_Arguments:
@@ -1129,17 +1092,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11414664
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 114640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b63b665f00d3c34ca3dddd98a861fe4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11414666
 MonoBehaviour:
   m_ObjectHideFlags: 1

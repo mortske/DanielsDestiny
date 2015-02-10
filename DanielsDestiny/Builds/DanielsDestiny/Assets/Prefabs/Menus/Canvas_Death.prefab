@@ -29,7 +29,6 @@ GameObject:
   - 222: {fileID: 22288620}
   - 114: {fileID: 11488608}
   - 114: {fileID: 11488610}
-  - 114: {fileID: 11488630}
   m_Layer: 5
   m_Name: Death_EndGame
   m_TagString: Untagged
@@ -65,7 +64,6 @@ GameObject:
   - 222: {fileID: 22288624}
   - 114: {fileID: 11488614}
   - 114: {fileID: 11488616}
-  - 114: {fileID: 11488628}
   m_Layer: 5
   m_Name: Death_MainMenu
   m_TagString: Untagged
@@ -101,7 +99,6 @@ GameObject:
   - 222: {fileID: 22288628}
   - 114: {fileID: 11488620}
   - 114: {fileID: 11488622}
-  - 114: {fileID: 11488626}
   m_Layer: 5
   m_Name: Death_LoadGame
   m_TagString: Untagged
@@ -223,7 +220,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11488630}
+      - m_Target: {fileID: 0}
         m_MethodName: DeathEndGame
         m_Mode: 1
         m_Arguments:
@@ -323,7 +320,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11488628}
+      - m_Target: {fileID: 0}
         m_MethodName: DeathMenu
         m_Mode: 1
         m_Arguments:
@@ -423,7 +420,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11488626}
+      - m_Target: {fileID: 0}
         m_MethodName: DeathLoadGame
         m_Mode: 1
         m_Arguments:
@@ -463,39 +460,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Load Game
---- !u!114 &11488626
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 188628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b63b665f00d3c34ca3dddd98a861fe4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11488628
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 188624}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b63b665f00d3c34ca3dddd98a861fe4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &11488630
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 188620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b63b665f00d3c34ca3dddd98a861fe4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &22288620
 CanvasRenderer:
   m_ObjectHideFlags: 1

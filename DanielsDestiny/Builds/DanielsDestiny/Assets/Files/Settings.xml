@@ -3,7 +3,7 @@
   <sound>
     <max>1</max>
     <min>0</min>
-    <cur>0.75</cur>
+    <cur>0</cur>
   </sound>
   <sfx>
     <max>1</max>

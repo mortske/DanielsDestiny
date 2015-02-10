@@ -12,10 +12,35 @@ public class SettingsManager : MonoBehaviour
 
     public SettingStat settings;
 
+    public Slider volumeSlider;
+    public Slider sfxSlider;
+    public Slider sensitivitySlider;
+
     void Awake()
     {
         instance = this;
         Load();
+
+        if (volumeSlider != null)
+        {
+            volumeSlider.maxValue = settings.sound.max;
+            volumeSlider.minValue = settings.sound.min;
+            volumeSlider.value = settings.sound.cur;
+        }
+
+        if (sfxSlider != null)
+        {
+            sfxSlider.maxValue = settings.sfx.max;
+            sfxSlider.minValue = settings.sfx.min;
+            sfxSlider.value = settings.sfx.cur;
+        }
+
+        if (sensitivitySlider != null)
+        {
+            sensitivitySlider.maxValue = settings.mouseSensitivity.max;
+            sensitivitySlider.minValue = settings.mouseSensitivity.min;
+            sensitivitySlider.value = settings.mouseSensitivity.cur;
+        }
     }
 
     public void Save()
@@ -42,19 +67,19 @@ public class SettingsManager : MonoBehaviour
         }
     }
 
-    public void SaveMusicVolume(float _volume)
+    public void SaveMusicVolume(Slider _volume)
     {
-        settings.sound.cur = _volume;
+        settings.sound.cur = _volume.value;
     }
 
-    public void SaveSFXVolume(float _volume)
+    public void SaveSFXVolume(Slider _volume)
     {
-        settings.sfx.cur = _volume;
+        settings.sfx.cur = _volume.value;
     }
 
-    public void SaveMouseSensitivity(float _sensitivity)
+    public void SaveMouseSensitivity(Slider _sensitivity)
     {
-        settings.mouseSensitivity.cur = _sensitivity;
+        settings.mouseSensitivity.cur = _sensitivity.value;
     }
 }
 
