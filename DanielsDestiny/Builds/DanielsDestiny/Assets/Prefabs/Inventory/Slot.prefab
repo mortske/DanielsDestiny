@@ -72,8 +72,8 @@ MonoBehaviour:
   onMouseHover: 0
   itemNameBox: {fileID: 0}
   stackTxt: {fileID: 11462176}
-  slotEmpty: {fileID: 21300000, guid: 6a81bce641bccf448b40f54286e1f179, type: 3}
-  slotHighlight: {fileID: 21300000, guid: f938e6cdf55bb904cb40747a41ef6bf2, type: 3}
+  slotEmpty: {fileID: 21300000, guid: 9a360c56eae206c4fb4ad0bb5d3cfa62, type: 3}
+  slotHighlight: {fileID: 21300000, guid: 58f415679e69a594cb4009301c8e2d3b, type: 3}
 --- !u!114 &11462176
 MonoBehaviour:
   m_ObjectHideFlags: 1
