@@ -39,7 +39,7 @@ public class CraftingDictionary : MonoBehaviour
 
 		if(Input.GetKeyUp(KeyCode.P))
 		{
-			PlaceItem();
+			UseItem();
 		}
 
 		if(placeItem)
@@ -73,7 +73,7 @@ public class CraftingDictionary : MonoBehaviour
 
 	}
 
-	public void PlaceItem()
+	public void UseItem()
 	{
 		if(selectedItems.Count == 1 && selectedItems[0].CurrentItem.constructable)
 		{

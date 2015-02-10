@@ -110,13 +110,11 @@ public class Inventory : MonoBehaviour {
 		craftingButtonRect = craftingButton.GetComponent<RectTransform>();
 		craftingButtonRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, inventoryWidth / 2);
 		craftingButtonRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize);
-		Debug.Log (inventoryRect.sizeDelta);
 		craftingButtonRect.localPosition = new Vector3(inventoryRect.localPosition.x, inventoryRect.localPosition.y - inventoryHight , 0 );
 
 		useButtonRect = useButton.GetComponent<RectTransform>();
 		useButtonRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, inventoryWidth / 2);
 		useButtonRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize);
-		Debug.Log (inventoryRect.sizeDelta);
 		useButtonRect.localPosition = new Vector3(inventoryRect.localPosition.x + craftingButtonRect.rect.width, inventoryRect.localPosition.y - inventoryHight , 0 );
 	}
 
