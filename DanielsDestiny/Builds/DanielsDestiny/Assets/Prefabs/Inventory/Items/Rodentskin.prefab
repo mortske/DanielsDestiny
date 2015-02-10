@@ -183,8 +183,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   usable: 0
-  spriteNeutral: {fileID: 21300004, guid: 8b72f051f47ecb9418eedd8dc7974f76, type: 3}
-  spriteHighlighted: {fileID: 21300004, guid: 8b72f051f47ecb9418eedd8dc7974f76, type: 3}
+  spriteNeutral: {fileID: 21300000, guid: 315110825ce221a46bfea0b5a8a5868b, type: 3}
+  spriteHighlighted: {fileID: 21300000, guid: 1031b5ab3f24eee40be7aaeaa040a755, type: 3}
   maxSize: 10
   curSize: 1
   selected: 0

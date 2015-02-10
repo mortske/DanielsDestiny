@@ -138,10 +138,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41e9a3eb223555443affde403e21407f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteNeutral: {fileID: 21300000, guid: 5be0abdc05b939b48a7e7f6035ed6386, type: 3}
-  spriteHighlighted: {fileID: 21300000, guid: 4a8dbb433e976454eab081290ba1c9d7, type: 3}
+  usable: 0
+  spriteNeutral: {fileID: 21300000, guid: 7afc51f6b82a8194ebf37f8a7b3798a4, type: 3}
+  spriteHighlighted: {fileID: 21300000, guid: ba82df37dd46635459e8d6c81123fcdd, type: 3}
   maxSize: 10
   curSize: 1
+  selected: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

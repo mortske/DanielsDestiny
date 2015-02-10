@@ -11,6 +11,7 @@ public class Inventory : MonoBehaviour {
 
     public bool enabled { get; set; }
     public DialougeBoxInv db;
+    public CraftingDictionary craftingDictionary;
 
 	public int slots;
 	public int rows;
@@ -39,7 +40,6 @@ public class Inventory : MonoBehaviour {
 		CreateLayout();
         transform.parent.GetComponent<Canvas>().enabled = enabled;
 	}
-	
 
 	void Update () 
 	{
@@ -100,8 +100,6 @@ public class Inventory : MonoBehaviour {
 
 			}
 		}
-
-
 	}
 
 	public bool AddItem(Item item)

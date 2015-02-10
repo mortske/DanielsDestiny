@@ -122,7 +122,6 @@ public class CraftingDictionary : MonoBehaviour
 			ClearSelectedItem();
 		}
 	}
-
 }
 
 [System.Serializable]
