@@ -52,7 +52,7 @@ public class HighScore : MonoBehaviour {
 					{
 						for(int x = 0; x < 5; x++)
 						{
-							save.TimeSurvived[i][x] = SurviveTime[x];
+							save.TimeSurvived[9][x] = SurviveTime[x];
 						}
 					}
 				}
@@ -95,6 +95,62 @@ public class HighScore : MonoBehaviour {
 			}
 			save.TimeSurvived = arr;
 		}
+		SortSave();
+	}
+	void SortSave()
+	{
+		int s = save.TimeSurvived.Length-1;
+		int tmp = 999999999;
+		int savedX = 0;
+		List<int> takenInts = new List<int>();
+		int[][] tmpHigh = new int[save.TimeSurvived.Length][];
+		
+		for (int c = 0; c < save.TimeSurvived.Length; c++)
+		{
+			tmpHigh[c] = new int[5];
+		}
+		
+		for(int x = 0; x < save.TimeSurvived.Length; x++)
+		{
+			for(int y = 0; y < save.TimeSurvived.Length; y++)
+			{
+				if(takenInts.Count > 0)
+				{
+					int used = 0;
+					for(int t = 0; t < takenInts.Count; t++)
+					{
+						if(y == takenInts[t])
+						{
+							used++;
+						}
+					}
+					if(used == 0)
+					{
+						if(save.TimeSurvived[y][4] < tmp)
+						{
+							tmp = save.TimeSurvived[y][4];
+							savedX = y;
+						}
+					}
+				}
+				else
+				{
+					if(save.TimeSurvived[y][4] < tmp)
+					{
+						tmp = save.TimeSurvived[y][4];
+						savedX = y;
+					}
+				}
+			}
+			takenInts.Add(savedX);
+			for(int a = 0; a < 5; a++)
+			{
+				tmpHigh[s][a] = save.TimeSurvived[savedX][a];
+			}
+			s--;
+			tmp = 999999999;
+		}
+		save.TimeSurvived = tmpHigh;
 		Save();
 	}
 	void Save()
@@ -112,11 +168,6 @@ public class HighScore : MonoBehaviour {
 			XmlSerializer x = new System.Xml.Serialization.XmlSerializer(save.GetType());
 			save = x.Deserialize(sr) as SaveHighscore;
 			sr.Close();
-		}
-		else
-		{
-			Directory.CreateDirectory("Assets/Files/");
-			File.Create(path);
 		}
 	}
 	public int[][] GetScore()
