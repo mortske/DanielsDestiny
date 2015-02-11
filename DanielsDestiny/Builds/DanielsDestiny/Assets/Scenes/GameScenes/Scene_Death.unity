@@ -163,6 +163,7 @@ RectTransform:
   - {fileID: 1301847309}
   - {fileID: 927832820}
   - {fileID: 1393699996}
+  - {fileID: 1485012448}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
@@ -323,7 +324,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -438,7 +439,6 @@ GameObject:
   - 222: {fileID: 927832824}
   - 114: {fileID: 927832823}
   - 114: {fileID: 927832822}
-  - 114: {fileID: 927832821}
   m_Layer: 5
   m_Name: Death_MainMenu
   m_TagString: Untagged
@@ -465,18 +465,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 32}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: .5, y: .5}
---- !u!114 &927832821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11488628, guid: 1364b9413b2c8a74b939d3bc749ea6ad,
-    type: 2}
-  m_PrefabInternal: {fileID: 363290461}
-  m_GameObject: {fileID: 927832819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b63b665f00d3c34ca3dddd98a861fe4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &927832822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -517,7 +505,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 927832821}
+      - m_Target: {fileID: 0}
         m_MethodName: DeathMenu
         m_Mode: 1
         m_Arguments:
@@ -571,7 +559,6 @@ GameObject:
   - 222: {fileID: 1301847313}
   - 114: {fileID: 1301847312}
   - 114: {fileID: 1301847311}
-  - 114: {fileID: 1301847310}
   m_Layer: 5
   m_Name: Death_EndGame
   m_TagString: Untagged
@@ -598,18 +585,6 @@ RectTransform:
   m_AnchoredPosition: {x: 180, y: 32}
   m_SizeDelta: {x: 161, y: 30}
   m_Pivot: {x: .5, y: .5}
---- !u!114 &1301847310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11488630, guid: 1364b9413b2c8a74b939d3bc749ea6ad,
-    type: 2}
-  m_PrefabInternal: {fileID: 363290461}
-  m_GameObject: {fileID: 1301847308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b63b665f00d3c34ca3dddd98a861fe4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1301847311
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -650,7 +625,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1301847310}
+      - m_Target: {fileID: 0}
         m_MethodName: DeathEndGame
         m_Mode: 1
         m_Arguments:
@@ -704,7 +679,6 @@ GameObject:
   - 222: {fileID: 1393700000}
   - 114: {fileID: 1393699999}
   - 114: {fileID: 1393699998}
-  - 114: {fileID: 1393699997}
   m_Layer: 5
   m_Name: Death_LoadGame
   m_TagString: Untagged
@@ -731,18 +705,6 @@ RectTransform:
   m_AnchoredPosition: {x: -180, y: 32}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: .5, y: .5}
---- !u!114 &1393699997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11488626, guid: 1364b9413b2c8a74b939d3bc749ea6ad,
-    type: 2}
-  m_PrefabInternal: {fileID: 363290461}
-  m_GameObject: {fileID: 1393699995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b63b665f00d3c34ca3dddd98a861fe4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1393699998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -783,7 +745,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1393699997}
+      - m_Target: {fileID: 0}
         m_MethodName: DeathLoadGame
         m_Mode: 1
         m_Arguments:
@@ -826,6 +788,72 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 363290461}
   m_GameObject: {fileID: 1393699995}
+--- !u!1 &1485012447
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1485012448}
+  - 222: {fileID: 1485012450}
+  - 114: {fileID: 1485012449}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1485012448
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1485012447}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 294532974}
+  m_RootOrder: 3
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 0, y: -.00234990008}
+  m_SizeDelta: {x: 800, y: 449.929993}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &1485012449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1485012447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 41
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Daniel Has Perished
+--- !u!222 &1485012450
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1485012447}
 --- !u!1 &1741897310
 GameObject:
   m_ObjectHideFlags: 0
