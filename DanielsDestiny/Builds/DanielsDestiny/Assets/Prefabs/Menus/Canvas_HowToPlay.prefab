@@ -1407,7 +1407,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
 --- !u!223 &22314612
 Canvas:
   m_ObjectHideFlags: 1
@@ -1578,7 +1578,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: 1}
   m_AnchorMax: {x: .5, y: 1}
   m_AnchoredPosition: {x: 0, y: -161}
-  m_SizeDelta: {x: 200, y: 200}
+  m_SizeDelta: {x: 517.200012, y: 200}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22414624
 RectTransform:
@@ -1673,7 +1673,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: 1}
   m_AnchorMax: {x: .5, y: 1}
   m_AnchoredPosition: {x: 0, y: -161}
-  m_SizeDelta: {x: 300, y: 200}
+  m_SizeDelta: {x: 517.200012, y: 200}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22414634
 RectTransform:
