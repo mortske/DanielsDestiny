@@ -14,6 +14,14 @@ public class CraftingDictionary : MonoBehaviour
 		set { selectedItems = value; }
 	}
 
+	private static bool insideArea;
+
+	public static bool InsideArea 
+	{
+		get {return insideArea;}
+		set {insideArea = value;}
+	}
+
 	private int allTrue;
 	private bool foundRecepie;
 	private Inventory inv;
@@ -75,9 +83,13 @@ public class CraftingDictionary : MonoBehaviour
 
 			placeItem = true;
 		}
+		else if(selectedItems.Count == 1 && insideArea && selectedItems[0].CurrentItem.usable)
+		{
+			CheckRecepies();
+		}
 		else
 		{
-			Debug.Log ("You cant use that item, try to eat it maybe.");
+			Debug.Log ("You cant use that item, try to Eat/Drink it maybe.");
 			ClearSelectedItem();
 		}
 
@@ -89,6 +101,19 @@ public class CraftingDictionary : MonoBehaviour
 		{
 			selectedItems[0].UseItem();
 			
+		}
+	}
+
+	public void CraftItems()
+	{
+		if(selectedItems.Count >= 2)
+		{
+			CheckRecepies();
+		}
+		else
+		{
+			Debug.Log ("You cant craft anything from 1 item, try Use or Eat/Drink it");
+			ClearSelectedItem();
 		}
 	}
 
@@ -108,7 +133,7 @@ public class CraftingDictionary : MonoBehaviour
 		}
 	}
 
-	public void CheckRecepies()
+	private void CheckRecepies()
 	{
 		foreach (Recepie rec in recepies) 
 		{
@@ -166,6 +191,8 @@ public class CraftingDictionary : MonoBehaviour
 					}
 				}
 			}
+			if(foundRecepie)
+				break;
 		}
 		
 		if(foundRecepie)
