@@ -55,7 +55,7 @@ public class CraftingDictionary : MonoBehaviour
 				}
 				if(Input.GetMouseButtonDown(0))
 				{
-					Player.instance.curBiome.AddWorldDrop(tmpPlacingObject);
+					//Player.instance.curBiome.AddWorldDrop(tmpPlacingObject);
 					placeItem = false;
 					tmpPlacingObject.GetComponentInChildren<Item>().selected = false;
 					selectedItems[0].CurrentItem.selected = false;

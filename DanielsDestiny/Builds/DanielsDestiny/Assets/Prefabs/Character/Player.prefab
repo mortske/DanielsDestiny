@@ -184,7 +184,7 @@ MonoBehaviour:
     min: 0
     cur: 100
     tickTimer: 1
-    baseAdjustValue: 1
+    baseAdjustValue: .300000012
     affectedBy: []
   fatigue:
     max: 0
@@ -196,7 +196,7 @@ MonoBehaviour:
   hunger:
     max: 100
     min: 0
-    cur: 50
+    cur: 100
     tickTimer: 1
     baseAdjustValue: 0
     affectedBy: []
@@ -275,6 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 0}
+  curBiome: {fileID: 0}
 --- !u!124 &12484178
 Behaviour:
   m_ObjectHideFlags: 1
