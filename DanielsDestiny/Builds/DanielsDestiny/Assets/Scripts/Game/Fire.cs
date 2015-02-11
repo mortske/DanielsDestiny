@@ -13,6 +13,7 @@ public class Fire : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+			CraftingDictionary.InsideArea = true;
             myCooling = 0;
             StartCoroutine(HeatUp());
         }
@@ -31,7 +32,8 @@ public class Fire : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         if (other.tag == "Player")
-        {
+		{
+			CraftingDictionary.InsideArea = false;
             StopAllCoroutines();
             StartCoroutine(CoolDown());
         }
