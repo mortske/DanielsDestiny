@@ -45,6 +45,8 @@ public class Status : MonoBehaviour
             health.adjustCur(-health.AdjustValue);
             if (health.cur <= health.min)
             {
+				GameTime.instance.SaveTime();
+				BiomeManager.instance.SaveGame();
                 Application.LoadLevel(Application.loadedLevel + 1);
             }
         }
