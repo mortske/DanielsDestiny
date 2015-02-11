@@ -113,16 +113,11 @@ public class HighScore : MonoBehaviour {
 			save = x.Deserialize(sr) as SaveHighscore;
 			sr.Close();
 		}
-		else
-		{
-			Directory.CreateDirectory("Assets/Files/");
-			File.Create(path);
-		}
 	}
-	public int[][] GetScore()
+	public SaveHighscore GetScore()
 	{
 		Load();
-		return save.TimeSurvived;
+		return save;
 	}
 }
 [System.Serializable]
