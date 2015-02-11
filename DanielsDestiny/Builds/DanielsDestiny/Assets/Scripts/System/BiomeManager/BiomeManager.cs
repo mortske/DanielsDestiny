@@ -31,12 +31,11 @@ public class BiomeManager : MonoBehaviour {
 		{
 			LoadBiomes();
 		}
-		if(Input.GetKeyUp(KeyCode.Comma))
-		{
-			string tmpString = "";
-			List<ItemSaveType> tmpList = inventorY.GetInventory();
-			SaveInventory(tmpList);
-		}
+	}
+	public void SaveGame()
+	{
+		List<ItemSaveType> tmpList = inventorY.GetInventory();
+		SaveInventory(tmpList);
 	}
 	void LoadBiomes()
 	{
@@ -68,7 +67,7 @@ public class BiomeManager : MonoBehaviour {
 		x.Serialize(sw, save);
 		sw.Close();
 	}
-	public void SaveInventory(List<ItemSaveType> s)
+	void SaveInventory(List<ItemSaveType> s)
 	{
 		for(int i = 0; i < s.Count; i++)
 		{

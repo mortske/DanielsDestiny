@@ -170,10 +170,10 @@ public class HighScore : MonoBehaviour {
 			sr.Close();
 		}
 	}
-	public int[][] GetScore()
+	public SaveHighscore GetScore()
 	{
 		Load();
-		return save.TimeSurvived;
+		return save;
 	}
 }
 [System.Serializable]
