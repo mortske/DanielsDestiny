@@ -60,6 +60,8 @@ public class MenuScript : MonoBehaviour {
 			InfoCanvasList.Add(interactionCanvas = GameObject.Find("Canvas_HowToPlay_Interaction").GetComponent<Canvas>());
 			ChangeCanvas(menuCanvas);
 			ResetCanvas(InfoCanvasList);
+		} else if(Application.loadedLevel == 2) {
+			CanvasList.Add(deathCanvas = GameObject.Find("Canvas_Death").GetComponent<Canvas>());
 		} else {
 			areYouSureCanvas = GameObject.Find("Canvas_AreYouSure").GetComponent<Canvas>();
             
@@ -232,7 +234,7 @@ public class MenuScript : MonoBehaviour {
 	
 	#region Death Buttons
 	public void DeathMenu () {
-		//Load the first level
+		Application.LoadLevel(0);
 	}
 	
 	public void DeathLoadGame () {
@@ -240,7 +242,7 @@ public class MenuScript : MonoBehaviour {
 	}
 	
 	public void DeathEndGame () {
-		//End the Game
+		Application.Quit();
 	}
 	#endregion
 
