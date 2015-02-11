@@ -32,15 +32,6 @@ public class CraftingDictionary : MonoBehaviour
 
 	void Update()
 	{
-		if(Input.GetKeyUp(KeyCode.C))
-		{
-			CheckRecepies();
-		}
-
-		if(Input.GetKeyUp(KeyCode.P))
-		{
-			UseItem();
-		}
 
 		if(placeItem)
 		{
@@ -84,7 +75,17 @@ public class CraftingDictionary : MonoBehaviour
 
 			placeItem = true;
 		}
-		else if(selectedItems.Count == 1 && selectedItems[0].CurrentItem.usable)
+		else
+		{
+			Debug.Log ("You cant use that item, try to eat it maybe.");
+			ClearSelectedItem();
+		}
+
+	}
+
+	public void EatItem()
+	{
+		if(selectedItems.Count == 1 && selectedItems[0].CurrentItem.usable)
 		{
 			selectedItems[0].UseItem();
 			

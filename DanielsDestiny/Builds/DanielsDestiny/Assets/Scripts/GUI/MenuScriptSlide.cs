@@ -44,7 +44,6 @@ public class MenuScriptSlide : MonoBehaviour {
 	IEnumerator slideObject (RectTransform _selectedObject, Vector3 _origin, Vector3 _destination, float _timer, float _timerSpeed) {
 		_timer = 0;
 		while(_timer < 1) {
-			print (_timer);
 			_selectedObject.transform.localPosition = Vector3.Lerp(_origin, _destination, _timer);
 			_timer += Time.deltaTime * _timerSpeed;
 			yield return null;

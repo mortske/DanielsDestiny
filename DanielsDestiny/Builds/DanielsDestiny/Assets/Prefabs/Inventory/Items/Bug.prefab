@@ -681,7 +681,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70916751c16fd344f81a3c4eaaf20ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usable: 0
+  usable: 1
+  constructable: 0
   spriteNeutral: {fileID: 21300000, guid: 9e3875c5dff1de64cad435ca8b6408a3, type: 3}
   spriteHighlighted: {fileID: 21300000, guid: 7475f98480cdfe444aab34073c8759ed, type: 3}
   maxSize: 50
