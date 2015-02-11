@@ -143,12 +143,10 @@ public class HighScore : MonoBehaviour {
 				}
 			}
 			takenInts.Add(savedX);
-			Debug.Log(savedX + " Length of array: " + tmpHigh.Length + " Saved: " + save.TimeSurvived.Length);
 			for(int a = 0; a < 5; a++)
 			{
 				tmpHigh[s][a] = save.TimeSurvived[savedX][a];
 			}
-			Debug.Log("Taken ints: " + takenInts.Count + "tmpHigh" + tmpHigh[s][4]);
 			s--;
 			tmp = 999999999;
 		}
