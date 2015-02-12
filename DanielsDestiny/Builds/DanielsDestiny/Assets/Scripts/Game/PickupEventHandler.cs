@@ -6,8 +6,6 @@ using System.Collections.Generic;
 public class PickupEventHandler : MonoBehaviour 
 {
     public List<Item> itemQueue;
-    public Canvas infobox;
-    public Text infoBoxText;
 
     void Update()
     {
@@ -45,12 +43,11 @@ public class PickupEventHandler : MonoBehaviour
     void ShowInfoBox()
     {
         Item i = itemQueue[0];
-        infoBoxText.text = "Press \"PickupKey\" to pickup " + i.Name + " x" + i.curSize;
-        infobox.gameObject.SetActive(true);
+        OnScreenInformationbox.instance.ShowBox("Press \"PickupKey\" to pickup " + i.Name + " x" + i.curSize);
     }
 
     void HideInfoBox()
     {
-        infobox.gameObject.SetActive(false);
+        OnScreenInformationbox.instance.HideBox();
     }
 }
