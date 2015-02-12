@@ -205,7 +205,7 @@ public class Inventory : MonoBehaviour {
 				equipTmp.AddItem(eq);
 			}
 			equipTmp.ChangeSprite(eq.spriteHighlighted, eq.spriteHighlighted);
-			
+            Player.instance.curEquipment = eq;
 		}
 	}
 
