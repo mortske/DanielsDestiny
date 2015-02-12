@@ -41,6 +41,7 @@ public class SettingsManager : MonoBehaviour
             sensitivitySlider.minValue = settings.mouseSensitivity.min;
             sensitivitySlider.value = settings.mouseSensitivity.cur;
         }
+        Save();
     }
 
     public void Save()
@@ -63,7 +64,17 @@ public class SettingsManager : MonoBehaviour
         else
         {
             Directory.CreateDirectory("Assets/Files/");
-            File.Create(path);
+            settings.sound.max = 1;
+            settings.sound.min = 0;
+            settings.sound.cur = 1;
+
+            settings.sfx.max = 1;
+            settings.sfx.min = 0;
+            settings.sfx.cur = 1;
+
+            settings.mouseSensitivity.max = 50;
+            settings.mouseSensitivity.min = 1;
+            settings.mouseSensitivity.cur = 15;
         }
     }
 

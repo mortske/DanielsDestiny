@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        Screen.showCursor = false;
+
         mouseLook = GetComponent<MouseLook>();
         motor = GetComponent<CharacterMotor>();
         status = GetComponent<Status>();

@@ -12,8 +12,11 @@ public class Sun : MonoBehaviour {
 	public bool giveLight = false;
 	
 	void Start(){
-		if(GetComponent<Light>() != null)
+		if(GetComponent<Light>() != null){
 			giveLight = true;
+			OnDaySwitch(false);
+		}
+			
 	}
 	void OnEnable()
 	{
