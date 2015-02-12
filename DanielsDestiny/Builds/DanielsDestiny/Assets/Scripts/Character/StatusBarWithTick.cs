@@ -10,7 +10,6 @@ public class StatusBarWithTick : StatusBar
     float curTick;
     public float baseAdjustValue;
     public AffectedByStatus[] affectedBy;
-    //public StatusWarning[] statusWarnings;
 
     public float AdjustValue
     {
