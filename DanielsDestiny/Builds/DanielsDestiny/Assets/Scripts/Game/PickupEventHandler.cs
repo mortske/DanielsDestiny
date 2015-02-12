@@ -15,8 +15,11 @@ public class PickupEventHandler : MonoBehaviour
             {
                 if (Input.GetButtonDown("Pickup"))
                 {
-                    RemoveItemFromList(itemQueue[0], true);
-                }
+					if(Player.instance.inventory.CheckWeight(itemQueue[0].weight))
+                    	RemoveItemFromList(itemQueue[0], true);
+					else
+						MessageBox.instance.SendMessage("I am carrying too much");
+				}
             }
         }
     }

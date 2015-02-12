@@ -18,6 +18,9 @@ public class Inventory : MonoBehaviour {
 	[HideInInspector]
 	public  GameObject equipSlot;
 
+	public float maxWeight;
+	[HideInInspector] public float currWeight;
+
 	public int slots;
 	public int rows;
 	public float slotPaddingLeft, slotPaddingTop;
@@ -139,11 +142,17 @@ public class Inventory : MonoBehaviour {
 		equipButtonRect.localPosition = new Vector3(inventoryRect.localPosition.x, inventoryRect.localPosition.y - (inventoryHight + slotSize), 0 );
 	}
 
+	public bool CheckWeight(float itemWeight)
+	{
+		return currWeight + itemWeight <= maxWeight;
+	}
+
 	public bool AddItem(Item item)
 	{
 		if(item.maxSize == 1)
 		{
 			PlaceEmpty(item);
+			currWeight = currWeight + item.weight;
 			return true;
 		}
 		else
@@ -157,6 +166,9 @@ public class Inventory : MonoBehaviour {
 					if(tmp.CurrentItem.transform.parent.name == item.transform.parent.name && tmp.IsAvailable)
 					{
 						tmp.AddItem(item);
+						currWeight = currWeight + item.weight;
+						
+						Debug.Log (currWeight);
 						return true;
 					}
 				}
@@ -164,9 +176,9 @@ public class Inventory : MonoBehaviour {
 			if(emptySlots > 0)
 			{
 				PlaceEmpty(item);
+				currWeight = currWeight + item.weight;
 			}
 		}
-
 		return false;
 	}
 
