@@ -25,17 +25,23 @@ public class PauseAttachment : MonoBehaviour {
 	}
 	
 	public static void PauseUnPause () {
-		if(canBePaused && !isInPauseMenu) {
-			isPaused = true;
-			PauseSystem.Pause(true);
-		}
-		if(canBePaused && isInPauseMenu) {
-			isPaused = false;
-			PauseSystem.Pause(false);
-		}
-		if(!canBePaused && isInPauseMenu) {
-			isPaused = false;
-			PauseSystem.Pause(false);
-		}
+        if (!Player.instance.inventory.enabled)
+        {
+            if (canBePaused && !isInPauseMenu)
+            {
+                isPaused = true;
+                PauseSystem.Pause(true);
+            }
+            if (canBePaused && isInPauseMenu)
+            {
+                isPaused = false;
+                PauseSystem.Pause(false);
+            }
+            if (!canBePaused && isInPauseMenu)
+            {
+                isPaused = false;
+                PauseSystem.Pause(false);
+            }
+        }
 	}
 }
