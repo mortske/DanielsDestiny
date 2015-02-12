@@ -11,6 +11,7 @@ public class InstructionGUI : MonoBehaviour {
 	private int currentCanvas;
 
 	#region Canvases
+	private Canvas instructionsTitle;
 	private Canvas healthBar;
 	private Canvas hungerBar;
 	private Canvas fatigueBar;
@@ -31,10 +32,13 @@ public class InstructionGUI : MonoBehaviour {
 		InstructionCanvases.Add(temperatureBar = GameObject.Find("Canvas_TemperatureBar").GetComponent<Canvas>());
 		#endregion
 
+		instructionsTitle = GameObject.Find("Canvas_InstructionsTitle").GetComponent<Canvas>();
+
 		ClearAllCanvases();
 
 		if(!disableInstructionScreen) {
 			StartInstructions();
+			instructionsTitle.enabled = true;
 		}
 	}
 
@@ -67,6 +71,7 @@ public class InstructionGUI : MonoBehaviour {
 		for (int i = 0; i < InstructionCanvases.Count; i++) {
 			InstructionCanvases[i].enabled = false;
 		}
+		instructionsTitle.enabled = false;
 	}
 
 	void EnableDisableCanvases (int _enabled) {
@@ -91,15 +96,16 @@ public class InstructionGUI : MonoBehaviour {
 	}
 
 	void Update () {
-		if(currentCanvas != 6) {
+		print(InstructionCanvases.Count);
+		if(currentCanvas != InstructionCanvases.Count + 1) {
 			if(!disableInstructionScreen) {
 				if(Input.anyKeyDown) {
-					if(currentCanvas <= 4) {
+					if(currentCanvas <= InstructionCanvases.Count - 1) {
 						currentCanvas++;
 						SelectCanvas(currentCanvas);
 					} 
 				}
-				if(currentCanvas == 5) {
+				if(currentCanvas == InstructionCanvases.Count) {
 					currentCanvas++;
 					EndInstructions();
 				}
