@@ -11,6 +11,10 @@ public class Item : MonoBehaviour
 	public int maxSize;
     public int curSize = 1;
 	public bool selected;
+	public float weight;
+
+	[HideInInspector]
+	public bool equipable;
 
     public string Name
     {

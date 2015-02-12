@@ -72,6 +72,15 @@ public class CraftingDictionary : MonoBehaviour
 
 	}
 
+	public void EquipItem()
+	{
+		if(selectedItems.Count == 1)
+		{
+			inv.MoveItemToEquipSlot(selectedItems[0].CurrentItem);
+		}
+		ClearSelectedItem();
+	}
+
 	public void UseItem()
 	{
 		if(selectedItems.Count == 1 && selectedItems[0].CurrentItem.constructable)
