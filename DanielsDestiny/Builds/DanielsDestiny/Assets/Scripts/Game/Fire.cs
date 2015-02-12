@@ -3,11 +3,22 @@ using System.Collections;
 
 public class Fire : MonoBehaviour 
 {
+    public float burnTime;
     public float tickTime;
     public float adjustmentUp;
     public float adjustmentDown;
     public float myCooling;
     public float heatCap;
+
+    void Start()
+    {
+        Invoke("Kill", burnTime);
+    }
+
+    void Kill()
+    {
+        Destroy(gameObject);
+    }
 
     void OnTriggerEnter(Collider other)
     {
