@@ -25,7 +25,7 @@ public class PauseAttachment : MonoBehaviour {
 	}
 	
 	public static void PauseUnPause () {
-        if (!Player.instance.inventory.enabled)
+        if (!Player.instance.inventory.enabled && !InstructionGUI.instructionsAreActive)
         {
             if (canBePaused && !isInPauseMenu)
             {
