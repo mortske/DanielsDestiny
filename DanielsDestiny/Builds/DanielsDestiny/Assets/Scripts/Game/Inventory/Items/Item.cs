@@ -51,6 +51,7 @@ public class Item : MonoBehaviour
         if (Player.instance.curBiome != null)
             Player.instance.curBiome.PickItem(this.transform.parent.gameObject);
         Player player = Player.instance;
+
 		for (int i = 0; i < curSize; i++)
 		{
 			player.inventory.AddItem(this);
@@ -59,5 +60,6 @@ public class Item : MonoBehaviour
 		transform.parent.position = player.transform.position;
 		transform.parent.gameObject.SetActive(false);
 		transform.parent.parent = player.transform;
+		
     }
 }
