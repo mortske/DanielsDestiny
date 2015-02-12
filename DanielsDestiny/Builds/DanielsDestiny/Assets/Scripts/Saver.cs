@@ -17,7 +17,11 @@ public class Saver : MonoBehaviour {
 	void OnTriggerStay(Collider other)
 	{
 		if(other.tag == "Player")
+		{
 			_active = true;
+			MessageBox.instance.SendMessage("Press 'E' To Sleep!");
+		}
+			
 	}
 	void OnTriggerExit(Collider other)
 	{
