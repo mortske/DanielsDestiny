@@ -78,11 +78,4 @@ public enum EqualsTo
     EqualTo
 }
 
-[System.Serializable]
-public struct StatusWarning
-{
-    public string text;
-    public AudioClip sound;
-    public EqualsTo whenEquals;
-    public float byHowMuch;
-}
+
