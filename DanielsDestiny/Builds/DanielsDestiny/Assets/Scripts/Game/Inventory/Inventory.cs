@@ -13,14 +13,10 @@ public class Inventory : MonoBehaviour {
     public DialougeBoxInv db;
     public CraftingDictionary craftingDictionary;
 
-	private RectTransform craftingButtonRect;
-	public Button craftingButton;
-
-	private RectTransform useButtonRect;
-	public Button useButton;
-
-	private RectTransform eatButtonRect;
-	public Button eatButton;
+	private RectTransform craftingButtonRect, useButtonRect, eatButtonRect, equipButtonRect;
+	public Button craftingButton, useButton, eatButton, equipButton;
+	[HideInInspector]
+	public  GameObject equipSlot;
 
 	public int slots;
 	public int rows;
@@ -110,6 +106,18 @@ public class Inventory : MonoBehaviour {
 			}
 		}
 
+		equipSlot = (GameObject)Instantiate(slotPrefab);
+		RectTransform equipRect = equipSlot.GetComponent<RectTransform>();
+		RectTransform canvasRect = canvas.gameObject.GetComponent<RectTransform>();
+		equipSlot.name = "EquipSlot";
+		equipSlot.transform.SetParent(this.transform.parent);
+		equipSlot.GetComponent<Button>().enabled = false;
+		equipSlot.GetComponent<Image>().sprite = equipSlot.GetComponent<Button>().spriteState.highlightedSprite;
+		equipRect.localPosition = new Vector3(inventoryRect.localPosition.x + (inventoryWidth + slotSize), inventoryRect.localPosition.y, 0);
+		
+		equipRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, slotSize);
+		equipRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize);
+
 		craftingButtonRect = craftingButton.GetComponent<RectTransform>();
 		craftingButtonRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, inventoryWidth / 3);
 		craftingButtonRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize);
@@ -124,6 +132,11 @@ public class Inventory : MonoBehaviour {
 		eatButtonRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, inventoryWidth / 3);
 		eatButtonRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize);
 		eatButtonRect.localPosition = new Vector3(inventoryRect.localPosition.x + (craftingButtonRect.rect.width * 2 ), inventoryRect.localPosition.y - inventoryHight , 0 );
+		
+		equipButtonRect = equipButton.GetComponent<RectTransform>();
+		equipButtonRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, inventoryWidth / 2);
+		equipButtonRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize);
+		equipButtonRect.localPosition = new Vector3(inventoryRect.localPosition.x, inventoryRect.localPosition.y - (inventoryHight + slotSize), 0 );
 	}
 
 	public bool AddItem(Item item)
@@ -175,6 +188,25 @@ public class Inventory : MonoBehaviour {
 		}
 
 		return false;
+	}
+
+	public void MoveItemToEquipSlot(Item eq)
+	{
+		if(eq.equipable)
+		{
+			Slot equipTmp = GameObject.Find("EquipSlot").GetComponent<Slot>();
+			if(equipTmp.isEmpty)
+			{
+				equipTmp.AddItem(eq);
+			}
+			else
+			{
+				equipTmp.RemoveItem();
+				equipTmp.AddItem(eq);
+			}
+			equipTmp.ChangeSprite(eq.spriteHighlighted, eq.spriteHighlighted);
+			
+		}
 	}
 
 	public void MoveItem(GameObject clicked)

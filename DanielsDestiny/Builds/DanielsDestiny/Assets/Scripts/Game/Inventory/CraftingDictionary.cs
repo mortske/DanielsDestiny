@@ -47,7 +47,7 @@ public class CraftingDictionary : MonoBehaviour
 			{
 				RaycastHit hit;
 				int layerMask = 1 << 10;
-				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+				Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
 				if (Physics.Raycast(ray, out hit, 12, layerMask))
 				{
 					tmpPlacingObject.transform.position = new Vector3(hit.point.x, hit.point.y  + (tmpPlacingObject.transform.localScale.y / 2), hit.point.z);
@@ -70,6 +70,15 @@ public class CraftingDictionary : MonoBehaviour
 			}
 		}
 
+	}
+
+	public void EquipItem()
+	{
+		if(selectedItems.Count == 1)
+		{
+			inv.MoveItemToEquipSlot(selectedItems[0].CurrentItem);
+		}
+		ClearSelectedItem();
 	}
 
 	public void UseItem()
