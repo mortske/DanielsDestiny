@@ -135,18 +135,18 @@
     </WorldItemSave>
   </worldItemSave>
   <playerPos>
-    <x>550.5398</x>
+    <x>551.025757</x>
     <y>1.15</y>
-    <z>2107.907</z>
+    <z>2108.39551</z>
   </playerPos>
   <playerValues>
     <health>100</health>
     <hunger>100</hunger>
-    <thirst>80</thirst>
-    <fatigue>99.91998</fatigue>
-    <temperature>20.8918686</temperature>
+    <thirst>79</thirst>
+    <fatigue>99.82996</fatigue>
+    <temperature>21.819046</temperature>
   </playerValues>
-  <TimeOfDay>4.45934248</TimeOfDay>
-  <Temperature>4.45934248</Temperature>
+  <TimeOfDay>9.095227</TimeOfDay>
+  <Temperature>9.095227</Temperature>
   <TempAdjust>0</TempAdjust>
 </SaveFile>
