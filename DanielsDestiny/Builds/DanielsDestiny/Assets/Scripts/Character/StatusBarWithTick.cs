@@ -10,6 +10,7 @@ public class StatusBarWithTick : StatusBar
     float curTick;
     public float baseAdjustValue;
     public AffectedByStatus[] affectedBy;
+    //public StatusWarning[] statusWarnings;
 
     public float AdjustValue
     {
@@ -75,4 +76,13 @@ public enum EqualsTo
     GreaterThan,
     LessThan,
     EqualTo
+}
+
+[System.Serializable]
+public struct StatusWarning
+{
+    public string text;
+    public AudioClip sound;
+    public EqualsTo whenEquals;
+    public float byHowMuch;
 }

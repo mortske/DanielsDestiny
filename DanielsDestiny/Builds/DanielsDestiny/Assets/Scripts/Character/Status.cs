@@ -43,6 +43,7 @@ public class Status : MonoBehaviour
         if (health.UpdateTick())
         {
             health.adjustCur(-health.AdjustValue);
+
             if (health.cur <= health.min)
             {
 				GameTime.instance.SaveTime();

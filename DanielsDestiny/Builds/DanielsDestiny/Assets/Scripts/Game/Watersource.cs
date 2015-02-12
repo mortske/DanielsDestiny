@@ -5,6 +5,12 @@ public class Watersource : MonoBehaviour
 {
     public float adjustment;
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+            OnScreenInformationbox.instance.ShowBox("Press \"PickupKey\" to drink");
+    }
+
     void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
@@ -14,5 +20,11 @@ public class Watersource : MonoBehaviour
                 Player.instance.status.thirst.adjustCur(adjustment);
             }
         }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+            OnScreenInformationbox.instance.HideBox();
     }
 }

@@ -43,6 +43,7 @@ GameObject:
   - 4: {fileID: 453918}
   - 114: {fileID: 11407682}
   - 65: {fileID: 6507682}
+  - 114: {fileID: 11486480}
   m_Layer: 0
   m_Name: Fire
   m_TagString: TempSource
@@ -623,6 +624,18 @@ MonoBehaviour:
   maxSize: 1
   curSize: 1
   selected: 0
+--- !u!114 &11486480
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78bd2e9fbfaf53c41b3a97b46992c68a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  killTime: 20
 --- !u!198 &19853936
 ParticleSystem:
   m_ObjectHideFlags: 1
