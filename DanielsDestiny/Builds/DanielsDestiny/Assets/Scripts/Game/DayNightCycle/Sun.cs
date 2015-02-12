@@ -15,4 +15,16 @@ public class Sun : MonoBehaviour {
 		if(GetComponent<Light>() != null)
 			giveLight = true;
 	}
+	void OnEnable()
+	{
+		Messenger<bool>.AddListener("Morning Light Time", OnDaySwitch);
+	}
+	void OnDisable()
+	{
+		Messenger<bool>.RemoveListener("Morning Light Time", OnDaySwitch);
+	}
+	void OnDaySwitch(bool b)
+	{
+		GetComponent<Light>().enabled = b;
+	}
 }

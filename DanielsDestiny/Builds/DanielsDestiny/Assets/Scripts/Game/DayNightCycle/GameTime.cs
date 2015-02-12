@@ -18,8 +18,8 @@ public class GameTime : MonoBehaviour {
 	public float sunSet;						//the time of day that we start the sunset
 	public float skyboxBlendModifier;			//the speed at which the textures in the skyboxes blend
 	
-	public Color ambLightMax;
-	public Color ambLightMin;
+	public Color ambLightMax;					//Day amblight
+	public Color ambLightMin;					//Night amblight
 	
 	public float morningLight;
 	public float nightLight;
