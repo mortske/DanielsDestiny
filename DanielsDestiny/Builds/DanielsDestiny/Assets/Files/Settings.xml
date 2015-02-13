@@ -3,7 +3,7 @@
   <sound>
     <max>1</max>
     <min>0</min>
-    <cur>15</cur>
+    <cur>0.96821475</cur>
   </sound>
   <sfx>
     <max>1</max>
@@ -13,6 +13,6 @@
   <mouseSensitivity>
     <max>50</max>
     <min>1</min>
-    <cur>10.4735842</cur>
+    <cur>5.28198957</cur>
   </mouseSensitivity>
 </SettingStat>
