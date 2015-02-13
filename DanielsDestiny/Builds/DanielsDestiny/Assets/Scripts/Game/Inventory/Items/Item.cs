@@ -28,7 +28,7 @@ public class Item : MonoBehaviour
 
     public virtual void EquipItem()
     {
-        Debug.Log("Equipped item");
+        
     }
 
 	public virtual void Use()
