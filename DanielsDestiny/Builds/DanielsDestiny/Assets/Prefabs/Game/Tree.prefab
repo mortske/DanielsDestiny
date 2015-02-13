@@ -213,6 +213,7 @@ MonoBehaviour:
   - {fileID: 188172, guid: 00ac5757b0f36454eb646e7073a80d84, type: 2}
   life: 3
   parentIsRoot: 1
+  chopSound: {fileID: 8300000, guid: 91a41f2cef547fd46b73588d6ecf4aaf, type: 3}
 --- !u!135 &13594654
 SphereCollider:
   m_ObjectHideFlags: 1

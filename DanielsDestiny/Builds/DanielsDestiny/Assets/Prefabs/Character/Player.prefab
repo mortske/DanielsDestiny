@@ -106,8 +106,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 184176}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 555.400024, y: 1.52999997, z: 2097.48999}
+  m_LocalRotation: {x: 0, y: .597505331, z: 0, w: .801864982}
+  m_LocalPosition: {x: 553.630005, y: 1.52999997, z: 2100.32007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 484178}
@@ -230,6 +230,7 @@ MonoBehaviour:
     max: 100
     min: 0
     cur: 100
+    statusWarnings: []
     tickTimer: 1
     baseAdjustValue: 0
     affectedBy:
@@ -257,6 +258,7 @@ MonoBehaviour:
     max: 100
     min: 0
     cur: 100
+    statusWarnings: []
     tickTimer: .5
     baseAdjustValue: .00999999978
     affectedBy: []
@@ -264,6 +266,7 @@ MonoBehaviour:
     max: 100
     min: 0
     cur: 100
+    statusWarnings: []
     tickTimer: 10
     baseAdjustValue: 1
     affectedBy: []
@@ -271,6 +274,7 @@ MonoBehaviour:
     max: 100
     min: 0
     cur: 80
+    statusWarnings: []
     tickTimer: 5
     baseAdjustValue: 1
     affectedBy: []
@@ -278,6 +282,7 @@ MonoBehaviour:
     max: 100
     min: 0
     cur: 50
+    statusWarnings: []
   temperaturePadding: 80
 --- !u!114 &11449364
 MonoBehaviour:
@@ -355,6 +360,7 @@ MonoBehaviour:
   jumpSpeed: 8
   sprintSpeed: 12
   gravity: 20
+  stepSound: {fileID: 8300000, guid: 0cd618a60206a82429c1bd35493a6327, type: 3}
 --- !u!114 &11492730
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -367,6 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 0}
+  curEquipment: {fileID: 0}
   curBiome: {fileID: 0}
 --- !u!124 &12484178
 Behaviour:

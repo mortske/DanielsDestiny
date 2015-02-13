@@ -45518,6 +45518,7 @@ MonoBehaviour:
   unusedModel: {fileID: 141302}
   usedModel: {fileID: 138176}
   adjustment: 20
+  drinkSound: {fileID: 8300000, guid: 028e413bf2636174a80c9d58eb790c6d, type: 3}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
