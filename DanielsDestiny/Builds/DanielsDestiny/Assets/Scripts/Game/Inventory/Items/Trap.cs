@@ -11,7 +11,13 @@ public class Trap : MonoBehaviour
     public float maxSpawnTime;
     float spawnTime;
 
-    bool activated;
+    enum trapStates
+    {
+        unactivated,
+        activated,
+        empty
+    }
+    trapStates trapstate;
 
     public void Start()
     {
@@ -20,7 +26,7 @@ public class Trap : MonoBehaviour
 
     void SetupTrap()
     {
-        activated = false;
+        trapstate = trapStates.unactivated;
         trapTriggered.SetActive(false);
         trapUntriggered.SetActive(true);
         spawnTime = Random.Range(minSpawnTime, maxSpawnTime);
@@ -31,25 +37,60 @@ public class Trap : MonoBehaviour
     {
         trapTriggered.SetActive(true);
         trapUntriggered.SetActive(false);
-        activated = true;
+        trapstate = trapStates.activated;
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            OnScreenInformationbox.instance.HideBox();
+        }
     }
 
     void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player" && activated)
+        if (other.tag == "Player")
         {
+            if (trapstate == trapStates.activated)
+                OnScreenInformationbox.instance.ShowBox("press \"PickupKey\" to empty the trap");
+            else if (trapstate == trapStates.empty)
+                OnScreenInformationbox.instance.ShowBox("press \"PickupKey\" to set the trap up");
+
             if (Input.GetKeyDown(KeyCode.E))
             {
-                for (int i = 0; i < item.Length; i++)
+                if (trapstate == trapStates.activated)
                 {
-                    GameObject go = (GameObject)Instantiate(item[i]);
-                    Item newItem = go.GetComponentInChildren<Item>();
-                    go.name = item[i].name;
-                    Player.instance.inventory.AddItem(newItem);
-                    go.transform.position = Player.instance.transform.position;
-                    go.transform.gameObject.SetActive(false);
-                    go.transform.parent = Player.instance.transform;
-                    SetupTrap();
+                    for (int i = 0; i < item.Length; i++)
+                    {
+                        GameObject go = (GameObject)Instantiate(item[i]);
+                        Item newItem = go.GetComponentInChildren<Item>();
+                        go.name = item[i].name;
+                        Player.instance.inventory.AddItem(newItem);
+                        go.transform.position = Player.instance.transform.position;
+                        go.transform.gameObject.SetActive(false);
+                        go.transform.parent = Player.instance.transform;
+                        trapstate = trapStates.empty;
+                        OnScreenInformationbox.instance.ShowBox("press \"PickupKey\" to set the trap up");
+                    }
+                }
+                else if (trapstate == trapStates.empty)
+                {
+                    foreach (GameObject slotgo in Player.instance.inventory.AllSlots)
+                    {
+                        Slot slot = slotgo.GetComponent<Slot>();
+                        if (slot.Items.Count > 0)
+                        {
+                            if (slot.CurrentItem.Name == "Bug")
+                            {
+                                OnScreenInformationbox.instance.HideBox();
+                                slot.RemoveItem();
+                                SetupTrap();
+                                return;
+                            }
+                        }
+                    }
+                    MessageBox.instance.SendMessage("I need something to bait the trap");
                 }
             }
         }
