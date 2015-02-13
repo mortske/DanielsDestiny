@@ -113,7 +113,10 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
     {
         Item i = items.Pop();
 		stackTxt.text = items.Count > 1 ? items.Count.ToString() : string.Empty;
-		
+
+		Player.instance.inventory.currWeight = Player.instance.inventory.currWeight - i.weight;
+		Player.instance.inventory.PrintInventoryWeight();
+
 		if(isEmpty)
 		{
 			ChangeSprite(slotEmpty, slotHighlight);
@@ -142,13 +145,13 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 			}
 			else
 			{
-				if(!CurrentItem.selected)
+				if(!CurrentItem.selected && gameObject.name != "EquipSlot")
 				{
 					ChangeSprite(CurrentItem.spriteHighlighted, CurrentItem.spriteHighlighted);
 					CurrentItem.selected = true;
 					CraftingDictionary.SelectedItems.Add(this);
 				}
-				else
+				else if(gameObject.name != "EquipSlot")
 				{
 					ChangeSprite(CurrentItem.spriteNeutral, CurrentItem.spriteHighlighted);
 					CurrentItem.selected = false;

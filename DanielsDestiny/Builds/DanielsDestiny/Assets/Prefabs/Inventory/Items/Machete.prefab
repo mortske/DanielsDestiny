@@ -190,7 +190,7 @@ MonoBehaviour:
   maxSize: 1
   curSize: 1
   selected: 0
-  weight: 0
+  weight: 20
   equipable: 0
 --- !u!1001 &100100000
 Prefab:

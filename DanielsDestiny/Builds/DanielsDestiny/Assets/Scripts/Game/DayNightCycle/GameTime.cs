@@ -23,7 +23,7 @@ public class GameTime : MonoBehaviour {
 	
 	public float morningLight;
 	public float nightLight;
-	private bool _isMorning = false;
+	private bool _isMorning = false, _isNight = false;
 	
 	private Sun[] _sunScript;
 	private float _dayCycleInSeconds;
@@ -106,10 +106,12 @@ public class GameTime : MonoBehaviour {
 		//control the outside lighting effects according to the time of day
 		if(!_isMorning && _timeOfDay > morningLight && _timeOfDay < nightLight){
 			_isMorning = true;
+			_isNight = false;
 			Messenger<bool>.Broadcast("Morning Light Time", true);
 //			Debug.Log("Morning");
 		}
-		else if(_isMorning && _timeOfDay > nightLight){
+		else if(!_isNight && _timeOfDay > nightLight || _timeOfDay < morningLight){
+			_isNight = true;
 			_isMorning = false;
 			Messenger<bool>.Broadcast("Morning Light Time", false);
 //			Debug.Log("Night");
@@ -131,6 +133,15 @@ public class GameTime : MonoBehaviour {
 		}
 		else{
 			_tod = GameTime.TimeOfDay.Idle;
+		}
+		
+		if(_timeOfDay < sunSet && _timeOfDay > _noonTime)
+		{
+			RenderSettings.skybox.SetFloat("_Blend", 1);
+		}
+		else if(_timeOfDay < sunRise || _timeOfDay > sunSet)
+		{
+			RenderSettings.skybox.SetFloat("_Blend", 0);
 		}
 
         SetTemperature();
@@ -211,19 +222,19 @@ public class GameTime : MonoBehaviour {
 	}
 	public void SetRotationOfSun(float seconds)
 	{
-		if(_timeOfDay > morningLight && _timeOfDay < nightLight)
+		if(seconds < morningLight || seconds > nightLight)
 		{
-			_isMorning = true;
+			_sunScript[0].GetComponent<Light>().intensity = _sunScript[0].minLightBrightness;
+			RenderSettings.ambientLight = ambLightMin;
 		}
-		else if(_timeOfDay > nightLight)
-		{
-			_isMorning = false;
+		else{
+			RenderSettings.ambientLight = ambLightMax;
 		}
-		float rot = (DEGREES_PER_SECOND * DAY / (_dayCycleInSeconds) * seconds);
+		
+		
+		_isMorning = false;
+		_isNight = false;
+		float rot = 270 + (DEGREES_PER_SECOND * DAY / (_dayCycleInSeconds) * seconds);
 		sun[0].Rotate(new Vector3(rot, 0, 0));
-		float temp = 1 - rot/360 + 60/360;
-		if(temp > 1)
-			temp = temp - 1;
-		RenderSettings.skybox.SetFloat("_Blend", temp);
 	}
 }
