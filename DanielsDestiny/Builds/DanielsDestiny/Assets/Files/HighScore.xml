@@ -4,6 +4,13 @@
     <ArrayOfInt>
       <int>0</int>
       <int>1</int>
+      <int>55</int>
+      <int>59</int>
+      <int>6959</int>
+    </ArrayOfInt>
+    <ArrayOfInt>
+      <int>0</int>
+      <int>1</int>
       <int>19</int>
       <int>59</int>
       <int>4799</int>
@@ -14,6 +21,13 @@
       <int>15</int>
       <int>12</int>
       <int>4512</int>
+    </ArrayOfInt>
+    <ArrayOfInt>
+      <int>0</int>
+      <int>0</int>
+      <int>44</int>
+      <int>4</int>
+      <int>2644</int>
     </ArrayOfInt>
     <ArrayOfInt>
       <int>0</int>
@@ -56,20 +70,6 @@
       <int>25</int>
       <int>14</int>
       <int>1514</int>
-    </ArrayOfInt>
-    <ArrayOfInt>
-      <int>0</int>
-      <int>0</int>
-      <int>22</int>
-      <int>35</int>
-      <int>1355</int>
-    </ArrayOfInt>
-    <ArrayOfInt>
-      <int>0</int>
-      <int>0</int>
-      <int>20</int>
-      <int>35</int>
-      <int>1235</int>
     </ArrayOfInt>
   </TimeSurvived>
 </SaveHighscore>
