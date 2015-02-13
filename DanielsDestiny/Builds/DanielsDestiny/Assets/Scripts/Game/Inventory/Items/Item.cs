@@ -26,6 +26,11 @@ public class Item : MonoBehaviour
         get { return transform.parent.gameObject; }
     }
 
+    public virtual void EquipItem()
+    {
+        
+    }
+
 	public virtual void Use()
 	{
         Debug.Log("used an item");
@@ -48,6 +53,7 @@ public class Item : MonoBehaviour
 
     public void AddItem()
     {
+        EquipItem();
         if (Player.instance.curBiome != null)
             Player.instance.curBiome.PickItem(this.transform.parent.gameObject);
         Player player = Player.instance;

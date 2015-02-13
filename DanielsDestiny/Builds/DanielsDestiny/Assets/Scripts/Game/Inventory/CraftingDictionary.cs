@@ -34,8 +34,8 @@ public class CraftingDictionary : MonoBehaviour
 	void Start ()
 	{
 		selectedItems = new List<Slot>();
-		inv = GameObject.Find("Inventory").GetComponent<Inventory>();
-		player = GameObject.Find("Player").GetComponent<Player>();
+        inv = Player.instance.inventory;
+        player = Player.instance;
 	}
 
 	void Update()
@@ -175,7 +175,13 @@ public class CraftingDictionary : MonoBehaviour
 				{
 					foundRecepie = true;
 					bool getOut = false;
-					inv.AddItem(rec.result.transform.FindChild("OverlapSphere").GetComponent<Item>());
+
+                    GameObject result = (GameObject)Instantiate(rec.result);
+                    result.name = rec.result.name;
+                    Debug.Log(result.GetComponentInChildren<Item>().equipable);
+                    result.GetComponentInChildren<Item>().AddItem();
+                    
+					//inv.AddItem(.transform.FindChild("OverlapSphere").GetComponent<Item>());
 					//Message
 					Debug.Log ("You created a " + rec.result.name);
 					for (int i = 0; i < selectedItems.Count; i++) 

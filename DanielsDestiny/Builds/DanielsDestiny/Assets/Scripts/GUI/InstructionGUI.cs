@@ -96,7 +96,6 @@ public class InstructionGUI : MonoBehaviour {
 	}
 
 	void Update () {
-		print(InstructionCanvases.Count);
 		if(currentCanvas != InstructionCanvases.Count + 1) {
 			if(!disableInstructionScreen) {
 				if(Input.anyKeyDown) {
