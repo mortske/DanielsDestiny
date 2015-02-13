@@ -111,7 +111,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 
     public void RemoveItem()
     {
-        items.Pop();
+        Item i = items.Pop();
 		stackTxt.text = items.Count > 1 ? items.Count.ToString() : string.Empty;
 		
 		if(isEmpty)
@@ -119,6 +119,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 			ChangeSprite(slotEmpty, slotHighlight);
 			Inventory.EmptySlots++;
 		}
+        Destroy(i.Parent);
     }
 
 	public void ClearSlot()

@@ -8,4 +8,9 @@ public class Equip : Item
 		equipable = true;
 	}
 
+    public override void EquipItem()
+    {
+        base.EquipItem();
+        equipable = true;
+    }
 }
