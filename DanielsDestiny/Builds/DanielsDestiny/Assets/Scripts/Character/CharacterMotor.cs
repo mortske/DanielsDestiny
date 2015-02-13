@@ -8,16 +8,23 @@ public class CharacterMotor : MonoBehaviour
     public float jumpSpeed = 8.0F;
     public float sprintSpeed = 12;
     public float gravity = 20.0F;
+    
     private Vector3 moveDirection = Vector3.zero;
+
+    public AudioClip stepSound;
+    float stepSoundFrequency = 0.1f;
+    float curTime;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        curTime = stepSoundFrequency * speed;
     }
 
     void Update()
     {
         UpdatePosition();
+
     }
 
     void UpdatePosition()
@@ -39,6 +46,25 @@ public class CharacterMotor : MonoBehaviour
             }
             moveDirection.y -= gravity * Time.deltaTime;
             controller.Move(moveDirection * Time.deltaTime);
+
+            if(moveDirection.x > 0 || moveDirection.z > 0)
+                PlayStepSound();
+        }
+    }
+
+    void PlayStepSound()
+    {
+        if (curTime > 0)
+        {
+            curTime -= Time.deltaTime;
+        }
+        if (curTime <= 0)
+        {
+            if(Input.GetButton("Sprint"))
+                curTime = (stepSoundFrequency / 2) * speed;
+            else
+                curTime = stepSoundFrequency * speed;
+            SoundManager.instance.Spawn3DSound(stepSound, Player.instance.transform.position, 1, 5);
         }
     }
 }

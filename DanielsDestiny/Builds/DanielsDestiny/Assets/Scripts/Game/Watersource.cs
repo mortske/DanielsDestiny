@@ -4,6 +4,7 @@ using System.Collections;
 public class Watersource : MonoBehaviour 
 {
     public float adjustment;
+    public AudioClip drinkSound;
 
     void OnTriggerEnter(Collider other)
     {
@@ -18,6 +19,7 @@ public class Watersource : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Player.instance.status.thirst.adjustCur(adjustment);
+                SoundManager.instance.Spawn3DSound(drinkSound, Player.instance.transform.position, 1, 5);
             }
         }
     }
