@@ -80,11 +80,6 @@ public class CoroutineHandler : MonoBehaviour
                 Player.instance.curBiome.AddWorldDrop(go);
         }
 
-		for (int j = 0; j < dropCount; j++) 
-		{
-			Player.instance.inventory.maxWeight = Player.instance.inventory.maxWeight - Inventory.from.CurrentItem.weight;
-		}
-
         if (leaveCount == 0)
         {
             Destroy(Inventory.from.CurrentItem.transform.parent.gameObject);
