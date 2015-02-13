@@ -210,7 +210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemPrefabs:
   - {fileID: 152380, guid: c5ab70a2ec36c6043ae5dc38a29a1707, type: 2}
-  - {fileID: 133982, guid: e2abd899425671442a49aa396a812e3d, type: 2}
+  - {fileID: 188172, guid: 00ac5757b0f36454eb646e7073a80d84, type: 2}
   life: 3
   parentIsRoot: 1
 --- !u!135 &13594654
