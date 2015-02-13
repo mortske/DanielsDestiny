@@ -38,6 +38,7 @@ public class Saver : MonoBehaviour {
 		{
 			if(!_showSave)
 			{
+				OnScreenInformationbox.instance.ShowBox("Press \"PickupKey\" to sleep");
 				_active = true;
 			}
 		}	
@@ -45,13 +46,17 @@ public class Saver : MonoBehaviour {
 	void OnTriggerExit(Collider other)
 	{
 		if(other.tag == "Player")
+		{
+			OnScreenInformationbox.instance.HideBox();
 			_active = false;
+		}
+			
 	}
 	void Save()
 	{
 		MessageBox.instance.SendMessage("Saving... Woke up " + s_val + " hours later!");
 		float CycleTime = GameTime.instance.GetDayCycleInSeconds();
-		Debug.Log("Daycycle in seconds: " + CycleTime);
+//		Debug.Log("Daycycle in seconds: " + CycleTime);
 		float curtime = GameTime.instance.TheTime;
 		float totaltime = ((CycleTime/24)*s_val) + curtime; //Cycle/24 (How many seconds per hour). Times s_val
 		float newTime = totaltime;
@@ -59,10 +64,11 @@ public class Saver : MonoBehaviour {
 		{
 			newTime = newTime - CycleTime;
 		}
-		Debug.Log("The time was: " + GameTime.instance.TheTime + " The time should become " + newTime);
+//		Debug.Log("The time was: " + GameTime.instance.TheTime + " The time should become " + newTime);
 		GameTime.instance.TheTime = newTime;
 		GameTime.instance.SetRotationOfSun(newTime);
 		GameTime.instance.SaveTime();
 		BiomeManager.instance.SaveGame();
+		_showSave = false;
 	}
 }

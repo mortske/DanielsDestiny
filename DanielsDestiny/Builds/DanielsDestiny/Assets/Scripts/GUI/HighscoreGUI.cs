@@ -52,7 +52,6 @@ public class HighscoreGUI : MonoBehaviour {
 				for (int x = 0; x < saveHighscore.TimeSurvived.Length; x++) {
 					numbers[x] = x + ". Day: " + saveHighscore.TimeSurvived[x][0].ToString() + " Hours: " + saveHighscore.TimeSurvived[x][1].ToString() + " Minutes: " + saveHighscore.TimeSurvived[x][2].ToString() + " Seconds: " + saveHighscore.TimeSurvived[x][3].ToString();
 					playthroughList[x].text = numbers[x];
-					print (playthroughList[x]);
 				}
 			}
 		}

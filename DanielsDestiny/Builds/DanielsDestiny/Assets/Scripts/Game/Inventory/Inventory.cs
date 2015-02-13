@@ -46,6 +46,11 @@ public class Inventory : MonoBehaviour {
 		set { emptySlots = value; }
 	}
 
+    public List<GameObject> AllSlots
+    {
+        get { return allSlots; }
+    }
+
 	void Start () 
 	{
 		CreateLayout();
