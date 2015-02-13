@@ -3,16 +3,16 @@
   <sound>
     <max>1</max>
     <min>0</min>
-    <cur>0</cur>
+    <cur>15</cur>
   </sound>
   <sfx>
     <max>1</max>
     <min>0</min>
-    <cur>1</cur>
+    <cur>15</cur>
   </sfx>
   <mouseSensitivity>
     <max>50</max>
     <min>1</min>
-    <cur>15</cur>
+    <cur>2.9295435</cur>
   </mouseSensitivity>
 </SettingStat>

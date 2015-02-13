@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public Status status { get; set; }
     public Inventory inventory;
     public PickupEventHandler pickupEventHandler { get; set; }
-    
+    [HideInInspector] public Item curEquipment;
     public BiomeItems curBiome;
 
     void Awake()
@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        Screen.showCursor = false;
+
         mouseLook = GetComponent<MouseLook>();
         motor = GetComponent<CharacterMotor>();
         status = GetComponent<Status>();

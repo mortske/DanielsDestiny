@@ -10,9 +10,10 @@ GameObject:
   - 4: {fileID: 459402}
   - 114: {fileID: 11459402}
   - 65: {fileID: 6559402}
+  - 114: {fileID: 11408070}
   m_Layer: 0
   m_Name: WaterSource
-  m_TagString: Untagged
+  m_TagString: TempSource
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23,8 +24,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 159402}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .697747827, y: 2.68620443, z: 2.02824879}
+  m_LocalRotation: {x: 0, y: .265726864, z: 0, w: .964048386}
+  m_LocalPosition: {x: 682.099976, y: -.899999976, z: 2154.19995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -39,8 +40,20 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.51537132, y: 3.61141205, z: 8.03375244}
-  m_Center: {x: -2.25768566, y: -1.30570602, z: 3.51687527}
+  m_Size: {x: 21.5728817, y: 17.9373932, z: 20.0117512}
+  m_Center: {x: -3.09789348, y: 5.85728455, z: -2.46738267}
+--- !u!114 &11408070
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b1a819c4da0b2d4584ce7f5396c2d94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  adjustment: -1
 --- !u!114 &11459402
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -24,6 +24,7 @@ public class MenuScriptSlide : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		PauseSystem.Pause(false);
+        Screen.showCursor = true;
 		leftMenuBackground = GameObject.Find("menuDecorationLeft").GetComponent<RectTransform>();
 		rightMenuBackground = GameObject.Find("menuDecorationRight").GetComponent<RectTransform>();
 		

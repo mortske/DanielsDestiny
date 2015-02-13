@@ -1,5 +1,23 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &149364
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 449364}
+  - 114: {fileID: 11449364}
+  - 135: {fileID: 13549364}
+  - 54: {fileID: 5449364}
+  m_Layer: 0
+  m_Name: TemperatureManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &184174
 GameObject:
   m_ObjectHideFlags: 0
@@ -33,6 +51,7 @@ GameObject:
   - 114: {fileID: 11484178}
   - 114: {fileID: 11403882}
   - 114: {fileID: 11492730}
+  - 114: {fileID: 11449366}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -57,6 +76,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &449364
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 149364}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 484176}
+  m_RootOrder: 2
 --- !u!4 &484174
 Transform:
   m_ObjectHideFlags: 1
@@ -76,11 +107,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 184176}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .140000001, y: 1.08000004, z: 1.54999995}
+  m_LocalPosition: {x: 555.400024, y: 1.52999997, z: 2097.48999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 484178}
   - {fileID: 484174}
+  - {fileID: 449364}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &484178
@@ -154,6 +186,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 184178}
   m_Mesh: {fileID: 10205, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &5449364
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 149364}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!81 &8184178
 AudioListener:
   m_ObjectHideFlags: 1
@@ -184,34 +231,79 @@ MonoBehaviour:
     min: 0
     cur: 100
     tickTimer: 1
-    baseAdjustValue: .300000012
-    affectedBy: []
-  fatigue:
-    max: 0
-    min: 0
-    cur: 0
-    tickTimer: 0
     baseAdjustValue: 0
+    affectedBy:
+    - bar: 1
+      whenEquals: 1
+      whenValueIs: 1
+      byHowMuch: 1
+    - bar: 2
+      whenEquals: 1
+      whenValueIs: 1
+      byHowMuch: 1
+    - bar: 3
+      whenEquals: 1
+      whenValueIs: 1
+      byHowMuch: 1
+    - bar: 4
+      whenEquals: 1
+      whenValueIs: 20
+      byHowMuch: 1
+    - bar: 4
+      whenEquals: 0
+      whenValueIs: 80
+      byHowMuch: 1
+  fatigue:
+    max: 100
+    min: 0
+    cur: 100
+    tickTimer: .5
+    baseAdjustValue: .00999999978
     affectedBy: []
   hunger:
     max: 100
     min: 0
     cur: 100
-    tickTimer: 1
-    baseAdjustValue: 0
+    tickTimer: 10
+    baseAdjustValue: 1
     affectedBy: []
   thirst:
     max: 100
     min: 0
-    cur: 100
-    tickTimer: 1
-    baseAdjustValue: 0
+    cur: 80
+    tickTimer: 5
+    baseAdjustValue: 1
     affectedBy: []
   temperature:
     max: 100
     min: 0
     cur: 50
   temperaturePadding: 80
+--- !u!114 &11449364
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 149364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3a03ab985fce4b498f8f69c5e048225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heatTick: 1
+  sources: []
+--- !u!114 &11449366
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a4ab148b7d1c5d4e93d816e7bab8e61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemQueue: []
 --- !u!114 &11484174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -242,7 +334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   axes: 1
-  sensitivityX: 15
+  sensitivityX: 0
   sensitivityY: 0
   minimumX: -360
   maximumX: 360
@@ -283,6 +375,18 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 184174}
   m_Enabled: 1
+--- !u!135 &13549364
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 149364}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.38098145
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!143 &14384178
 CharacterController:
   m_ObjectHideFlags: 1

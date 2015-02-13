@@ -12,7 +12,22 @@ public class Sun : MonoBehaviour {
 	public bool giveLight = false;
 	
 	void Start(){
-		if(GetComponent<Light>() != null)
+		if(GetComponent<Light>() != null){
 			giveLight = true;
+			OnDaySwitch(false);
+		}
+			
+	}
+	void OnEnable()
+	{
+		Messenger<bool>.AddListener("Morning Light Time", OnDaySwitch);
+	}
+	void OnDisable()
+	{
+		Messenger<bool>.RemoveListener("Morning Light Time", OnDaySwitch);
+	}
+	void OnDaySwitch(bool b)
+	{
+		GetComponent<Light>().enabled = b;
 	}
 }

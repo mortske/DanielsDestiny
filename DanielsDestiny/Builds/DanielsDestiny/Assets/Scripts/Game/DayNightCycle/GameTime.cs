@@ -18,8 +18,8 @@ public class GameTime : MonoBehaviour {
 	public float sunSet;						//the time of day that we start the sunset
 	public float skyboxBlendModifier;			//the speed at which the textures in the skyboxes blend
 	
-	public Color ambLightMax;
-	public Color ambLightMin;
+	public Color ambLightMax;					//Day amblight
+	public Color ambLightMin;					//Night amblight
 	
 	public float morningLight;
 	public float nightLight;
@@ -145,7 +145,7 @@ public class GameTime : MonoBehaviour {
 				temp = (_timeOfDay - sunRise) / _dayCycleInSeconds * skyboxBlendModifier;
 				break;
 		case TimeOfDay.SunSet:
-				temp = (_timeOfDay - sunSet) / _dayCycleInSeconds * skyboxBlendModifier;
+				temp = (_timeOfDay - sunSet) / _dayCycleInSeconds * (skyboxBlendModifier*4);
 				temp = 1 - temp;
 				break;
 		}
@@ -204,5 +204,26 @@ public class GameTime : MonoBehaviour {
 	public void SaveTime()
 	{
 		HighScore.instance.SaveScore(TotalTimePassed);
+	}
+	public float GetDayCycleInSeconds()
+	{
+		return _dayCycleInSeconds;
+	}
+	public void SetRotationOfSun(float seconds)
+	{
+		if(_timeOfDay > morningLight && _timeOfDay < nightLight)
+		{
+			_isMorning = true;
+		}
+		else if(_timeOfDay > nightLight)
+		{
+			_isMorning = false;
+		}
+		float rot = (DEGREES_PER_SECOND * DAY / (_dayCycleInSeconds) * seconds);
+		sun[0].Rotate(new Vector3(rot, 0, 0));
+		float temp = 1 - rot/360 + 60/360;
+		if(temp > 1)
+			temp = temp - 1;
+		RenderSettings.skybox.SetFloat("_Blend", temp);
 	}
 }

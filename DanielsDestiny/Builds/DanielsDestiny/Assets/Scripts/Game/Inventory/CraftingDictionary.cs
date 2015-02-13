@@ -14,6 +14,14 @@ public class CraftingDictionary : MonoBehaviour
 		set { selectedItems = value; }
 	}
 
+	private static bool insideArea;
+
+	public static bool InsideArea 
+	{
+		get {return insideArea;}
+		set {insideArea = value;}
+	}
+
 	private int allTrue;
 	private bool foundRecepie;
 	private Inventory inv;
@@ -26,8 +34,8 @@ public class CraftingDictionary : MonoBehaviour
 	void Start ()
 	{
 		selectedItems = new List<Slot>();
-		inv = GameObject.Find("Inventory").GetComponent<Inventory>();
-		player = GameObject.Find("Player").GetComponent<Player>();
+        inv = Player.instance.inventory;
+        player = Player.instance;
 	}
 
 	void Update()
@@ -39,7 +47,7 @@ public class CraftingDictionary : MonoBehaviour
 			{
 				RaycastHit hit;
 				int layerMask = 1 << 10;
-				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+				Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
 				if (Physics.Raycast(ray, out hit, 12, layerMask))
 				{
 					tmpPlacingObject.transform.position = new Vector3(hit.point.x, hit.point.y  + (tmpPlacingObject.transform.localScale.y / 2), hit.point.z);
@@ -64,6 +72,15 @@ public class CraftingDictionary : MonoBehaviour
 
 	}
 
+	public void EquipItem()
+	{
+		if(selectedItems.Count == 1)
+		{
+			inv.MoveItemToEquipSlot(selectedItems[0].CurrentItem);
+		}
+		ClearSelectedItem();
+	}
+
 	public void UseItem()
 	{
 		if(selectedItems.Count == 1 && selectedItems[0].CurrentItem.constructable)
@@ -75,9 +92,13 @@ public class CraftingDictionary : MonoBehaviour
 
 			placeItem = true;
 		}
+		else if(selectedItems.Count == 1 && insideArea && selectedItems[0].CurrentItem.usable)
+		{
+			CheckRecepies();
+		}
 		else
 		{
-			Debug.Log ("You cant use that item, try to eat it maybe.");
+			Debug.Log ("You cant use that item, try to Eat/Drink it maybe.");
 			ClearSelectedItem();
 		}
 
@@ -89,6 +110,19 @@ public class CraftingDictionary : MonoBehaviour
 		{
 			selectedItems[0].UseItem();
 			
+		}
+	}
+
+	public void CraftItems()
+	{
+		if(selectedItems.Count >= 2)
+		{
+			CheckRecepies();
+		}
+		else
+		{
+			Debug.Log ("You cant craft anything from 1 item, try Use or Eat/Drink it");
+			ClearSelectedItem();
 		}
 	}
 
@@ -108,7 +142,7 @@ public class CraftingDictionary : MonoBehaviour
 		}
 	}
 
-	public void CheckRecepies()
+	private void CheckRecepies()
 	{
 		foreach (Recepie rec in recepies) 
 		{
@@ -141,7 +175,13 @@ public class CraftingDictionary : MonoBehaviour
 				{
 					foundRecepie = true;
 					bool getOut = false;
-					inv.AddItem(rec.result.transform.FindChild("OverlapSphere").GetComponent<Item>());
+
+                    GameObject result = (GameObject)Instantiate(rec.result);
+                    result.name = rec.result.name;
+                    Debug.Log(result.GetComponentInChildren<Item>().equipable);
+                    result.GetComponentInChildren<Item>().AddItem();
+                    
+					//inv.AddItem(.transform.FindChild("OverlapSphere").GetComponent<Item>());
 					//Message
 					Debug.Log ("You created a " + rec.result.name);
 					for (int i = 0; i < selectedItems.Count; i++) 
@@ -166,6 +206,8 @@ public class CraftingDictionary : MonoBehaviour
 					}
 				}
 			}
+			if(foundRecepie)
+				break;
 		}
 		
 		if(foundRecepie)

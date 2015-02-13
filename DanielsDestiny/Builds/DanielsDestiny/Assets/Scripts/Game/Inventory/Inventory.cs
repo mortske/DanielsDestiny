@@ -13,14 +13,13 @@ public class Inventory : MonoBehaviour {
     public DialougeBoxInv db;
     public CraftingDictionary craftingDictionary;
 
-	private RectTransform craftingButtonRect;
-	public Button craftingButton;
+	private RectTransform craftingButtonRect, useButtonRect, eatButtonRect, equipButtonRect;
+	public Button craftingButton, useButton, eatButton, equipButton;
+	[HideInInspector]
+	public  GameObject equipSlot;
 
-	private RectTransform useButtonRect;
-	public Button useButton;
-
-	private RectTransform eatButtonRect;
-	public Button eatButton;
+	public float maxWeight;
+	[HideInInspector] public float currWeight;
 
 	public int slots;
 	public int rows;
@@ -43,6 +42,11 @@ public class Inventory : MonoBehaviour {
 		get { return emptySlots; }
 		set { emptySlots = value; }
 	}
+
+    public List<GameObject> AllSlots
+    {
+        get { return allSlots; }
+    }
 
 	void Start () 
 	{
@@ -110,6 +114,18 @@ public class Inventory : MonoBehaviour {
 			}
 		}
 
+		equipSlot = (GameObject)Instantiate(slotPrefab);
+		RectTransform equipRect = equipSlot.GetComponent<RectTransform>();
+		RectTransform canvasRect = canvas.gameObject.GetComponent<RectTransform>();
+		equipSlot.name = "EquipSlot";
+		equipSlot.transform.SetParent(this.transform.parent);
+		equipSlot.GetComponent<Button>().enabled = false;
+		equipSlot.GetComponent<Image>().sprite = equipSlot.GetComponent<Button>().spriteState.highlightedSprite;
+		equipRect.localPosition = new Vector3(inventoryRect.localPosition.x + (inventoryWidth + slotSize), inventoryRect.localPosition.y, 0);
+		
+		equipRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, slotSize);
+		equipRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize);
+
 		craftingButtonRect = craftingButton.GetComponent<RectTransform>();
 		craftingButtonRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, inventoryWidth / 3);
 		craftingButtonRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize);
@@ -124,6 +140,16 @@ public class Inventory : MonoBehaviour {
 		eatButtonRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, inventoryWidth / 3);
 		eatButtonRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize);
 		eatButtonRect.localPosition = new Vector3(inventoryRect.localPosition.x + (craftingButtonRect.rect.width * 2 ), inventoryRect.localPosition.y - inventoryHight , 0 );
+		
+		equipButtonRect = equipButton.GetComponent<RectTransform>();
+		equipButtonRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, inventoryWidth / 2);
+		equipButtonRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize);
+		equipButtonRect.localPosition = new Vector3(inventoryRect.localPosition.x, inventoryRect.localPosition.y - (inventoryHight + slotSize), 0 );
+	}
+
+	public bool CheckWeight(float itemWeight)
+	{
+		return currWeight + itemWeight <= maxWeight;
 	}
 
 	public bool AddItem(Item item)
@@ -131,6 +157,7 @@ public class Inventory : MonoBehaviour {
 		if(item.maxSize == 1)
 		{
 			PlaceEmpty(item);
+			currWeight = currWeight + item.weight;
 			return true;
 		}
 		else
@@ -144,6 +171,9 @@ public class Inventory : MonoBehaviour {
 					if(tmp.CurrentItem.transform.parent.name == item.transform.parent.name && tmp.IsAvailable)
 					{
 						tmp.AddItem(item);
+						currWeight = currWeight + item.weight;
+						
+						Debug.Log (currWeight);
 						return true;
 					}
 				}
@@ -151,9 +181,9 @@ public class Inventory : MonoBehaviour {
 			if(emptySlots > 0)
 			{
 				PlaceEmpty(item);
+				currWeight = currWeight + item.weight;
 			}
 		}
-
 		return false;
 	}
 
@@ -175,6 +205,25 @@ public class Inventory : MonoBehaviour {
 		}
 
 		return false;
+	}
+
+	public void MoveItemToEquipSlot(Item eq)
+	{
+		if(eq.equipable)
+		{
+			Slot equipTmp = GameObject.Find("EquipSlot").GetComponent<Slot>();
+			if(equipTmp.isEmpty)
+			{
+				equipTmp.AddItem(eq);
+			}
+			else
+			{
+				equipTmp.RemoveItem();
+				equipTmp.AddItem(eq);
+			}
+			equipTmp.ChangeSprite(eq.spriteHighlighted, eq.spriteHighlighted);
+            Player.instance.curEquipment = eq;
+		}
 	}
 
 	public void MoveItem(GameObject clicked)
@@ -275,7 +324,6 @@ public class Inventory : MonoBehaviour {
 
     public void DropItem()
     {
-        db = GameObject.Find("MessageboxInv").GetComponent<DialougeBoxInv>();
         db.Display(from.Items.Count, 0, from.Items.Count / 2);
         CoroutineHandler.instance.DropItemDialouge(db, hoverObject);
     }

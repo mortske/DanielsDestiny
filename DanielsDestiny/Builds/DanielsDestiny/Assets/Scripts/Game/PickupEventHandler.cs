@@ -6,8 +6,6 @@ using System.Collections.Generic;
 public class PickupEventHandler : MonoBehaviour 
 {
     public List<Item> itemQueue;
-    public Canvas infobox;
-    public Text infoBoxText;
 
     void Update()
     {
@@ -17,8 +15,11 @@ public class PickupEventHandler : MonoBehaviour
             {
                 if (Input.GetButtonDown("Pickup"))
                 {
-                    RemoveItemFromList(itemQueue[0], true);
-                }
+					if(Player.instance.inventory.CheckWeight(itemQueue[0].weight))
+                    	RemoveItemFromList(itemQueue[0], true);
+					else
+						MessageBox.instance.SendMessage("I am carrying too much");
+				}
             }
         }
     }
@@ -45,12 +46,11 @@ public class PickupEventHandler : MonoBehaviour
     void ShowInfoBox()
     {
         Item i = itemQueue[0];
-        infoBoxText.text = "Press \"PickupKey\" to pickup " + i.Name + " x" + i.curSize;
-        infobox.gameObject.SetActive(true);
+        OnScreenInformationbox.instance.ShowBox("Press \"PickupKey\" to pickup " + i.Name + " x" + i.curSize);
     }
 
     void HideInfoBox()
     {
-        infobox.gameObject.SetActive(false);
+        OnScreenInformationbox.instance.HideBox();
     }
 }

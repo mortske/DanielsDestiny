@@ -12,6 +12,7 @@ public class PauseSystem
         else
             Time.timeScale = 1;
 
+        Screen.showCursor = pause;
         IsPaused = pause;
     }
 

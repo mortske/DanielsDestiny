@@ -11,6 +11,10 @@ public class Item : MonoBehaviour
 	public int maxSize;
     public int curSize = 1;
 	public bool selected;
+	public float weight;
+
+	[HideInInspector]
+	public bool equipable;
 
     public string Name
     {
@@ -20,6 +24,11 @@ public class Item : MonoBehaviour
     public GameObject Parent
     {
         get { return transform.parent.gameObject; }
+    }
+
+    public virtual void EquipItem()
+    {
+        
     }
 
 	public virtual void Use()
@@ -44,9 +53,11 @@ public class Item : MonoBehaviour
 
     public void AddItem()
     {
+        EquipItem();
         if (Player.instance.curBiome != null)
             Player.instance.curBiome.PickItem(this.transform.parent.gameObject);
         Player player = Player.instance;
+
 		for (int i = 0; i < curSize; i++)
 		{
 			player.inventory.AddItem(this);
@@ -55,5 +66,6 @@ public class Item : MonoBehaviour
 		transform.parent.position = player.transform.position;
 		transform.parent.gameObject.SetActive(false);
 		transform.parent.parent = player.transform;
+		
     }
 }
