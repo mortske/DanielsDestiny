@@ -6,6 +6,7 @@ public class Tree : MonoBehaviour
     public GameObject[] itemPrefabs;
     public int life;
     public bool parentIsRoot;
+    public AudioClip chopSound;
 
     void OnTriggerEnter(Collider other)
     {
@@ -44,6 +45,7 @@ public class Tree : MonoBehaviour
             go.GetComponentInChildren<Item>().AddItem();
         }
         life--;
+        SoundManager.instance.Spawn3DSound(chopSound, Player.instance.transform.position, 1, 5);
         if (life == 0)
         {
             OnScreenInformationbox.instance.HideBox();

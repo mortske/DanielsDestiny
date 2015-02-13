@@ -471,7 +471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &135194
 GameObject:
   m_ObjectHideFlags: 0
@@ -1205,7 +1205,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 563.578979, y: .0340000018, z: 2103.46899}
+  m_LocalPosition: {x: 563.840027, y: 0, z: 2101.37988}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 435232}
@@ -1641,8 +1641,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: .539862156, z: 1}
-  m_Center: {x: 0, y: .430405736, z: 0}
+  m_Size: {x: 1, y: .665909767, z: 1}
+  m_Center: {x: 0, y: .36738193, z: 0}
 --- !u!65 &6593834
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1691,6 +1691,8 @@ MonoBehaviour:
   maxSize: 1
   curSize: 1
   selected: 0
+  weight: 0
+  equipable: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

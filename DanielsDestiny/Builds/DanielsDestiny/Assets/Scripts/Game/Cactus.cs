@@ -6,6 +6,7 @@ public class Cactus : MonoBehaviour
     public GameObject unusedModel;
     public GameObject usedModel;
     public float adjustment;
+    public AudioClip drinkSound;
     bool used;
 
     void Start()
@@ -43,6 +44,7 @@ public class Cactus : MonoBehaviour
 
     void Use()
     {
+        SoundManager.instance.Spawn3DSound(drinkSound, Player.instance.transform.position, 1, 5);
         unusedModel.SetActive(false);
         usedModel.SetActive(true);
         Player.instance.status.thirst.adjustCur(adjustment);
