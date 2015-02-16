@@ -25,26 +25,20 @@ public class PauseAttachment : MonoBehaviour {
 	}
 	
 	public static void PauseUnPause () {
-        if (!Player.instance.inventory.enabled && !InstructionGUI.instructionsAreActive)
-        {
-            if (canBePaused && !isInPauseMenu)
-            {
+        if (!Player.instance.inventory.enabled && !InstructionGUI.instructionsAreActive) {
+            if (canBePaused && !isInPauseMenu) {
                 isPaused = true;
                 PauseSystem.Pause(true);
             }
-            if (canBePaused && isInPauseMenu)
-            {
+            if (canBePaused && isInPauseMenu) {
                 isPaused = false;
                 PauseSystem.Pause(false);
             }
-            if (!canBePaused && isInPauseMenu)
-            {
+            if (!canBePaused && isInPauseMenu) {
                 isPaused = false;
                 PauseSystem.Pause(false);
             }
-        }
-		else if(Player.instance.inventory.enabled)
-		{
+        } else if(Player.instance.inventory.enabled) {
 			Player.instance.ToggleInventory();
 		}
 	}
