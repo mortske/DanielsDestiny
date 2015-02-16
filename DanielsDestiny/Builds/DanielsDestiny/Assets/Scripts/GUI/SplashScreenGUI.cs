@@ -28,6 +28,8 @@ public class SplashScreenGUI : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		if(!disableSplashScreen) {
+			splashScreenIsActive = true;
+			print (splashScreenIsActive);
 			currentPage = -1;
 			#region Pages Addition
 			Pages.Add(pageOne = GameObject.Find("InventorySplashScreenOne").GetComponent<Image>());
@@ -41,6 +43,8 @@ public class SplashScreenGUI : MonoBehaviour {
 			Texts.Add(pageThreeText = GameObject.Find("PageThreeText").GetComponent<Text>());
 			Texts.Add(pageFourText = GameObject.Find("PageFourText").GetComponent<Text>());
 			#endregion
+
+			print (Pages.Count + " ; " + Texts.Count);
 		}
 	}
 	
@@ -49,6 +53,7 @@ public class SplashScreenGUI : MonoBehaviour {
 		if(splashScreenIsActive) {
 			if(!disableSplashScreen && currentPage != Pages.Count) {
 				if(Input.GetKeyDown(KeyCode.Return)) {
+					print (currentPage);
 					NextPage();
 				}
 			}
@@ -56,7 +61,7 @@ public class SplashScreenGUI : MonoBehaviour {
 	}
 
 	void NextPage () {
-		if(currentPage > Pages.Count) {
+		if(currentPage < Pages.Count) {
 			currentPage++;
 			AdjustCurrentPage(currentPage);
 		} else {
