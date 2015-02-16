@@ -98,7 +98,7 @@ public class CraftingDictionary : MonoBehaviour
 		}
 		else
 		{
-			Debug.Log ("You cant use that item, try to Eat/Drink it maybe.");
+			MessageBox.instance.SendMessage("I cant use that item, maybe I can do something else with it...");
 			ClearSelectedItem();
 		}
 
@@ -121,7 +121,7 @@ public class CraftingDictionary : MonoBehaviour
 		}
 		else
 		{
-			Debug.Log ("You cant craft anything from 1 item, try Use or Eat/Drink it");
+			MessageBox.instance.SendMessage("I cant craft anything from this right now, maybe I can do something else with it...");
 			ClearSelectedItem();
 		}
 	}
@@ -184,6 +184,7 @@ public class CraftingDictionary : MonoBehaviour
 					//inv.CheckWeight(result.GetComponentInChildren<Item>().weight - checkWeight);
 					//inv.AddItem(.transform.FindChild("OverlapSphere").GetComponent<Item>());
 					//Message
+					MessageBox.instance.SendMessage("I created a " + rec.result.name);
 					Debug.Log ("You created a " + rec.result.name);
 					for (int i = 0; i < selectedItems.Count; i++) 
 					{
@@ -219,7 +220,7 @@ public class CraftingDictionary : MonoBehaviour
 		else
 		{
 			//Message: couldnt create anything with those items
-			Debug.Log ("You cant create anything with those items.");
+			MessageBox.instance.SendMessage("I cant create anything with those items.");
 			ClearSelectedItem();
 		}
 	}
