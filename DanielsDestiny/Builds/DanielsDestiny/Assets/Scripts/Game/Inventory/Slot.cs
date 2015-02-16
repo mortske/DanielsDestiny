@@ -9,6 +9,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 	private Stack<Item> items;
     public bool onMouseHover = false;
 
+	[HideInInspector]
     public RectTransform itemNameBox;
     Text itemNameBoxText;
     RectTransform itemNameBoxBox;

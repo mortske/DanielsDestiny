@@ -43,5 +43,9 @@ public class PauseAttachment : MonoBehaviour {
                 PauseSystem.Pause(false);
             }
         }
+		else if(Player.instance.inventory.enabled)
+		{
+			Player.instance.ToggleInventory();
+		}
 	}
 }

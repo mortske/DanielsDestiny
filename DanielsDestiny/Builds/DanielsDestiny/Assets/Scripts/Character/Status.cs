@@ -10,6 +10,7 @@ public class Status : MonoBehaviour
     public StatusBar temperature;
     public float temperaturePadding;
     public float temperatureAdjustment { get; set; }
+    public AudioClip DamageSound; 
 
     public StatusBar GetBar(StatusBars bar)
     {
@@ -30,6 +31,8 @@ public class Status : MonoBehaviour
         }
     }
 
+    
+
     void Start()
     {
         health.Initialize(this);
@@ -43,13 +46,7 @@ public class Status : MonoBehaviour
         if (health.UpdateTick())
         {
             health.adjustCur(-health.AdjustValue);
-
-            if (health.cur <= health.min)
-            {
-				GameTime.instance.SaveTime();
-				BiomeManager.instance.SaveGame();
-                Application.LoadLevel(Application.loadedLevel + 1);
-            }
+            CheckDeath();
         }
 
         if (hunger.UpdateTick())
@@ -64,6 +61,23 @@ public class Status : MonoBehaviour
         float other = 100 - temperaturePadding;
         temperature.cur = GameTime.instance._scaledTemperature * (temperaturePadding - other) + other + temperatureAdjustment;
         temperature.adjustCur(0);
+    }
+
+    public void TakeDamage(float dmg)
+    {
+        health.adjustCur(-dmg);
+        MessageBox.instance.SendMessage("OUCH!");
+        SoundManager.instance.Spawn3DSound(DamageSound, transform.position, 1, 5);
+    }
+
+    public void CheckDeath()
+    {
+        if (health.cur <= health.min)
+        {
+            GameTime.instance.SaveTime();
+            BiomeManager.instance.SaveGame();
+            Application.LoadLevel(Application.loadedLevel + 1);
+        }
     }
 }
 

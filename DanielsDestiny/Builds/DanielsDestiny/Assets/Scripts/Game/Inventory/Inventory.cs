@@ -13,8 +13,8 @@ public class Inventory : MonoBehaviour {
     public DialougeBoxInv db;
     public CraftingDictionary craftingDictionary;
 
-	private RectTransform craftingButtonRect, useButtonRect, eatButtonRect, equipButtonRect;
-	public Button craftingButton, useButton, eatButton, equipButton;
+	private RectTransform craftingButtonRect, useButtonRect, eatButtonRect, equipButtonRect, dropButtonRect;
+	public Button craftingButton, useButton, eatButton, equipButton, dropButton;
 	[HideInInspector]
 	public  GameObject equipSlot;
 
@@ -60,13 +60,13 @@ public class Inventory : MonoBehaviour {
 
 	void Update () 
 	{
-		if(Input.GetMouseButtonUp(0))
-		{
-            if (!eventSystem.IsPointerOverGameObject(-1) && from != null)
-            {
-                DropItem();
-            }
-		}
+//		if(Input.GetMouseButtonUp(0))
+//		{
+//            if (!eventSystem.IsPointerOverGameObject(-1) && from != null)
+//            {
+//                DropItem();
+//            }
+//		}
 
         if (hoverObject != null)
         {
@@ -149,6 +149,11 @@ public class Inventory : MonoBehaviour {
 		equipButtonRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, inventoryWidth / 2);
 		equipButtonRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize);
 		equipButtonRect.localPosition = new Vector3(inventoryRect.localPosition.x, inventoryRect.localPosition.y - (inventoryHight + slotSize), 0 );
+
+		dropButtonRect = dropButton.GetComponent<RectTransform>();
+		dropButtonRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, inventoryWidth / 2);
+		dropButtonRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize);
+		dropButtonRect.localPosition = new Vector3(inventoryRect.localPosition.x + equipButtonRect.rect.width, inventoryRect.localPosition.y - (inventoryHight + slotSize), 0 );
 
 		inventoryWeightRect = inventoryWeight.transform.parent.GetComponent<RectTransform>();
 		inventoryWeightRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, inventoryWidth / 2);
@@ -357,6 +362,7 @@ public class Inventory : MonoBehaviour {
         db.Display(from.Items.Count, 0, from.Items.Count / 2);
         CoroutineHandler.instance.DropItemDialouge(db, hoverObject);
     }
+
 	public List<ItemSaveType> GetInventory()
 	{
 		List<ItemSaveType> saveList = new List<ItemSaveType>();
@@ -380,6 +386,7 @@ public class Inventory : MonoBehaviour {
 		}
 		return saveList;
 	}
+
 	public void SetInventory(List<ItemSaveType> saved)
 	{
 		for(int i = 0; i < saved.Count; i++)
