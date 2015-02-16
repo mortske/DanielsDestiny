@@ -4,6 +4,7 @@ using System.Collections;
 public class Trap : MonoBehaviour 
 {
     public GameObject trapUntriggered;
+    public GameObject animal;
     public GameObject trapTriggered;
     public GameObject[] item;
 
@@ -28,6 +29,7 @@ public class Trap : MonoBehaviour
     {
         trapstate = trapStates.unactivated;
         trapTriggered.SetActive(false);
+        animal.SetActive(false);
         trapUntriggered.SetActive(true);
         spawnTime = Random.Range(minSpawnTime, maxSpawnTime);
         Invoke("ActivateTrap", spawnTime);
@@ -36,6 +38,7 @@ public class Trap : MonoBehaviour
     void ActivateTrap()
     {
         trapTriggered.SetActive(true);
+        animal.SetActive(true);
         trapUntriggered.SetActive(false);
         trapstate = trapStates.activated;
     }
@@ -72,6 +75,7 @@ public class Trap : MonoBehaviour
                         go.transform.parent = Player.instance.transform;
                         trapstate = trapStates.empty;
                         OnScreenInformationbox.instance.ShowBox("press \"PickupKey\" to set the trap up");
+                        animal.SetActive(false);
                     }
                 }
                 else if (trapstate == trapStates.empty)
