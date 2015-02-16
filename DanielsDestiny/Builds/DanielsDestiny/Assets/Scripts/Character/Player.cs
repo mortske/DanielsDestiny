@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetButtonDown("Inventory"))
+		if(Input.GetButtonDown("Inventory"))
         {
             ToggleInventory();
         }

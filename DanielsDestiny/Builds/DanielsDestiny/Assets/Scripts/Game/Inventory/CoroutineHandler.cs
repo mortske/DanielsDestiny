@@ -79,6 +79,13 @@ public class CoroutineHandler : MonoBehaviour
             if(Player.instance.curBiome != null)
                 Player.instance.curBiome.AddWorldDrop(go);
         }
+		
+		if(Inventory.from.CurrentItem == Player.instance.curEquipment)
+		{
+			Slot equipTmp = GameObject.Find("EquipSlot").GetComponent<Slot>();
+			equipTmp.ChangeSprite(equipTmp.slotEmpty, equipTmp.slotHighlight);
+			Player.instance.curEquipment = null;
+		}
 
         if (leaveCount == 0)
         {
@@ -95,6 +102,8 @@ public class CoroutineHandler : MonoBehaviour
                 }
             }
         }
+
+
 
         Inventory.from.GetComponent<Image>().color = Color.white;
 
