@@ -18,6 +18,20 @@
     <ArrayOfInt>
       <int>0</int>
       <int>1</int>
+      <int>39</int>
+      <int>42</int>
+      <int>5982</int>
+    </ArrayOfInt>
+    <ArrayOfInt>
+      <int>0</int>
+      <int>1</int>
+      <int>33</int>
+      <int>56</int>
+      <int>5636</int>
+    </ArrayOfInt>
+    <ArrayOfInt>
+      <int>0</int>
+      <int>1</int>
       <int>19</int>
       <int>59</int>
       <int>4799</int>
@@ -56,20 +70,6 @@
       <int>33</int>
       <int>57</int>
       <int>2037</int>
-    </ArrayOfInt>
-    <ArrayOfInt>
-      <int>0</int>
-      <int>0</int>
-      <int>33</int>
-      <int>32</int>
-      <int>2012</int>
-    </ArrayOfInt>
-    <ArrayOfInt>
-      <int>0</int>
-      <int>0</int>
-      <int>33</int>
-      <int>7</int>
-      <int>1987</int>
     </ArrayOfInt>
   </TimeSurvived>
 </SaveHighscore>

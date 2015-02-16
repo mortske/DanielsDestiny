@@ -6,6 +6,8 @@ public class LoadingScreen : MonoBehaviour
     Canvas canvas; 
     public static LoadingScreen instance;
     GUITexture guitexture;
+    
+    bool _loadGame = false;
 
     void Awake()
     {
@@ -20,7 +22,11 @@ public class LoadingScreen : MonoBehaviour
         canvas.enabled = true;
         Application.LoadLevel(index);
     }
-
+	public bool ResumeGame
+	{
+		get{return _loadGame;}
+		set{_loadGame = value;}
+	}
     void Update()
     {
         if (Application.isLoadingLevel)
@@ -32,6 +38,8 @@ public class LoadingScreen : MonoBehaviour
             canvas.enabled = false;
             if (Application.loadedLevel == 1)
             {
+	            if(_loadGame)
+	            	BiomeManager.instance.LoadBiomes();
                 Destroy(gameObject);
             }
         }
