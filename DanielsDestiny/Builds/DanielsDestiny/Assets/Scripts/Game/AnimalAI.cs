@@ -7,7 +7,8 @@ public class AnimalAI : MonoBehaviour
     {
         Idle,
         Roam,
-        MoveToPlayer
+        MoveToPlayer,
+        Attack
     }
     MovePatterns curMovePattern = MovePatterns.Roam;
 
@@ -15,6 +16,8 @@ public class AnimalAI : MonoBehaviour
     public float speed = 6.0F;
     public float turnspeed = 0.0F;
     public float gravity = 20.0F;
+    public float damage = 10;
+    public float damageTimer = 2;
 
     private Vector3 moveDirection = Vector3.zero;
 
@@ -28,6 +31,8 @@ public class AnimalAI : MonoBehaviour
 
     void Update()
     {
+        if(CheckDistanceToPlayer() && curMovePattern != MovePatterns.Attack)
+            curMovePattern = MovePatterns.MoveToPlayer;
         switch (curMovePattern)
         {
             case MovePatterns.Roam:
@@ -80,6 +85,15 @@ public class AnimalAI : MonoBehaviour
         }
     }
 
+    bool CheckDistanceToPlayer()
+    {
+        if (Vector3.Distance(transform.position, Player.instance.transform.position) < 10)
+        {
+            return true;
+        }
+        return false;
+    }
+
     void MoveTowardsPlayer(Transform target)
     {
         Quaternion newrot = new Quaternion(0, Quaternion.LookRotation(target.position - transform.position).y, 0, Quaternion.LookRotation(target.position - transform.position).w);
@@ -93,9 +107,22 @@ public class AnimalAI : MonoBehaviour
         else
         {
             moveDirection = Vector3.zero;
+            Debug.Log("went to shit");
+            curMovePattern = MovePatterns.Attack;
+            StartCoroutine(AttackPlayer());
         }
 
         moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
+    }
+
+    IEnumerator AttackPlayer()
+    {
+        while (CheckDistanceToPlayer())
+        {
+            yield return new WaitForSeconds(damageTimer);
+            Player.instance.status.TakeDamage(damage);
+        }
+        curMovePattern = MovePatterns.MoveToPlayer;
     }
 }
