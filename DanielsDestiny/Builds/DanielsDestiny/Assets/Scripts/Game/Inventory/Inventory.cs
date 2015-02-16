@@ -153,7 +153,7 @@ public class Inventory : MonoBehaviour {
 		inventoryWeightRect = inventoryWeight.transform.parent.GetComponent<RectTransform>();
 		inventoryWeightRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, inventoryWidth / 2);
 		inventoryWeightRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize);
-		inventoryWeightRect.localPosition = new Vector3(inventoryRect.localPosition.x + equipButtonRect.rect.width, inventoryRect.localPosition.y - (inventoryHight + slotSize), 0 );
+		inventoryWeightRect.localPosition = new Vector3(inventoryRect.localPosition.x + equipButtonRect.rect.width, inventoryRect.localPosition.y + slotSize, 0 );
 	}
 
 	public bool CheckWeight(float itemWeight)
@@ -170,15 +170,16 @@ public class Inventory : MonoBehaviour {
 		}
 	}
 
-	public bool CantPickUp()
+	public bool CanPickUp(float itemWeight)
 	{
-		if(cantPickUp)
+		if(currWeight + itemWeight <= maxWeight)
 		{
-			cantPickUp = false;
 			return true;
 		}
 		else
+		{
 			return false;
+		}
 	}
 
 	public void PrintInventoryWeight()

@@ -139,7 +139,7 @@ public class GameTime : MonoBehaviour {
 		{
 			RenderSettings.skybox.SetFloat("_Blend", 1);
 		}
-		else if(_timeOfDay < sunRise || _timeOfDay > sunSet)
+		else if(_timeOfDay < sunRise || _timeOfDay > sunSet+(0.2f*_dayCycleInSeconds))
 		{
 			RenderSettings.skybox.SetFloat("_Blend", 0);
 		}
