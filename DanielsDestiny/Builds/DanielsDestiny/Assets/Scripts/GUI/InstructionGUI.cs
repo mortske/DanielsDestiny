@@ -38,9 +38,11 @@ public class InstructionGUI : MonoBehaviour {
 		instructionsTitle = GameObject.Find("Canvas_InstructionsTitle").GetComponent<Canvas>();
 
 		ClearAllCanvases();
+		instructionCanvas.enabled = false;
 
 		if(!disableInstructionScreen) {
 			StartInstructions();
+			instructionCanvas.enabled = true;
 			instructionsTitle.enabled = true;
 		}
 	}
