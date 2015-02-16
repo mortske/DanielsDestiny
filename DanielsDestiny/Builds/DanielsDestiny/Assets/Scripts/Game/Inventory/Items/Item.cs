@@ -15,6 +15,7 @@ public class Item : MonoBehaviour
 
 	[HideInInspector]
 	public bool equipable;
+	private bool pickedUp;
 
     public string Name
     {
@@ -60,12 +61,20 @@ public class Item : MonoBehaviour
 
 		for (int i = 0; i < curSize; i++)
 		{
-			player.inventory.AddItem(this);
+			if(player.inventory.CheckWeight(weight))
+			{
+				pickedUp = true;
+				player.inventory.AddItem(this);
+			}
+			else
+				MessageBox.instance.SendMessage("I am carrying too much");
 		}
-		
-		transform.parent.position = player.transform.position;
-		transform.parent.gameObject.SetActive(false);
-		transform.parent.parent = player.transform;
+		if(pickedUp)
+		{
+			transform.parent.position = player.transform.position;
+			transform.parent.gameObject.SetActive(false);
+			transform.parent.parent = player.transform;
+		}
 		
     }
 }

@@ -62,7 +62,7 @@ public class CraftingDictionary : MonoBehaviour
 					ClearSelectedItem();
 
 				}
-				else if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.I))
+				else if(Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Inventory"))
 				{
 					Destroy(tmpPlacingObject);
 					ClearSelectedItem();
@@ -151,6 +151,7 @@ public class CraftingDictionary : MonoBehaviour
 				bool gotIn = false;
 				allTrue = rec.items.Count;
 				int checkAllTrue = 0;
+				float checkWeight = 0;
 				for (int i = 0; i < selectedItems.Count; i++) 
 				{
 					for (int n = 0; n < rec.items.Count; n++)
@@ -161,6 +162,7 @@ public class CraftingDictionary : MonoBehaviour
 							if(selectedItems[i].Items.Count >= rec.amount[n])
 							{
 								checkAllTrue++;
+								checkWeight = checkWeight + selectedItems[i].CurrentItem.weight;
 							}
 						}
 						if(gotIn)
@@ -178,9 +180,8 @@ public class CraftingDictionary : MonoBehaviour
 
                     GameObject result = (GameObject)Instantiate(rec.result);
                     result.name = rec.result.name;
-                    Debug.Log(result.GetComponentInChildren<Item>().equipable);
                     result.GetComponentInChildren<Item>().AddItem();
-                    
+					//inv.CheckWeight(result.GetComponentInChildren<Item>().weight - checkWeight);
 					//inv.AddItem(.transform.FindChild("OverlapSphere").GetComponent<Item>());
 					//Message
 					Debug.Log ("You created a " + rec.result.name);

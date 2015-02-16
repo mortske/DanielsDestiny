@@ -18,8 +18,11 @@ public class Inventory : MonoBehaviour {
 	[HideInInspector]
 	public  GameObject equipSlot;
 
+	private RectTransform inventoryWeightRect;
+	public Text inventoryWeight;
 	public float maxWeight;
 	[HideInInspector] public float currWeight;
+	private bool cantPickUp;
 
 	public int slots;
 	public int rows;
@@ -51,6 +54,7 @@ public class Inventory : MonoBehaviour {
 	void Start () 
 	{
 		CreateLayout();
+		inventoryWeight.text = "Weight: " + currWeight.ToString() + "/" + maxWeight.ToString();
         transform.parent.GetComponent<Canvas>().enabled = enabled;
 	}
 
@@ -145,11 +149,41 @@ public class Inventory : MonoBehaviour {
 		equipButtonRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, inventoryWidth / 2);
 		equipButtonRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize);
 		equipButtonRect.localPosition = new Vector3(inventoryRect.localPosition.x, inventoryRect.localPosition.y - (inventoryHight + slotSize), 0 );
+
+		inventoryWeightRect = inventoryWeight.transform.parent.GetComponent<RectTransform>();
+		inventoryWeightRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, inventoryWidth / 2);
+		inventoryWeightRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, slotSize);
+		inventoryWeightRect.localPosition = new Vector3(inventoryRect.localPosition.x + equipButtonRect.rect.width, inventoryRect.localPosition.y + slotSize, 0 );
 	}
 
 	public bool CheckWeight(float itemWeight)
 	{
-		return currWeight + itemWeight <= maxWeight;
+		if(currWeight + itemWeight <= maxWeight)
+		{
+			currWeight = currWeight + itemWeight;
+			PrintInventoryWeight();
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	public bool CantPickUp()
+	{
+		if(cantPickUp)
+		{
+			cantPickUp = false;
+			return true;
+		}
+		else
+			return false;
+	}
+
+	public void PrintInventoryWeight()
+	{
+		inventoryWeight.text = "Weight: " + currWeight.ToString() + "/" + maxWeight.ToString();
 	}
 
 	public bool AddItem(Item item)
@@ -157,7 +191,6 @@ public class Inventory : MonoBehaviour {
 		if(item.maxSize == 1)
 		{
 			PlaceEmpty(item);
-			currWeight = currWeight + item.weight;
 			return true;
 		}
 		else
@@ -171,9 +204,6 @@ public class Inventory : MonoBehaviour {
 					if(tmp.CurrentItem.transform.parent.name == item.transform.parent.name && tmp.IsAvailable)
 					{
 						tmp.AddItem(item);
-						currWeight = currWeight + item.weight;
-						
-						Debug.Log (currWeight);
 						return true;
 					}
 				}
@@ -181,7 +211,6 @@ public class Inventory : MonoBehaviour {
 			if(emptySlots > 0)
 			{
 				PlaceEmpty(item);
-				currWeight = currWeight + item.weight;
 			}
 		}
 		return false;
