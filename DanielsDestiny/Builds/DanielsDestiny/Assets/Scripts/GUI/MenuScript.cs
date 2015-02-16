@@ -129,11 +129,16 @@ public class MenuScript : MonoBehaviour {
 	public void StartPlayGame () {
 		ResetCanvas(CanvasList); // start game
 		PauseAttachment.canBePaused = true;
+		LoadingScreen.instance.ResumeGame = false;
 		Application.LoadLevel(1);
 	}
 	
 	public void StartLoadGame () {
 		//Load Game and then Start - Continue
+		ResetCanvas(CanvasList); // start game
+		PauseAttachment.canBePaused = true;
+		LoadingScreen.instance.ResumeGame = true;
+		Application.LoadLevel(1);
 	}
 	
 	public void StartHowToPlay () {
