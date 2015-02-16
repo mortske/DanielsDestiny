@@ -170,15 +170,16 @@ public class Inventory : MonoBehaviour {
 		}
 	}
 
-	public bool CantPickUp()
+	public bool CanPickUp(float itemWeight)
 	{
-		if(cantPickUp)
+		if(currWeight + itemWeight <= maxWeight)
 		{
-			cantPickUp = false;
 			return true;
 		}
 		else
+		{
 			return false;
+		}
 	}
 
 	public void PrintInventoryWeight()

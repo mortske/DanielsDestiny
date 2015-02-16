@@ -8,6 +8,8 @@ public class Tree : MonoBehaviour
     public bool parentIsRoot;
     public AudioClip chopSound;
 
+	EqualsTo retro;
+
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
@@ -42,7 +44,19 @@ public class Tree : MonoBehaviour
             GameObject randomItem = itemPrefabs[Random.Range(0, itemPrefabs.Length)];
             GameObject go = (GameObject)Instantiate(randomItem);
             go.name = randomItem.name;
-            go.GetComponentInChildren<Item>().AddItem();
+			if(Player.instance.inventory.CanPickUp(go.GetComponentInChildren<Item>().weight))
+			{
+            	go.GetComponentInChildren<Item>().AddItem();
+			}
+			else
+			{
+				MessageBox.instance.SendMessage("I am carrying too much");
+				go.SetActive(true);
+				go.transform.parent = null;
+				go.transform.position = new Vector3(Player.instance.transform.position.x + Random.Range(0, 5), Player.instance.transform.position.y, Player.instance.transform.position.z + Random.Range(0, 5));
+				if(Player.instance.curBiome != null)
+					Player.instance.curBiome.AddWorldDrop(go);
+			}
         }
         life--;
         SoundManager.instance.Spawn3DSound(chopSound, Player.instance.transform.position, 1, 5);

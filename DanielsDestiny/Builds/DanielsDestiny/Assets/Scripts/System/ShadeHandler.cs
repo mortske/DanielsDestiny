@@ -20,8 +20,6 @@ public class ShadeHandler : MonoBehaviour {
 			
 			if(Physics.Linecast(_sunPos.transform.position, _pl.transform.position, out hit, mask))
 			{
-				
-				Debug.Log(hit.collider.name);
 				InShade();
 			}
 			else
