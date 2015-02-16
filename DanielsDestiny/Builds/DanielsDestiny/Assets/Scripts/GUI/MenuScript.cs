@@ -44,7 +44,7 @@ public class MenuScript : MonoBehaviour {
 	}
 	// Use this for initialization
 	void Start () {
-		if(Application.loadedLevel == 0) { // set 0 to death scene
+		if(Application.loadedLevel == 0) {
 			#region main Canvases
 			CanvasList.Add(menuCanvas = GameObject.Find("Canvas_StartMenu").GetComponent<Canvas>());
 			CanvasList.Add(howToPlayCanvas = GameObject.Find("Canvas_HowToPlay").GetComponent<Canvas>());
@@ -60,6 +60,7 @@ public class MenuScript : MonoBehaviour {
 			InfoCanvasList.Add(interactionCanvas = GameObject.Find("Canvas_HowToPlay_Interaction").GetComponent<Canvas>());
 			ChangeCanvas(menuCanvas);
 			ResetCanvas(InfoCanvasList);
+			Screen.showCursor = true;
 		} else if(Application.loadedLevel == 2) {
 			CanvasList.Add(deathCanvas = GameObject.Find("Canvas_Death").GetComponent<Canvas>());
 		} else {
