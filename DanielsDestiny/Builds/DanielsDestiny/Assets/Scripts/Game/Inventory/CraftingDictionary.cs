@@ -58,6 +58,8 @@ public class CraftingDictionary : MonoBehaviour
 					placeItem = false;
 					tmpPlacingObject.GetComponentInChildren<Item>().selected = false;
 					selectedItems[0].CurrentItem.selected = false;
+					if(Player.instance.curBiome != null)
+						Player.instance.curBiome.AddWorldDrop(tmpPlacingObject);
 					selectedItems[0].RemoveItem();
 					ClearSelectedItem();
 
@@ -126,6 +128,17 @@ public class CraftingDictionary : MonoBehaviour
 		}
 	}
 
+	public void DropItem()
+	{
+		if(selectedItems.Count == 1)
+		{
+			Inventory.from = selectedItems[0];
+			inv.db.Display(selectedItems[0].Items.Count, 0, selectedItems[0].Items.Count / 2);
+			CoroutineHandler.instance.DropItemDialouge(inv.db, null);
+			ClearSelectedItem();
+		}
+	}
+	
 	public static void ClearSelectedItem()
 	{
 		if(selectedItems.Count > 0)
