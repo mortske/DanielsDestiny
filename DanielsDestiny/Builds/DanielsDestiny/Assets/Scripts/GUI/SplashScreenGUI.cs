@@ -43,12 +43,9 @@ public class SplashScreenGUI : MonoBehaviour {
 			Texts.Add(pageThreeText = GameObject.Find("PageThreeText").GetComponent<Text>());
 			Texts.Add(pageFourText = GameObject.Find("PageFourText").GetComponent<Text>());
 			#endregion
-
-			print (Pages.Count + " ; " + Texts.Count);
 		}
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		if(splashScreenIsActive) {
 			if(!disableSplashScreen && currentPage != Pages.Count) {
@@ -60,12 +57,29 @@ public class SplashScreenGUI : MonoBehaviour {
 		}
 	}
 
+	public void InventorySplashScreen (bool _bool) {
+		splashScreenIsActive _bool;
+		if(_bool = true) {
+			NextPage();
+		} else {
+			currentPage = Pages.Count + 1;
+			DisableList(Pages);
+			DisableList(Texts);
+		}
+	}
+
 	void NextPage () {
 		if(currentPage < Pages.Count) {
 			currentPage++;
 			AdjustCurrentPage(currentPage);
 		} else {
 			splashScreenIsActive = false;
+		}
+	}
+
+	void DisableList (List _list) {
+		for (int i = 0; i < _list.Count; i++) {
+			_list[i].enabled = false;
 		}
 	}
 
