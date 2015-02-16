@@ -14,7 +14,7 @@ public class BiomeItems : MonoBehaviour {
 		{
 			for(int i = 0; i < OriginalItems.Length; i++)
 			{
-				Debug.Log("Item Digit: " + (int)(s[i]));
+//				Debug.Log("Item Digit: " + (int)(s[i]));
 				int firstDigit = (int)(s[i]) - 48;
 				if(firstDigit == 0)
 				{
@@ -23,6 +23,7 @@ public class BiomeItems : MonoBehaviour {
 					
 			}
 		}
+		Player.instance.pickupEventHandler.ClearItemQueue();
 	}
 	public string GetItemsInBiome()
 	{

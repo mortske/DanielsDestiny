@@ -58,6 +58,8 @@ public class CraftingDictionary : MonoBehaviour
 					placeItem = false;
 					tmpPlacingObject.GetComponentInChildren<Item>().selected = false;
 					selectedItems[0].CurrentItem.selected = false;
+					if(Player.instance.curBiome != null)
+						Player.instance.curBiome.AddWorldDrop(tmpPlacingObject);
 					selectedItems[0].RemoveItem();
 					ClearSelectedItem();
 
