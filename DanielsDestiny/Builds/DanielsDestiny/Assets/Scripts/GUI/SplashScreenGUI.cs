@@ -50,7 +50,6 @@ public class SplashScreenGUI : MonoBehaviour {
 		if(splashScreenIsActive) {
 			if(!disableSplashScreen && currentPage != Pages.Count) {
 				if(Input.GetKeyDown(KeyCode.Return)) {
-					print (currentPage);
 					NextPage();
 				}
 			}
