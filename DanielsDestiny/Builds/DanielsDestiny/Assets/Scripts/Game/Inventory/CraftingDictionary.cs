@@ -112,6 +112,7 @@ public class CraftingDictionary : MonoBehaviour
 		if(selectedItems.Count == 1 && selectedItems[0].CurrentItem.usable)
 		{
 			selectedItems[0].UseItem();
+			ClearSelectedItem();
 			
 		}
 	}
@@ -197,8 +198,7 @@ public class CraftingDictionary : MonoBehaviour
                     GameObject result = (GameObject)Instantiate(rec.result);
                     result.name = rec.result.name;
                     result.GetComponentInChildren<Item>().AddItem();
-					//inv.CheckWeight(result.GetComponentInChildren<Item>().weight - checkWeight);
-					//inv.AddItem(.transform.FindChild("OverlapSphere").GetComponent<Item>());
+
 					//Message
 					MessageBox.instance.SendMessage("I created a " + rec.result.name);
 					Debug.Log ("You created a " + rec.result.name);
