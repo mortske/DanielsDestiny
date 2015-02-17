@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Equip : Item 
 {
+    public float damage;
 	void Start()
 	{
 		equipable = true;
