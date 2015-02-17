@@ -257,7 +257,7 @@ public class Inventory : MonoBehaviour {
 				equipTmp.AddItem(eq);
 			}
 			equipTmp.ChangeSprite(eq.spriteHighlighted, eq.spriteHighlighted);
-            Player.instance.curEquipment = eq.GetComponent<Equip>();
+            Player.instance.curEquipment = eq;
 		}
 	}
 
@@ -356,12 +356,6 @@ public class Inventory : MonoBehaviour {
 			hoverObject = null;
 		}
 	}
-
-    public void DropItem()
-    {
-        db.Display(from.Items.Count, 0, from.Items.Count / 2);
-        CoroutineHandler.instance.DropItemDialouge(db, hoverObject);
-    }
 
 	public List<ItemSaveType> GetInventory()
 	{
