@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     [HideInInspector] public Equip curEquipment;
     public BiomeItems curBiome;
 
+	private bool hasShownSplashScreen;
+
     void Awake()
     {
         instance = this;
@@ -33,11 +35,16 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+		print (SplashScreenGUI.splashScreenIsActive);
 		if(!SplashScreenGUI.splashScreenIsActive) {
 			if(Input.GetButtonDown("Inventory"))
 	        {
 	            ToggleInventory();
-				splashScreen.InventorySplashScreen(true);
+				if(!hasShownSplashScreen) {
+					hasShownSplashScreen = true;
+					splashScreen.InventorySplashScreen(true);
+					SplashScreenGUI.splashScreenIsActive = true;
+				}
 	        }
 		}
     }

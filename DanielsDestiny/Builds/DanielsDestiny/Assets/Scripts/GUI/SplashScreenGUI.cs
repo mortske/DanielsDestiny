@@ -28,9 +28,9 @@ public class SplashScreenGUI : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		if(!disableSplashScreen) {
-			//splashScreenIsActive = true;
-			//print (splashScreenIsActive);
 			currentPage = -1;
+
+			Arrow = GameObject.Find("SplashScreenArrow").GetComponent<Image>();
 			#region Pages Addition
 			Pages.Add(pageOne = GameObject.Find("InventorySplashScreenOne").GetComponent<Image>());
 			Pages.Add(pageTwo = GameObject.Find("InventorySplashScreenTwo").GetComponent<Image>());
@@ -57,7 +57,9 @@ public class SplashScreenGUI : MonoBehaviour {
 	}
 
 	public void InventorySplashScreen (bool _bool) {
-		splashScreenIsActive = _bool;
+		if(currentPage < Pages.Count) {
+			Arrow.enabled = true;
+		}
 		if(_bool = true) {
 			NextPage();
 		} else {
@@ -68,11 +70,10 @@ public class SplashScreenGUI : MonoBehaviour {
 	}
 
 	void NextPage () {
-		if(currentPage < Pages.Count) {
+		if(currentPage <= Pages.Count) {
 			currentPage++;
+			print(currentPage + " : " + Pages.Count);
 			AdjustCurrentPage(currentPage);
-		} else {
-			splashScreenIsActive = false;
 		}
 	}
 
@@ -98,6 +99,10 @@ public class SplashScreenGUI : MonoBehaviour {
 				Pages[i].enabled = false;
 				Texts[i].enabled = false;
 			}
+		}
+		if(_curr == Pages.Count) {
+			Arrow.enabled = false;
+			splashScreenIsActive = false;
 		}
 	}
 }
