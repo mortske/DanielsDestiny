@@ -32,6 +32,8 @@ public class AnimalAI : MonoBehaviour
 
     void Update()
     {
+        moveDirection.y -= gravity * Time.deltaTime;
+        controller.Move(moveDirection * Time.deltaTime);
         if(CheckDistanceToPlayer() && curMovePattern != MovePatterns.Attack)
             curMovePattern = MovePatterns.MoveToPlayer;
         switch (curMovePattern)
@@ -65,7 +67,7 @@ public class AnimalAI : MonoBehaviour
             SetNewTask();
         }
 
-        moveDirection.y -= gravity * Time.deltaTime;
+        //moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
     }
 
@@ -110,7 +112,7 @@ public class AnimalAI : MonoBehaviour
             StartCoroutine(AttackPlayer());
         }
 
-        moveDirection.y -= gravity * Time.deltaTime;
+        //moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
     }
 

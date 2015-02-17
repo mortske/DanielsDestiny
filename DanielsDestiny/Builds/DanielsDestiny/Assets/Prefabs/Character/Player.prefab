@@ -11,6 +11,7 @@ GameObject:
   - 114: {fileID: 11449364}
   - 135: {fileID: 13549364}
   - 54: {fileID: 5449364}
+  - 114: {fileID: 11486654}
   m_Layer: 0
   m_Name: TemperatureManager
   m_TagString: Untagged
@@ -362,6 +363,19 @@ MonoBehaviour:
   sprintSpeed: 12
   gravity: 20
   stepSound: {fileID: 8300000, guid: 0cd618a60206a82429c1bd35493a6327, type: 3}
+--- !u!114 &11486654
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 149364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eed1e42ce2b0d85438939b52f53e487f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseDamage: 1
+  attackTime: 2
 --- !u!114 &11492730
 MonoBehaviour:
   m_ObjectHideFlags: 1
