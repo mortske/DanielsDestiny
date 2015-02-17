@@ -58,7 +58,7 @@ public class SplashScreenGUI : MonoBehaviour {
 	}
 
 	public void InventorySplashScreen (bool _bool) {
-		splashScreenIsActive _bool;
+		splashScreenIsActive = _bool;
 		if(_bool = true) {
 			NextPage();
 		} else {
@@ -77,11 +77,18 @@ public class SplashScreenGUI : MonoBehaviour {
 		}
 	}
 
-	void DisableList (List _list) {
+	void DisableList (List<Text> _list) {
 		for (int i = 0; i < _list.Count; i++) {
 			_list[i].enabled = false;
 		}
 	}
+    void DisableList(List<Image> _list)
+    {
+        for (int i = 0; i < _list.Count; i++)
+        {
+            _list[i].enabled = false;
+        }
+    }
 
 	void AdjustCurrentPage (int _curr) {
 		for (int i = 0; i < Pages.Count; i++) {
