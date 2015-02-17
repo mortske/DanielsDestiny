@@ -167,6 +167,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 				{
 					if(CurrentItem)
 					{
+                        Destroy(Player.instance.visualEquipment.gameObject);
 						RemoveItem();
 						ChangeSprite(slotHighlight, slotHighlight);
 					}

@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     public Inventory inventory;
     public PickupEventHandler pickupEventHandler { get; set; }
     [HideInInspector] public Equip curEquipment;
+    [HideInInspector] public GameObject visualEquipment;
+    public Transform handPoint;
     public BiomeItems curBiome;
 
     void Awake()

@@ -59,7 +59,7 @@ public class SplashScreenGUI : MonoBehaviour {
 
 	public void InventorySplashScreen (bool _bool) {
 		splashScreenIsActive = _bool;
-		if(_bool = true) {
+		if(_bool == true) {
 			NextPage();
 		} else {
 			currentPage = Pages.Count + 1;

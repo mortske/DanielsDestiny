@@ -258,6 +258,14 @@ public class Inventory : MonoBehaviour {
 			}
 			equipTmp.ChangeSprite(eq.spriteHighlighted, eq.spriteHighlighted);
             Player.instance.curEquipment = eq.GetComponent<Equip>();
+
+            if (Player.instance.visualEquipment != null)
+                Destroy(Player.instance.visualEquipment.gameObject);
+            GameObject visual = (GameObject)Instantiate(Player.instance.curEquipment.VisualModel);
+            visual.transform.parent = Player.instance.handPoint;
+            visual.transform.localRotation = Player.instance.curEquipment.VisualModel.transform.rotation;
+            visual.transform.localPosition = Player.instance.curEquipment.VisualModel.transform.position;
+            Player.instance.visualEquipment = visual;
 		}
 	}
 

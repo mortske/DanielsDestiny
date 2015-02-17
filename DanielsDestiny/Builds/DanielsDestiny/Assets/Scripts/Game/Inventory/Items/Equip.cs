@@ -4,6 +4,8 @@ using System.Collections;
 public class Equip : Item 
 {
     public float damage;
+    public GameObject VisualModel;
+
 	void Start()
 	{
 		equipable = true;
