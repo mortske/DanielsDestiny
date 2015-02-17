@@ -624,6 +624,8 @@ MonoBehaviour:
   maxSize: 1
   curSize: 1
   selected: 0
+  weight: 35
+  equipable: 0
 --- !u!114 &11486480
 MonoBehaviour:
   m_ObjectHideFlags: 1

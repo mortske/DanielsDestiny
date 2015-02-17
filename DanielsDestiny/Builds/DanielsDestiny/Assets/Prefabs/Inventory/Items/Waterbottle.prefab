@@ -162,7 +162,7 @@ MonoBehaviour:
   maxSize: 10
   curSize: 1
   selected: 0
-  weight: 0
+  weight: 5
   equipable: 0
   effects: []
 --- !u!135 &13530710

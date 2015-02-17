@@ -177,7 +177,7 @@ MonoBehaviour:
   maxSize: 10
   curSize: 1
   selected: 0
-  weight: 10
+  weight: 5
   equipable: 0
 --- !u!136 &13652378
 CapsuleCollider:

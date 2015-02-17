@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -148,6 +149,8 @@ public class CraftingDictionary : MonoBehaviour
 				foreach (Item item in slot.Items)
 				{
 					slot.ChangeSprite(item.spriteNeutral, item.spriteHighlighted);
+					
+					slot.GetComponent<Image>().color = Color.white;
 					item.selected = false;
 				}
 			}
