@@ -10,15 +10,20 @@ public class BiomeItems : MonoBehaviour {
 	
 	public void SetItems(string s)
 	{
-		for(int i = 0; i < OriginalItems.Length; i++)
+		if(s.Length > 0)
 		{
-			int firstDigit = (int)(s[i]) - 48;
-			if(firstDigit == 0)
+			for(int i = 0; i < OriginalItems.Length; i++)
 			{
-				Destroy (OriginalItems[i].gameObject);
+//				Debug.Log("Item Digit: " + (int)(s[i]));
+				int firstDigit = (int)(s[i]) - 48;
+				if(firstDigit == 0)
+				{
+					Destroy (OriginalItems[i].gameObject);
+				}
+					
 			}
-				
 		}
+		Player.instance.pickupEventHandler.ClearItemQueue();
 	}
 	public string GetItemsInBiome()
 	{

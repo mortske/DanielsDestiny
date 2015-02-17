@@ -50,4 +50,9 @@ public class PickupEventHandler : MonoBehaviour
     {
         OnScreenInformationbox.instance.HideBox();
     }
+    public void ClearItemQueue()
+    {
+		itemQueue = new List<Item>();
+		HideInfoBox();
+    }
 }
