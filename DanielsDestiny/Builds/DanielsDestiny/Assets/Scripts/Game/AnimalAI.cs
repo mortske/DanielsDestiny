@@ -18,6 +18,7 @@ public class AnimalAI : MonoBehaviour
     public float gravity = 20.0F;
     public float damage = 10;
     public float damageTimer = 2;
+    public float health = 100;
 
     private Vector3 moveDirection = Vector3.zero;
 
@@ -31,6 +32,8 @@ public class AnimalAI : MonoBehaviour
 
     void Update()
     {
+        moveDirection.y -= gravity * Time.deltaTime;
+        controller.Move(moveDirection * Time.deltaTime);
         if(CheckDistanceToPlayer() && curMovePattern != MovePatterns.Attack)
             curMovePattern = MovePatterns.MoveToPlayer;
         switch (curMovePattern)
@@ -64,7 +67,7 @@ public class AnimalAI : MonoBehaviour
             SetNewTask();
         }
 
-        moveDirection.y -= gravity * Time.deltaTime;
+        //moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
     }
 
@@ -73,13 +76,11 @@ public class AnimalAI : MonoBehaviour
         
         if (Random.Range(0, 101) > 50)
         {
-            Debug.Log("set new move task");
             curWaypoint = transform.position + new Vector3(Random.Range(-30, 30), 0, Random.Range(-30, 30));
             curMovePattern = MovePatterns.Roam;
         }
         else
         {
-            Debug.Log("set new idle task");
             curMovePattern = MovePatterns.Idle;
             Invoke("SetNewTask", 5);
         }
@@ -107,12 +108,11 @@ public class AnimalAI : MonoBehaviour
         else
         {
             moveDirection = Vector3.zero;
-            Debug.Log("went to shit");
             curMovePattern = MovePatterns.Attack;
             StartCoroutine(AttackPlayer());
         }
 
-        moveDirection.y -= gravity * Time.deltaTime;
+        //moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
     }
 
@@ -124,5 +124,15 @@ public class AnimalAI : MonoBehaviour
             Player.instance.status.TakeDamage(damage);
         }
         curMovePattern = MovePatterns.MoveToPlayer;
+    }
+
+    public void TakeDamage(float dmg)
+    {
+        health -= dmg;
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

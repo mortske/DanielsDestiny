@@ -126,27 +126,35 @@
     </ItemSaveType>
   </saveType>
   <biomeItemSave>
-    <string>1</string>
+    <string>0011111111111111110000001111110001</string>
   </biomeItemSave>
   <worldItemSave>
     <WorldItemSave>
-      <type />
-      <pos />
+      <type>
+        <string>13</string>
+      </type>
+      <pos>
+        <Vector3>
+          <x>569.432068</x>
+          <y>0.5</y>
+          <z>2121.50659</z>
+        </Vector3>
+      </pos>
     </WorldItemSave>
   </worldItemSave>
   <playerPos>
-    <x>515.1577</x>
-    <y>1.05000353</y>
-    <z>2180.45239</z>
+    <x>569.4714</x>
+    <y>1.04999852</y>
+    <z>2121.00049</z>
   </playerPos>
   <playerValues>
-    <health>0</health>
-    <hunger>94</hunger>
-    <thirst>68</thirst>
-    <fatigue>98.77974</fatigue>
-    <temperature>32.5054932</temperature>
+    <health>100</health>
+    <hunger>98</hunger>
+    <thirst>75</thirst>
+    <fatigue>99.4598846</fatigue>
+    <temperature>25.5355816</temperature>
   </playerValues>
-  <TimeOfDay>62.54451</TimeOfDay>
-  <Temperature>62.54451</Temperature>
+  <TimeOfDay>277.677917</TimeOfDay>
+  <Temperature>27.6779118</Temperature>
   <TempAdjust>0</TempAdjust>
 </SaveFile>

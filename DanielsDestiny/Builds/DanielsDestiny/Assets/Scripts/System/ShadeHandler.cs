@@ -3,13 +3,19 @@ using System.Collections;
 
 public class ShadeHandler : MonoBehaviour {
 	public GameObject _sunPos;
-	GameObject _pl;
-	Light _sun;
 	public LayerMask mask;
+	Player _pl;
+	Light _sun;
+	
 	RaycastHit hit;
+	
+	int _heatTick = 0;
+	int _wantedHeat = 0;
+	int ticks;
+	bool _inShade = false;
 	// Use this for initialization
 	void Start () {
-		_pl = GameObject.FindWithTag("Player");
+  		_pl = Player.instance;
 		_sun = this.GetComponent<Light>();
 	}
 	
@@ -17,7 +23,6 @@ public class ShadeHandler : MonoBehaviour {
 	void Update () {
 		if(_sun.enabled)
 		{
-			
 			if(Physics.Linecast(_sunPos.transform.position, _pl.transform.position, out hit, mask))
 			{
 				InShade();
@@ -27,14 +32,45 @@ public class ShadeHandler : MonoBehaviour {
 				InSun();
 			}
 		}
-		
 	}
 	void InShade()
 	{
-//		Debug.Log("IN THE SHADE");
+		if(!_inShade)
+		{
+			_wantedHeat = -10;
+			ticks = _heatTick+_wantedHeat;
+			StartCoroutine("Shade");
+			_inShade = true;
+		}
 	}
 	void InSun()
 	{
-//		Debug.Log("IN THE SUN");
+		if(_inShade)
+		{
+			_wantedHeat = 0;
+			ticks = _heatTick*-1;
+			StartCoroutine("Shade");
+			_inShade = false;
+		}
+	}
+	IEnumerator Shade()
+	{
+		for(int x = 0; x < ticks; x++)
+		{
+			if(_wantedHeat == -10)
+			{
+				_heatTick--;
+				_pl.status.temperatureAdjustment -= 1;
+			}
+			else
+			{
+				if(_heatTick < 0)
+				{
+					_heatTick++;
+					_pl.status.temperatureAdjustment += 1;
+				}
+			}
+			yield return new WaitForSeconds(1.0f);
+		}
 	}
 }

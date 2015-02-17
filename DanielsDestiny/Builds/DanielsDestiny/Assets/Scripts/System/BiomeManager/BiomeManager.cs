@@ -25,19 +25,16 @@ public class BiomeManager : MonoBehaviour {
 	{
 		inventorY = Player.instance.inventory;
 	}
-	// Update is called once per frame
-	void Update () {
-		if(Input.GetKeyUp(KeyCode.Period))
-		{
-			LoadBiomes();
-		}
+	public void ClearSave()
+	{
+		save = new SaveFile();
 	}
 	public void SaveGame()
 	{
 		List<ItemSaveType> tmpList = inventorY.GetInventory();
 		SaveInventory(tmpList);
 	}
-	void LoadBiomes()
+	public void LoadBiomes()
 	{
 		if (File.Exists(path))
 		{
@@ -45,20 +42,19 @@ public class BiomeManager : MonoBehaviour {
 			XmlSerializer x = new System.Xml.Serialization.XmlSerializer(save.GetType());
 			save = x.Deserialize(sr) as SaveFile;
 			sr.Close();
+			
+			if(save.biomeItemSave.Count > 0)
+			{
+				inventorY.SetInventory(save.saveType);
+				for(int i = 0; i < pieces.Count; i++)
+				{
+					pieces[i].GetComponent<BiomeItems>().SetItems(save.biomeItemSave[i]);
+					pieces[i].GetComponent<BiomeItems>().SetNewItems(save.worldItemSave[i]);
+					pieces[i].LoadResources(save.saveString[i]);
+				}
+				LoadPlayer();
+			}
 		}
-		else
-		{
-			Directory.CreateDirectory("Assets/Files/");
-			File.Create(path);
-		}
-		inventorY.SetInventory(save.saveType);
-		for(int i = 0; i < pieces.Count; i++)
-		{
-			pieces[i].GetComponent<BiomeItems>().SetItems(save.biomeItemSave[i]);
-			pieces[i].GetComponent<BiomeItems>().SetNewItems(save.worldItemSave[i]);
-			pieces[i].LoadResources(save.saveString[i]);
-		}
-		LoadPlayer();
 	}
 	void SaveBiomes()
 	{
