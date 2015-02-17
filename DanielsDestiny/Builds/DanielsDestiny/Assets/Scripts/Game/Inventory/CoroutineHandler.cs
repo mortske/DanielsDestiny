@@ -81,6 +81,11 @@ public class CoroutineHandler : MonoBehaviour
                 Player.instance.curBiome.AddWorldDrop(go);
         }
 
+//		for (int i = 0; i < dropCount; i++) 
+//		{
+//			Player.instance.inventory.currWeight = Player.instance.inventory.currWeight - Inventory.from.CurrentItem.weight;
+//		}
+
 		if(Inventory.from.CurrentItem == Player.instance.curEquipment)
 		{
 			Slot equipTmp = GameObject.Find("EquipSlot").GetComponent<Slot>();

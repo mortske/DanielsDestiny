@@ -5,6 +5,8 @@ public class Player : MonoBehaviour
 {
     public static Player instance;
 
+	SplashScreenGUI splashScreen;
+
     public MouseLook mouseLook { get; set; }
     public CharacterMotor motor { get; set; }
     public Status status { get; set; }
@@ -15,6 +17,8 @@ public class Player : MonoBehaviour
     public Transform handPoint;
     public BiomeItems curBiome;
 
+	private bool hasShownSplashScreen;
+
     void Awake()
     {
         instance = this;
@@ -22,6 +26,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+		splashScreen = GameObject.Find("SystemManagement").GetComponent<SplashScreenGUI>();
         Screen.showCursor = false;
 
         mouseLook = GetComponent<MouseLook>();
@@ -32,27 +37,37 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-		if(Input.GetButtonDown("Inventory"))
-        {
-            ToggleInventory();
-        }
+		print (SplashScreenGUI.splashScreenIsActive);
+		if(!SplashScreenGUI.splashScreenIsActive) {
+			if(Input.GetButtonDown("Inventory"))
+	        {
+	            ToggleInventory();
+				if(!hasShownSplashScreen) {
+					hasShownSplashScreen = true;
+					splashScreen.InventorySplashScreen(true);
+					SplashScreenGUI.splashScreenIsActive = true;
+				}
+	        }
+		}
     }
 
     public void ToggleInventory()
     {
-        if (!PauseSystem.IsPaused && !inventory.enabled)
-        {
-            PauseSystem.Pause(true);
-            inventory.enabled = true;
-            inventory.transform.parent.GetComponent<Canvas>().enabled = true;
-            return;
-        }
-        if (PauseSystem.IsPaused && inventory.enabled)
-        {
-            PauseSystem.Pause(false);
-            inventory.enabled = false;
-            inventory.transform.parent.GetComponent<Canvas>().enabled = false;
-            return;
-        }
+		if(!SplashScreenGUI.splashScreenIsActive) {
+	        if (!PauseSystem.IsPaused && !inventory.enabled)
+	        {
+	            PauseSystem.Pause(true);
+	            inventory.enabled = true;
+	            inventory.transform.parent.GetComponent<Canvas>().enabled = true;
+	            return;
+	        }
+	        if (PauseSystem.IsPaused && inventory.enabled)
+	        {
+	            PauseSystem.Pause(false);
+	            inventory.enabled = false;
+	            inventory.transform.parent.GetComponent<Canvas>().enabled = false;
+	            return;
+	        }
+		}
     }
 }

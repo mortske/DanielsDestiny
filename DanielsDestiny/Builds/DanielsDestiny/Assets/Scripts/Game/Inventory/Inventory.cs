@@ -165,7 +165,7 @@ public class Inventory : MonoBehaviour {
 	{
 		if(currWeight + itemWeight <= maxWeight)
 		{
-			currWeight = currWeight + itemWeight;
+			currWeight += itemWeight;
 			PrintInventoryWeight();
 			return true;
 		}
