@@ -128,6 +128,17 @@ public class CraftingDictionary : MonoBehaviour
 		}
 	}
 
+	public void DropItem()
+	{
+		if(selectedItems.Count == 1)
+		{
+			Inventory.from = selectedItems[0];
+			inv.db.Display(selectedItems[0].Items.Count, 0, selectedItems[0].Items.Count / 2);
+			CoroutineHandler.instance.DropItemDialouge(inv.db, null);
+			ClearSelectedItem();
+		}
+	}
+	
 	public static void ClearSelectedItem()
 	{
 		if(selectedItems.Count > 0)

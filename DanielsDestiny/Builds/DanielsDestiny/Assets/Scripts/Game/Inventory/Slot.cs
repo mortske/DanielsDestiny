@@ -115,15 +115,18 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
         Item i = items.Pop();
 		stackTxt.text = items.Count > 1 ? items.Count.ToString() : string.Empty;
 
-		Player.instance.inventory.currWeight = Player.instance.inventory.currWeight - i.weight;
-		Player.instance.inventory.PrintInventoryWeight();
-
 		if(isEmpty)
 		{
 			ChangeSprite(slotEmpty, slotHighlight);
 			Inventory.EmptySlots++;
 		}
-        Destroy(i.Parent);
+		
+		if(gameObject.name != "EquipSlot")
+		{
+			Player.instance.inventory.currWeight = Player.instance.inventory.currWeight - i.weight;
+			Player.instance.inventory.PrintInventoryWeight();
+			Destroy(i.Parent);
+		}
     }
 
 	public void ClearSlot()
@@ -157,6 +160,14 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 					ChangeSprite(CurrentItem.spriteNeutral, CurrentItem.spriteHighlighted);
 					CurrentItem.selected = false;
 					CraftingDictionary.SelectedItems.Remove(this);
+				}
+				else if(gameObject.name == "EquipSlot")
+				{
+					if(CurrentItem)
+					{
+						RemoveItem();
+						ChangeSprite(slotHighlight, slotHighlight);
+					}
 				}
 			}
 		}
