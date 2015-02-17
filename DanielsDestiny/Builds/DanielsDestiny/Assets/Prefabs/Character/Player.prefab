@@ -284,6 +284,7 @@ MonoBehaviour:
     cur: 50
     statusWarnings: []
   temperaturePadding: 80
+  DamageSound: {fileID: 8300000, guid: 4c228488841c47945984487d1cc0f9e8, type: 3}
 --- !u!114 &11449364
 MonoBehaviour:
   m_ObjectHideFlags: 1
