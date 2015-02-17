@@ -19,6 +19,9 @@ public class SplashScreenGUI : MonoBehaviour {
 
 	private int currentPage;
 
+	private Canvas splashScreenCanvasTitle;
+	private Canvas splashScreenCanvas;
+
 	public bool disableSplashScreen;
 	public static bool splashScreenIsActive;
 
@@ -28,9 +31,11 @@ public class SplashScreenGUI : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		if(!disableSplashScreen) {
-			splashScreenIsActive = true;
-			print (splashScreenIsActive);
 			currentPage = -1;
+
+			splashScreenCanvas = GameObject.Find("Canvas_SplashScreen").GetComponent<Canvas>();
+			splashScreenCanvasTitle = GameObject.Find("Canvas_SplashScreenTitle").GetComponent<Canvas>();
+			Arrow = GameObject.Find("SplashScreenArrow").GetComponent<Image>();
 			#region Pages Addition
 			Pages.Add(pageOne = GameObject.Find("InventorySplashScreenOne").GetComponent<Image>());
 			Pages.Add(pageTwo = GameObject.Find("InventorySplashScreenTwo").GetComponent<Image>());
@@ -49,8 +54,7 @@ public class SplashScreenGUI : MonoBehaviour {
 	void Update () {
 		if(splashScreenIsActive) {
 			if(!disableSplashScreen && currentPage != Pages.Count) {
-				if(Input.GetKeyDown(KeyCode.Return)) {
-					print (currentPage);
+				if(Input.GetKeyDown(KeyCode.Space)) {
 					NextPage();
 				}
 			}
@@ -58,7 +62,11 @@ public class SplashScreenGUI : MonoBehaviour {
 	}
 
 	public void InventorySplashScreen (bool _bool) {
-		splashScreenIsActive = _bool;
+		if(currentPage < Pages.Count) {
+			Arrow.enabled = true;
+			splashScreenCanvas.enabled = true;
+			splashScreenCanvasTitle.enabled = true;
+		}
 		if(_bool = true) {
 			NextPage();
 		} else {
@@ -69,15 +77,14 @@ public class SplashScreenGUI : MonoBehaviour {
 	}
 
 	void NextPage () {
-		if(currentPage < Pages.Count) {
+		if(currentPage <= Pages.Count) {
 			currentPage++;
+			print(currentPage + " : " + Pages.Count);
 			AdjustCurrentPage(currentPage);
-		} else {
-			splashScreenIsActive = false;
 		}
 	}
 
-	void DisableList (List<Text> _list) {
+	void DisableList(List<Text> _list) {
 		for (int i = 0; i < _list.Count; i++) {
 			_list[i].enabled = false;
 		}
@@ -100,5 +107,22 @@ public class SplashScreenGUI : MonoBehaviour {
 				Texts[i].enabled = false;
 			}
 		}
+		if(_curr == Pages.Count) {
+			Arrow.enabled = false;
+			splashScreenIsActive = false;
+			splashScreenCanvas.enabled = false;
+		}
+	}
+
+	public void SkipSplashScreen () {
+		currentPage = Pages.Count;
+		Arrow.enabled = false;
+		splashScreenCanvas.enabled = false;
+		splashScreenCanvasTitle.enabled = false;
+		splashScreenIsActive = false;
+
+		DisableList(Pages);
+		DisableList(Texts);
+
 	}
 }
