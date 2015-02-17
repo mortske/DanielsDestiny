@@ -34,7 +34,7 @@ public class Item : MonoBehaviour
 
 	public virtual void Use()
 	{
-        Debug.Log("used an item");
+		Player.instance.inventory.currWeight -= weight;
 	}
 
     void OnTriggerEnter(Collider other)

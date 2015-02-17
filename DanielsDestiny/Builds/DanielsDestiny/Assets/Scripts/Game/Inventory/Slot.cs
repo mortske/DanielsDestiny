@@ -123,7 +123,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 		
 		if(gameObject.name != "EquipSlot")
 		{
-			Player.instance.inventory.currWeight = Player.instance.inventory.currWeight - i.weight;
+			Player.instance.inventory.currWeight -= i.weight;
 			Player.instance.inventory.PrintInventoryWeight();
 			Destroy(i.Parent);
 		}
