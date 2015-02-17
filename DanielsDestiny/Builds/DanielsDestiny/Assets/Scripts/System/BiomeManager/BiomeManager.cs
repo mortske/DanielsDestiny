@@ -25,6 +25,10 @@ public class BiomeManager : MonoBehaviour {
 	{
 		inventorY = Player.instance.inventory;
 	}
+	public void ClearSave()
+	{
+		save = new SaveFile();
+	}
 	public void SaveGame()
 	{
 		List<ItemSaveType> tmpList = inventorY.GetInventory();
