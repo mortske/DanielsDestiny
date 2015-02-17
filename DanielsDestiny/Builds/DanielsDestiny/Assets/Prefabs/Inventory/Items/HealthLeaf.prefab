@@ -30,7 +30,7 @@ GameObject:
   - 23: {fileID: 2308390}
   - 54: {fileID: 5408390}
   m_Layer: 0
-  m_Name: StandardItem
+  m_Name: HealthLeaf
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -139,11 +139,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   usable: 0
+  constructable: 0
   spriteNeutral: {fileID: 21300000, guid: 7afc51f6b82a8194ebf37f8a7b3798a4, type: 3}
   spriteHighlighted: {fileID: 21300000, guid: ba82df37dd46635459e8d6c81123fcdd, type: 3}
   maxSize: 10
   curSize: 1
   selected: 0
+  weight: 0
+  equipable: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

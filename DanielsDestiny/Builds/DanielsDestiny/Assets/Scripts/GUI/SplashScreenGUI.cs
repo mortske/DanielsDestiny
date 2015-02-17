@@ -28,8 +28,8 @@ public class SplashScreenGUI : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		if(!disableSplashScreen) {
-			splashScreenIsActive = true;
-			print (splashScreenIsActive);
+			//splashScreenIsActive = true;
+			//print (splashScreenIsActive);
 			currentPage = -1;
 			#region Pages Addition
 			Pages.Add(pageOne = GameObject.Find("InventorySplashScreenOne").GetComponent<Image>());

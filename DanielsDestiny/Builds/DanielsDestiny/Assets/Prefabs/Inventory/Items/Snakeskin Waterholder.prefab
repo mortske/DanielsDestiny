@@ -28,7 +28,7 @@ GameObject:
   - 54: {fileID: 5430710}
   - 135: {fileID: 13530710}
   m_Layer: 0
-  m_Name: Waterbottle
+  m_Name: Snakeskin Waterholder
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
