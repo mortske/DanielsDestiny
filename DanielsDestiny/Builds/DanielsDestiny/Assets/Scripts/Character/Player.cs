@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
 			if(Input.GetButtonDown("Inventory"))
 	        {
 	            ToggleInventory();
-				if(!hasShownSplashScreen) {
+				if(!hasShownSplashScreen && !splashScreen.disableSplashScreen) {
 					hasShownSplashScreen = true;
 					splashScreen.InventorySplashScreen(true);
 					SplashScreenGUI.splashScreenIsActive = true;
