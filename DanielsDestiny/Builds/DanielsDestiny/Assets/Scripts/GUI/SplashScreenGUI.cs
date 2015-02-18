@@ -19,6 +19,9 @@ public class SplashScreenGUI : MonoBehaviour {
 
 	private int currentPage;
 
+	private Canvas splashScreenCanvasTitle;
+	private Canvas splashScreenCanvas;
+
 	public bool disableSplashScreen;
 	public static bool splashScreenIsActive;
 
@@ -30,6 +33,8 @@ public class SplashScreenGUI : MonoBehaviour {
 		if(!disableSplashScreen) {
 			currentPage = -1;
 
+			splashScreenCanvas = GameObject.Find("Canvas_SplashScreen").GetComponent<Canvas>();
+			splashScreenCanvasTitle = GameObject.Find("Canvas_SplashScreenTitle").GetComponent<Canvas>();
 			Arrow = GameObject.Find("SplashScreenArrow").GetComponent<Image>();
 			#region Pages Addition
 			Pages.Add(pageOne = GameObject.Find("InventorySplashScreenOne").GetComponent<Image>());
@@ -49,7 +54,7 @@ public class SplashScreenGUI : MonoBehaviour {
 	void Update () {
 		if(splashScreenIsActive) {
 			if(!disableSplashScreen && currentPage != Pages.Count) {
-				if(Input.GetKeyDown(KeyCode.Return)) {
+				if(Input.GetKeyDown(KeyCode.Space)) {
 					NextPage();
 				}
 			}
@@ -59,6 +64,8 @@ public class SplashScreenGUI : MonoBehaviour {
 	public void InventorySplashScreen (bool _bool) {
 		if(currentPage < Pages.Count) {
 			Arrow.enabled = true;
+			splashScreenCanvas.enabled = true;
+			splashScreenCanvasTitle.enabled = true;
 		}
 		if(_bool = true) {
 			NextPage();
@@ -77,7 +84,7 @@ public class SplashScreenGUI : MonoBehaviour {
 		}
 	}
 
-	void DisableList (List<Text> _list) {
+	void DisableList(List<Text> _list) {
 		for (int i = 0; i < _list.Count; i++) {
 			_list[i].enabled = false;
 		}
@@ -103,6 +110,19 @@ public class SplashScreenGUI : MonoBehaviour {
 		if(_curr == Pages.Count) {
 			Arrow.enabled = false;
 			splashScreenIsActive = false;
+			splashScreenCanvas.enabled = false;
 		}
+	}
+
+	public void SkipSplashScreen () {
+		currentPage = Pages.Count;
+		Arrow.enabled = false;
+		splashScreenCanvas.enabled = false;
+		splashScreenCanvasTitle.enabled = false;
+		splashScreenIsActive = false;
+
+		DisableList(Pages);
+		DisableList(Texts);
+
 	}
 }
