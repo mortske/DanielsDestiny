@@ -101,7 +101,7 @@ public class CraftingDictionary : MonoBehaviour
 		}
 		else
 		{
-			MessageBox.instance.SendMessage("I cant use that item, maybe I can do something else with it...");
+			MessageBox.instance.SendMessage("I cant use that item...");
 			ClearSelectedItem();
 		}
 
@@ -125,7 +125,7 @@ public class CraftingDictionary : MonoBehaviour
 		}
 		else
 		{
-			MessageBox.instance.SendMessage("I cant craft anything from this right now, maybe I can do something else with it...");
+			MessageBox.instance.SendMessage("I cant craft anything...");
 			ClearSelectedItem();
 		}
 	}
