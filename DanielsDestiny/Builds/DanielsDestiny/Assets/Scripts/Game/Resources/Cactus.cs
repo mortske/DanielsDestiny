@@ -28,7 +28,7 @@ public class Cactus : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            if (!used && Input.GetButtonDown("Pickup"))
+            if (!used && InputManager.GetKeyDown("Pickup"))
             {
                 if (Player.instance.curEquipment != null && Player.instance.curEquipment.Name == "Machete")
                 {

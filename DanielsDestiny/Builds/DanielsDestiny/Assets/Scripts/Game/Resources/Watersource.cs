@@ -16,7 +16,7 @@ public class Watersource : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (InputManager.GetKeyDown("Pickup"))
             {
                 Player.instance.status.thirst.adjustCur(adjustment);
                 SoundManager.instance.Spawn3DSound(drinkSound, Player.instance.transform.position, 1, 5);

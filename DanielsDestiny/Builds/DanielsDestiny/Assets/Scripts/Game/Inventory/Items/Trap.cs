@@ -60,7 +60,7 @@ public class Trap : MonoBehaviour
             else if (trapstate == trapStates.empty)
                 OnScreenInformationbox.instance.ShowBox("press \"PickupKey\" to set the trap up");
 
-            if (Input.GetKeyDown(KeyCode.E))
+            if (InputManager.GetKeyDown("Pickup"))
             {
                 if (trapstate == trapStates.activated)
                 {
