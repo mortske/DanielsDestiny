@@ -34,7 +34,7 @@ public class BerryBush : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            if (Input.GetButtonDown("Pickup"))
+            if (InputManager.GetKeyDown("Pickup"))
             {
                 if (hasBerries)
                 {

@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
     void Update()
     {
 		if(!SplashScreenGUI.splashScreenIsActive) {
-			if(Input.GetButtonDown("Inventory"))
+			if(InputManager.GetKeyDown("Inventory"))
 	        {
 	            ToggleInventory();
 				if(!hasShownSplashScreen && !splashScreen.disableSplashScreen) {

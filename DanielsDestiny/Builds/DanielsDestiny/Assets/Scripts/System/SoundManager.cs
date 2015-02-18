@@ -11,14 +11,6 @@ public class SoundManager : MonoBehaviour
         instance = this;
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Stop2DSound(5);
-        }
-    }
-
     public void Play2Dsound(AudioClip clip, float volume)
     {
         audio.clip = clip;

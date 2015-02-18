@@ -22,7 +22,7 @@ public class Tree : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            if (Input.GetButtonDown("Pickup"))
+            if (InputManager.GetKeyDown("Pickup"))
             {
                 if (Player.instance.curEquipment != null && Player.instance.curEquipment.Name == "Machete")
                 {
