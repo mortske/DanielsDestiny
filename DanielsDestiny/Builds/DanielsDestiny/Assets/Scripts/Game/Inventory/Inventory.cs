@@ -381,7 +381,7 @@ public class Inventory : MonoBehaviour {
 					{
 						saveList.Add(new ItemSaveType().StringType((x+1).ToString()));
 						saveList[i].SetSize = allSlots[i].GetComponent<Slot>().Items.Count;
-						Debug.Log("Count:" + allSlots[i].GetComponent<Slot>().Items.Count);
+//						Debug.Log("Count:" + allSlots[i].GetComponent<Slot>().Items.Count);
 					}
 				}
 			}

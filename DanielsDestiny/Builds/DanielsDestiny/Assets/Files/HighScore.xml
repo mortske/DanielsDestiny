@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SaveHighscore xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TimeSurvived>
+    <ArrayOfInt>
+      <int>0</int>
+      <int>0</int>
+      <int>52</int>
+      <int>5</int>
+      <int>3125</int>
+    </ArrayOfInt>
+  </TimeSurvived>
+</SaveHighscore>

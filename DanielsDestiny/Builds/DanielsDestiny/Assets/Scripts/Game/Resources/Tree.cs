@@ -70,7 +70,22 @@ public class Tree : MonoBehaviour
         }
     }
 
-
+	public void CheckHealth(int health)
+	{
+		life = health;
+		if (life == 0)
+		{
+			OnScreenInformationbox.instance.HideBox();
+			GameObject toDestroy = gameObject;
+			if (parentIsRoot)
+				toDestroy = transform.parent.gameObject;
+			Destroy(toDestroy);
+		}
+	}
+	public int SaveTree()
+	{
+		return life;
+	}
 
     void OnTriggerExit(Collider other)
     {

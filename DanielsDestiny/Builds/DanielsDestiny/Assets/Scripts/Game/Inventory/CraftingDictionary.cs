@@ -201,7 +201,7 @@ public class CraftingDictionary : MonoBehaviour
 
 					//Message
 					MessageBox.instance.SendMessage("I created a " + rec.result.name);
-					Debug.Log ("You created a " + rec.result.name);
+//					Debug.Log ("You created a " + rec.result.name);
 					for (int i = 0; i < selectedItems.Count; i++) 
 					{
 						for (int n = 0; n < rec.items.Count; n++)

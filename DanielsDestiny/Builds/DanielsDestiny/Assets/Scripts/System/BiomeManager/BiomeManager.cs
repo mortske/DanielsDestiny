@@ -51,6 +51,7 @@ public class BiomeManager : MonoBehaviour {
 					pieces[i].GetComponent<BiomeItems>().SetItems(save.biomeItemSave[i]);
 					pieces[i].GetComponent<BiomeItems>().SetNewItems(save.worldItemSave[i]);
 					pieces[i].LoadResources(save.saveString[i]);
+					pieces[i].LoadTrees(save.TreeSave[i]);
 				}
 				LoadPlayer();
 			}
@@ -76,7 +77,6 @@ public class BiomeManager : MonoBehaviour {
 				save.saveType[i] = (s[i]);
 			}
 		}
-		Debug.Log(save.saveType);
 		SaveBiomeItems();
 	}
 	void SaveBiomeItems()
@@ -121,6 +121,15 @@ public class BiomeManager : MonoBehaviour {
 			{
 				save.saveString[i] = (pieces[i].SaveResources());
 			}
+			if(save.TreeSave.Count < pieces.Count)
+			{
+				save.TreeSave.Add(pieces[i].SaveTrees());
+			}
+			else
+			{
+				save.TreeSave[i] = (pieces[i].SaveTrees());
+			}
+			
 		}
 		SavePlayer();
 		
@@ -164,4 +173,5 @@ public class SaveFile
 	public float TimeOfDay;
 	public float Temperature;
 	public float TempAdjust;
+	public List<string> TreeSave = new List<string>();
 }

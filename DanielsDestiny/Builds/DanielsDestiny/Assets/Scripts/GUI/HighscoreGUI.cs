@@ -20,7 +20,6 @@ public class HighscoreGUI : MonoBehaviour {
 
 	private List<Text> playthroughList = new List<Text>();
 	
-
 	private string[] numbers;
 	// Use this for initialization
 	void Start () {
