@@ -23,7 +23,7 @@ public class CampSymbol : MonoBehaviour {
 		rot = new Quaternion(0, Quaternion.LookRotation(target.position - transform.position).y, 0, Quaternion.LookRotation(target.position - transform.position).w);
 		transform.rotation = Quaternion.Slerp(transform.rotation, rot, 10 * Time.deltaTime);
 
-		currDistance = Vector3.Distance(transform.position, target.position) / 25;
+		currDistance = Vector3.Distance(transform.position, target.position) / 30;
 		transform.localScale = new Vector3(startScale.x * currDistance, startScale.y * currDistance, 0);
 
 		if(transform.localScale.x <= 2)
@@ -31,9 +31,9 @@ public class CampSymbol : MonoBehaviour {
 			transform.localScale = startScale;
 			campSymbolCam.depth = -1;
 		}
-		else if(transform.localScale.x >= 80)
+		else if(transform.localScale.x >= 100)
 		{
-			transform.localScale = new Vector3(80, 80, 0);
+			transform.localScale = new Vector3(100, 100, 0);
 		}
 		else
 		{

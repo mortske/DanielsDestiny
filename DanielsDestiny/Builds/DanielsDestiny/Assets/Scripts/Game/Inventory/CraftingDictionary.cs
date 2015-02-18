@@ -147,11 +147,11 @@ public class CraftingDictionary : MonoBehaviour
 		{
 			foreach (Slot slot in selectedItems)
 			{
+				slot.GetComponent<Image>().color = Color.white;
 				foreach (Item item in slot.Items)
 				{
 					slot.ChangeSprite(item.spriteNeutral, item.spriteHighlighted);
-					
-					slot.GetComponent<Image>().color = Color.white;
+
 					item.selected = false;
 				}
 			}
