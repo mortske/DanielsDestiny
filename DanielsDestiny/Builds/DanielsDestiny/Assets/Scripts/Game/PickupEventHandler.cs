@@ -13,7 +13,7 @@ public class PickupEventHandler : MonoBehaviour
         {
             if (!PauseSystem.IsPaused)
             {
-                if (Input.GetButtonDown("Pickup"))
+                if (InputManager.GetKeyDown("Pickup"))
                 {
                     RemoveItemFromList(itemQueue[0], true);
 				}
