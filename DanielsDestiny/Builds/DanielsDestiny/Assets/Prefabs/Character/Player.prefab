@@ -329,7 +329,11 @@ MonoBehaviour:
     max: 100
     min: 0
     cur: 100
-    statusWarnings: []
+    statusWarnings:
+    - text: Im dying...
+      sound: {fileID: 8300000, guid: 4c228488841c47945984487d1cc0f9e8, type: 3}
+      whenEquals: 1
+      whenValueIs: 20
     tickTimer: 1
     baseAdjustValue: 0
     affectedBy:
@@ -357,7 +361,11 @@ MonoBehaviour:
     max: 100
     min: 0
     cur: 100
-    statusWarnings: []
+    statusWarnings:
+    - text: So tired....
+      sound: {fileID: 0}
+      whenEquals: 1
+      whenValueIs: 20
     tickTimer: .5
     baseAdjustValue: .00999999978
     affectedBy: []
@@ -365,18 +373,34 @@ MonoBehaviour:
     max: 100
     min: 0
     cur: 100
-    statusWarnings: []
-    tickTimer: 10
+    statusWarnings:
+    - text: So hungry...
+      sound: {fileID: 0}
+      whenEquals: 1
+      whenValueIs: 20
+    tickTimer: 6
     baseAdjustValue: 1
-    affectedBy: []
+    affectedBy:
+    - bar: 4
+      whenEquals: 1
+      whenValueIs: 30
+      byHowMuch: 1
   thirst:
     max: 100
     min: 0
-    cur: 80
-    statusWarnings: []
+    cur: 100
+    statusWarnings:
+    - text: So thirsty...
+      sound: {fileID: 0}
+      whenEquals: 1
+      whenValueIs: 20
     tickTimer: 5
     baseAdjustValue: 1
-    affectedBy: []
+    affectedBy:
+    - bar: 4
+      whenEquals: 0
+      whenValueIs: 70
+      byHowMuch: 1
   temperature:
     max: 100
     min: 0

@@ -192,7 +192,7 @@ MonoBehaviour:
   selected: 0
   weight: 50
   equipable: 0
-  damage: 10
+  damage: 30
   VisualModel: {fileID: 192682, guid: b7053be9232d0154db848c11005f11e1, type: 2}
 --- !u!1001 &100100000
 Prefab:

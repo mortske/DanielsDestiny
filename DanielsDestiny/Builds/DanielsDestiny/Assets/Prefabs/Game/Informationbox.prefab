@@ -29,7 +29,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 308ff6842c837f449b17c8d46c973527, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stayTime: 5
+  stayTime: 4
   fadeTime: 2
 --- !u!114 &11474018
 MonoBehaviour:

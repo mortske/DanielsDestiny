@@ -135,18 +135,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 108388}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41e9a3eb223555443affde403e21407f, type: 3}
+  m_Script: {fileID: 11500000, guid: 70916751c16fd344f81a3c4eaaf20ccf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   usable: 0
   constructable: 0
-  spriteNeutral: {fileID: 21300000, guid: 7afc51f6b82a8194ebf37f8a7b3798a4, type: 3}
-  spriteHighlighted: {fileID: 21300000, guid: ba82df37dd46635459e8d6c81123fcdd, type: 3}
+  spriteNeutral: {fileID: 21300000, guid: 0b41f367ff14a984bb4dd51bdfdd413f, type: 3}
+  spriteHighlighted: {fileID: 21300000, guid: e742d875a080d87478e0da6cd851b17d, type: 3}
   maxSize: 10
   curSize: 1
   selected: 0
-  weight: 0
+  weight: 5
   equipable: 0
+  effects:
+  - effectTo: 0
+    adjustment: 20
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

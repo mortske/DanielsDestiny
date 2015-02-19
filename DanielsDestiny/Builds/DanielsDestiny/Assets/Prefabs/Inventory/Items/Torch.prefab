@@ -220,7 +220,7 @@ MonoBehaviour:
   selected: 0
   weight: 25
   equipable: 0
-  damage: 5
+  damage: 20
   VisualModel: {fileID: 174192, guid: 8ddb0554bc76dea46b7ded80cd0b7e67, type: 2}
 --- !u!136 &13663816
 CapsuleCollider:

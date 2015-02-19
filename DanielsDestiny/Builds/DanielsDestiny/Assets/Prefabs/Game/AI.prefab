@@ -937,12 +937,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 662d3bb4db133244d8536afe00571dc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
-  turnspeed: 6
+  speed: 4
+  turnspeed: 5
   gravity: 100
   damage: 10
   damageTimer: 2
-  health: 100
+  health: 30
 --- !u!137 &13751512
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
