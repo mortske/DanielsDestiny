@@ -14,7 +14,7 @@ public class Tree : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            OnScreenInformationbox.instance.ShowBox("press \"PickupKey\" to chop");
+            OnScreenInformationbox.instance.ShowBox("press \"" + InputManager.GetPrimaryKeyName("Pickup") + "\" to chop");
         }
     }
 
