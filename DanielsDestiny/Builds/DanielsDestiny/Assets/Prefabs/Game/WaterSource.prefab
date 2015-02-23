@@ -53,7 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b1a819c4da0b2d4584ce7f5396c2d94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  adjustment: -1
+  adjustment: -2
 --- !u!114 &11459402
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 530279d3990ddea4fa8b460f7febce5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  adjustment: 10
+  adjustment: 20
   drinkSound: {fileID: 8300000, guid: 028e413bf2636174a80c9d58eb790c6d, type: 3}
 --- !u!1001 &100100000
 Prefab:
