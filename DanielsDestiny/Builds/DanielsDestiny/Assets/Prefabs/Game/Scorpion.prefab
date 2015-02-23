@@ -492,7 +492,7 @@ GameObject:
   - 143: {fileID: 14374410}
   - 114: {fileID: 11474410}
   m_Layer: 0
-  m_Name: AI
+  m_Name: Scorpion
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -937,7 +937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 662d3bb4db133244d8536afe00571dc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 2
   turnspeed: 5
   gravity: 100
   damage: 10

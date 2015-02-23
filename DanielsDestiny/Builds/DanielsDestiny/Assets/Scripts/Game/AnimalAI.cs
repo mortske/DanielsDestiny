@@ -23,6 +23,7 @@ public class AnimalAI : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
 
     Vector3 curWaypoint = Vector3.zero;
+    public AISpawner mySpawner { get; set; }
 
     void Start()
     {
@@ -132,6 +133,7 @@ public class AnimalAI : MonoBehaviour
 
         if (health <= 0)
         {
+            mySpawner.myMonsters.Remove(gameObject);
             Destroy(gameObject);
         }
     }
