@@ -474,6 +474,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 451574}
+  - 95: {fileID: 9519296}
   m_Layer: 0
   m_Name: Scorpion
   m_TagString: Untagged
@@ -920,15 +921,30 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 174410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 532.080017, y: 1.65999997, z: 2197.04004}
+  m_LocalPosition: {x: 559.200012, y: 1.12, z: 2172.12012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 451574}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!95 &9519296
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151574}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: c9e5556b8822cdd4faf013e0d7be269b, type: 3}
+  m_Controller: {fileID: 9100000, guid: 0f6b77503a4a65d43926fd93c45967bc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11474410
 MonoBehaviour:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 174410}
