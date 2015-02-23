@@ -5,24 +5,24 @@
   </saveString>
   <saveType>
     <ItemSaveType>
-      <type>13</type>
-      <_amount>1</_amount>
-    </ItemSaveType>
-    <ItemSaveType>
-      <type>4</type>
-      <_amount>9</_amount>
+      <type>0</type>
+      <_amount>0</_amount>
     </ItemSaveType>
     <ItemSaveType>
       <type>0</type>
       <_amount>0</_amount>
     </ItemSaveType>
     <ItemSaveType>
-      <type>10</type>
-      <_amount>10</_amount>
+      <type>0</type>
+      <_amount>0</_amount>
     </ItemSaveType>
     <ItemSaveType>
-      <type>11</type>
-      <_amount>1</_amount>
+      <type>0</type>
+      <_amount>0</_amount>
+    </ItemSaveType>
+    <ItemSaveType>
+      <type>0</type>
+      <_amount>0</_amount>
     </ItemSaveType>
     <ItemSaveType>
       <type>0</type>
@@ -126,38 +126,30 @@
     </ItemSaveType>
   </saveType>
   <biomeItemSave>
-    <string>0011111111111111110000001111110000</string>
+    <string>1</string>
   </biomeItemSave>
   <worldItemSave>
     <WorldItemSave>
-      <type>
-        <string>13</string>
-      </type>
-      <pos>
-        <Vector3>
-          <x>542.4646</x>
-          <y>0.5</y>
-          <z>2123.71069</z>
-        </Vector3>
-      </pos>
+      <type />
+      <pos />
     </WorldItemSave>
   </worldItemSave>
   <playerPos>
-    <x>542.8626</x>
-    <y>1.04999745</y>
-    <z>2123.77466</z>
+    <x>978.1039</x>
+    <y>5.31250238</y>
+    <z>1678.05615</z>
   </playerPos>
   <playerValues>
-    <health>100</health>
-    <hunger>96</hunger>
-    <thirst>72</thirst>
-    <fatigue>99.15982</fatigue>
-    <temperature>28.712122</temperature>
+    <health>0</health>
+    <hunger>83</hunger>
+    <thirst>46</thirst>
+    <fatigue>96.59927</fatigue>
+    <temperature>54.9628258</temperature>
   </playerValues>
-  <TimeOfDay>293.5606</TimeOfDay>
-  <Temperature>43.56061</Temperature>
+  <TimeOfDay>174.8307</TimeOfDay>
+  <Temperature>174.8307</Temperature>
   <TempAdjust>0</TempAdjust>
   <TreeSave>
-    <string>334532222222211334532222222211334532222222211334532222222211334532222222211334532222222211334532222222211334532222222211334532222222211333030333333333333</string>
+    <string>33453222222221133453222222221133453222222221133453222222221133453222222221133453222222221133453222222221133453222222221133453222222221133333333333333333312431</string>
   </TreeSave>
 </SaveFile>
