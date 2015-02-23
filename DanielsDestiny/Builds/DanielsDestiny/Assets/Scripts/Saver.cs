@@ -12,6 +12,7 @@ public class Saver : MonoBehaviour {
 			if(Input.GetKeyUp(KeyCode.E))
 			{
 				_showSave = true;
+				PauseSystem.Pause(true);
 			}
 		}
 	}
@@ -25,10 +26,12 @@ public class Saver : MonoBehaviour {
 			if(GUI.Button(new Rect(Screen.width/2-25, Screen.height/2+Screen.height/4, 50, 20), "Sleep"))
 			{
 				Save();
+				PauseSystem.Pause(false);
 			}
 			if(GUI.Button(new Rect(Screen.width/2-25, Screen.height/2+Screen.height/3.5f, 50, 20), "Close"))
 			{
 				_showSave = false;
+				PauseSystem.Pause(false);
 			}
 		}
 	}
