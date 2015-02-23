@@ -1674,8 +1674,8 @@ MonoBehaviour:
   item:
   - {fileID: 182284, guid: 30fe7f94bb7620d478bd717ff3644396, type: 2}
   - {fileID: 152272, guid: dd3ebd01114d2b6459cd5127d706cc12, type: 2}
-  minSpawnTime: 3
-  maxSpawnTime: 10
+  minSpawnTime: 240
+  maxSpawnTime: 360
 --- !u!114 &11493834
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1694,7 +1694,7 @@ MonoBehaviour:
   maxSize: 1
   curSize: 1
   selected: 0
-  weight: 30
+  weight: 50
   equipable: 0
 --- !u!1001 &100100000
 Prefab:

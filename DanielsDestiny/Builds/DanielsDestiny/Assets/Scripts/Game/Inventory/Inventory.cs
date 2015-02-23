@@ -322,7 +322,7 @@ public class Inventory : MonoBehaviour {
             else if (Input.GetKey(KeyCode.LeftShift))
             {
                 //split stack
-                db = GameObject.Find("MessageboxInv").GetComponent<DialougeBoxInv>();
+                db = GameObject.Find("ItemDropAmount").GetComponent<DialougeBoxInv>();
                 db.Display(from.Items.Count - 1, 0, from.Items.Count / 2);
                 CoroutineHandler.instance.WaitForDialouge(from, to, db, hoverObject);
             }

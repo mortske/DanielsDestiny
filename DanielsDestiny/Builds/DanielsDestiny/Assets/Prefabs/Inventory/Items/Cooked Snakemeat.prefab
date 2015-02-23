@@ -44,7 +44,6 @@ GameObject:
   - 4: {fileID: 469372}
   - 33: {fileID: 3369372}
   - 23: {fileID: 2369372}
-  - 95: {fileID: 9569372}
   m_Layer: 0
   m_Name: CookedMeat
   m_TagString: Untagged
@@ -156,21 +155,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.76563025, y: 1.01326597, z: 1}
   m_Center: {x: -.0396924168, y: .12740536, z: .000346356886}
---- !u!95 &9569372
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 169372}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: dd5275cc495458040b29b2daf0e52540, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11438342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -189,7 +173,7 @@ MonoBehaviour:
   maxSize: 5
   curSize: 1
   selected: 0
-  weight: 5
+  weight: 15
   equipable: 0
   effects:
   - effectTo: 1
