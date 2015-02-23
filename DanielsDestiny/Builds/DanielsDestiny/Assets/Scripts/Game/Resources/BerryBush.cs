@@ -26,7 +26,7 @@ public class BerryBush : MonoBehaviour
         if (other.tag == "Player")
         {
             if(hasBerries)
-                OnScreenInformationbox.instance.ShowBox("Press \"PickupKey\" to pick berries");
+                OnScreenInformationbox.instance.ShowBox("Press \"" + InputManager.GetPrimaryKeyName("Pickup") + "\" to pick berries");
         }
     }
 

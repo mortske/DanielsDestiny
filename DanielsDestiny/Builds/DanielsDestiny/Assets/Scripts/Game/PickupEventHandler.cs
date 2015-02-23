@@ -43,7 +43,7 @@ public class PickupEventHandler : MonoBehaviour
     void ShowInfoBox()
     {
         Item i = itemQueue[0];
-        OnScreenInformationbox.instance.ShowBox("Press \"PickupKey\" to pickup " + i.Name + " x" + i.curSize);
+        OnScreenInformationbox.instance.ShowBox("Press \"" + InputManager.GetPrimaryKeyName("Pickup") + "\" to pickup " + i.Name + " x" + i.curSize);
     }
 
     void HideInfoBox()

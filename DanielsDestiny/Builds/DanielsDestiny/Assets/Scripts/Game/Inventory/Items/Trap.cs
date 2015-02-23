@@ -56,9 +56,9 @@ public class Trap : MonoBehaviour
         if (other.tag == "Player")
         {
             if (trapstate == trapStates.activated)
-                OnScreenInformationbox.instance.ShowBox("press \"PickupKey\" to empty the trap");
+                OnScreenInformationbox.instance.ShowBox("press \"" + InputManager.GetPrimaryKeyName("Pickup") + "\" to empty the trap");
             else if (trapstate == trapStates.empty)
-                OnScreenInformationbox.instance.ShowBox("press \"PickupKey\" to set the trap up");
+                OnScreenInformationbox.instance.ShowBox("press \"" + InputManager.GetPrimaryKeyName("Pickup") + "\" to set the trap up");
 
             if (InputManager.GetKeyDown("Pickup"))
             {
@@ -74,7 +74,7 @@ public class Trap : MonoBehaviour
                         go.transform.gameObject.SetActive(false);
                         go.transform.parent = Player.instance.transform;
                         trapstate = trapStates.empty;
-                        OnScreenInformationbox.instance.ShowBox("press \"PickupKey\" to set the trap up");
+                        OnScreenInformationbox.instance.ShowBox("press \"" + InputManager.GetPrimaryKeyName("Pickup") + "\" to set the trap up");
                         animal.SetActive(false);
                     }
                 }

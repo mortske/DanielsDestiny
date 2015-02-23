@@ -9,7 +9,7 @@ public class Watersource : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
-            OnScreenInformationbox.instance.ShowBox("Press \"PickupKey\" to drink");
+            OnScreenInformationbox.instance.ShowBox("Press \"" + InputManager.GetPrimaryKeyName("Pickup") + "\" to drink");
     }
 
     void OnTriggerStay(Collider other)
