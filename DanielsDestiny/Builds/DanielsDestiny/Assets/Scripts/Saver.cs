@@ -41,7 +41,7 @@ public class Saver : MonoBehaviour {
 		{
 			if(!_showSave)
 			{
-				OnScreenInformationbox.instance.ShowBox("Press \"PickupKey\" to sleep");
+                OnScreenInformationbox.instance.ShowBox("Press \"" + InputManager.GetPrimaryKeyName("Pickup") + "\" to sleep");
 				_active = true;
 			}
 		}	

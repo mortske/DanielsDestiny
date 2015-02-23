@@ -20,7 +20,7 @@ public class Cactus : MonoBehaviour
         if (other.tag == "Player")
         {
             if(!used)
-                OnScreenInformationbox.instance.ShowBox("Press \"PickupKey\" to drink from cactus");
+                OnScreenInformationbox.instance.ShowBox("Press \"" + InputManager.GetPrimaryKeyName("Pickup") + "\" to drink from cactus");
         }
     }
 

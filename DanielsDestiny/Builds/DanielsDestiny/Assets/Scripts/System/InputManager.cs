@@ -38,6 +38,18 @@ public class InputManager : MonoBehaviour
         return false;
     }
 
+    public static string GetPrimaryKeyName(string key)
+    {
+        for (int i = 0; i < instance.keys.Length; i++)
+        {
+            if (instance.keys[i].name == key)
+            {
+                return instance.keys[i].key.ToUpper();
+            }
+        }
+        return "";
+    }
+
     void LateUpdate()
     {
         for (int i = 0; i < keys.Length; i++)
