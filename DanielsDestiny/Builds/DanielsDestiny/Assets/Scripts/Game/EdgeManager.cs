@@ -24,16 +24,17 @@ public class EdgeManager : MonoBehaviour
     {
         StopAllCoroutines();
         started = false;
+        OnScreenInformationbox.instance.HideBox();
     }
 
     IEnumerator StartCountdown()
     {
         for (int i = countDownTime; i >= 0; i--)
         {
-            MessageBox.instance.SendMessage("Its too dangerous, you are going to die if you dont turn back! " + (i));
+            OnScreenInformationbox.instance.ShowBox("Its too dangerous, you are going to die if you dont turn back! " + (i));
             yield return new WaitForSeconds(1);
         }
-        MessageBox.instance.SendMessage("I have to turn back im dying out here!");
+        OnScreenInformationbox.instance.ShowBox("I have to turn back im dying out here!");
         while (playerStatus.health.cur > 0)
         {
             playerStatus.health.adjustCur(-damage);

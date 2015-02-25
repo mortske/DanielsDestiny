@@ -146,6 +146,7 @@ public class BiomeManager : MonoBehaviour {
 		save.playerValues.temperature = Player.instance.status.temperature.cur;
 		save.TimeOfDay = gameTime.TheTime;
 		save.Temperature = gameTime.TheTemp;
+		save.DiarySave = DiaryScript.instance.GetCol();
 		SaveBiomes();
 	}
 	void LoadPlayer()
@@ -157,6 +158,7 @@ public class BiomeManager : MonoBehaviour {
 		Player.instance.status.temperature.cur = save.playerValues.temperature;
 		Player.instance.transform.position = save.playerPos;
 		Player.instance.status.temperatureAdjustment = save.TempAdjust;
+		DiaryScript.instance.SetCol(save.DiarySave);
 		gameTime.TheTime = save.TimeOfDay;
 		gameTime.TheTemp = save.Temperature;
 	}
@@ -174,4 +176,5 @@ public class SaveFile
 	public float Temperature;
 	public float TempAdjust;
 	public List<string> TreeSave = new List<string>();
+	public List<Color> DiarySave = new List<Color>();
 }

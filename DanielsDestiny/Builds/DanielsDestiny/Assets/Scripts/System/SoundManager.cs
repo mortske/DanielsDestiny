@@ -11,6 +11,11 @@ public class SoundManager : MonoBehaviour
         instance = this;
     }
 
+    void Update()
+    {
+        audio.volume = SettingsManager.instance.settings.sound.cur;
+    }
+
     public void Play2Dsound(AudioClip clip, float volume)
     {
         audio.clip = clip;
