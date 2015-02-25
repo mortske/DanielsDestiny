@@ -44,7 +44,7 @@ public class StartGameSplashScreenGUI : MonoBehaviour {
 	}
 
 	void Update () {
-		print (startSplashScreenIsActive + " + " + InventorySplashScreenGUI.inventorySplashScreenIsActive);
+		//print (startSplashScreenIsActive + " + " + InventorySplashScreenGUI.inventorySplashScreenIsActive);
 		if(!InventorySplashScreenGUI.inventorySplashScreenIsActive) {
 			if(Input.GetKeyDown(KeyCode.Space)) {
 				NextSplashInList();

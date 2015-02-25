@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
 			if(!InventorySplashScreenGUI.inventorySplashScreenIsActive) {
 				if(InputManager.GetKeyDown("Inventory"))
 		        {
-					print ("hej");
+					//print ("hej");
 		            ToggleInventory();
 					invSplash.StartInventorySplashScreen();
 		        }
