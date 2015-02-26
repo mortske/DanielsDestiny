@@ -5,7 +5,8 @@ public class Player : MonoBehaviour
 {
     public static Player instance;
 
-	SplashScreenGUI splashScreen;
+	InventorySplashScreenGUI invSplash;
+
 
     public MouseLook mouseLook { get; set; }
     public CharacterMotor motor { get; set; }
@@ -26,7 +27,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-		splashScreen = GameObject.Find("SystemManagement").GetComponent<SplashScreenGUI>();
+		invSplash = GameObject.Find("SystemManagement").GetComponent<InventorySplashScreenGUI>();
         Screen.showCursor = false;
 
         mouseLook = GetComponent<MouseLook>();
@@ -37,25 +38,25 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-		if(!SplashScreenGUI.splashScreenIsActive) {
-			if(InputManager.GetKeyDown("Inventory"))
-	        {
-	            ToggleInventory();
-				if(!hasShownSplashScreen && !splashScreen.disableSplashScreen) {
-					hasShownSplashScreen = true;
-					splashScreen.InventorySplashScreen(true);
-					SplashScreenGUI.splashScreenIsActive = true;
-				}
-	        }
+		if(!StartGameSplashScreenGUI.startSplashScreenIsActive) {
+			if(!InventorySplashScreenGUI.inventorySplashScreenIsActive) {
+				if(InputManager.GetKeyDown("Inventory"))
+		        {
+		            ToggleInventory();
+		        }
+			}
 		}
     }
 
     public void ToggleInventory()
     {
-		if(!SplashScreenGUI.splashScreenIsActive) {
+		if(!StartGameSplashScreenGUI.startSplashScreenIsActive) {
 	        if (!PauseSystem.IsPaused && !inventory.enabled)
 	        {
 	            PauseSystem.Pause(true);
+				if(!invSplash.disableSplashScreen) {
+					invSplash.StartInventorySplashScreen();
+				}
 	            inventory.enabled = true;
 	            inventory.transform.parent.GetComponent<Canvas>().enabled = true;
 	            return;

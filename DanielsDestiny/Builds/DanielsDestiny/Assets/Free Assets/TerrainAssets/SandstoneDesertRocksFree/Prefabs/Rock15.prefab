@@ -139,6 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b94658635b97d304382386fbb2b01959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ToolName: Pickaxe
   itemPrefabs:
   - {fileID: 100002, guid: 4d38f3c55589ba64f9189057b324c1f1, type: 3}
   life: 10
