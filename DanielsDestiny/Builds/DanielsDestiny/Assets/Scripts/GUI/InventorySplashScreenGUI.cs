@@ -25,6 +25,8 @@ public class InventorySplashScreenGUI : MonoBehaviour {
 	private Text tutorialTitleText;
 	private Text tutorialTitlePressKey;
 	#endregion
+
+	private Button inventorySkipButton;
 	
 	void Start () {
 		if(!disableSplashScreen) {
@@ -33,6 +35,8 @@ public class InventorySplashScreenGUI : MonoBehaviour {
 			tutorialTitleText = GameObject.Find("TutorialText").GetComponent<Text>();
 			tutorialTitlePressKey = GameObject.Find("TutorialPressKey").GetComponent<Text>();
 			#endregion
+			inventorySkipButton = GameObject.Find("InventorySplashSkipButton").GetComponent<Button>();
+			inventorySkipButton.gameObject.SetActive(false);
 			if(disableSplashScreen) {
 				DisableInventorySplashScreenGameObjects();
 			} else {
@@ -99,12 +103,14 @@ public class InventorySplashScreenGUI : MonoBehaviour {
 
 	public void StartInventorySplashScreen () {
 		inventorySplashScreenIsActive = true;
+		inventorySkipButton.gameObject.SetActive(true);
 		EnableTutorialTitle();
 		NextSplashInList();
 	}
 
 	void EndInventorySplashScreen () {
 		inventorySplashScreenIsActive = false;
+		inventorySkipButton.gameObject.SetActive(false);
 		currentSplash = splashImages.Length;
 		DisableTutorialTitle();
 		ClearAll();
@@ -119,6 +125,11 @@ public class InventorySplashScreenGUI : MonoBehaviour {
 			ClearAllExceptSelected(splashImages[currentSplash]);
 			currentSplash++;
 		} else if (currentSplash == splashImages.Length) {
+			EndInventorySplashScreen();
+		}
+	}
+	public void SkipButton () {
+		if(inventorySplashScreenIsActive) {
 			EndInventorySplashScreen();
 		}
 	}
