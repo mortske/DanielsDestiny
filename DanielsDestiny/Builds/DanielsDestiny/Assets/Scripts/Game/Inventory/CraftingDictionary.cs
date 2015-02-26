@@ -121,7 +121,7 @@ public class CraftingDictionary : MonoBehaviour
 
 	public void CraftItems()
 	{
-		if(selectedItems.Count >= 2)
+		if(selectedItems.Count >= 1)
 		{
 			CheckRecepies();
 		}
