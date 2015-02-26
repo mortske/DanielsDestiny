@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Tree : MonoBehaviour 
 {
+    public string ToolName;
     public GameObject[] itemPrefabs;
     public int life;
     public bool parentIsRoot;
@@ -24,7 +25,8 @@ public class Tree : MonoBehaviour
         {
             if (InputManager.GetKeyDown("Pickup"))
             {
-                if (Player.instance.curEquipment != null && Player.instance.curEquipment.Name == "Machete")
+                if (ToolName == "") ToolName = "Machete";
+                if (Player.instance.curEquipment != null && Player.instance.curEquipment.Name == ToolName)
                 {
                     Chop();
                 }
