@@ -40,21 +40,19 @@ public class Farm : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
-        {
-            if(plantState == PlantState.empty)
-                OnScreenInformationbox.instance.ShowBox("press \"" + InputManager.GetPrimaryKeyName("Pickup") + "\" to plant a seed");
-            else if (plantState == PlantState.finished)
-                OnScreenInformationbox.instance.ShowBox("press \"" + InputManager.GetPrimaryKeyName("Pickup") + "\" to harvest");
-            else
-                OnScreenInformationbox.instance.ShowBox("press \"" + InputManager.GetPrimaryKeyName("Pickup") + "\" to water");
-        }
+        
     }
 
     void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
         {
+            if (plantState == PlantState.empty)
+                OnScreenInformationbox.instance.ShowBox("press \"" + InputManager.GetPrimaryKeyName("Pickup") + "\" to plant a seed");
+            else if (plantState == PlantState.finished)
+                OnScreenInformationbox.instance.ShowBox("press \"" + InputManager.GetPrimaryKeyName("Pickup") + "\" to harvest");
+            else
+                OnScreenInformationbox.instance.ShowBox("press \"" + InputManager.GetPrimaryKeyName("Pickup") + "\" to water");
             if (InputManager.GetKeyDown("Pickup"))
             {
                 if (plantState == PlantState.empty)
