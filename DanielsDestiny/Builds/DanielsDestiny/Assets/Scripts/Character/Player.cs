@@ -42,9 +42,7 @@ public class Player : MonoBehaviour
 			if(!InventorySplashScreenGUI.inventorySplashScreenIsActive) {
 				if(InputManager.GetKeyDown("Inventory"))
 		        {
-					//print ("hej");
 		            ToggleInventory();
-					invSplash.StartInventorySplashScreen();
 		        }
 			}
 		}
@@ -56,6 +54,9 @@ public class Player : MonoBehaviour
 	        if (!PauseSystem.IsPaused && !inventory.enabled)
 	        {
 	            PauseSystem.Pause(true);
+				if(!invSplash.disableSplashScreen) {
+					invSplash.StartInventorySplashScreen();
+				}
 	            inventory.enabled = true;
 	            inventory.transform.parent.GetComponent<Canvas>().enabled = true;
 	            return;

@@ -27,25 +27,28 @@ public class InventorySplashScreenGUI : MonoBehaviour {
 	#endregion
 	
 	void Start () {
-		#region Tutorial Title Find
-		//tutorialTitleImage = GameObject.Find("Insert Name Here").GetComponent<Image>();
-		//tutorialTitleText = GameObject.Find("Insert Name Here").GetComponent<Text>();
-		//tutorialTitlePressKey = GameObject.Find("Insert Name Here").GetComponent<Text>();
-		#endregion
-		if(disableSplashScreen) {
-			DisableInventorySplashScreenGameObjects();
-		} else {
-			ClearAll();
+		if(!disableSplashScreen) {
+			#region Tutorial Title Find
+			tutorialTitleImage = GameObject.Find("TutorialBackground").GetComponent<Image>();
+			tutorialTitleText = GameObject.Find("TutorialText").GetComponent<Text>();
+			tutorialTitlePressKey = GameObject.Find("TutorialPressKey").GetComponent<Text>();
+			#endregion
+			if(disableSplashScreen) {
+				DisableInventorySplashScreenGameObjects();
+			} else {
+				ClearAll();
+			}
 		}
 	}
 
 	void Update () {
-		if(Input.GetKeyDown(KeyCode.Space)) {
-			if(inventorySplashScreenIsActive) {
-				NextSplashInList();
+		if(!disableSplashScreen) {
+			if(Input.GetKeyDown(KeyCode.Space)) {
+				if(inventorySplashScreenIsActive) {
+					NextSplashInList();
+				}
 			}
 		}
-	
 	}
 
 	void Enable (InventorySplash _image) {
@@ -76,6 +79,18 @@ public class InventorySplashScreenGUI : MonoBehaviour {
 	}
 	#endregion
 
+	void DisableTutorialTitle () {
+		tutorialTitleImage.enabled = false;
+		tutorialTitleText.enabled = false;
+		tutorialTitlePressKey.enabled = false;
+	}
+	
+	void EnableTutorialTitle () {
+		tutorialTitleImage.enabled = true;
+		tutorialTitleText.enabled = true;
+		tutorialTitlePressKey.enabled = true;
+	}
+
 	void DisableInventorySplashScreenGameObjects () {
 		for (int i = 0; i < splashImages.Length; i++) {
 			splashImages[i].gameObject.SetActive(false);
@@ -84,12 +99,14 @@ public class InventorySplashScreenGUI : MonoBehaviour {
 
 	public void StartInventorySplashScreen () {
 		inventorySplashScreenIsActive = true;
+		EnableTutorialTitle();
 		NextSplashInList();
 	}
 
 	void EndInventorySplashScreen () {
 		inventorySplashScreenIsActive = false;
 		currentSplash = splashImages.Length;
+		DisableTutorialTitle();
 		ClearAll();
 	}
 

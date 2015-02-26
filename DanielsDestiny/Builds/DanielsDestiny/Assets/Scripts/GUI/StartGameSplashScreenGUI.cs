@@ -19,6 +19,7 @@ public class StartGameSplashScreenGUI : MonoBehaviour {
 	public static bool startSplashScreenIsActive;
 	public bool disableSplashScreen;
 
+	[HideInInspector]
 	public bool exitOnce;
 
 	private int currentSplash;
@@ -30,24 +31,27 @@ public class StartGameSplashScreenGUI : MonoBehaviour {
 	#endregion
 	
 	void Start () {
-		exitOnce = false;
-		#region Tutorial Title Find
-		tutorialTitleImage = GameObject.Find("TutorialBackground").GetComponent<Image>();
-		tutorialTitleText = GameObject.Find("TutorialText").GetComponent<Text>();
-		tutorialTitlePressKey = GameObject.Find("TutorialPressKey").GetComponent<Text>();
-		#endregion
-		if(disableSplashScreen) {
-			DisableSplashScreenGameObjects();
-		} else {
-			StartSplashScreen();
+		if(!disableSplashScreen) {
+			exitOnce = false;
+			#region Tutorial Title Find
+			tutorialTitleImage = GameObject.Find("TutorialBackground").GetComponent<Image>();
+			tutorialTitleText = GameObject.Find("TutorialText").GetComponent<Text>();
+			tutorialTitlePressKey = GameObject.Find("TutorialPressKey").GetComponent<Text>();
+			#endregion
+			if(disableSplashScreen) {
+				DisableSplashScreenGameObjects();
+			} else {
+				StartSplashScreen();
+			}
 		}
 	}
 
 	void Update () {
-		//print (startSplashScreenIsActive + " + " + InventorySplashScreenGUI.inventorySplashScreenIsActive);
-		if(!InventorySplashScreenGUI.inventorySplashScreenIsActive) {
-			if(Input.GetKeyDown(KeyCode.Space)) {
-				NextSplashInList();
+		if(!disableSplashScreen) {
+			if(!InventorySplashScreenGUI.inventorySplashScreenIsActive) {
+				if(Input.GetKeyDown(KeyCode.Space)) {
+					NextSplashInList();
+				}
 			}
 		}
 	}
