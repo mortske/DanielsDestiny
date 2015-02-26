@@ -133,7 +133,7 @@ public class AnimalAI : MonoBehaviour
 
         if (health <= 0)
         {
-            mySpawner.myMonsters.Remove(gameObject);
+            mySpawner.KillMonster(gameObject);
             Destroy(gameObject);
         }
     }
