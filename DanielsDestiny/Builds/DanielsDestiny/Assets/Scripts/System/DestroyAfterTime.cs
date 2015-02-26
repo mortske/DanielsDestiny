@@ -16,5 +16,7 @@ public class DestroyAfterTime : MonoBehaviour
         	Destroy(gameObject);
 		else
 			Destroy(gameObject.transform.parent.gameObject);
+
+		CraftingDictionary.InsideArea = false;
     }
 }
