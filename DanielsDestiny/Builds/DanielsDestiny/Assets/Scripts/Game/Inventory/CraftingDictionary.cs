@@ -57,6 +57,7 @@ public class CraftingDictionary : MonoBehaviour
 				{
 					//Player.instance.curBiome.AddWorldDrop(tmpPlacingObject);
 					placeItem = false;
+					tmpPlacingObject.transform.FindChild("OverlapSphere").gameObject.SetActive(true);
 					tmpPlacingObject.GetComponentInChildren<Item>().selected = false;
 					selectedItems[0].CurrentItem.selected = false;
 					if(Player.instance.curBiome != null)
@@ -90,6 +91,7 @@ public class CraftingDictionary : MonoBehaviour
 		{
 			tmpPlacingObject = (GameObject)Instantiate(selectedItems[0].CurrentItem.transform.parent.gameObject);
 			tmpPlacingObject.name = selectedItems[0].CurrentItem.transform.parent.name;
+			tmpPlacingObject.transform.FindChild("OverlapSphere").gameObject.SetActive(false);
 			tmpPlacingObject.SetActive(true);
 			player.ToggleInventory();
 

@@ -3,6 +3,7 @@ using System.Collections;
 
 public class DestroyAfterTime : MonoBehaviour 
 {
+	public bool isChild;
     public float killTime;
     void Start()
     {
@@ -11,6 +12,9 @@ public class DestroyAfterTime : MonoBehaviour
 
     void Kill()
     {
-        Destroy(gameObject);
+		if(!isChild)
+        	Destroy(gameObject);
+		else
+			Destroy(gameObject.transform.parent.gameObject);
     }
 }
