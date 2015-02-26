@@ -480,8 +480,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 435194}
-  - 114: {fileID: 11435132}
-  - 65: {fileID: 6535132}
   m_Layer: 0
   m_Name: Trap
   m_TagString: Untagged
@@ -787,8 +785,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 493834}
-  - 65: {fileID: 6593834}
   - 114: {fileID: 11493834}
+  - 65: {fileID: 6594712}
+  - 114: {fileID: 11494712}
   m_Layer: 0
   m_Name: OverlapSphere
   m_TagString: Untagged
@@ -1204,7 +1203,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 556.494995, y: .935000002, z: 2115.1499}
+  m_LocalPosition: {x: 597.47998, y: .670000017, z: 1921.94995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 435232}
@@ -1465,9 +1464,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 193834}
-  m_LocalRotation: {x: .0924239755, y: 0, z: 0, w: .99571979}
-  m_LocalPosition: {x: -12.0579996, y: -.367000014, z: 20.7089996}
-  m_LocalScale: {x: .141239002, y: .672259867, z: .141239032}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 435194}
   m_RootOrder: 3
@@ -1606,18 +1605,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135200}
   m_Mesh: {fileID: 4300000, guid: 6f4634863dcd7cf4cbc94a581664bf41, type: 3}
---- !u!65 &6535132
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 135194}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.51184511, y: 2.97358561, z: 3.74628544}
-  m_Center: {x: .0662457943, y: .986792803, z: -.0649225712}
 --- !u!65 &6535136
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -1630,7 +1617,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: .665909767, z: 1}
   m_Center: {x: 0, y: .36738193, z: 0}
---- !u!65 &6593834
+--- !u!65 &6594712
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -1638,10 +1625,10 @@ BoxCollider:
   m_GameObject: {fileID: 193834}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 20, y: 5, z: 20}
-  m_Center: {x: .00381755829, y: .771955252, z: -.0503940582}
+  m_Size: {x: 3.51184511, y: 2.97358561, z: 3.74628544}
+  m_Center: {x: .0662457943, y: .986792803, z: -.0649225712}
 --- !u!95 &9506228
 Animator:
   serializedVersion: 3
@@ -1657,25 +1644,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &11435132
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 135194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10fff66d3d686e346917f6a9d254b526, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trapUntriggered: {fileID: 135232}
-  animal: {fileID: 106228}
-  trapTriggered: {fileID: 106168}
-  item:
-  - {fileID: 182284, guid: 30fe7f94bb7620d478bd717ff3644396, type: 2}
-  - {fileID: 152272, guid: dd3ebd01114d2b6459cd5127d706cc12, type: 2}
-  minSpawnTime: 240
-  maxSpawnTime: 360
 --- !u!114 &11493834
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1696,6 +1664,25 @@ MonoBehaviour:
   selected: 0
   weight: 50
   equipable: 0
+--- !u!114 &11494712
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10fff66d3d686e346917f6a9d254b526, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trapUntriggered: {fileID: 135232}
+  animal: {fileID: 106228}
+  trapTriggered: {fileID: 106168}
+  item:
+  - {fileID: 182284, guid: 30fe7f94bb7620d478bd717ff3644396, type: 2}
+  - {fileID: 152272, guid: dd3ebd01114d2b6459cd5127d706cc12, type: 2}
+  minSpawnTime: 20
+  maxSpawnTime: 30
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
