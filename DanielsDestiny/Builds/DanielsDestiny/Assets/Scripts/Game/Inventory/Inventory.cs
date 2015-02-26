@@ -337,9 +337,9 @@ public class Inventory : MonoBehaviour {
                 }
                 int fromCount = from.Items.Count;
                 
-                GameObject toGameObj = null;
-                if(to.Items.Count > 0)
-                    toGameObj = to.CurrentItem.transform.parent.gameObject;
+//                GameObject toGameObj = null;
+//                if(to.Items.Count > 0)
+//                    toGameObj = to.CurrentItem.transform.parent.gameObject;
 
                 for (int i = 0; i < toCount; i++)
                 {
@@ -350,7 +350,7 @@ public class Inventory : MonoBehaviour {
                 if (fromCount == 0)
                 {
                     from.ClearSlot();
-                    Destroy(toGameObj);
+                    //Destroy(toGameObj);
                 }
                 for (int i = 0; i < fromCount - 1; i++)
                 {
