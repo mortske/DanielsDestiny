@@ -3,12 +3,12 @@
   <sound>
     <max>1</max>
     <min>0</min>
-    <cur>0.167913243</cur>
+    <cur>1</cur>
   </sound>
   <sfx>
     <max>1</max>
     <min>0</min>
-    <cur>0.802169</cur>
+    <cur>1</cur>
   </sfx>
   <mouseSensitivity>
     <max>50</max>

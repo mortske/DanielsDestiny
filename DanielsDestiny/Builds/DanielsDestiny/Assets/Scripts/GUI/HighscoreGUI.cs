@@ -49,7 +49,7 @@ public class HighscoreGUI : MonoBehaviour {
 				numbers = new string[saveHighscore.TimeSurvived.Length];
 			
 				for (int x = 0; x < saveHighscore.TimeSurvived.Length; x++) {
-					numbers[x] = x + ". Day: " + saveHighscore.TimeSurvived[x][0].ToString() + " Hours: " + saveHighscore.TimeSurvived[x][1].ToString() + " Minutes: " + saveHighscore.TimeSurvived[x][2].ToString() + " Seconds: " + saveHighscore.TimeSurvived[x][3].ToString();
+					numbers[x] = (x + 1) + ". Day: " + saveHighscore.TimeSurvived[x][0].ToString() + " Hours: " + saveHighscore.TimeSurvived[x][1].ToString() + " Minutes: " + saveHighscore.TimeSurvived[x][2].ToString() + " Seconds: " + saveHighscore.TimeSurvived[x][3].ToString();
 					playthroughList[x].text = numbers[x];
 				}
 			}

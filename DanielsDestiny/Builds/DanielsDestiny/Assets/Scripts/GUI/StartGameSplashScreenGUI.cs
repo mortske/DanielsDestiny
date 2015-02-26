@@ -29,6 +29,8 @@ public class StartGameSplashScreenGUI : MonoBehaviour {
 	private Text tutorialTitleText;
 	private Text tutorialTitlePressKey;
 	#endregion
+
+	private Button startSkipButton;
 	
 	void Start () {
 		if(!disableSplashScreen) {
@@ -38,6 +40,7 @@ public class StartGameSplashScreenGUI : MonoBehaviour {
 			tutorialTitleText = GameObject.Find("TutorialText").GetComponent<Text>();
 			tutorialTitlePressKey = GameObject.Find("TutorialPressKey").GetComponent<Text>();
 			#endregion
+			startSkipButton = GameObject.Find("StartSplashSkipButton").GetComponent<Button>();
 			if(disableSplashScreen) {
 				DisableSplashScreenGameObjects();
 			} else {
@@ -104,6 +107,7 @@ public class StartGameSplashScreenGUI : MonoBehaviour {
 	}
 
 	public void StartSplashScreen() {
+		startSkipButton.gameObject.SetActive(true);
 		PauseSystem.Pause(true);
 		EnableTutorialTitle();
 		startSplashScreenIsActive = true;
@@ -111,6 +115,7 @@ public class StartGameSplashScreenGUI : MonoBehaviour {
 		//pauseGame
 	}
 	void EndSplashScreen() {
+		startSkipButton.gameObject.SetActive(false);
 		PauseSystem.Pause(false);
 		DisableTutorialTitle();
 		startSplashScreenIsActive = false;
@@ -132,6 +137,13 @@ public class StartGameSplashScreenGUI : MonoBehaviour {
 				exitOnce = true;
 				EndSplashScreen();
 			}
+		}
+	}
+
+	public void SkipButton () {
+		if(startSplashScreenIsActive) {
+			exitOnce = true;
+			EndSplashScreen();
 		}
 	}
 
