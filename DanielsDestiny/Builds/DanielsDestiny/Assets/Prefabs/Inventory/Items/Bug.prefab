@@ -692,7 +692,7 @@ MonoBehaviour:
   equipable: 0
   effects:
   - effectTo: 1
-    adjustment: 10
+    adjustment: 1
 --- !u!136 &13633986
 CapsuleCollider:
   m_ObjectHideFlags: 1

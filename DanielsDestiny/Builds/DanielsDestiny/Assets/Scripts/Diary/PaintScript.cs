@@ -13,6 +13,7 @@ public class PaintScript : MonoBehaviour {
 	Mesh mesh;
 	Vector3[] vertices;
 	Color[] colors;
+	Color[] saveColor;
 	// Use this for initialization
 	void Start () {
 		mesh = paintPlane.GetComponent<MeshFilter>().mesh;
@@ -102,5 +103,31 @@ public class PaintScript : MonoBehaviour {
 		_canPaint = _set;
 		paintPlane.SetActive(_set);
 		PauseSystem.Pause(_set);
+	}
+	public void ChangePage(int p)
+	{
+		if(_curPage == 0 && p > 0)
+		{
+			saveColor = mesh.colors;
+			_mouseIsDown = false;
+			
+			_canPaint = false;
+			for (int i = 0; i < colors.Length; i++) 
+			{
+				colors[i] = Color.white;
+			}
+			mesh.colors = colors;
+		}
+		_curPage += p;
+		if(_curPage < 0)
+			_curPage = 0;
+			
+		if(_curPage == 0)
+		{
+			TogglePaint(true);
+			_mouseIsDown = false;
+			colors = saveColor;
+			mesh.colors = saveColor;
+		}
 	}
 }

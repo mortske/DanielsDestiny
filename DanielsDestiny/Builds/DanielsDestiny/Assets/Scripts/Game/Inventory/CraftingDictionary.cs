@@ -78,63 +78,75 @@ public class CraftingDictionary : MonoBehaviour
 
 	public void EquipItem()
 	{
-		if(selectedItems.Count == 1)
+		if(!inv.hoverTrue)
 		{
-			inv.MoveItemToEquipSlot(selectedItems[0].CurrentItem);
+			if(selectedItems.Count == 1 && !inv.hoverTrue)
+			{
+				inv.MoveItemToEquipSlot(selectedItems[0].CurrentItem);
+			}
+			ClearSelectedItem();
 		}
-		ClearSelectedItem();
 	}
 
 	public void UseItem()
 	{
-		if(selectedItems.Count == 1 && selectedItems[0].CurrentItem.constructable)
+		if(!inv.hoverTrue)
 		{
-			tmpPlacingObject = (GameObject)Instantiate(selectedItems[0].CurrentItem.transform.parent.gameObject);
-			tmpPlacingObject.name = selectedItems[0].CurrentItem.transform.parent.name;
-			tmpPlacingObject.transform.FindChild("OverlapSphere").gameObject.SetActive(false);
-			tmpPlacingObject.SetActive(true);
-			player.ToggleInventory();
+			if(selectedItems.Count == 1 && selectedItems[0].CurrentItem.constructable)
+			{
+				tmpPlacingObject = (GameObject)Instantiate(selectedItems[0].CurrentItem.transform.parent.gameObject);
+				tmpPlacingObject.name = selectedItems[0].CurrentItem.transform.parent.name;
+				tmpPlacingObject.transform.FindChild("OverlapSphere").gameObject.SetActive(false);
+				tmpPlacingObject.SetActive(true);
+				player.ToggleInventory();
 
-			placeItem = true;
+				placeItem = true;
+			}
+			else if(selectedItems.Count == 1 && insideArea && selectedItems[0].CurrentItem.usable)
+			{
+				CheckRecepies();
+			}
+			else
+			{
+				MessageBox.instance.SendMessage("I cant use that item...");
+				ClearSelectedItem();
+			}
 		}
-		else if(selectedItems.Count == 1 && insideArea && selectedItems[0].CurrentItem.usable)
-		{
-			CheckRecepies();
-		}
-		else
-		{
-			MessageBox.instance.SendMessage("I cant use that item...");
-			ClearSelectedItem();
-		}
-
 	}
 
 	public void EatItem()
 	{
-		if(selectedItems.Count == 1 && selectedItems[0].CurrentItem.usable)
+		if(!inv.hoverTrue)
 		{
-			selectedItems[0].UseItem();
-			ClearSelectedItem();
-			
+			if(selectedItems.Count == 1 && selectedItems[0].CurrentItem.usable)
+			{
+				selectedItems[0].UseItem();
+				ClearSelectedItem();
+				
+			}
 		}
 	}
 
 	public void CraftItems()
 	{
-		if(selectedItems.Count >= 2)
+		print (inv.hoverTrue);
+		if(!inv.hoverTrue)
 		{
-			CheckRecepies();
-		}
-		else
-		{
-			MessageBox.instance.SendMessage("I cant craft anything...");
-			ClearSelectedItem();
+			if(selectedItems.Count >= 1)
+			{
+				CheckRecepies();
+			}
+			else
+			{
+				MessageBox.instance.SendMessage("I need to select something...");
+				ClearSelectedItem();
+			}
 		}
 	}
 
 	public void DropItem()
 	{
-		if(selectedItems.Count == 1)
+		if(selectedItems.Count == 1 && !inv.hoverTrue)
 		{
 			Inventory.from = selectedItems[0];
 			inv.db.Display(selectedItems[0].Items.Count, 0, selectedItems[0].Items.Count / 2);
