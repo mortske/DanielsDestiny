@@ -30,6 +30,7 @@ public class Inventory : MonoBehaviour {
 	public float slotSize;
 	public GameObject slotPrefab;
 
+	[HideInInspector] public bool hoverTrue;
 	public static Slot from, to;
 	private List<GameObject> allSlots;
 
@@ -275,11 +276,12 @@ public class Inventory : MonoBehaviour {
 		{
 			if(!clicked.GetComponent<Slot>().isEmpty)
 			{
+				hoverTrue = true;
 				from = clicked.GetComponent<Slot>();
 				from.GetComponent<Image>().color = Color.gray;
 
 				hoverObject = (GameObject)Instantiate(iconPrefab);
-				hoverObject.GetComponent<Image>().sprite = clicked .GetComponent<Image>().sprite;
+				hoverObject.GetComponent<Image>().sprite = clicked.GetComponent<Image>().sprite;
 				hoverObject.name = "Hover";
 
 				RectTransform hoverTransform = hoverObject.GetComponent<RectTransform>();
@@ -295,7 +297,6 @@ public class Inventory : MonoBehaviour {
 		}
 		else if(to == null)
 		{
-            
 			to = clicked.GetComponent<Slot>();
 			Destroy(GameObject.Find ("Hover"));
 		}
@@ -362,6 +363,7 @@ public class Inventory : MonoBehaviour {
 			to = null;
 			from = null;
 			hoverObject = null;
+			hoverTrue = false;
 		}
 	}
 
