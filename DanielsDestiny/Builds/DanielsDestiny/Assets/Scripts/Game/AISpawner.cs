@@ -27,7 +27,14 @@ public class AISpawner : MonoBehaviour
         GameObject newMonster = (GameObject)Instantiate(monsterPrefabs[Random.Range(0, monsterPrefabs.Length)],
                                                         new Vector3(spawnX, transform.position.y, spawnZ),
                                                         Quaternion.identity);
+        newMonster.transform.parent = transform;
         myMonsters.Add(newMonster);
         newMonster.GetComponent<AnimalAI>().mySpawner = this;
+    }
+
+    public void KillMonster(GameObject monster)
+    {
+        myMonsters.Remove(gameObject);
+        Invoke("SpawnMonster", Random.Range(minSpawnTime, maxSpawnTime));
     }
 }
