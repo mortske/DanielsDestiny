@@ -42,7 +42,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 431046}
-  - 95: {fileID: 9531076}
   m_Layer: 0
   m_Name: Berries
   m_TagString: Untagged
@@ -576,21 +575,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.5, y: 5.32999992, z: 5.57999992}
   m_Center: {x: .00381755829, y: .771955252, z: -.0503940582}
---- !u!95 &9531076
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 131046}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: eb3cb08fbc3a4784e80e6acc0e24cb92, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11431076
 MonoBehaviour:
   m_ObjectHideFlags: 1
