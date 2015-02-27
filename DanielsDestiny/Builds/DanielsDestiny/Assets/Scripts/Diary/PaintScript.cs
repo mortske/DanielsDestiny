@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class PaintScript : MonoBehaviour {
 	public LayerMask layerMask;
 	public GameObject paintPlane;
+	public Texture2D[] backgrounds;
 	int _curPage = 0;
 	Ray _ray;
 	RaycastHit _hit;
@@ -121,7 +122,10 @@ public class PaintScript : MonoBehaviour {
 		_curPage += p;
 		if(_curPage < 0)
 			_curPage = 0;
-			
+		if(_curPage > 1)
+			_curPage = 1;
+		paintPlane.renderer.material.mainTexture = backgrounds[_curPage];
+		
 		if(_curPage == 0)
 		{
 			TogglePaint(true);

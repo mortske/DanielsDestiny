@@ -12,7 +12,7 @@ public class BerryBush : MonoBehaviour
 
     void Start()
     {
-        Invoke("Reset", Random.Range(respawnTimeMin, respawnTimeMax + 1));
+        Reset();
     }
 
     void Reset()

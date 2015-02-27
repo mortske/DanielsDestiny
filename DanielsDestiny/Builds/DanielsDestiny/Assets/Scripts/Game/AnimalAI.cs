@@ -19,6 +19,7 @@ public class AnimalAI : MonoBehaviour
     public float damage = 10;
     public float damageTimer = 2;
     public float health = 100;
+    public GameObject[] itemDrops;
 
     private Vector3 moveDirection = Vector3.zero;
 
@@ -133,7 +134,15 @@ public class AnimalAI : MonoBehaviour
 
         if (health <= 0)
         {
-            mySpawner.KillMonster(gameObject);
+            if(mySpawner != null)
+                mySpawner.KillMonster(gameObject);
+
+            for (int i = 0; i < itemDrops.Length; i++)
+            {
+                GameObject go = (GameObject)Instantiate(itemDrops[i], transform.position, Quaternion.identity);
+                go.name = itemDrops[i].name;
+            }
+
             Destroy(gameObject);
         }
     }
