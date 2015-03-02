@@ -12,7 +12,7 @@ public class DigInGround : MonoBehaviour {
 
 	void Update ()
 	{
-		if(InputManager.GetKeyDown("Pickup") && !isDigging && !PauseSystem.IsPaused && !OnScreenInformationbox.instance.group.activeInHierarchy)
+		if(InputManager.GetKeyDown("Pickup") && !isDigging && !PauseSystem.IsPaused && !OnScreenInformationbox.instance.group.activeInHierarchy && Player.instance.gameObject.GetComponent<CharacterController>().isGrounded)
 		{
 			StartCoroutine(Dig());
 		}

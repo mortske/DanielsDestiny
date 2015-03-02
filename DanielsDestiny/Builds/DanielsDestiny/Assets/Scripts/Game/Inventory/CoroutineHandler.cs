@@ -65,7 +65,7 @@ public class CoroutineHandler : MonoBehaviour
             yield return null;
         }
         int dropCount = db.cur;
-        int leaveCount = Inventory.from.Items.Count - dropCount;
+        //int leaveCount = Inventory.from.Items.Count - dropCount;
 
         if (dropCount > 0)
         {
@@ -81,11 +81,6 @@ public class CoroutineHandler : MonoBehaviour
                 Player.instance.curBiome.AddWorldDrop(go);
         }
 
-//		for (int i = 0; i < dropCount; i++) 
-//		{
-//			Player.instance.inventory.currWeight = Player.instance.inventory.currWeight - Inventory.from.CurrentItem.weight;
-//		}
-
 		if(Inventory.from.CurrentItem == Player.instance.curEquipment)
 		{
 			Slot equipTmp = GameObject.Find("EquipSlot").GetComponent<Slot>();
@@ -93,21 +88,26 @@ public class CoroutineHandler : MonoBehaviour
 			Player.instance.curEquipment = null;
 		}
 
-        if (leaveCount == 0)
-        {
-            Destroy(Inventory.from.CurrentItem.transform.parent.gameObject);
-            Inventory.from.ClearSlot();
-        }
-        else
-        {
-            if (dropCount > 0)
-            {
-                for (int i = 0; i < dropCount; i++)
-                {
-                    Inventory.from.RemoveItem();
-                }
-            }
-        }
+		for (int i = 0; i < dropCount; i++)
+		{
+			Inventory.from.RemoveItem();
+		}
+
+//        if (leaveCount == 0)
+//        {
+//            Destroy(Inventory.from.CurrentItem.transform.parent.gameObject);
+//            Inventory.from.ClearSlot();
+//        }
+//        else
+//        {
+//            if (dropCount > 0)
+//            {
+//                for (int i = 0; i < dropCount; i++)
+//                {
+//                    Inventory.from.RemoveItem();
+//                }
+//            }
+//        }
 
         Inventory.from.GetComponent<Image>().color = Color.white;
 

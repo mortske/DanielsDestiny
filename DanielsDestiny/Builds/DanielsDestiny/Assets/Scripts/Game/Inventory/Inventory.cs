@@ -57,26 +57,23 @@ public class Inventory : MonoBehaviour {
 		CreateLayout();
 		inventoryWeight.text = "Weight: " + currWeight.ToString() + "/" + maxWeight.ToString();
         transform.parent.GetComponent<Canvas>().enabled = enabled;
+		hoverTrue = false;
 	}
 
 	void Update () 
 	{
-//		if(Input.GetMouseButtonUp(0))
-//		{
-//            if (!eventSystem.IsPointerOverGameObject(-1) && from != null)
-//            {
-//                DropItem();
-//            }
-//		}
-
         if (hoverObject != null)
         {
             Vector2 position;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, Input.mousePosition, canvas.worldCamera, out position);
             position.Set(position.x, position.y - hoverYOffset);
             hoverObject.transform.position = canvas.transform.TransformPoint(position);
-
+			hoverTrue = true;
         }
+		else
+		{
+			hoverTrue = false;
+		}
 	}
 
 	private void CreateLayout()
@@ -276,7 +273,6 @@ public class Inventory : MonoBehaviour {
 		{
 			if(!clicked.GetComponent<Slot>().isEmpty)
 			{
-				hoverTrue = true;
 				from = clicked.GetComponent<Slot>();
 				from.GetComponent<Image>().color = Color.gray;
 
@@ -363,7 +359,6 @@ public class Inventory : MonoBehaviour {
 			to = null;
 			from = null;
 			hoverObject = null;
-			hoverTrue = false;
 		}
 	}
 
