@@ -208,6 +208,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 471960}
   - 114: {fileID: 11472090}
+  - 135: {fileID: 13553908}
   m_Layer: 0
   m_Name: Berrybush
   m_TagString: Untagged
@@ -1377,7 +1378,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171960}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 552.420349, y: -.018149972, z: 2108.68408}
+  m_LocalPosition: {x: -2, y: -.00999999978, z: 3.36999989}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 471934}
@@ -2464,8 +2465,20 @@ MonoBehaviour:
   berryVisual: {fileID: 171962}
   berryItemPrefab: {fileID: 131042, guid: 83902585878b727418476313c17e77c4, type: 2}
   amount: 2
-  respawnTimeMax: 40
-  respawnTimeMin: 20
+  respawnTimeMax: 400
+  respawnTimeMin: 200
+--- !u!135 &13553908
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171960}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.50482178
+  m_Center: {x: .180000007, y: .159999996, z: .0900000036}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

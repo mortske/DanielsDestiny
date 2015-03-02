@@ -80,7 +80,7 @@ public class CraftingDictionary : MonoBehaviour
 	{
 		if(!inv.hoverTrue)
 		{
-			if(selectedItems.Count == 1 && !inv.hoverTrue)
+			if(selectedItems.Count == 1)
 			{
 				inv.MoveItemToEquipSlot(selectedItems[0].CurrentItem);
 			}
@@ -129,7 +129,6 @@ public class CraftingDictionary : MonoBehaviour
 
 	public void CraftItems()
 	{
-		print (inv.hoverTrue);
 		if(!inv.hoverTrue)
 		{
 			if(selectedItems.Count >= 1)
@@ -183,18 +182,28 @@ public class CraftingDictionary : MonoBehaviour
 				allTrue = rec.items.Count;
 				int checkAllTrue = 0;
 				float checkWeight = 0;
+				List<string> completed = new List<string>();
+				bool errorInName = false;
 				for (int i = 0; i < selectedItems.Count; i++) 
 				{
 					for (int n = 0; n < rec.items.Count; n++)
 					{
 						if(selectedItems[i].CurrentItem.transform.parent.name == rec.items[n].name)
 						{
-							gotIn = true;
-							if(selectedItems[i].Items.Count >= rec.amount[n])
+							for (int k = 0; k < completed.Count; k++) 
+							{
+								if(selectedItems[i].CurrentItem.transform.parent.name == completed[k])
+									errorInName = true;
+							}
+
+							if(selectedItems[i].Items.Count >= rec.amount[n] && !errorInName)
 							{
 								checkAllTrue++;
-								checkWeight = checkWeight + selectedItems[i].CurrentItem.weight;
+								gotIn = true;
+								completed.Add(rec.items[n].name);
+								checkWeight += selectedItems[i].CurrentItem.weight;
 							}
+							errorInName = false;
 						}
 						if(gotIn)
 						{
