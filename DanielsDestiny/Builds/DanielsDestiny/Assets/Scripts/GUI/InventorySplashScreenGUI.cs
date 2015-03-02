@@ -9,6 +9,7 @@ public class InventorySplash {
 	public GameObject gameObject;
 	public Image image;
 	public Text text;
+	public Image arrowImage;
 }
 public class InventorySplashScreenGUI : MonoBehaviour {
 
@@ -58,12 +59,14 @@ public class InventorySplashScreenGUI : MonoBehaviour {
 	void Enable (InventorySplash _image) {
 		_image.image.enabled = true;
 		_image.text.enabled = true;
+		_image.arrowImage.enabled = true;
 	}
 
 	#region Clear Methods
 	void Clear (InventorySplash _image) {
 		_image.image.enabled = false;
 		_image.text.enabled = false;
+		_image.arrowImage.enabled = false;
 	}
 
 	void ClearAll () {
