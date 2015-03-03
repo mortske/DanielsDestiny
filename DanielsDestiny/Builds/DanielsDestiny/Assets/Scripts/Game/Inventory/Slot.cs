@@ -192,7 +192,7 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
             itemNameBoxText.enabled = true;
             itemNameBoxBox.GetComponent<Image>().enabled = true;
 
-            itemNameBoxText.text = CurrentItem.Name;
+            itemNameBoxText.text = CurrentItem.Parent.name;
             itemNameBoxBox.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, itemNameBoxText.text.Length * 10);
             itemNameBoxText.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, itemNameBoxText.text.Length * 10);
             onMouseHover = true;

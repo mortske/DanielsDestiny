@@ -109,6 +109,7 @@ public class CraftingDictionary : MonoBehaviour
 			else
 			{
 				MessageBox.instance.SendMessage("I cant use that item...");
+                SoundManager.instance.Spawn3DSound(inv.iCantDoThat[Random.Range(0, inv.iCantDoThat.Length)], player.transform.position, 1, 5);
 				ClearSelectedItem();
 			}
 		}
@@ -138,6 +139,7 @@ public class CraftingDictionary : MonoBehaviour
 			else
 			{
 				MessageBox.instance.SendMessage("I need to select something...");
+                SoundManager.instance.Spawn3DSound(inv.iCantDoThat[Random.Range(0, inv.iCantDoThat.Length)], player.transform.position, 1, 5);
 				ClearSelectedItem();
 			}
 		}
@@ -224,6 +226,7 @@ public class CraftingDictionary : MonoBehaviour
 
 					//Message
 					MessageBox.instance.SendMessage("I created a " + rec.result.name);
+                    SoundManager.instance.Spawn3DSound(inv.CraftingSound[Random.Range(0, inv.CraftingSound.Length)], player.transform.position, 1, 5);
 //					Debug.Log ("You created a " + rec.result.name);
 					for (int i = 0; i < selectedItems.Count; i++) 
 					{
@@ -260,6 +263,7 @@ public class CraftingDictionary : MonoBehaviour
 		{
 			//Message: couldnt create anything with those items
 			MessageBox.instance.SendMessage("I cant create anything with those items.");
+            SoundManager.instance.Spawn3DSound(inv.iCantDoThat[Random.Range(0, inv.iCantDoThat.Length)], player.transform.position, 1, 5);
 			ClearSelectedItem();
 		}
 	}

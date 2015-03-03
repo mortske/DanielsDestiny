@@ -41,6 +41,9 @@ public class Inventory : MonoBehaviour {
 	private float hoverYOffset;
 	public EventSystem eventSystem;
 
+    public AudioClip[] iCantDoThat;
+    public AudioClip[] CraftingSound;
+
 	public static int EmptySlots
 	{
 		get { return emptySlots; }
