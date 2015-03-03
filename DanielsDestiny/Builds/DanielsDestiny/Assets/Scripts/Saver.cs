@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class Saver : MonoBehaviour {
+    public AudioClip sleepSound;
 	bool _active = false;
 	bool _showSave = false;
 	float s_val = 0.0f;
@@ -25,6 +26,7 @@ public class Saver : MonoBehaviour {
 			s_val = Mathf.Round(s_val);
 			if(GUI.Button(new Rect(Screen.width/2-25, Screen.height/2+Screen.height/4, 50, 20), "Sleep"))
 			{
+                SoundManager.instance.Spawn3DSound(sleepSound, Player.instance.transform.position, 1, 5);
 				Save();
 				PauseSystem.Pause(false);
 			}

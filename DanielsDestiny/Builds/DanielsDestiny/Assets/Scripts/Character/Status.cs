@@ -10,7 +10,7 @@ public class Status : MonoBehaviour
     public StatusBar temperature;
     public float temperaturePadding;
     public float temperatureAdjustment { get; set; }
-    public AudioClip DamageSound; 
+    public AudioClip[] DamageSound; 
 
     public StatusBar GetBar(StatusBars bar)
     {
@@ -67,7 +67,7 @@ public class Status : MonoBehaviour
     {
         health.adjustCur(-dmg);
         MessageBox.instance.SendMessage("OUCH!");
-        SoundManager.instance.Spawn3DSound(DamageSound, transform.position, 1, 5);
+        SoundManager.instance.Spawn3DSound(DamageSound[Random.Range(0, DamageSound.Length)], transform.position, 1, 5);
     }
 
     public void CheckDeath()

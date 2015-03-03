@@ -292,7 +292,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 184176}
   m_LocalRotation: {x: 0, y: .597505331, z: 0, w: .801864982}
-  m_LocalPosition: {x: 553.630005, y: 1.52999997, z: 2100.32007}
+  m_LocalPosition: {x: 770.900024, y: 1.29999995, z: 749.200012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 484178}
@@ -596,6 +596,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16384
   paintPlane: {fileID: 102152}
+  backgrounds: []
 --- !u!114 &11402156
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -624,7 +625,7 @@ MonoBehaviour:
     cur: 100
     statusWarnings:
     - text: Im dying...
-      sound: {fileID: 8300000, guid: 4c228488841c47945984487d1cc0f9e8, type: 3}
+      sound: {fileID: 8300000, guid: 63e0860a626b6c0419036d7559422b30, type: 3}
       whenEquals: 1
       whenValueIs: 20
     tickTimer: 1
@@ -656,7 +657,7 @@ MonoBehaviour:
     cur: 100
     statusWarnings:
     - text: So tired....
-      sound: {fileID: 0}
+      sound: {fileID: 8300000, guid: d907404efbb42a5448cc048743ed264f, type: 3}
       whenEquals: 1
       whenValueIs: 20
     tickTimer: .5
@@ -668,7 +669,7 @@ MonoBehaviour:
     cur: 100
     statusWarnings:
     - text: So hungry...
-      sound: {fileID: 0}
+      sound: {fileID: 8300000, guid: 9d3be0ef0946b9545b722cfe1270bdcc, type: 3}
       whenEquals: 1
       whenValueIs: 20
     tickTimer: 6
@@ -684,7 +685,7 @@ MonoBehaviour:
     cur: 100
     statusWarnings:
     - text: So thirsty...
-      sound: {fileID: 0}
+      sound: {fileID: 8300000, guid: c91dff93ff2c7a748897d2a6325f6c3a, type: 3}
       whenEquals: 1
       whenValueIs: 20
     tickTimer: 5
@@ -708,7 +709,10 @@ MonoBehaviour:
       whenEquals: 0
       whenValueIs: 75
   temperaturePadding: 80
-  DamageSound: {fileID: 8300000, guid: 4c228488841c47945984487d1cc0f9e8, type: 3}
+  DamageSound:
+  - {fileID: 8300000, guid: 580a34d7c86fecd40b5f1f444e4825f0, type: 3}
+  - {fileID: 8300000, guid: 631bdf6fb0d50394eac9e7ff0d4cbbb9, type: 3}
+  - {fileID: 8300000, guid: b800d98a166a7c246ae0c936c4a8f90a, type: 3}
 --- !u!114 &11449364
 MonoBehaviour:
   m_ObjectHideFlags: 1
