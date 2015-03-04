@@ -6,6 +6,7 @@ public class PaintScript : MonoBehaviour {
 	public LayerMask layerMask;
 	public GameObject paintPlane;
 	public Texture2D[] backgrounds;
+	public GameObject Erasor;
 	int _curPage = 0;
 	Ray _ray;
 	RaycastHit _hit;
@@ -38,11 +39,17 @@ public class PaintScript : MonoBehaviour {
 				_ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 				
 				if (!Physics.Raycast(_ray, out _hit, layerMask))
+				{
+					_mouseIsDown = false;
 					return;
+				}
 				
 				MeshCollider meshCollider = _hit.collider as MeshCollider;
 				if (meshCollider == null || meshCollider.sharedMesh == null)
+				{
+					_mouseIsDown = false;
 					return;
+				}
 				
 				Mesh mesh = meshCollider.sharedMesh;
 				Vector3[] vertices = mesh.vertices;
@@ -103,7 +110,17 @@ public class PaintScript : MonoBehaviour {
 	{
 		_canPaint = _set;
 		paintPlane.SetActive(_set);
+		Erasor.SetActive(_set);
 		PauseSystem.Pause(_set);
+	}
+	public void Erase()
+	{
+		_mouseIsDown = false;
+		for (int i = 0; i < colors.Length; i++) 
+		{
+			colors[i] = Color.white;
+		}
+		mesh.colors = colors;
 	}
 	public void ChangePage(int p)
 	{
@@ -128,6 +145,7 @@ public class PaintScript : MonoBehaviour {
 		
 		if(_curPage == 0)
 		{
+			Erasor.SetActive(true);
 			TogglePaint(true);
 			_mouseIsDown = false;
 			colors = saveColor;

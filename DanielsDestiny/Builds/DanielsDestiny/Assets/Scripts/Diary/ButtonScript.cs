@@ -11,5 +11,7 @@ public class ButtonScript : MonoBehaviour {
 			paint.ChangePage(1);
 		if(transform.name == "Last")
 			paint.ChangePage(-1);
+		if(transform.name == "Erase")
+			paint.Erase();
 	}
 }
