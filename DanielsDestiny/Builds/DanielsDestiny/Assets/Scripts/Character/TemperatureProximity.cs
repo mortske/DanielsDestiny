@@ -43,8 +43,10 @@ public class TemperatureProximity : MonoBehaviour
         if (other.tag == "TempSource")
         {
             sources.Add(other.GetComponent<TemperatureSource>());
-			if(other.transform.parent.gameObject.name == "Fire")
+			if(other.transform.parent && other.transform.parent.gameObject.name == "Fire")
 				CraftingDictionary.InsideArea = true;
+			else if(other.gameObject.name == "WaterSource")
+				CraftingDictionary.CanBeFilled = true;
         }
     }
 
@@ -53,8 +55,10 @@ public class TemperatureProximity : MonoBehaviour
         if (other.tag == "TempSource")
         {
             sources.RemoveAt(0);
-			if(other.transform.parent.gameObject.name == "Fire")
+			if(other.transform.parent && other.transform.parent.gameObject.name == "Fire")
 				CraftingDictionary.InsideArea = false;
+			else if(other.gameObject.name == "WaterSource")
+				CraftingDictionary.CanBeFilled = false;
         }
     }
 }

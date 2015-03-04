@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86fd075d59923b1459daf4b85931c697, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usable: 1
+  usable: 0
   constructable: 0
   spriteNeutral: {fileID: 21300000, guid: b457015f41197ea468c0559ef33c5742, type: 3}
   spriteHighlighted: {fileID: 21300000, guid: 209454080b597f949a36f44863f67f38, type: 3}
