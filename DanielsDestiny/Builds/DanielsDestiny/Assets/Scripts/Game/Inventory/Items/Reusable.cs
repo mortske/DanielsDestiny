@@ -16,12 +16,11 @@ public class Reusable : Item
             {
                 Player.instance.status.GetBar(effects[i].effectTo).adjustCur(effects[i].adjustment);
             }
+			//Player.instance.inventory.craftingDictionary.CraftItems();
+			GameObject g = (GameObject)Instantiate(otherItem);
+			g.GetComponentInChildren<Item>().AddItem();
+			g.name = otherItem.name;
+			Destroy(this.transform.parent.gameObject);
         }
-            GameObject g = (GameObject)Instantiate(otherItem);
-            Item item = g.GetComponentInChildren<Item>();
-            g.name = otherItem.name;
-            item.AddItem();
-            Player.instance.inventory.AddItem(item);
-            CraftingDictionary.SelectedItems[0].RemoveItem();
     }
 }

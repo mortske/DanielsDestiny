@@ -16,11 +16,17 @@ public class CraftingDictionary : MonoBehaviour
 	}
 
 	private static bool insideArea;
-
 	public static bool InsideArea 
 	{
 		get {return insideArea;}
 		set {insideArea = value;}
+	}
+
+	private static bool canBeFilled;
+	public static bool CanBeFilled 
+	{
+		get {return canBeFilled;}
+		set {canBeFilled = value;}
 	}
 
 	private int allTrue;
@@ -102,7 +108,7 @@ public class CraftingDictionary : MonoBehaviour
 
 				placeItem = true;
 			}
-			else if(selectedItems.Count == 1 && insideArea && selectedItems[0].CurrentItem.usable)
+			else if(selectedItems.Count == 1 && insideArea && selectedItems[0].CurrentItem.usable || selectedItems.Count == 1 && canBeFilled)
 			{
 				CheckRecepies();
 			}
