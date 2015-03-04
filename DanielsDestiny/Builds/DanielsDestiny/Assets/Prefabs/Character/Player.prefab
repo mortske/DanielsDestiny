@@ -701,11 +701,11 @@ MonoBehaviour:
     cur: 50
     statusWarnings:
     - text: Im so cold....
-      sound: {fileID: 0}
+      sound: {fileID: 8300000, guid: 6bcfe3d0889dc224aa0775b66b2b1d6f, type: 3}
       whenEquals: 1
       whenValueIs: 20
     - text: It's so hot... I need to cool down
-      sound: {fileID: 0}
+      sound: {fileID: 8300000, guid: 04cbf241095da7a46a1e682a70b22faa, type: 3}
       whenEquals: 0
       whenValueIs: 75
   temperaturePadding: 80
