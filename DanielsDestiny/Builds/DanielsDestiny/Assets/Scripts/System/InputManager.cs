@@ -17,7 +17,7 @@ public class InputManager : MonoBehaviour
         {
             if (instance.keys[i].name == key)
             {
-                if (Input.inputString == instance.keys[i].key && instance.keys[i].key != "")
+                if (Input.inputString.ToLower() == instance.keys[i].key && instance.keys[i].key != "")
                 {
                     if (!instance.keys[i].used)
                     {
@@ -25,7 +25,7 @@ public class InputManager : MonoBehaviour
                         return true;
                     }
                 }
-                if (Input.inputString == instance.keys[i].altKey && instance.keys[i].altKey != "")
+                if (Input.inputString.ToLower() == instance.keys[i].altKey && instance.keys[i].altKey != "")
                 {
                     if (!instance.keys[i].used)
                     {
