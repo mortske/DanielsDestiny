@@ -167,6 +167,19 @@ public class Farm : MonoBehaviour
 
     public void Water(float adj)
     {
-        health += adj;
+        foreach (GameObject slotgo in Player.instance.inventory.AllSlots)
+        {
+            Slot slot = slotgo.GetComponent<Slot>();
+            if (slot.Items.Count > 0)
+            {
+                if (slot.CurrentItem.Name == "Snakeskin Waterholder Full")
+                {
+                    health += adj;
+                    slot.UseItem();
+                    return;
+                }
+            }
+        }
+        MessageBox.instance.SendMessage("i dont have any water!");
     }
 }
