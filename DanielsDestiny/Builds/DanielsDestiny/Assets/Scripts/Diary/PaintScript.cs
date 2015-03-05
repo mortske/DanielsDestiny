@@ -6,7 +6,7 @@ public class PaintScript : MonoBehaviour {
 	public LayerMask layerMask;
 	public GameObject paintPlane;
 	public Texture2D[] backgrounds;
-	public GameObject Erasor;
+	public GameObject Eraser;
 	int _curPage = 0;
 	Ray _ray;
 	RaycastHit _hit;
@@ -110,7 +110,7 @@ public class PaintScript : MonoBehaviour {
 	{
 		_canPaint = _set;
 		paintPlane.SetActive(_set);
-		Erasor.SetActive(_set);
+		Eraser.SetActive(_set);
 		PauseSystem.Pause(_set);
 	}
 	public void Erase()
@@ -145,7 +145,7 @@ public class PaintScript : MonoBehaviour {
 		
 		if(_curPage == 0)
 		{
-			Erasor.SetActive(true);
+			Eraser.SetActive(true);
 			TogglePaint(true);
 			_mouseIsDown = false;
 			colors = saveColor;
