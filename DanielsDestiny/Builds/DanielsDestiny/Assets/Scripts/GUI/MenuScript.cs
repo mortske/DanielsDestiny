@@ -164,6 +164,7 @@ public class MenuScript : MonoBehaviour {
 	
 	public void StartQuit () {
 		//Quit Game
+        Application.Quit();
 	}
 	#endregion
 	
