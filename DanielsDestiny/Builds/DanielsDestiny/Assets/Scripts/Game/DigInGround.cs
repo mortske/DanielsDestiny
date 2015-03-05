@@ -7,6 +7,7 @@ public class DigInGround : MonoBehaviour {
 	public float secondsToDig;
 	public float procentChanceOfDrop;
 	public float fatigueWork;
+    public AudioClip digSound;
 
 	private bool isDigging;
 
@@ -25,6 +26,7 @@ public class DigInGround : MonoBehaviour {
 			isDigging = true;
 			PauseSystem.IsPaused = true;
 			MessageBox.instance.SendMessage("I started digging in the ground..");
+            SoundManager.instance.Spawn3DSound(digSound, Player.instance.transform.position, 1, 5);
 			yield return new WaitForSeconds(secondsToDig);
 			int rnd = Random.Range(0, 101);
 			if(rnd <= procentChanceOfDrop)
