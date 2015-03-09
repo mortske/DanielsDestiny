@@ -61,7 +61,6 @@ public class CraftingDictionary : MonoBehaviour
 				}
 				if(Input.GetMouseButtonDown(0))
 				{
-					//Player.instance.curBiome.AddWorldDrop(tmpPlacingObject);
 					placeItem = false;
 					tmpPlacingObject.transform.FindChild("OverlapSphere").gameObject.SetActive(true);
 					tmpPlacingObject.GetComponentInChildren<Item>().selected = false;
@@ -156,7 +155,7 @@ public class CraftingDictionary : MonoBehaviour
 		if(selectedItems.Count == 1 && !inv.hoverTrue)
 		{
 			Inventory.from = selectedItems[0];
-			inv.db.Display(selectedItems[0].Items.Count, 0, selectedItems[0].Items.Count / 2);
+			inv.db.Display(selectedItems[0].Items.Count, 0, selectedItems[0].Items.Count);
 			CoroutineHandler.instance.DropItemDialouge(inv.db, null);
 			ClearSelectedItem();
 		}
@@ -226,33 +225,44 @@ public class CraftingDictionary : MonoBehaviour
 					foundRecepie = true;
 					bool getOut = false;
 
-                    GameObject result = (GameObject)Instantiate(rec.result);
-                    result.name = rec.result.name;
-                    result.GetComponentInChildren<Item>().AddItem();
+					GameObject result = (GameObject)Instantiate(rec.result);
 
-					//Message
-					MessageBox.instance.SendMessage("I created a " + rec.result.name);
-                    SoundManager.instance.Spawn3DSound(inv.CraftingSound[Random.Range(0, inv.CraftingSound.Length)], player.transform.position, 1, 5);
-//					Debug.Log ("You created a " + rec.result.name);
-					for (int i = 0; i < selectedItems.Count; i++) 
+					if(inv.CanPickUp(result.GetComponentInChildren<Item>().weight - checkWeight))
 					{
-						for (int n = 0; n < rec.items.Count; n++)
+
+						for (int i = 0; i < selectedItems.Count; i++) 
 						{
-							if(selectedItems[i].CurrentItem.transform.parent.name == rec.items[n].name)
+							for (int n = 0; n < rec.items.Count; n++)
 							{
-								getOut = true;
-								for (int x = 0; x < rec.amount[n]; x++) 
+								if(selectedItems[i].CurrentItem.transform.parent.name == rec.items[n].name)
 								{
-									selectedItems[i].CurrentItem.selected = false;
-									selectedItems[i].RemoveItem();
+									getOut = true;
+									for (int x = 0; x < rec.amount[n]; x++) 
+									{
+										selectedItems[i].CurrentItem.selected = false;
+										selectedItems[i].RemoveItem();
+									}
+								}
+								if(getOut)
+								{
+									getOut = false;
+									break;
 								}
 							}
-							if(getOut)
-							{
-								getOut = false;
-								break;
-							}
 						}
+						
+
+						result.name = rec.result.name;
+						result.GetComponentInChildren<Item>().AddItem();
+						
+						//Message
+						MessageBox.instance.SendMessage("I created a " + rec.result.name);
+						SoundManager.instance.Spawn3DSound(inv.CraftingSound[Random.Range(0, inv.CraftingSound.Length)], player.transform.position, 1, 5);
+					}
+					else
+					{
+						MessageBox.instance.SendMessage("I'm carrying too much.");
+						Destroy(result);
 					}
 				}
 			}
