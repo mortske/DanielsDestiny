@@ -3,6 +3,13 @@
   <TimeSurvived>
     <ArrayOfInt>
       <int>0</int>
+      <int>3</int>
+      <int>13</int>
+      <int>26</int>
+      <int>11606</int>
+    </ArrayOfInt>
+    <ArrayOfInt>
+      <int>0</int>
       <int>2</int>
       <int>55</int>
       <int>44</int>
@@ -10,10 +17,31 @@
     </ArrayOfInt>
     <ArrayOfInt>
       <int>0</int>
+      <int>1</int>
+      <int>38</int>
+      <int>54</int>
+      <int>5934</int>
+    </ArrayOfInt>
+    <ArrayOfInt>
+      <int>0</int>
       <int>0</int>
       <int>52</int>
       <int>5</int>
       <int>3125</int>
+    </ArrayOfInt>
+    <ArrayOfInt>
+      <int>0</int>
+      <int>0</int>
+      <int>40</int>
+      <int>33</int>
+      <int>2433</int>
+    </ArrayOfInt>
+    <ArrayOfInt>
+      <int>0</int>
+      <int>0</int>
+      <int>6</int>
+      <int>47</int>
+      <int>407</int>
     </ArrayOfInt>
   </TimeSurvived>
 </SaveHighscore>

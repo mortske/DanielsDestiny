@@ -10,6 +10,8 @@ public class BiomeManager : MonoBehaviour {
 	public SaveFile save;
 	public Inventory inventorY;
 	public GameTime gameTime;
+	public BerryBush[] berries;
+	public Cactus[] Cactie;
 
 	string path = "Assets/Files/Save.xml";
 	// Use this for initialization
@@ -131,6 +133,28 @@ public class BiomeManager : MonoBehaviour {
 			}
 			
 		}
+		for(int b = 0; b < berries.Length; b++)
+		{
+			if(save.BerryBushes.Count < berries.Length)
+			{
+				save.BerryBushes.Add(berries[b].GetBush());
+			}
+			else
+			{
+				save.BerryBushes[b] = (berries[b].GetBush());
+			}
+		}
+		for(int t = 0; t < Cactie.Length; t++)
+		{
+			if(save.CactusDrink.Count < Cactie.Length)
+			{
+				save.CactusDrink.Add(Cactie[t].GetUsed());
+			}
+			else
+			{
+				save.CactusDrink[t] = (Cactie[t].GetUsed());
+			}
+		}
 		SavePlayer();
 		
 	}
@@ -161,6 +185,21 @@ public class BiomeManager : MonoBehaviour {
 		DiaryScript.instance.SetCol(save.DiarySave);
 		gameTime.TheTime = save.TimeOfDay;
 		gameTime.TheTemp = save.Temperature;
+
+		if(save.BerryBushes.Count == berries.Length)
+		{
+			for(int b = 0; b < berries.Length; b++)
+			{
+				berries[b].SetBush(save.BerryBushes[b]);
+			}
+		}
+		if(save.CactusDrink.Count == Cactie.Length)
+		{
+			for(int t = 0; t < Cactie.Length; t++)
+			{
+				Cactie[t].SetUsed(save.CactusDrink[t]);
+			}
+		}
 	}
 }
 [System.Serializable]
@@ -177,4 +216,6 @@ public class SaveFile
 	public float TempAdjust;
 	public List<string> TreeSave = new List<string>();
 	public List<Color> DiarySave = new List<Color>();
+	public List<float[]> BerryBushes = new List<float[]>();
+	public List<int> CactusDrink = new List<int>();
 }

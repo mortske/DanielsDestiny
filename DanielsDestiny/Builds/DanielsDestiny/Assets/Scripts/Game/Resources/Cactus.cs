@@ -59,4 +59,26 @@ public class Cactus : MonoBehaviour
             OnScreenInformationbox.instance.HideBox();
         }
     }
+	public void SetUsed(int u)
+	{
+		if(u == 1)
+		{
+			used = true;
+			unusedModel.SetActive(false);
+			usedModel.SetActive(true);
+			OnScreenInformationbox.instance.HideBox();
+		}
+		else
+			used = false;
+	}
+	public int GetUsed()
+	{
+		int returnInt = 0;
+
+		if(used)
+			returnInt = 1;
+		else
+			returnInt = 0;
+		return returnInt;
+	}
 }

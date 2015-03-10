@@ -66,4 +66,45 @@ public class BerryBush : MonoBehaviour
             OnScreenInformationbox.instance.HideBox();
         }
     }
+	public float[] GetBush()
+	{
+		float[] val = new float[4]{0,0,0,0};
+		val[0] = amount;
+		val[1] = respawnTimeMax;
+		val[2] = respawnTimeMin;
+		if(hasBerries)
+			val[3] = 1;
+		else
+			val[3] = 0;
+		return val;
+	}
+	public void SetBush(float[] val)
+	{
+		if(val != null)
+		{
+			if(val.Length == 4)
+			{
+				amount = val[0];
+				respawnTimeMax = val[1];
+				respawnTimeMin = val[2];
+				if(val[3] == 1)
+					hasBerries = true;
+				else
+				{
+					berryVisual.SetActive(false);
+					hasBerries = false;
+					OnScreenInformationbox.instance.HideBox();
+					Invoke("Reset", Random.Range(respawnTimeMin, respawnTimeMax + 1));
+				}
+			}
+			else
+			{
+				Reset();
+			}
+		}
+		else
+		{
+			Reset();
+		}
+	}
 }
