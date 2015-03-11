@@ -1694,7 +1694,7 @@ MonoBehaviour:
   item:
   - {fileID: 182284, guid: 30fe7f94bb7620d478bd717ff3644396, type: 2}
   - {fileID: 152272, guid: dd3ebd01114d2b6459cd5127d706cc12, type: 2}
-  minSpawnTime: 200
+  minSpawnTime: 120
   maxSpawnTime: 360
 --- !u!1001 &100100000
 Prefab:

@@ -11,7 +11,7 @@ GameObject:
   - 54: {fileID: 5438342}
   - 65: {fileID: 6569372}
   m_Layer: 0
-  m_Name: Cooked Snakemeat
+  m_Name: Cooked Small Meat
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -178,6 +178,8 @@ MonoBehaviour:
   effects:
   - effectTo: 1
     adjustment: 30
+  - effectTo: 0
+    adjustment: 10
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

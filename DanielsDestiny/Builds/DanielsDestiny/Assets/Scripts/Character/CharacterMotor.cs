@@ -33,8 +33,11 @@ public class CharacterMotor : MonoBehaviour
         {
             if (controller.isGrounded)
             {
-                moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+				moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
                 moveDirection = transform.TransformDirection(moveDirection);
+
+				if(moveDirection != Vector3.zero)
+					moveDirection.Normalize();
 
                 if(Input.GetButton("Sprint"))
                     moveDirection *= sprintSpeed;

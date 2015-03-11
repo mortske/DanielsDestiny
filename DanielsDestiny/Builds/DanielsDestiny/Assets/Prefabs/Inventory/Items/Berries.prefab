@@ -598,6 +598,8 @@ MonoBehaviour:
   effects:
   - effectTo: 1
     adjustment: 5
+  - effectTo: 0
+    adjustment: 2
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
