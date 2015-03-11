@@ -39,14 +39,14 @@ public class Item : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && this.transform.parent.gameObject.name != "Trap")
         {
             Player.instance.pickupEventHandler.AddItemToList(this);
         }
     }
     void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+		if (other.tag == "Player" && this.transform.parent.gameObject.name != "Trap")
         {
             Player.instance.pickupEventHandler.RemoveItemFromList(this, false);
         }

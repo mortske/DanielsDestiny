@@ -162,7 +162,7 @@ MonoBehaviour:
   maxSize: 1
   curSize: 1
   selected: 0
-  weight: 20
+  weight: 10
   equipable: 0
   effects: []
   otherItem: {fileID: 155480, guid: b0ef24c71599ab844a7a721b9b41ce0d, type: 2}

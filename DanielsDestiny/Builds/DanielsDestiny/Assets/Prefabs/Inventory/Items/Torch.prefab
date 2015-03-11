@@ -218,9 +218,9 @@ MonoBehaviour:
   maxSize: 1
   curSize: 1
   selected: 0
-  weight: 25
+  weight: 8
   equipable: 0
-  damage: 20
+  damage: 5
   VisualModel: {fileID: 174192, guid: 8ddb0554bc76dea46b7ded80cd0b7e67, type: 2}
 --- !u!136 &13663816
 CapsuleCollider:

@@ -43,6 +43,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 443470}
+  - 65: {fileID: 6597174}
   m_Layer: 0
   m_Name: Shelter
   m_TagString: Untagged
@@ -147,7 +148,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143470}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 68.8000031, y: 0, z: 162.199997}
+  m_LocalPosition: {x: 776.386719, y: 0, z: 759.61554}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 493924}
@@ -311,6 +312,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 8.30400944, y: 6.95249462, z: 5.57999897}
   m_Center: {x: .150220439, y: 1.58320892, z: -.0503983609}
+--- !u!65 &6597174
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143470}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11425164
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -352,7 +365,7 @@ MonoBehaviour:
   maxSize: 1
   curSize: 1
   selected: 0
-  weight: 200
+  weight: 60
   equipable: 0
 --- !u!1001 &100100000
 Prefab:

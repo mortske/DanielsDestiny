@@ -258,9 +258,9 @@ MonoBehaviour:
   maxSize: 1
   curSize: 1
   selected: 0
-  weight: 50
+  weight: 15
   equipable: 0
-  damage: 5
+  damage: 15
   VisualModel: {fileID: 110412, guid: c4459a5ab0048354e8c557cf68dd0660, type: 2}
 --- !u!1001 &100100000
 Prefab:

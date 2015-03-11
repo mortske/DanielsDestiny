@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 449484}
   - 114: {fileID: 11449482}
+  - 65: {fileID: 6508670}
   m_Layer: 0
   m_Name: OverlapSphere
   m_TagString: Untagged
@@ -24,7 +25,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 449482}
-  - 54: {fileID: 5449482}
   - 65: {fileID: 6549482}
   m_Layer: 0
   m_Name: Parasol
@@ -89,7 +89,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149484}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 557.679993, y: -.0299999993, z: 2102.3999}
+  m_LocalPosition: {x: 775.550171, y: 0, z: 760.379395}
   m_LocalScale: {x: .641681254, y: .641681314, z: .641681314}
   m_Children:
   - {fileID: 449490}
@@ -200,21 +200,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149488}
   m_Mesh: {fileID: 4300002, guid: e0be5d87a732b0144ac543a53edf5dff, type: 3}
---- !u!54 &5449482
-Rigidbody:
+--- !u!65 &6508670
+BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 149484}
+  m_GameObject: {fileID: 149482}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Size: {x: .403029859, y: 10.0565186, z: .222381055}
+  m_Center: {x: .0265378002, y: 5.01677322, z: -.022067273}
 --- !u!65 &6549482
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -225,8 +222,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .403029859, y: 10.0565186, z: .222381055}
-  m_Center: {x: .0265378002, y: 5.01677322, z: -.022067273}
+  m_Size: {x: 1, y: 0, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &11449482
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -245,7 +242,7 @@ MonoBehaviour:
   maxSize: 1
   curSize: 1
   selected: 0
-  weight: 60
+  weight: 70
   equipable: 0
 --- !u!1001 &100100000
 Prefab:

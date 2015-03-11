@@ -29,7 +29,7 @@ public class CampSymbol : MonoBehaviour {
 		if(transform.localScale.x <= 2)
 		{
 			transform.localScale = startScale;
-			campSymbolCam.depth = -1;
+			renderer.enabled = false;
 		}
 		else if(transform.localScale.x >= 100)
 		{
@@ -37,7 +37,7 @@ public class CampSymbol : MonoBehaviour {
 		}
 		else
 		{
-			campSymbolCam.depth = 1;
+			renderer.enabled = true;
 		}
 	}
 }

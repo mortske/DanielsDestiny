@@ -57,7 +57,9 @@ public class CraftingDictionary : MonoBehaviour
 				Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
 				if (Physics.Raycast(ray, out hit, 12, layerMask))
 				{
-					tmpPlacingObject.transform.position = new Vector3(hit.point.x, hit.point.y  + (tmpPlacingObject.transform.localScale.y / 2), hit.point.z);
+					BoxCollider tmpCollider = tmpPlacingObject.GetComponent<BoxCollider>();
+
+					tmpPlacingObject.transform.position = new Vector3(hit.point.x, hit.point.y + tmpCollider.bounds.size.y , hit.point.z);
 				}
 				if(Input.GetMouseButtonDown(0))
 				{
@@ -183,7 +185,66 @@ public class CraftingDictionary : MonoBehaviour
 	{
 		foreach (Recepie rec in recepies) 
 		{
-			if(rec.items.Count == selectedItems.Count)
+			if(rec.items.Count == 1 && selectedItems[0].CurrentItem.transform.parent.name == "Stick")
+			{
+				if(rec.items[0].name == selectedItems[0].CurrentItem.transform.parent.name)
+				{
+					int multipleStacks = 0;
+					List<string> sameName = new List<string>();
+					int sameNameTrue = 0;
+					for (int i = 0; i < selectedItems.Count; i++)
+					{
+						multipleStacks += selectedItems[i].Items.Count;
+						sameName.Add (selectedItems[i].CurrentItem.transform.parent.name);
+						if(rec.items[0].name == sameName[i])
+							sameNameTrue ++;
+					}
+
+					if(multipleStacks >= rec.amount[0] && sameNameTrue == selectedItems.Count)
+					{
+						foundRecepie = true;
+						bool getOut = false;
+						multipleStacks = rec.amount[0];
+
+						GameObject result = (GameObject)Instantiate(rec.result);
+
+						float checkWeight = 0;
+						checkWeight += selectedItems[0].CurrentItem.weight * rec.amount[0];
+						
+						if(inv.CanPickUp(result.GetComponentInChildren<Item>().weight - checkWeight))
+						{
+							
+							for (int i = 0; i < selectedItems.Count; i++) 
+							{
+								int stackCount = selectedItems[i].Items.Count;
+								for (int x = 0; x < stackCount; x++) 
+								{
+									print (multipleStacks.ToString());
+									if(multipleStacks > 0)
+									{
+										selectedItems[i].CurrentItem.selected = false;
+										selectedItems[i].RemoveItem();
+										multipleStacks --;
+									}
+								}
+							}
+
+							result.name = rec.result.name;
+							result.GetComponentInChildren<Item>().AddItem();
+							
+							//Message
+							MessageBox.instance.SendMessage("I created a " + rec.result.name);
+							SoundManager.instance.Spawn3DSound(inv.CraftingSound[Random.Range(0, inv.CraftingSound.Length)], player.transform.position, 1, 5);
+						}
+						else
+						{
+							MessageBox.instance.SendMessage("I'm carrying too much.");
+							Destroy(result);
+						}
+					}
+				}
+			}
+			else if(rec.items.Count == selectedItems.Count)
 			{
 				bool gotIn = false;
 				allTrue = rec.items.Count;

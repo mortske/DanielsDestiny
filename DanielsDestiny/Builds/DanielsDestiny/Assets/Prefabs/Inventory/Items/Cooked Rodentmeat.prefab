@@ -188,7 +188,7 @@ MonoBehaviour:
   maxSize: 5
   curSize: 1
   selected: 0
-  weight: 20
+  weight: 5
   equipable: 0
   effects:
   - effectTo: 1
