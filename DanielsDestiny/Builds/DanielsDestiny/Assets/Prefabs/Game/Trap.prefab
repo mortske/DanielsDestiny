@@ -480,6 +480,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 435194}
+  - 65: {fileID: 6595674}
   m_Layer: 0
   m_Name: Trap
   m_TagString: Untagged
@@ -1203,7 +1204,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 135194}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1064.10156, y: .681406021, z: -77.7347717}
+  m_LocalPosition: {x: 773.377991, y: .507000029, z: 754.202026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 435232}
@@ -1629,6 +1630,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.51184511, y: 2.97358561, z: 3.74628544}
   m_Center: {x: .0662457943, y: .986792803, z: -.0649225712}
+--- !u!65 &6595674
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 135194}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: .5, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &9506228
 Animator:
   serializedVersion: 3
@@ -1662,7 +1675,7 @@ MonoBehaviour:
   maxSize: 1
   curSize: 1
   selected: 0
-  weight: 50
+  weight: 25
   equipable: 0
 --- !u!114 &11494712
 MonoBehaviour:
@@ -1681,7 +1694,7 @@ MonoBehaviour:
   item:
   - {fileID: 182284, guid: 30fe7f94bb7620d478bd717ff3644396, type: 2}
   - {fileID: 152272, guid: dd3ebd01114d2b6459cd5127d706cc12, type: 2}
-  minSpawnTime: 200
+  minSpawnTime: 120
   maxSpawnTime: 360
 --- !u!1001 &100100000
 Prefab:

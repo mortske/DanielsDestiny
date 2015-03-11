@@ -959,6 +959,8 @@ MonoBehaviour:
   damage: 10
   damageTimer: 2
   health: 30
+  itemDrops:
+  - {fileID: 182284, guid: 30fe7f94bb7620d478bd717ff3644396, type: 2}
 --- !u!137 &13751512
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

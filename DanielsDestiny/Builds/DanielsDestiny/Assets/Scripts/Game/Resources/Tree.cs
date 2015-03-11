@@ -15,7 +15,10 @@ public class Tree : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            OnScreenInformationbox.instance.ShowBox("press \"" + InputManager.GetPrimaryKeyName("Pickup") + "\" to chop");
+			if(ToolName == "Machete")
+            	OnScreenInformationbox.instance.ShowBox("press \"" + InputManager.GetPrimaryKeyName("Pickup") + "\" to chop");
+			else if(ToolName == "Pickaxe")
+				OnScreenInformationbox.instance.ShowBox("press \"" + InputManager.GetPrimaryKeyName("Pickup") + "\" to mine");
         }
     }
 
@@ -32,7 +35,15 @@ public class Tree : MonoBehaviour
                 }
                 else
                 {
-                    MessageBox.instance.SendMessage("I need to equip something sharp");
+					if(Player.instance.curEquipment == null)
+						MessageBox.instance.SendMessage("I need to equip something");
+					else
+					{
+						if(ToolName == "Machete")
+	                    	MessageBox.instance.SendMessage("I need to equip something sharp");
+						else if(ToolName == "Pickaxe")
+							MessageBox.instance.SendMessage("I need to equip another tool");
+					}
                 }
             }
         }

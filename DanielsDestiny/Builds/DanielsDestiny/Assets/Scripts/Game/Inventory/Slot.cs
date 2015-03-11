@@ -125,10 +125,9 @@ public class Slot : MonoBehaviour, IPointerClickHandler {
 		{
 			Player.instance.inventory.currWeight -= i.weight;
 			Player.instance.inventory.PrintInventoryWeight();
-			if(i.Parent)
+			i.curSize --;
+			if(i.Parent && items.Count <= 0 || i.curSize <= 0)
 				Destroy(i.Parent);
-			else
-				print ("error");
 		}
     }
 
