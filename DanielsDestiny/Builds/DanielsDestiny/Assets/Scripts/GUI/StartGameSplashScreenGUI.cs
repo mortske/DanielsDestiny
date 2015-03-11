@@ -27,10 +27,10 @@ public class StartGameSplashScreenGUI : MonoBehaviour {
 	#region Tutorial Title
 	private Image tutorialTitleImage;
 	private Text tutorialTitleText;
-	private Text tutorialTitlePressKey;
 	#endregion
 
 	private Button startSkipButton;
+	private Button startNextButton;
 	
 	void Start () {
 		if(!disableSplashScreen) {
@@ -38,9 +38,9 @@ public class StartGameSplashScreenGUI : MonoBehaviour {
 			#region Tutorial Title Find
 			tutorialTitleImage = GameObject.Find("TutorialBackground").GetComponent<Image>();
 			tutorialTitleText = GameObject.Find("TutorialText").GetComponent<Text>();
-			tutorialTitlePressKey = GameObject.Find("TutorialPressKey").GetComponent<Text>();
 			#endregion
 			startSkipButton = GameObject.Find("StartSplashSkipButton").GetComponent<Button>();
+			startNextButton = GameObject.Find("StartSplashNextButton").GetComponent<Button>();
 			if(disableSplashScreen) {
 				DisableSplashScreenGameObjects();
 			} else {
@@ -91,13 +91,11 @@ public class StartGameSplashScreenGUI : MonoBehaviour {
 	void DisableTutorialTitle () {
 		tutorialTitleImage.enabled = false;
 		tutorialTitleText.enabled = false;
-		tutorialTitlePressKey.enabled = false;
 	}
 
 	void EnableTutorialTitle () {
 		tutorialTitleImage.enabled = true;
 		tutorialTitleText.enabled = true;
-		tutorialTitlePressKey.enabled = true;
 	}
 
 	void DisableSplashScreenGameObjects () {
@@ -108,6 +106,7 @@ public class StartGameSplashScreenGUI : MonoBehaviour {
 
 	public void StartSplashScreen() {
 		startSkipButton.gameObject.SetActive(true);
+		startNextButton.gameObject.SetActive(true);
 		PauseSystem.Pause(true);
 		EnableTutorialTitle();
 		startSplashScreenIsActive = true;
@@ -116,6 +115,7 @@ public class StartGameSplashScreenGUI : MonoBehaviour {
 	}
 	void EndSplashScreen() {
 		startSkipButton.gameObject.SetActive(false);
+		startNextButton.gameObject.SetActive(false);
 		PauseSystem.Pause(false);
 		DisableTutorialTitle();
 		startSplashScreenIsActive = false;
@@ -144,6 +144,14 @@ public class StartGameSplashScreenGUI : MonoBehaviour {
 		if(startSplashScreenIsActive) {
 			exitOnce = true;
 			EndSplashScreen();
+		}
+	}
+
+	public void NextButton () {
+		if(!disableSplashScreen) {
+			if(!InventorySplashScreenGUI.inventorySplashScreenIsActive) {
+				NextSplashInList();
+			}
 		}
 	}
 

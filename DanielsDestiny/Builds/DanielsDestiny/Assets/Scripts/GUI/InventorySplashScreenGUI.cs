@@ -24,20 +24,21 @@ public class InventorySplashScreenGUI : MonoBehaviour {
 	#region Tutorial Title
 	private Image tutorialTitleImage;
 	private Text tutorialTitleText;
-	private Text tutorialTitlePressKey;
 	#endregion
 
 	private Button inventorySkipButton;
+	private Button inventoryNextButton;
 	
 	void Start () {
 		if(!disableSplashScreen) {
 			#region Tutorial Title Find
 			tutorialTitleImage = GameObject.Find("TutorialBackground").GetComponent<Image>();
 			tutorialTitleText = GameObject.Find("TutorialText").GetComponent<Text>();
-			tutorialTitlePressKey = GameObject.Find("TutorialPressKey").GetComponent<Text>();
 			#endregion
 			inventorySkipButton = GameObject.Find("InventorySplashSkipButton").GetComponent<Button>();
+			inventoryNextButton = GameObject.Find("InventorySplashNextButton").GetComponent<Button>();
 			inventorySkipButton.gameObject.SetActive(false);
+			inventoryNextButton.gameObject.SetActive(false);
 			if(disableSplashScreen) {
 				DisableInventorySplashScreenGameObjects();
 			} else {
@@ -89,13 +90,11 @@ public class InventorySplashScreenGUI : MonoBehaviour {
 	void DisableTutorialTitle () {
 		tutorialTitleImage.enabled = false;
 		tutorialTitleText.enabled = false;
-		tutorialTitlePressKey.enabled = false;
 	}
 	
 	void EnableTutorialTitle () {
 		tutorialTitleImage.enabled = true;
 		tutorialTitleText.enabled = true;
-		tutorialTitlePressKey.enabled = true;
 	}
 
 	void DisableInventorySplashScreenGameObjects () {
@@ -107,6 +106,7 @@ public class InventorySplashScreenGUI : MonoBehaviour {
 	public void StartInventorySplashScreen () {
 		inventorySplashScreenIsActive = true;
 		inventorySkipButton.gameObject.SetActive(true);
+		inventoryNextButton.gameObject.SetActive(true);
 		EnableTutorialTitle();
 		NextSplashInList();
 	}
@@ -114,6 +114,7 @@ public class InventorySplashScreenGUI : MonoBehaviour {
 	void EndInventorySplashScreen () {
 		inventorySplashScreenIsActive = false;
 		inventorySkipButton.gameObject.SetActive(false);
+		inventoryNextButton.gameObject.SetActive(false);
 		currentSplash = splashImages.Length;
 		DisableTutorialTitle();
 		ClearAll();
@@ -134,6 +135,14 @@ public class InventorySplashScreenGUI : MonoBehaviour {
 	public void SkipButton () {
 		if(inventorySplashScreenIsActive) {
 			EndInventorySplashScreen();
+		}
+	}
+
+	public void NextButton () {
+		if(!disableSplashScreen) {
+			if(inventorySplashScreenIsActive) {
+				NextSplashInList();
+			}
 		}
 	}
 }
