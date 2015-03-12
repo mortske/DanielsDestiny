@@ -45,7 +45,7 @@ GameObject:
   - 54: {fileID: 5482284}
   - 65: {fileID: 6565800}
   m_Layer: 0
-  m_Name: Small Meat
+  m_Name: Raw Small Meat
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -179,7 +179,7 @@ MonoBehaviour:
   - effectTo: 1
     adjustment: 10
   - effectTo: 0
-    adjustment: 5
+    adjustment: 2
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
