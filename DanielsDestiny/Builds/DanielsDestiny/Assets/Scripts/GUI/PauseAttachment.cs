@@ -28,18 +28,26 @@ public class PauseAttachment : MonoBehaviour {
 		if (!StartGameSplashScreenGUI.startSplashScreenIsActive) {
 			if (!InventorySplashScreenGUI.inventorySplashScreenIsActive) {
 				if (!Player.instance.inventory.enabled) {
-					if (canBePaused && !isInPauseMenu) {
-						isPaused = true;
-						PauseSystem.Pause(true);
+					if(!DiaryScript.instance.IsActive())
+					{
+						if (canBePaused && !isInPauseMenu) {
+							isPaused = true;
+							PauseSystem.Pause(true);
+						}
+						if (canBePaused && isInPauseMenu) {
+							isPaused = false;
+							PauseSystem.Pause(false);
+						}
+						if (!canBePaused && isInPauseMenu) {
+							isPaused = false;
+							PauseSystem.Pause(false);
+						}
 					}
-					if (canBePaused && isInPauseMenu) {
-						isPaused = false;
-						PauseSystem.Pause(false);
+					else
+					{
+						DiaryScript.instance.Disable();
 					}
-					if (!canBePaused && isInPauseMenu) {
-						isPaused = false;
-						PauseSystem.Pause(false);
-					}
+
 				} else if (Player.instance.inventory.enabled) {
 					Player.instance.ToggleInventory();
 				}
