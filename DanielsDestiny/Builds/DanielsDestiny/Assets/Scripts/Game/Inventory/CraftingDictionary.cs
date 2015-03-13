@@ -109,7 +109,7 @@ public class CraftingDictionary : MonoBehaviour
 
 				placeItem = true;
 			}
-			else if(selectedItems.Count == 1 && insideArea && selectedItems[0].CurrentItem.usable || selectedItems.Count == 1 && canBeFilled)
+			else if(selectedItems.Count == 1 && insideArea && selectedItems[0].CurrentItem.foodOrWater || selectedItems.Count == 1 && canBeFilled && selectedItems[0].CurrentItem.foodOrWater)
 			{
 				CheckRecepies();
 			}
@@ -139,7 +139,7 @@ public class CraftingDictionary : MonoBehaviour
 	{
 		if(!inv.hoverTrue)
 		{
-			if(selectedItems.Count >= 1)
+			if(selectedItems.Count >= 1 && !selectedItems[0].CurrentItem.foodOrWater)
 			{
 				CheckRecepies();
 			}
