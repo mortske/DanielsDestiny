@@ -122,6 +122,7 @@ public class AnimalAI : MonoBehaviour
     {
         while (CheckDistanceToPlayer())
 		{
+			yield return new WaitForSeconds(0.5f);
 			Player.instance.status.TakeDamage(damage);
             yield return new WaitForSeconds(damageTimer);
         }
