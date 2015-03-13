@@ -132965,8 +132965,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   usable: 0
   constructable: 1
-  spriteNeutral: {fileID: 21300000, guid: e84fdf2f5d660324fb423562564bcc60, type: 3}
-  spriteHighlighted: {fileID: 21300000, guid: 830708b353318c0439d7183a88666037, type: 3}
+  spriteNeutral: {fileID: 21300000, guid: 3b49897ee925a5849a11477db07a0934, type: 3}
+  spriteHighlighted: {fileID: 21300000, guid: 0982e8d43ffbd3346a7b9569d0a36af1, type: 3}
   maxSize: 1
   curSize: 1
   selected: 0
