@@ -32298,9 +32298,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   berryVisual: {fileID: 173418}
   berryItemPrefab: {fileID: 195350, guid: f59dd55687da8a644afea93f6610f8e7, type: 2}
-  amount: 1
-  respawnTimeMax: 400
-  respawnTimeMin: 200
+  amount: 3
+  respawnTimeMax: 600
+  respawnTimeMin: 400
 --- !u!135 &13515802
 SphereCollider:
   m_ObjectHideFlags: 1
