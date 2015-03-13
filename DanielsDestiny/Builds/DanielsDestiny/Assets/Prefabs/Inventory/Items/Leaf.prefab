@@ -170,7 +170,7 @@ MonoBehaviour:
   constructable: 0
   spriteNeutral: {fileID: 21300000, guid: 4ea582df8454bea4e9163e44ab91f733, type: 3}
   spriteHighlighted: {fileID: 21300000, guid: fb1a7b5f478404d4b8f912b6160f7e5c, type: 3}
-  maxSize: 10
+  maxSize: 20
   curSize: 1
   selected: 0
   weight: 1

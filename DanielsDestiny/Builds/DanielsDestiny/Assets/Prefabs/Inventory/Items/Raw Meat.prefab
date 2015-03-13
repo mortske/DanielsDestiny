@@ -168,6 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   usable: 1
   constructable: 0
+  foodOrWater: 1
   spriteNeutral: {fileID: 21300000, guid: eca7f1b0f9589424ea93c90e852b7c54, type: 3}
   spriteHighlighted: {fileID: 21300000, guid: 8bc4caf9943a8b244b93688358e9c4da, type: 3}
   maxSize: 5

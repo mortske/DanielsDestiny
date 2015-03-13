@@ -26,8 +26,6 @@ public class PaintScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(InputManager.GetKeyDown("escape"))
-		   TogglePaint(false);
 		if(_canPaint)
 		{
 			if(_mouseIsDown)

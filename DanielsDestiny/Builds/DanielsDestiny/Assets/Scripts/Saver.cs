@@ -21,9 +21,9 @@ public class Saver : MonoBehaviour {
 	{
 		if(_showSave)
 		{
-			GUI.Label(new Rect(Screen.width/2-(Screen.width/4), Screen.height/2, Screen.width/2, 20), "How many hours do you want to sleep?");
-			s_val = GUI.HorizontalSlider(new Rect(Screen.width/2-Screen.width/4, Screen.height/2 + 40, Screen.width/2, 20), s_val, 0, 24);
-			s_val = Mathf.Round(s_val);
+//			GUI.Label(new Rect(Screen.width/2-(Screen.width/4), Screen.height/2, Screen.width/2, 20), "How many hours do you want to sleep?");
+//			s_val = GUI.HorizontalSlider(new Rect(Screen.width/2-Screen.width/4, Screen.height/2 + 40, Screen.width/2, 20), s_val, 1, 24);
+//			s_val = Mathf.Round(s_val);
 			if(GUI.Button(new Rect(Screen.width/2-25, Screen.height/2+Screen.height/4, 50, 20), "Sleep"))
 			{
                 SoundManager.instance.Spawn3DSound(sleepSound, Player.instance.transform.position, 1, 5);
@@ -60,6 +60,7 @@ public class Saver : MonoBehaviour {
 	void Save()
 	{
 		MessageBox.instance.SendMessage("Saving... Woke up " + s_val + " hours later!");
+		Player.instance.status.fatigue.cur = Player.instance.status.fatigue.max;
 		float CycleTime = GameTime.instance.GetDayCycleInSeconds();
 //		Debug.Log("Daycycle in seconds: " + CycleTime);
 		float curtime = GameTime.instance.TheTime;
@@ -72,7 +73,7 @@ public class Saver : MonoBehaviour {
 //		Debug.Log("The time was: " + GameTime.instance.TheTime + " The time should become " + newTime);
 		GameTime.instance.TheTime = newTime;
 		GameTime.instance.SetRotationOfSun(newTime);
-		GameTime.instance.SaveTime();
+//		GameTime.instance.SaveTime();
 		BiomeManager.instance.SaveGame();
 		_showSave = false;
 	}

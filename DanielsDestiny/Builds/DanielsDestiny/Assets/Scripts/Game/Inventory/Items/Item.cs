@@ -6,6 +6,7 @@ public class Item : MonoBehaviour
 {
     public bool usable;
 	public bool constructable;
+	public bool foodOrWater;
 	public Sprite spriteNeutral;
 	public Sprite spriteHighlighted;
 	public int maxSize;

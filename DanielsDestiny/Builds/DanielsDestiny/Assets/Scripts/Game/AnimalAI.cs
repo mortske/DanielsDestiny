@@ -121,9 +121,10 @@ public class AnimalAI : MonoBehaviour
     IEnumerator AttackPlayer()
     {
         while (CheckDistanceToPlayer())
-        {
+		{
+			yield return new WaitForSeconds(0.5f);
+			Player.instance.status.TakeDamage(damage);
             yield return new WaitForSeconds(damageTimer);
-            Player.instance.status.TakeDamage(damage);
         }
         curMovePattern = MovePatterns.MoveToPlayer;
     }
@@ -142,8 +143,9 @@ public class AnimalAI : MonoBehaviour
                 GameObject go = (GameObject)Instantiate(itemDrops[i], transform.position, Quaternion.identity);
                 go.name = itemDrops[i].name;
             }
-
+			MessageBox.instance.SendMessage("Yes I killed it!");
             Destroy(gameObject);
+
         }
     }
 }
