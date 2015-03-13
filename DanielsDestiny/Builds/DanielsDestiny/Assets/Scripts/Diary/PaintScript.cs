@@ -8,6 +8,7 @@ public class PaintScript : MonoBehaviour {
 	public Texture2D[] backgrounds;
 	public GameObject Eraser;
 	int _curPage = 0;
+	int _paintPage = 1;
 	Ray _ray;
 	RaycastHit _hit;
 	bool _canPaint = false;
@@ -16,22 +17,17 @@ public class PaintScript : MonoBehaviour {
 	Vector3[] vertices;
 	Color[] colors;
 	Color[] saveColor;
+	bool _initialized = false;
 	// Use this for initialization
 	void Start () {
-		mesh = paintPlane.GetComponent<MeshFilter>().mesh;
-		vertices = mesh.vertices;
-		colors = new Color[vertices.Length];
-		colors = mesh.colors;
-		int i = 0;
-		paintPlane.SetActive(false);
+		if(!_initialized)
+			ChangePage(1);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyUp(KeyCode.Period))
-			BiomeManager.instance.SaveGame();
-		if(Input.GetKeyUp(KeyCode.Comma))
-			BiomeManager.instance.LoadBiomes();
+		if(InputManager.GetKeyDown("escape"))
+		   TogglePaint(false);
 		if(_canPaint)
 		{
 			if(_mouseIsDown)
@@ -79,6 +75,15 @@ public class PaintScript : MonoBehaviour {
 	}
 	public void LoadColor(List<Color> col)
 	{
+		if(!_initialized)
+		{
+			mesh = paintPlane.GetComponent<MeshFilter>().mesh;
+			vertices = mesh.vertices;
+			colors = new Color[vertices.Length];
+			colors = mesh.colors;
+			paintPlane.SetActive(false);
+			_initialized = true;
+		}
 		if(col != null)
 		{
 			for (int i = 0; i < colors.Length; i++) 
@@ -108,9 +113,7 @@ public class PaintScript : MonoBehaviour {
 	}
 	public void TogglePaint(bool _set)
 	{
-		_canPaint = _set;
 		paintPlane.SetActive(_set);
-		Eraser.SetActive(_set);
 		PauseSystem.Pause(_set);
 	}
 	public void Erase()
@@ -124,12 +127,13 @@ public class PaintScript : MonoBehaviour {
 	}
 	public void ChangePage(int p)
 	{
-		if(_curPage == 0 && p > 0)
+		if(_curPage == _paintPage && (p > 0 || p < 0))
 		{
 			saveColor = mesh.colors;
 			_mouseIsDown = false;
-			
 			_canPaint = false;
+			if(colors.Length < saveColor.Length)
+				colors = saveColor;
 			for (int i = 0; i < colors.Length; i++) 
 			{
 				colors[i] = Color.white;
@@ -139,17 +143,41 @@ public class PaintScript : MonoBehaviour {
 		_curPage += p;
 		if(_curPage < 0)
 			_curPage = 0;
-		if(_curPage > 1)
-			_curPage = 1;
+		if(_curPage > backgrounds.Length-1)
+			_curPage = backgrounds.Length-1;
+
 		paintPlane.renderer.material.mainTexture = backgrounds[_curPage];
-		
-		if(_curPage == 0)
+		if(_curPage != _paintPage)
 		{
-			Eraser.SetActive(true);
-			TogglePaint(true);
-			_mouseIsDown = false;
-			colors = saveColor;
-			mesh.colors = saveColor;
+			Eraser.SetActive(false);
+			_canPaint = false;
+		}
+		if(_initialized)
+		{
+			if(_curPage == _paintPage)
+			{
+				Eraser.SetActive(true);
+				_canPaint = true;
+				TogglePaint(true);
+				_mouseIsDown = false;
+				colors = saveColor;
+				mesh.colors = saveColor;
+			}
+		}
+		else
+		{
+			mesh = paintPlane.GetComponent<MeshFilter>().mesh;
+			vertices = mesh.vertices;
+			colors = new Color[vertices.Length];
+			colors = mesh.colors;
+
+
+			_curPage = 0;
+			paintPlane.renderer.material.mainTexture = backgrounds[_curPage];
+			Eraser.SetActive(false);
+			paintPlane.SetActive(false);
+//
+			_initialized = true;
 		}
 	}
 }
