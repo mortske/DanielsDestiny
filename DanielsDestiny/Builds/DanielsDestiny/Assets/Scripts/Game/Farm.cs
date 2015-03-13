@@ -29,7 +29,7 @@ public class Farm : MonoBehaviour
 
     void Start()
     {
-        health = 1;
+        health = 3;
         plantState = PlantState.empty;
         plant.SetActive(false);
         fruit.SetActive(false);
@@ -147,7 +147,7 @@ public class Farm : MonoBehaviour
             curCactusMaterial.color = Color.Lerp(healthMin, healthMax, health);
             if (health <= 0)
             {
-                health = 1;
+                health = 3;
                 plantState = PlantState.empty;
                 plant.SetActive(false);
                 fruit.SetActive(false);
