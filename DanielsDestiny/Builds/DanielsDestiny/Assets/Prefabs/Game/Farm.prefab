@@ -37542,6 +37542,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 443946}
+  - 65: {fileID: 6536614}
   m_Layer: 0
   m_Name: Farm
   m_TagString: Untagged
@@ -94411,7 +94412,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143946}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 554.200012, y: .400000006, z: 2125.30005}
+  m_LocalPosition: {x: 764.744385, y: 0, z: 757.097107}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 446478}
@@ -132499,6 +132500,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166812}
   m_Mesh: {fileID: 4300000, guid: 57ac2dc864ddb5b4ca86d55d92ad5e88, type: 3}
+--- !u!65 &6536614
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 143946}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &6540048
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -132864,8 +132877,8 @@ MonoBehaviour:
     type: 2}
   cactusRenderer: {fileID: 2309446}
   resultPrefab: {fileID: 195350, guid: f59dd55687da8a644afea93f6610f8e7, type: 2}
-  growtime: 10
-  regrowTime: 10
+  growtime: 240
+  regrowTime: 180
   healthGrowthLimit: .5
   healthAdj: .00999999978
   healthMax: {r: .0901960805, g: .41568628, b: .0823529437, a: 1}
@@ -132887,8 +132900,8 @@ MonoBehaviour:
     type: 2}
   cactusRenderer: {fileID: 2316294}
   resultPrefab: {fileID: 195350, guid: f59dd55687da8a644afea93f6610f8e7, type: 2}
-  growtime: 10
-  regrowTime: 10
+  growtime: 240
+  regrowTime: 180
   healthGrowthLimit: .5
   healthAdj: .00999999978
   healthMax: {r: .0901960805, g: .41568628, b: .0823529437, a: 1}
@@ -132910,8 +132923,8 @@ MonoBehaviour:
     type: 2}
   cactusRenderer: {fileID: 2378140}
   resultPrefab: {fileID: 195350, guid: f59dd55687da8a644afea93f6610f8e7, type: 2}
-  growtime: 10
-  regrowTime: 10
+  growtime: 240
+  regrowTime: 180
   healthGrowthLimit: .5
   healthAdj: .00999999978
   healthMax: {r: .0901960805, g: .41568628, b: .0823529437, a: 1}
@@ -132933,8 +132946,8 @@ MonoBehaviour:
     type: 2}
   cactusRenderer: {fileID: 2316260}
   resultPrefab: {fileID: 195350, guid: f59dd55687da8a644afea93f6610f8e7, type: 2}
-  growtime: 10
-  regrowTime: 10
+  growtime: 240
+  regrowTime: 180
   healthGrowthLimit: .5
   healthAdj: .00999999978
   healthMax: {r: .0901960805, g: .41568628, b: .0823529437, a: 1}
