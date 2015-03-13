@@ -20,7 +20,7 @@ public class DiaryScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(InputManager.GetKeyDown("Diary") && ((_active = false && !PauseSystem.IsPaused) || (_active == true && PauseSystem.IsPaused)))
+		if(InputManager.GetKeyDown("Diary") && ((_active == false && !PauseSystem.IsPaused) || (_active == true && PauseSystem.IsPaused)))
 		{
 			_active = !_active;
 			paint.TogglePaint(_active);
