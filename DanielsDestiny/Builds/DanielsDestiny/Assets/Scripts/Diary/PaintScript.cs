@@ -130,8 +130,12 @@ public class PaintScript : MonoBehaviour {
 			saveColor = mesh.colors;
 			_mouseIsDown = false;
 			_canPaint = false;
+
+			colors = new Color[mesh.vertices.Length];
+
 			if(colors.Length < saveColor.Length)
 				colors = saveColor;
+			
 			for (int i = 0; i < colors.Length; i++) 
 			{
 				colors[i] = Color.white;
